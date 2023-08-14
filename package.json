@@ -1,5 +1,8 @@
 {
-  "name": "learn-next",
+  "name": "portfolio-v4",
+  "author": {
+    "name": "irsyad abdul hamid"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,11 +15,19 @@
     "@types/node": "20.4.8",
     "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
     "next": "13.4.13",
     "react": "18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
+    "typed.js": "^2.0.16",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.6",
+    "prettier": "^3.0.1"
   }
 }
