@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 enum Level {
+  LEARNING = 'learning',
   BEGINNER = 'beginner',
   INTERMEDIATE = 'intermediate',
   ADVANCE = 'advance',
@@ -37,6 +38,12 @@ const Programming = () => {
           href: 'https://nestjs.com',
         },
         {
+          name: 'Express JS',
+          logo: '/programming/express.png',
+          level: Level.ADVANCE,
+          href: 'https://expressjs.com',
+        },
+        {
           name: 'Laravel',
           logo: '/programming/laravel.png',
           level: Level.INTERMEDIATE,
@@ -45,7 +52,7 @@ const Programming = () => {
         {
           name: 'Fiber',
           logo: '/programming/fiber.png',
-          level: Level.BEGINNER,
+          level: Level.LEARNING,
           href: 'https://gofiber.io',
         },
       ],
@@ -122,11 +129,17 @@ const Programming = () => {
           level: Level.BEGINNER,
           href: 'https://www.docker.com',
         },
+        {
+          name: 'Websocket',
+          logo: '/programming/websocket.png',
+          level: Level.BEGINNER,
+          href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
+        },
       ],
     },
   ];
   return (
-    <div className="programming section">
+    <div className="programming section" id="programming">
       <div className="container">
         <h2 className="title text-center">
           <strong>Programming</strong>
@@ -139,21 +152,20 @@ const Programming = () => {
                 <div className="category-title">{title}</div>
                 <ul className="category-items">
                   {list?.map(({ name, logo, level, href }, index) => (
-                    <Link
-                      key={index}
-                      href={href ?? '#'}
-                      target={href ? '_blank' : '_self'}
-                    >
-                      <li className="category-item">
-                        <div>
-                          <Image src={logo} alt={name} width={24} height={24} />
-                          <span className="cateogory-name">{name}</span>
-                        </div>
-                        <div>
-                          <span className="badge bg-primary">{level}</span>
-                        </div>
-                      </li>
-                    </Link>
+                    <li key={index} className="category-item">
+                      <div>
+                        <Image src={logo} alt={name} width={24} height={24} />
+                        <span className="cateogory-name">{name}</span>
+                        {href && (
+                          <Link href={href} target="_blank">
+                            <i className="bi bi-info-circle text-info"></i>
+                          </Link>
+                        )}
+                      </div>
+                      <div>
+                        <span className="badge bg-primary">{level}</span>
+                      </div>
+                    </li>
                   ))}
                 </ul>
               </div>

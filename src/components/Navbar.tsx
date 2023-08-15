@@ -12,14 +12,16 @@ export default () => {
   }
   const menus: Menu[] = [
     { label: 'Home', href: '/' },
+    { label: 'Work Experience', href: '/#experience' },
+    { label: 'Programming', href: '/#programming' },
     { label: 'Portfolio', href: '/portfolio' },
     {
       logo: (
         <Image
           src="/icons/github.svg"
           alt="Github Logo"
-          width={28}
-          height={28}
+          width={24}
+          height={24}
         />
       ),
       href: '/portfolio',

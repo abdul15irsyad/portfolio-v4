@@ -34,7 +34,7 @@ const Hero = () => {
   const whatsappLink =
     'https://api.whatsapp.com/send?phone=6288809151020&text=Assalamualaikum';
   return (
-    <div className="hero section bg-light mb-0">
+    <div className="hero section bg-light mb-0" id="hero">
       <div className="container">
         <div className="row">
           <div className="col-md-6 hero-title align-self-center">
@@ -57,7 +57,7 @@ const Hero = () => {
             <Link
               href={whatsappLink}
               target="_blank"
-              className="btn btn-lg btn-primary contact-me border-pil"
+              className="btn btn-primary contact-me px-3"
             >
               Contact Me
               <i className="bi bi-whatsapp ms-2"></i>
