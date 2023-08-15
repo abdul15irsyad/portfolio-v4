@@ -9,6 +9,7 @@ export default () => {
     label?: string;
     logo?: any;
     href: string;
+    newTab?: boolean;
   }
   const menus: Menu[] = [
     { label: 'Home', href: '/' },
@@ -24,7 +25,8 @@ export default () => {
           height={24}
         />
       ),
-      href: '/portfolio',
+      href: 'https://github.com/abdul15irsyad',
+      newTab: true,
     },
   ];
   return (
@@ -44,8 +46,13 @@ export default () => {
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {menus.map(({ href, label, logo }, index) => (
-              <Link key={index} href={href} className="nav-link">
+            {menus.map(({ href, label, logo, newTab }, index) => (
+              <Link
+                key={index}
+                href={href}
+                className="nav-link"
+                target={newTab ? `_blank` : '_self'}
+              >
                 {label ?? logo}
               </Link>
             ))}
