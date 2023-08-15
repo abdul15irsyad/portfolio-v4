@@ -18,8 +18,8 @@ export default () => {
         <Image
           src="/icons/github.svg"
           alt="Github Logo"
-          width={32}
-          height={32}
+          width={28}
+          height={28}
         />
       ),
       href: '/portfolio',
@@ -42,8 +42,8 @@ export default () => {
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {menus.map(({ href, label, logo }) => (
-              <Link href={href} className="nav-link">
+            {menus.map(({ href, label, logo }, index) => (
+              <Link key={index} href={href} className="nav-link">
                 {label ?? logo}
               </Link>
             ))}

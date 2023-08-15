@@ -11,6 +11,7 @@ const Hero = () => {
     { icon: 'linkedin', href: 'https://linkedin.com/in/irsyad-abdul-hamid-d' },
     { icon: 'instagram', href: 'https://instagram.com/abdul15irsyad' },
     { icon: 'facebook', href: 'https://facebook.com/abdul15irsyad' },
+    { icon: 'envelope', href: 'mailto:abdulirsyad15@gmail.com' },
   ];
   const typedText = useRef(null);
   useEffect(() => {
@@ -19,6 +20,7 @@ const Hero = () => {
         'Fullstack Developer',
         'Backend Developer',
         'Frontend Developer',
+        'Informatics Engineering',
       ],
       typeSpeed: 80,
       loop: true,
@@ -32,13 +34,14 @@ const Hero = () => {
   const whatsappLink =
     'https://api.whatsapp.com/send?phone=6288809151020&text=Assalamualaikum';
   return (
-    <div className="hero bg-light mb-0">
+    <div className="hero section bg-light mb-0">
       <div className="container">
         <div className="row">
           <div className="col-md-6 hero-title align-self-center">
             <div className="social-media-wrapper">
-              {socialMedias.map((socialMedia) => (
+              {socialMedias.map((socialMedia, index) => (
                 <Link
+                  key={index}
                   href={socialMedia.href}
                   target="_blank"
                   className="social-media-item"
