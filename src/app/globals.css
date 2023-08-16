@@ -51,6 +51,9 @@ ul li {
 }
 
 /* navbar */
+.navbar .navbar-brand{
+  color: #fff;
+}
 .navbar .nav-link{
   color: #fff;
 }
