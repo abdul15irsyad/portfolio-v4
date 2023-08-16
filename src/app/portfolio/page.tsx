@@ -2,39 +2,10 @@
 
 import FormSelect from '@/components/FormSelect';
 import PortfolioItem from '@/components/PortfolioItem';
+import { portfolios } from '@/data/portolios.data';
 import React from 'react';
 
 const Portfolio = () => {
-  const portfolios = [
-    {
-      title: 'Admin Panel SIPERDIK Aceh Tengah',
-      href: null,
-      year: 2021,
-      type: 'Fullstack',
-      desc: (
-        <p>
-          Pada project tersebut saya membuat admin panel untuk website SIPERDIK
-          Aceh Tengah, dibuat menggunakan framework CodeIniter 4 dengan Database
-          MySQL, untuk styling saya menggunakan Bootstrap 4, namun project
-          tersebut belum dimigrasi ke domain yang diinginkan.
-        </p>
-      ),
-      stacks: [
-        { icon: '/programming/codeigniter.png', label: 'Codeigniter' },
-        { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
-      ],
-      images: [
-        {
-          src: '/portfolio/siperdik-1.png',
-          alt: 'Siperdik 1',
-        },
-        {
-          src: '/portfolio/siperdik-2.png',
-          alt: 'Siperdik 2',
-        },
-      ],
-    },
-  ];
   return (
     <div className="portfolio section">
       <div className="container">

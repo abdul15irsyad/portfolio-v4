@@ -10,7 +10,7 @@ interface Props {
   href?: string | null;
   year: number;
   type: string;
-  desc: React.JSX.Element;
+  desc: string;
   stacks: { icon: string; label: string }[];
   images: {
     src: string;
@@ -29,10 +29,10 @@ const PortfolioItem = ({
 }: Props) => {
   return (
     <div className="row portfolio-item">
-      <div className="col-md-6 col-12 portfolio-item-images">
+      <div className="col-md-5 col-12 portfolio-item-images">
         <CustomCarousel images={images} />
       </div>
-      <div className="col-md-6 col-12 portfolio-item-detail">
+      <div className="col-md-7 col-12 portfolio-item-detail">
         <h3 className="portfolio-item-title">
           {href ? (
             <Link href={href} target="_blank">
@@ -47,7 +47,10 @@ const PortfolioItem = ({
           <span>-</span>
           <div className="portfolio-item-meta">{type}</div>
         </div>
-        <div className="portfolio-item-desc">{desc}</div>
+        <div
+          className="portfolio-item-desc"
+          dangerouslySetInnerHTML={{ __html: desc }}
+        ></div>
         <div className="portfolio-item-stacks">
           {stacks.map(({ icon, label }) => (
             <div className="portfolio-item-stack">
@@ -61,6 +64,12 @@ const PortfolioItem = ({
             </div>
           ))}
         </div>
+        {href && (
+          <Link href={href} target="_blank" className="btn btn-primary">
+            <span>Open Preview</span>
+            <i className="bi bi-chevron-right ms-2" />
+          </Link>
+        )}
       </div>
     </div>
   );

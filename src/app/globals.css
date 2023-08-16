@@ -39,7 +39,7 @@ ul li {
   border: none;
 }
 .btn-primary:hover{
-  background-color: var(--bs-primary-hover);
+  background-color: var(--bs-primary-hover) !important;
 }
 .section{
   padding: 6rem 1rem;
@@ -328,8 +328,12 @@ ul li {
   margin-bottom: .5rem;
 }
 .portfolio .header .filters .filter .form-select{
+  cursor: pointer;
   padding: .5rem 1rem;
   border-radius: 10px;
+}
+.portfolio .portfolio-item{
+  margin-bottom: 8rem;
 }
 .portfolio .portfolio-item .portfolio-item-detail{
   padding: 1rem 2.5rem;
@@ -352,6 +356,7 @@ ul li {
 .portfolio .portfolio-item .portfolio-item-detail .portfolio-item-stacks{
   display: flex;
   justify-content: right;
+  margin-bottom: 1rem;
 }
 .portfolio .portfolio-item .portfolio-item-detail .portfolio-item-stacks .portfolio-item-stack {
   background-color: var(--bs-light);
@@ -384,7 +389,7 @@ ul li {
 .carousel .carousel-item .img-wrapper{
   background-color: var(--bs-light);
   width: 100%;
-  height: 280px;
+  height: 240px;
   border-radius: 1rem;
   overflow: hidden;
 }
