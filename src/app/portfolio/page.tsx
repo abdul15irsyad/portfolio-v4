@@ -1,14 +1,17 @@
+'use client';
+
 import CustomCarousel from '@/components/CustomCarousel';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-export const metadata: Metadata = {
-  title: 'Portfolio - Irsyad Abdul',
-  description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-};
+export async function generateMetadata() {
+  return {
+    title: 'Portfolio - Irsyad Abdul',
+    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
+  };
+}
 
 const Portfolio = () => {
   const portfolios = [
