@@ -19,8 +19,8 @@ const Award = () => {
                 <div className="icon">
                   <i className="bi bi-award"></i>
                 </div>
-                {awards.map(({ title, competition, certificate }) => (
-                  <div className="detail">
+                {awards.map(({ title, competition, certificate }, index) => (
+                  <div key={index} className="detail">
                     <div className="award-title">{title}</div>
                     <div className="competition">
                       <p>{competition}</p>

@@ -33,15 +33,7 @@ const PortfolioItem = ({
         <CustomCarousel images={images} />
       </div>
       <div className="col-md-7 col-12 portfolio-item-detail">
-        <h3 className="portfolio-item-title">
-          {href ? (
-            <Link href={href} target="_blank">
-              {title}
-            </Link>
-          ) : (
-            title
-          )}
-        </h3>
+        <h3 className="portfolio-item-title">{title}</h3>
         <div className="portfolio-item-metas">
           <div className="portfolio-item-meta">{year}</div>
           <span>-</span>
@@ -52,8 +44,8 @@ const PortfolioItem = ({
           dangerouslySetInnerHTML={{ __html: desc }}
         ></div>
         <div className="portfolio-item-stacks">
-          {stacks.map(({ icon, label }) => (
-            <div className="portfolio-item-stack">
+          {stacks.map(({ icon, label }, index) => (
+            <div key={index} className="portfolio-item-stack">
               <Image
                 src={icon}
                 alt={label}
@@ -66,7 +58,7 @@ const PortfolioItem = ({
         </div>
         {href && (
           <Link href={href} target="_blank" className="btn btn-primary">
-            <span>Open Preview</span>
+            <span>See Portfolio</span>
             <i className="bi bi-chevron-right ms-2" />
           </Link>
         )}

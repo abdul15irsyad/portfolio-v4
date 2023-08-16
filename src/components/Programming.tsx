@@ -12,8 +12,8 @@ const Programming = () => {
         </h2>
         <hr />
         <div className="row">
-          {programmingSkills.map(({ title, list }) => (
-            <div className="col-md-3">
+          {programmingSkills.map(({ title, list }, index) => (
+            <div key={index} className="col-md-3">
               <div className="category">
                 <div className="category-title">{title}</div>
                 <ul className="category-items">

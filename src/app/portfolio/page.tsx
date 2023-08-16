@@ -3,9 +3,22 @@
 import FormSelect from '@/components/FormSelect';
 import PortfolioItem from '@/components/PortfolioItem';
 import { portfolios } from '@/data/portolios.data';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Portfolio = () => {
+  const [year, setYear] = useState<string | number>('all');
+  const [type, setType] = useState<string>('all');
+  const [filteredPortfolios, setFilteredPortofolio] = useState(portfolios);
+  useEffect(() => {
+    setFilteredPortofolio(
+      portfolios.filter((portfolio) => {
+        return (
+          (year !== 'all' ? portfolio.year === +year : true) &&
+          (type !== 'all' ? portfolio.type.toLowerCase() === type : true)
+        );
+      }),
+    );
+  }, [year, type]);
   return (
     <div className="portfolio section">
       <div className="container">
@@ -22,6 +35,7 @@ const Portfolio = () => {
                     { value: '2022', label: '2022', selected: false },
                     { value: '2023', label: '2023', selected: false },
                   ]}
+                  handleChange={(e) => setYear(e.target.value)}
                 />
               </div>
               <div className="filter filter-type">
@@ -32,12 +46,17 @@ const Portfolio = () => {
                     { value: 'backend', label: 'Backend', selected: false },
                     { value: 'frontend', label: 'Frontend', selected: false },
                   ]}
+                  handleChange={(e) => setType(e.target.value)}
                 />
               </div>
             </div>
+            <p className="text-center text-secondary mt-3 mb-0">
+              Showing <strong>{filteredPortfolios.length}</strong> of{' '}
+              <strong>{portfolios.length}</strong> portfolios
+            </p>
           </div>
         </div>
-        {portfolios.map((portfolio, index) => (
+        {filteredPortfolios.map((portfolio, index) => (
           <PortfolioItem key={index} {...portfolio} />
         ))}
       </div>
