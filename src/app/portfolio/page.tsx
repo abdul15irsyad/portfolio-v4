@@ -1,17 +1,8 @@
 'use client';
 
-import CustomCarousel from '@/components/CustomCarousel';
-import Image from 'next/image';
-import Link from 'next/link';
+import FormSelect from '@/components/FormSelect';
+import PortfolioItem from '@/components/PortfolioItem';
 import React from 'react';
-import { Form } from 'react-bootstrap';
-
-export async function generateMetadata() {
-  return {
-    title: 'Portfolio - Irsyad Abdul',
-    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  };
-}
 
 const Portfolio = () => {
   const portfolios = [
@@ -53,67 +44,31 @@ const Portfolio = () => {
             <hr />
             <div className="filters">
               <div className="filter filter-year">
-                <Form.Select aria-label="Default select example">
-                  <option value="all" selected>
-                    All Year
-                  </option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                </Form.Select>
+                <FormSelect
+                  options={[
+                    { value: 'all', label: 'All Year', selected: true },
+                    { value: '2021', label: '2021', selected: false },
+                    { value: '2022', label: '2022', selected: false },
+                    { value: '2023', label: '2023', selected: false },
+                  ]}
+                />
               </div>
-              <div className="filter filter-year">
-                <Form.Select aria-label="Default select example">
-                  <option value="all" selected>
-                    All Type
-                  </option>
-                  <option value="fullstack">Fullstack</option>
-                  <option value="backend">Backend</option>
-                  <option value="frontend">Frontend</option>
-                </Form.Select>
+              <div className="filter filter-type">
+                <FormSelect
+                  options={[
+                    { value: 'all', label: 'All Type', selected: true },
+                    { value: 'fullstack', label: 'Fullstack', selected: false },
+                    { value: 'backend', label: 'Backend', selected: false },
+                    { value: 'frontend', label: 'Frontend', selected: false },
+                  ]}
+                />
               </div>
             </div>
           </div>
         </div>
-        {portfolios.map(
-          ({ title, href, year, type, images, desc, stacks }, index) => (
-            <div key={index} className="row portfolio-item">
-              <div className="col-md-6 col-12 portfolio-item-images">
-                <CustomCarousel images={images} />
-              </div>
-              <div className="col-md-6 col-12 portfolio-item-detail">
-                <h3 className="portfolio-item-title">
-                  {href ? (
-                    <Link href={href} target="_blank">
-                      {title}
-                    </Link>
-                  ) : (
-                    title
-                  )}
-                </h3>
-                <div className="portfolio-item-metas">
-                  <div className="portfolio-item-meta">{year}</div>
-                  <span>-</span>
-                  <div className="portfolio-item-meta">{type}</div>
-                </div>
-                <div className="portfolio-item-desc">{desc}</div>
-                <div className="portfolio-item-stacks">
-                  {stacks.map(({ icon, label }) => (
-                    <div className="portfolio-item-stack">
-                      <Image
-                        src={icon}
-                        alt={label}
-                        width={28}
-                        height={28}
-                        title={label}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ),
-        )}
+        {portfolios.map((portfolio, index) => (
+          <PortfolioItem key={index} {...portfolio} />
+        ))}
       </div>
     </div>
   );
