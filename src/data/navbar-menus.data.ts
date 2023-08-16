@@ -1,5 +1,4 @@
 import { NavbarMenu } from '@/types/navbar-menu.type';
-import Image from 'next/image';
 
 export const navbarMenus: NavbarMenu[] = [
   { label: 'Home', href: '/' },
