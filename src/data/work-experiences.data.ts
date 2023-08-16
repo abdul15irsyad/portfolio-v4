@@ -1,4 +1,6 @@
-export const experiences = [
+import { WorkExperience } from '@/types/work-experience.type';
+
+export const workExperiences: WorkExperience[] = [
   {
     position: 'Internship',
     timespan: 'Feb 2020 - Mar 2020',

@@ -1,4 +1,6 @@
-export const awards = [
+import { Award } from '@/types/award.type';
+
+export const awards: Award[] = [
   {
     title: '1 of Top 30 Titans',
     competition:

@@ -1,11 +1,6 @@
-enum Level {
-  LEARNING = 'learning',
-  BEGINNER = 'beginner',
-  INTERMEDIATE = 'intermediate',
-  ADVANCE = 'advance',
-}
+import { ProgrammingSkill, Level } from '@/types/programming-skill.interface';
 
-export const programmingSkills = [
+export const programmingSkills: ProgrammingSkill[] = [
   {
     title: 'Backend',
     list: [
@@ -46,6 +41,12 @@ export const programmingSkills = [
         href: 'https://laravel.com',
       },
       {
+        name: 'Codeigniter',
+        logo: '/programming/codeigniter.png',
+        level: Level.INTERMEDIATE,
+        href: 'https://codeigniter.com',
+      },
+      {
         name: 'Fiber',
         logo: '/programming/fiber.png',
         level: Level.LEARNING,
@@ -83,19 +84,19 @@ export const programmingSkills = [
         name: 'MySQL',
         logo: '/programming/mysql.png',
         level: Level.INTERMEDIATE,
-        href: 'https://www.mysql.com',
+        // href: 'https://www.mysql.com',
       },
       {
         name: 'PostgreSQL',
         logo: '/programming/postgresql.png',
         level: Level.INTERMEDIATE,
-        href: 'https://www.postgresql.org/',
+        // href: 'https://www.postgresql.org/',
       },
       {
         name: 'Mongo DB',
         logo: '/programming/mongodb.png',
         level: Level.BEGINNER,
-        href: 'https://www.mongodb.com',
+        // href: 'https://www.mongodb.com',
       },
     ],
   },
@@ -106,13 +107,13 @@ export const programmingSkills = [
         name: 'Git',
         logo: '/programming/git.png',
         level: Level.INTERMEDIATE,
-        href: 'https://git-scm.com',
+        // href: 'https://git-scm.com',
       },
       {
         name: 'Redis (Caching)',
         logo: '/programming/redis.png',
         level: Level.INTERMEDIATE,
-        href: 'https://redis.io',
+        // href: 'https://redis.io',
       },
       {
         name: 'CI/CD (Gitlab)',
@@ -123,13 +124,13 @@ export const programmingSkills = [
         name: 'Docker',
         logo: '/programming/docker.png',
         level: Level.BEGINNER,
-        href: 'https://www.docker.com',
+        // href: 'https://www.docker.com',
       },
       {
         name: 'Websocket',
         logo: '/programming/websocket.png',
         level: Level.BEGINNER,
-        href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
+        // href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
       },
     ],
   },

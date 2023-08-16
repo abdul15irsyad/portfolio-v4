@@ -9,4 +9,29 @@ export const contacts = [
     label: 'abdulirsyad15@gmail.com',
     href: 'mailto:abdulirsyad15@gmail.com',
   },
+  {
+    icon: 'github',
+    label: 'abdul15irsyad',
+    href: 'https://github.com/abdul15irsyad',
+  },
+  {
+    icon: 'linkedin',
+    label: 'Irsyad Abdul Hamid D',
+    href: 'https://linkedin.com/in/irsyad-abdul-hamid-d',
+  },
+  {
+    icon: 'instagram',
+    label: 'abdul15irsyad',
+    href: 'https://instagram.com/abdul15irsyad',
+  },
+  {
+    icon: 'facebook',
+    label: 'abdul15irsyad',
+    href: 'https://facebook.com/abdul15irsyad',
+  },
+  {
+    icon: 'twitter',
+    label: 'abdulirsyad15',
+    href: 'https://twitter.com/abdulirsyad15',
+  },
 ];

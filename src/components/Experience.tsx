@@ -1,4 +1,4 @@
-import { experiences } from '@/data/experiences.data';
+import { workExperiences } from '@/data/work-experiences.data';
 import Image from 'next/image';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const Experience = () => {
           <strong>Work Experience</strong>
         </h2>
         <hr />
-        {experiences.map(({ position, timespan, company, desc }, index) => (
+        {workExperiences.map(({ position, timespan, company, desc }, index) => (
           <div key={index} className="row">
             <div className="col-md-5 col-12">
               <div className="d-flex justify-content-md-end">

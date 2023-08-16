@@ -1,64 +1,55 @@
 'use client';
+
+import { navbarMenus } from '@/data/navbar-menus.data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Container, Nav, Navbar as BootstrapNavbar } from 'react-bootstrap';
 
 export default () => {
-  interface Menu {
-    label?: string;
-    logo?: any;
-    href: string;
-    newTab?: boolean;
-  }
-  const menus: Menu[] = [
-    { label: 'Home', href: '/' },
-    { label: 'Work Experience', href: '/#experience' },
-    { label: 'Programming', href: '/#programming' },
-    { label: 'Portfolio', href: '/portfolio' },
-    {
-      logo: (
-        <Image
-          src="/icons/github.svg"
-          alt="Github Logo"
-          width={24}
-          height={24}
-        />
-      ),
-      href: 'https://github.com/abdul15irsyad',
-      newTab: true,
-    },
-  ];
   return (
-    <BootstrapNavbar
-      expand="lg"
-      sticky="top"
-      bg="primary"
-      data-bs-theme="dark"
-      className="shadow-sm"
+    <nav
+      data-bs-them="dark"
+      className="shadow-sm navbar navbar-expand-lg navbar-light bg-primary sticky-top"
     >
-      <Container>
+      <div className="container">
         <Link href="/">
-          <BootstrapNavbar.Brand>
+          <span className="navbar-brand">
             <strong>IRSYAD</strong> ABDUL
-          </BootstrapNavbar.Brand>
+          </span>
         </Link>
-        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
-        <BootstrapNavbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            {menus.map(({ href, label, logo, newTab }, index) => (
+        <button
+          aria-controls="basic-navbar-nav"
+          type="button"
+          aria-label="Toggle navigation"
+          className="navbar-toggler collapsed"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="navbar-collapse collapse" id="basic-navbar-nav">
+          <div className="navbar-nav ms-auto">
+            {navbarMenus.map(({ href, label, logo, newTab }, index) => (
               <Link
                 key={index}
                 href={href}
                 className="nav-link"
                 target={newTab ? `_blank` : '_self'}
               >
-                {label ?? logo}
+                {logo ? (
+                  <Image
+                    src={logo}
+                    alt={label}
+                    title={label}
+                    width={24}
+                    height={24}
+                  />
+                ) : (
+                  label
+                )}
               </Link>
             ))}
-          </Nav>
-        </BootstrapNavbar.Collapse>
-      </Container>
-    </BootstrapNavbar>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };

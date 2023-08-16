@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Typed from 'typed.js';
-import { socialMedias } from '@/data/social-medias.data';
+import { contacts } from '@/data/contacts.data';
 
 const Hero = () => {
   const typedText = useRef(null);
@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="row">
           <div className="col-md-6 hero-title align-self-center">
             <div className="social-media-wrapper">
-              {socialMedias
+              {contacts
                 .filter(({ icon }) =>
                   ['github', 'linkedin'].find((item) => item === icon),
                 )

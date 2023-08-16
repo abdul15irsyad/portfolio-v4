@@ -17,11 +17,11 @@ const Programming = () => {
               <div className="category">
                 <div className="category-title">{title}</div>
                 <ul className="category-items">
-                  {list?.map(({ name, logo, level, href }, index) => (
+                  {list.map(({ name, logo, level, href }, index) => (
                     <li key={index} className="category-item">
                       <div>
                         <Image src={logo} alt={name} width={24} height={24} />
-                        <span className="cateogory-name">{name}</span>
+                        <span>{name}</span>
                         {href && (
                           <Link href={href} target="_blank">
                             <i className="bi bi-info-circle text-info"></i>

@@ -1,9 +1,14 @@
 import { contacts } from '@/data/contacts.data';
-import { socialMedias } from '@/data/social-medias.data';
 import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
+  const footerContacts = contacts.filter(({ icon }) =>
+    ['whatsapp', 'envelope'].find((item) => item === icon),
+  );
+  const followMe = contacts.filter(
+    ({ icon }) => !['whatsapp', 'envelope'].find((item) => item === icon),
+  );
   return (
     <>
       <footer>
@@ -13,7 +18,7 @@ const Footer = () => {
               <div className="contacts col-md-4 col-12">
                 <h5>Contact</h5>
                 <ul>
-                  {contacts.map(({ icon, label, href }, index) => (
+                  {footerContacts.map(({ icon, label, href }, index) => (
                     <Link key={index} href={href}>
                       <li>
                         <i className={`bi bi-${icon}`}></i>
@@ -26,8 +31,8 @@ const Footer = () => {
               <div className="social-medias col-md-4 col-12">
                 <h5>Follow me</h5>
                 <ul>
-                  {socialMedias.map(({ icon, href }, index) => (
-                    <Link key={index} href={href}>
+                  {followMe.map(({ icon, label, href }, index) => (
+                    <Link key={index} href={href} title={label}>
                       <li>
                         <i className={`bi bi-${icon}`}></i>
                       </li>

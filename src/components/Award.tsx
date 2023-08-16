@@ -24,7 +24,7 @@ const Award = () => {
                     <div className="award-title">{title}</div>
                     <div className="competition">
                       <p>{competition}</p>
-                      {certificate && (
+                      {certificate?.href && (
                         <Link
                           href={certificate.href}
                           target="_blank"
