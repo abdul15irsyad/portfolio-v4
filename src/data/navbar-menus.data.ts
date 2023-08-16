@@ -6,6 +6,7 @@ export const navbarMenus: NavbarMenu[] = [
   { label: 'Work Experience', href: '/#experience' },
   { label: 'Programming', href: '/#programming' },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Blog', href: '/blog' },
   {
     label: 'Github',
     logo: '/icons/github.svg',
