@@ -1,5 +1,3 @@
-'use client';
-
 import CustomCarousel from '@/components/CustomCarousel';
 import { Metadata } from 'next';
 import Image from 'next/image';
