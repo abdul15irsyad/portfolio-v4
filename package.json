@@ -20,10 +20,10 @@
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
     "next": "13.4.13",
+    "nextjs-google-analytics": "^2.3.3",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
-    "react-ga": "^3.3.1",
     "typed.js": "^2.0.16",
     "typescript": "5.1.6"
   },

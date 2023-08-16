@@ -4,15 +4,9 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Typed from 'typed.js';
+import { socialMedias } from '@/data/social-medias.data';
 
 const Hero = () => {
-  const socialMedias = [
-    { icon: 'github', href: 'https://github.com/abdul15irsyad' },
-    { icon: 'linkedin', href: 'https://linkedin.com/in/irsyad-abdul-hamid-d' },
-    { icon: 'instagram', href: 'https://instagram.com/abdul15irsyad' },
-    { icon: 'facebook', href: 'https://facebook.com/abdul15irsyad' },
-    { icon: 'envelope', href: 'mailto:abdulirsyad15@gmail.com' },
-  ];
   const typedText = useRef(null);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
@@ -39,16 +33,20 @@ const Hero = () => {
         <div className="row">
           <div className="col-md-6 hero-title align-self-center">
             <div className="social-media-wrapper">
-              {socialMedias.map((socialMedia, index) => (
-                <Link
-                  key={index}
-                  href={socialMedia.href}
-                  target="_blank"
-                  className="social-media-item"
-                >
-                  <i className={`bi bi-${socialMedia.icon}`}></i>
-                </Link>
-              ))}
+              {socialMedias
+                .filter(({ icon }) =>
+                  ['github', 'linkedin'].find((item) => item === icon),
+                )
+                .map((socialMedia, index) => (
+                  <Link
+                    key={index}
+                    href={socialMedia.href}
+                    target="_blank"
+                    className="social-media-item"
+                  >
+                    <i className={`bi bi-${socialMedia.icon}`}></i>
+                  </Link>
+                ))}
             </div>
             <h1 className="text-jumbo">Hello, im Irsyad Abdul</h1>
             <h4 className="mb-4 typed-text">

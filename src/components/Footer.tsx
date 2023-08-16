@@ -1,27 +1,9 @@
+import { contacts } from '@/data/contacts.data';
+import { socialMedias } from '@/data/social-medias.data';
 import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
-  const contacts = [
-    {
-      icon: 'whatsapp',
-      label: '+62 888 0915 1020',
-      href: 'https://api.whatsapp.com/send?phone=6288809151020&text=Assalamualaikum',
-    },
-
-    {
-      icon: 'envelope',
-      label: 'abdulirsyad15@gmail.com',
-      href: 'mailto:abdulirsyad15@gmail.com',
-    },
-  ];
-  const socialMedias = [
-    { icon: 'github', href: 'https://github.com/abdul15irsyad' },
-    { icon: 'linkedin', href: 'https://linkedin.com/in/irsyad-abdul-hamid-d' },
-    { icon: 'instagram', href: 'https://instagram.com/abdul15irsyad' },
-    { icon: 'facebook', href: 'https://facebook.com/abdul15irsyad' },
-    { icon: 'twitter', href: 'https://twitter.com/abdulirsyad15' },
-  ];
   return (
     <>
       <footer>

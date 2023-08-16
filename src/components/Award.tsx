@@ -1,3 +1,4 @@
+import { awards } from '@/data/awards.data';
 import Link from 'next/link';
 import React from 'react';
 
@@ -18,23 +19,24 @@ const Award = () => {
                 <div className="icon">
                   <i className="bi bi-award"></i>
                 </div>
-                <div className="detail">
-                  <div className="award-title">1 of Top 30 Titans</div>
-                  <div className="competition">
-                    <p>
-                      Telkomsel Tech Titans League Series 1 - Software
-                      Development 2020
-                    </p>
-                    <Link
-                      href="https://drive.google.com/file/d/17_TdqmVD-srVeqIAB433OCuvW-4dDEdq/view?usp=sharing"
-                      target="_blank"
-                      className="btn btn-danger"
-                    >
-                      <i className="bi bi-filetype-pdf me-2"></i>
-                      Certificate
-                    </Link>
+                {awards.map(({ title, competition, certificate }) => (
+                  <div className="detail">
+                    <div className="award-title">{title}</div>
+                    <div className="competition">
+                      <p>{competition}</p>
+                      {certificate && (
+                        <Link
+                          href={certificate.href}
+                          target="_blank"
+                          className="btn btn-danger"
+                        >
+                          <i className="bi bi-filetype-pdf me-2"></i>
+                          Certificate
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                </div>
+                ))}
               </li>
             </ul>
           </div>
