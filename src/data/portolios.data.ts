@@ -1,4 +1,6 @@
-export const portfolios = [
+import { Portfolio } from '@/types/portfolio.type';
+
+export const portfolios: Portfolio[] = [
   {
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
@@ -77,7 +79,7 @@ export const portfolios = [
       <p>
         Website Pokok Pikiran Kebudayaan Daerah (PPKD) Dokumen merupakan aplikasi web
         yang diperuntukkan kepada dinas daerah dalam penyusunan dokumen PPKD,
-        adapun peran saya dalam project ini adalah sebagai Backend Developer baik di
+        adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di
         bagian Landing Page (website) maupun Dashboard (aplikasi web).
       </p>
     `,
