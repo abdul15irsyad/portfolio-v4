@@ -1,27 +1,10 @@
 'use client';
 
+import { educations } from '@/data/educations.data';
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
 const Education = () => {
-  const educations = [
-    {
-      icon: '/icons/school-2.svg',
-      institution: 'MAS Al-Zaytun',
-      level: 'SMA',
-      major: null,
-      startYear: 2013,
-      endYear: 2016,
-    },
-    {
-      icon: '/icons/university-2.svg',
-      institution: 'UIN Jakarta',
-      level: 'S1',
-      major: 'Teknik Informatika',
-      startYear: 2016,
-      endYear: 2022,
-    },
-  ];
   return (
     <div className="education section">
       <div className="container">
