@@ -9,7 +9,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 export default () => {
   return (
     <Navbar
-      data-bs-them="dark"
+      data-bs-theme="dark"
       expand="lg"
       sticky="top"
       bg="primary"
