@@ -3,6 +3,7 @@
 import FormSelect from '@/components/FormSelect';
 import PortfolioItem from '@/components/PortfolioItem';
 import { portfolios } from '@/data/portolios.data';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Portfolio = () => {
@@ -56,9 +57,21 @@ const Portfolio = () => {
             </p>
           </div>
         </div>
-        {filteredPortfolios.map((portfolio, index) => (
-          <PortfolioItem key={index} {...portfolio} />
-        ))}
+        {filteredPortfolios.length > 0 ? (
+          filteredPortfolios.map((portfolio, index) => (
+            <PortfolioItem key={index} {...portfolio} />
+          ))
+        ) : (
+          <div className="empty">
+            <div className="empty-img">
+              <Image src="/empty.png" alt="No Data" width={200} height={200} />
+            </div>
+            <div className="empty-text">
+              <h2>Empty Data</h2>
+              <p>sorry, there is no data found</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

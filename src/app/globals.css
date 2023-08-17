@@ -558,3 +558,46 @@ footer .copyright br{
     display: block;
   }
 }
+
+/* empty */
+.empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty .empty-img img{
+  background-color: var(--bs-light);
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain;
+  border-radius: 100%;
+}
+.empty .empty-text{
+  padding: 2rem 4rem;
+}
+.empty .empty-text h2{
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--bs-primary)
+}
+.empty .empty-text p{
+  color: var(--bs-secondary);
+}
+@media(max-width:991px){
+  .empty{
+    padding: 1rem 0;
+    flex-direction: column;
+  }
+  .empty .empty-img img{
+    width: 180px !important;
+    height: 180px !important;
+  }
+  .empty .empty-text{
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  .empty .empty-text h2{
+    font-size: 28px;
+  }
+}
