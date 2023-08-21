@@ -189,7 +189,7 @@ export const portfolios: Portfolio[] = [
       </p>
     `,
     stacks: [
-      { icon: '/programming/codeigniter.png', label: 'Codeigniter' },
+      { icon: '/programming/codeigniter.png', label: 'Codeigniter 4' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
     ],
     images: [

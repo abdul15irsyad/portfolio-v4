@@ -13,23 +13,37 @@ export default () => {
       expand="lg"
       sticky="top"
       bg="primary"
-      className="shadow-md"
+      collapseOnSelect={true}
     >
       <div className="container">
         <Link href="/">
-          <Navbar.Brand>
-            <strong>IRSYAD</strong> ABDUL
+          <Navbar.Brand className="d-flex align-items-center">
+            <Image
+              src="/favicon-portfolio.png"
+              alt="Portfolio Logo"
+              width={24}
+              height={24}
+              className="me-2"
+            />
+            <strong>IRSYAD</strong>&nbsp;ABDUL
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {navbarMenus.map(({ href, label, logo, newTab }, index) => (
-              <Link
+              <Nav.Link
                 key={index}
                 href={href}
-                className="nav-link"
-                target={newTab ? `_blank` : '_self'}
+                target={newTab ? '_blank' : '_self'}
+                as={Link}
+                // as={
+                //   !['/#programming', '/#experience'].find(
+                //     (item) => item === href,
+                //   )
+                //     ? Link
+                //     : undefined
+                // }
               >
                 {logo ? (
                   <Image
@@ -42,7 +56,7 @@ export default () => {
                 ) : (
                   label
                 )}
-              </Link>
+              </Nav.Link>
             ))}
           </Nav>
         </Navbar.Collapse>

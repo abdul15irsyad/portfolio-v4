@@ -1,17 +1,11 @@
 'use client';
 
+import { CustomCarousel } from '@/types/custom-carousel.type';
 import Image from 'next/image';
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
-interface Props {
-  images: {
-    src: string;
-    alt: string;
-  }[];
-}
-
-const CustomCarousel = ({ images }: Props) => {
+const CustomCarousel = ({ images }: CustomCarousel) => {
   return (
     <Carousel
       prevIcon={<i className="bi bi-chevron-left"></i>}

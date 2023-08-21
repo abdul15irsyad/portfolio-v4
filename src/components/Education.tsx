@@ -14,20 +14,27 @@ const Education = () => {
         <hr />
         <div className="education-items">
           {educations.map(
-            ({ icon, institution, level, major, startYear, endYear }) => (
-              <Card className="education-item">
-                <Card.Img variant="top" src={icon} />
-                <Card.Body>
-                  <Card.Title>{institution}</Card.Title>
-                  <Card.Subtitle className="text-secondary">
-                    {level} - {major}
-                  </Card.Subtitle>
-                  <div className="mt-3 text-secondary">
-                    {startYear} - {endYear}
-                  </div>
-                </Card.Body>
-              </Card>
-            ),
+            (
+              { icon, institution, level, major, startYear, endYear },
+              index,
+            ) => {
+              const meta: string[] = [level];
+              if (major) meta.push(major);
+              return (
+                <Card key={index} className="education-item">
+                  <Card.Img variant="top" src={icon} />
+                  <Card.Body>
+                    <Card.Title>{institution}</Card.Title>
+                    <Card.Subtitle className="text-secondary">
+                      {meta.join(' - ')}
+                    </Card.Subtitle>
+                    <div className="mt-3 text-secondary">
+                      {startYear} - {endYear}
+                    </div>
+                  </Card.Body>
+                </Card>
+              );
+            },
           )}
         </div>
       </div>

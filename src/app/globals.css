@@ -12,6 +12,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 body{
   min-height: 100vh;
@@ -57,6 +58,9 @@ ul li {
 }
 
 /* navbar */
+.navbar{
+  box-shadow: 0px 10px 40px 40px rgba(0,0,0,.1);
+}
 .navbar .navbar-brand{
   color: #fff;
 }
@@ -189,7 +193,10 @@ ul li {
 }
 .education .education-item .card-title{
   font-weight: 800;
-  font-size: 22x;
+  font-size: 24x;
+}
+.education .education-item .card-subtitle{
+  font-size: 16px;
 }
 .education .education-item .card-body{
   padding-bottom: 2rem;
@@ -415,11 +422,48 @@ ul li {
   .portfolio .header{
     margin-bottom: 2rem;
   }
+  .portfolio .header .title{
+    font-size: 32px;
+  }
   .portfolio .header .filters .filter{
     width: 50%;
   }
   .portfolio .portfolio-item .portfolio-item-detail{
     padding: 1rem 1.5rem;
+  }
+}
+
+/* side project */
+.side-project .title{
+  font-size: 48px;
+}
+.side-project .side-project-item{
+  display: block;
+  padding: 1rem;
+}
+.side-project .side-project-item .side-project-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: .5rem;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.side-project .side-project-item .side-project-text{
+  padding: 1rem .5rem;
+}
+.side-project .side-project-item .side-project-text .side-project-title{
+  font-size: 22px;
+  font-weight: 800;
+}
+.side-project .side-project-item .side-project-text p{
+  color: var(--bs-secondary)
+}
+@media(max-width:991px){
+  .side-project .title{
+    font-size: 32px;
+  }
+  .side-project .side-project-item .side-project-img{
+    height: 160px;
   }
 }
 
@@ -567,8 +611,8 @@ footer .copyright br{
 }
 .empty .empty-img img{
   background-color: var(--bs-light);
-  width: 300px !important;
-  height: 300px !important;
+  width: 200px !important;
+  height: 200px !important;
   object-fit: contain;
   border-radius: 100%;
 }
@@ -589,8 +633,8 @@ footer .copyright br{
     flex-direction: column;
   }
   .empty .empty-img img{
-    width: 180px !important;
-    height: 180px !important;
+    width: 160px !important;
+    height: 160px !important;
   }
   .empty .empty-text{
     padding-left: 0;

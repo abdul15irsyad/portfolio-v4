@@ -4,19 +4,8 @@ import React from 'react';
 import CustomCarousel from './CustomCarousel';
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface Props {
-  title: string;
-  href?: string | null;
-  year: number;
-  type: string;
-  desc: string;
-  stacks: { icon: string; label: string }[];
-  images: {
-    src: string;
-    alt: string;
-  }[];
-}
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Portfolio } from '@/types/portfolio.type';
 
 const PortfolioItem = ({
   images,
@@ -26,7 +15,7 @@ const PortfolioItem = ({
   type,
   desc,
   stacks,
-}: Props) => {
+}: Portfolio) => {
   return (
     <div className="row portfolio-item">
       <div className="col-md-5 col-12 portfolio-item-images">
@@ -45,15 +34,14 @@ const PortfolioItem = ({
         ></div>
         <div className="portfolio-item-stacks">
           {stacks.map(({ icon, label }, index) => (
-            <div key={index} className="portfolio-item-stack">
-              <Image
-                src={icon}
-                alt={label}
-                width={28}
-                height={28}
-                title={label}
-              />
-            </div>
+            <OverlayTrigger
+              overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
+              placement="bottom"
+            >
+              <div key={index} className="portfolio-item-stack">
+                <Image src={icon} alt={label} width={28} height={28} />
+              </div>
+            </OverlayTrigger>
           ))}
         </div>
         {href && (
