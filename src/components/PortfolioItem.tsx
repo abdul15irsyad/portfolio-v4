@@ -35,10 +35,11 @@ const PortfolioItem = ({
         <div className="portfolio-item-stacks">
           {stacks.map(({ icon, label }, index) => (
             <OverlayTrigger
+              key={index}
               overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
               placement="bottom"
             >
-              <div key={index} className="portfolio-item-stack">
+              <div className="portfolio-item-stack">
                 <Image src={icon} alt={label} width={28} height={28} />
               </div>
             </OverlayTrigger>
