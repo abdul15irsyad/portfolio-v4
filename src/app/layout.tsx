@@ -16,8 +16,15 @@ export const metadata: Metadata = {
   title: 'Irsyad Abdul',
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   metadataBase: new URL('https://abdul15irsyad.vercel.app/'),
-  openGraph: {
+  twitter: {
+    title: 'Irsyad Abdul',
     images: '/meta-image.jpg',
+    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
+  },
+  openGraph: {
+    title: 'Irsyad Abdul',
+    images: '/meta-image.jpg',
+    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
 };
 
