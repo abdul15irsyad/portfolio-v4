@@ -7,7 +7,7 @@ export const contacts = [
   {
     icon: 'envelope',
     label: 'abdulirsyad15@gmail.com',
-    href: 'mailto:abdulirsyad15@gmail.com',
+    href: null,
   },
   {
     icon: 'github',

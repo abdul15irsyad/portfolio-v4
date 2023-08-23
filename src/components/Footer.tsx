@@ -19,12 +19,21 @@ const Footer = () => {
                 <h5>Contact</h5>
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => (
-                    <Link key={index} href={href}>
-                      <li>
-                        <i className={`bi bi-${icon}`}></i>
-                        <span>{label}</span>
-                      </li>
-                    </Link>
+                    <>
+                      {href ? (
+                        <Link key={index} href={href} target="_blank">
+                          <li>
+                            <i className={`bi bi-${icon}`}></i>
+                            <span>{label}</span>
+                          </li>
+                        </Link>
+                      ) : (
+                        <li>
+                          <i className={`bi bi-${icon}`}></i>
+                          <span>{label}</span>
+                        </li>
+                      )}
+                    </>
                   ))}
                 </ul>
               </div>
@@ -32,11 +41,19 @@ const Footer = () => {
                 <h5>Follow me</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => (
-                    <Link key={index} href={href} title={label}>
-                      <li>
-                        <i className={`bi bi-${icon}`}></i>
-                      </li>
-                    </Link>
+                    <>
+                      {href ? (
+                        <Link key={index} href={href}>
+                          <li title={label}>
+                            <i className={`bi bi-${icon}`}></i>
+                          </li>
+                        </Link>
+                      ) : (
+                        <li title={label}>
+                          <i className={`bi bi-${icon}`}></i>
+                        </li>
+                      )}
+                    </>
                   ))}
                 </ul>
               </div>
