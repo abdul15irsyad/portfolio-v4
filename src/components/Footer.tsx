@@ -43,7 +43,7 @@ const Footer = () => {
                   {followMe.map(({ icon, label, href }, index) => (
                     <>
                       {href ? (
-                        <Link key={index} href={href}>
+                        <Link key={index} href={href} target="_blank">
                           <li title={label}>
                             <i className={`bi bi-${icon}`}></i>
                           </li>

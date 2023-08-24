@@ -11,8 +11,6 @@ const ComingSoon = () => {
               <Image
                 src="/coming-soon.png"
                 alt="coming soon"
-                layout="responsive"
-                objectFit="cover"
                 width={655}
                 height={414}
               />

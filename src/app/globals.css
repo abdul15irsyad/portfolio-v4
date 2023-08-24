@@ -35,6 +35,7 @@ a {
 
 img {
   object-fit: contain;
+  width: 100%;
 }
 
 ul {
@@ -85,6 +86,12 @@ ul li {
 
 .navbar .nav-link {
   color: #fff;
+  border-radius: .5rem;
+  margin: 0 .25rem;
+}
+
+.navbar .navbar-nav .nav-link:not([target='_blank']):hover, .navbar .navbar-nav .nav-link.active{
+  background-color: rgba(255,255,255,.2);
 }
 
 .navbar .navbar-toggler {
@@ -111,6 +118,13 @@ ul li {
 @media(max-width:991px) {
   .navbar .nav-link {
     text-align: center;
+  }
+  
+}
+
+@media(max-width:1080px){
+  .navbar .nav-link[href="/#experience"], .navbar .nav-link[href="/#programming"]{
+    display: none;
   }
 }
 
@@ -653,6 +667,9 @@ ul li {
 .coming-soon .coming-soon-image {
   width: 400px;
   margin: 0 auto;
+}
+.coming-soon .coming-soon-image img{
+  height: auto;
 }
 
 .coming-soon .coming-soon-text {

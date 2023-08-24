@@ -5,8 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
+import { usePathname } from 'next/navigation';
 
 export default () => {
+  const rootPath = `/${usePathname().split('/')[1]}`;
   return (
     <Navbar
       data-bs-theme="dark"
@@ -37,6 +39,7 @@ export default () => {
                 href={href}
                 target={newTab ? '_blank' : '_self'}
                 as={Link}
+                active={rootPath === href}
                 // as={
                 //   !['/#programming', '/#experience'].find(
                 //     (item) => item === href,
