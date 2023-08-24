@@ -15,13 +15,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'Irsyad Abdul',
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  metadataBase: new URL('https://abdul15irsyad.vercel.app/'),
+  metadataBase: new URL('https://irsyadabdul.my.id/'),
   twitter: {
     title: 'Irsyad Abdul',
     images: '/meta-image.jpg',
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
   openGraph: {
+    url: new URL('https://irsyadabdul.my.id/'),
     title: 'Irsyad Abdul',
     images: '/meta-image.jpg',
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
