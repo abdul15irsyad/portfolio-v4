@@ -189,13 +189,16 @@ ul li {
   height: auto;
 }
 
+@media(max-width:767px){
+  .hero .hero-title {
+    order: 1;
+    text-align: center;
+  }
+}
+
 @media(max-width:991px) {
   .hero {
     padding: 4rem 10px;
-  }
-
-  .hero .hero-title {
-    text-align: center;
   }
 
   .hero .hero-title .text-jumbo {
@@ -204,10 +207,6 @@ ul li {
 
   .hero .hero-title .typed-text {
     font-size: 1.75rem;
-  }
-
-  .hero .hero-title {
-    order: 1;
   }
 
   .hero .hero-image {

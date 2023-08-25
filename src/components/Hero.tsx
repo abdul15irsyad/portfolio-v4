@@ -38,24 +38,22 @@ const Hero = () => {
                 .filter(({ icon }) =>
                   ['github', 'linkedin'].find((item) => item === icon),
                 )
-                .map((socialMedia, index) => (
-                  <>
-                    {socialMedia.href ? (
-                      <Link
-                        key={index}
-                        href={socialMedia.href}
-                        target="_blank"
-                        className="social-media-item"
-                      >
-                        <i className={`bi bi-${socialMedia.icon}`}></i>
-                      </Link>
-                    ) : (
-                      <div className="social-media-item">
-                        <i className={`bi bi-${socialMedia.icon}`}></i>
-                      </div>
-                    )}
-                  </>
-                ))}
+                .map((socialMedia, index) => {
+                  return socialMedia.href ? (
+                    <Link
+                      key={index}
+                      href={socialMedia.href}
+                      target="_blank"
+                      className="social-media-item"
+                    >
+                      <i className={`bi bi-${socialMedia.icon}`}></i>
+                    </Link>
+                  ) : (
+                    <div className="social-media-item">
+                      <i className={`bi bi-${socialMedia.icon}`}></i>
+                    </div>
+                  );
+                })}
             </div>
             <h1 className="text-jumbo">Hello, im Irsyad Abdul</h1>
             <h4 className="mb-4 typed-text">
