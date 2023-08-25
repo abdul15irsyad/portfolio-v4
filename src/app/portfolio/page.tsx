@@ -22,7 +22,7 @@ const Portfolio = () => {
   }, [year, type]);
   return (
     <>
-      <div className="portfolio section">
+      <div className="portfolio section doodle-background">
         <div className="container">
           <div className="row header">
             <div className="col">

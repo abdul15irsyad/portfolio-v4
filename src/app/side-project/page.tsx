@@ -4,13 +4,13 @@ import React from 'react';
 
 const SideProject = () => {
   return (
-    <div className="side-project section">
+    <div className="side-project section doodle-background">
       <div className="container">
         <h1 className="title text-center">Side Project</h1>
         <hr />
         <div className="row">
-          {sideProjects.map((sideProject) => (
-            <SideProjectItem {...sideProject} />
+          {sideProjects.map((sideProject, index) => (
+            <SideProjectItem key={index} {...sideProject} />
           ))}
         </div>
       </div>

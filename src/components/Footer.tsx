@@ -18,43 +18,39 @@ const Footer = () => {
               <div className="contacts col-md-4 col-12">
                 <h5>Contact</h5>
                 <ul>
-                  {footerContacts.map(({ icon, label, href }, index) => (
-                    <>
-                      {href ? (
-                        <Link key={index} href={href} target="_blank">
-                          <li>
-                            <i className={`bi bi-${icon}`}></i>
-                            <span>{label}</span>
-                          </li>
-                        </Link>
-                      ) : (
+                  {footerContacts.map(({ icon, label, href }, index) => {
+                    return href ? (
+                      <Link key={index} href={href} target="_blank">
                         <li>
                           <i className={`bi bi-${icon}`}></i>
                           <span>{label}</span>
                         </li>
-                      )}
-                    </>
-                  ))}
+                      </Link>
+                    ) : (
+                      <li>
+                        <i className={`bi bi-${icon}`}></i>
+                        <span>{label}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <div className="social-medias col-md-4 col-12">
                 <h5>Follow me</h5>
                 <ul>
-                  {followMe.map(({ icon, label, href }, index) => (
-                    <>
-                      {href ? (
-                        <Link key={index} href={href} target="_blank">
-                          <li title={label}>
-                            <i className={`bi bi-${icon}`}></i>
-                          </li>
-                        </Link>
-                      ) : (
+                  {followMe.map(({ icon, label, href }, index) => {
+                    return href ? (
+                      <Link key={index} href={href} target="_blank">
                         <li title={label}>
                           <i className={`bi bi-${icon}`}></i>
                         </li>
-                      )}
-                    </>
-                  ))}
+                      </Link>
+                    ) : (
+                      <li title={label}>
+                        <i className={`bi bi-${icon}`}></i>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <div className="address col-md-4 col-12">
