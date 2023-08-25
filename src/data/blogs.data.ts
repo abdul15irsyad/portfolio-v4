@@ -15,4 +15,18 @@ export const blogs = [
     createdAt: '2023-08-24 12:04:34.788 +0700',
     updatedAt: '2023-08-24 12:04:34.788 +0700',
   },
+  // {
+  //   id: 'bd7a365d-b8ca-40c9-81f2-10ebaed28304',
+  //   title: 'Judul Baru',
+  //   slug: 'judul-baru',
+  //   featureImage: {
+  //     originalFileName: 'gsms.jpg',
+  //     url: `${BASE_URL}/portfolio/gsms-1.png`,
+  //   },
+  //   content: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  //   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
+  //   tags: ['nestjs', 'frontend', 'kemdikbud', 'fullstack'],
+  //   createdAt: '2023-02-27 01:50:34.788 +0700',
+  //   updatedAt: '2023-08-26 12:04:34.788 +0700',
+  // },
 ];

@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="top">
           <div className="container">
             <div className="row">
-              <div className="contacts col-md-4 col-12">
+              <div className="contacts col-lg-4 col-md-6 col-12">
                 <h5>Contact</h5>
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => {
@@ -35,7 +35,7 @@ const Footer = () => {
                   })}
                 </ul>
               </div>
-              <div className="social-medias col-md-4 col-12">
+              <div className="social-medias col-lg-4 col-md-6 col-12">
                 <h5>Follow me</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => {

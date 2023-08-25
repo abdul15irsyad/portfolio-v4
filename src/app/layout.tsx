@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   title: 'Irsyad Abdul',
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   metadataBase: new URL('https://irsyadabdul.my.id/'),
+  keywords: [
+    'backend developer',
+    'fullstack developer',
+    'frontend developer',
+    'freelance',
+    'website',
+    'portfolio',
+    'blog',
+    'programming',
+    'project',
+  ],
   twitter: {
     title: 'Irsyad Abdul',
     images: '/meta-image.jpg',
