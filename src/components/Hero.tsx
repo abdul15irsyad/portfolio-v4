@@ -14,6 +14,7 @@ const Hero = () => {
         'Fullstack Developer',
         'Backend Developer',
         'Frontend Developer',
+        'Freelancer',
         'Informatics Engineering',
       ],
       typeSpeed: 80,
