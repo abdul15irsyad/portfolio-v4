@@ -38,9 +38,12 @@ export default () => {
               <BlogItem key={blog.id} blog={blog} />
             ))}
           </div>
-          <div className="col-xl-3 col-12">
-            <div className="all-tags">
-              <h5 className="all-tags-title">All Tags</h5>
+          <div className="col-xl-3 col-12 blog-sidebar">
+            <div className="all-tags box-container">
+              <h5 className="all-tags-title box-container-title">
+                <i className="bi bi-tags"></i>
+                <span>All Tags</span>
+              </h5>
               {allTags.map((tag, index) => (
                 <div key={index} className="blog-tag">
                   {tag}

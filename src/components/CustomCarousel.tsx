@@ -15,7 +15,7 @@ const CustomCarousel = ({ images }: CustomCarousel) => {
         <Carousel.Item key={index}>
           <div className="img-wrapper">
             {/* <div className="overlay"></div> */}
-            <Image src={src} alt={alt} width={400} height={400} />
+            <Image src={src} alt={alt} width={480} height={480} />
           </div>
         </Carousel.Item>
       ))}

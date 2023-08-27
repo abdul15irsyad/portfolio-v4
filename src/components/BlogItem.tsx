@@ -24,6 +24,7 @@ const BlogItem = ({ blog }) => {
         </Link>
         <div className="blog-meta">
           <div className="blog-created-at">
+            <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(blog.createdAt)}
           </div>
         </div>

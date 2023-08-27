@@ -604,17 +604,37 @@ ul li {
   text-align: center;
 }
 
-.blog .all-tags{
+/* blog-sidebar*/
+.blog-sidebar .box-container{
   padding: 1rem;
   border: 1px solid rgba(var(--bs-secondary-rgb),.25);
   border-radius: .5rem;
   background-color: var(--bs-light);
 }
 
-.blog .all-tags .all-tags-title{
+.blog-sidebar .box-container .box-container-title{
   font-weight: 800;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
+
+.blog-sidebar .box-container .box-container-title i{
+  font-size: 15px;
+  color: var(--bs-primary);
+  margin-right: .5rem;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item{
+  cursor: pointer;
+  display: inline-block;
+  padding: .5rem .75rem;
+  margin-right: .5rem;
+  color: #185242;
+  border-radius: 100%;
+  background-color: rgba(var(--bs-primary-rgb),.25);
+}
+
 
 /* blog-item */
 .blog-item {
@@ -728,6 +748,67 @@ ul li {
   padding: .2rem .5rem;
   border-radius: 1rem;
   background-color: rgba(var(--bs-primary-rgb),.25);
+}
+
+/* blog-detail */
+.blog-detail{
+  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.96), rgba(var(--bs-light-rgb), 0.96)), url('/pattern-background.png');
+  background-size: 300px 300px;
+}
+
+.blog-detail .blog-detail-title{
+  color: var(--bs-primary);
+  font-weight: 800;
+}
+
+.blog-detail .blog-detail-meta{
+  color: var(--bs-secondary);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.blog-detail .blog-detail-meta i{
+  margin-right: .5rem;
+  font-size: 14px;
+}
+
+.blog-detail .blog-detail-feature-image img{
+  border-radius: 1rem;
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 2rem;
+}
+
+article{
+  padding-left: .5rem;
+}
+
+article ul{
+  margin-bottom: 1rem;
+}
+
+article ul li{
+  margin-left: 2rem;
+  list-style-type: disc !important;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5{
+  margin: 2rem 0 1rem;
+  font-weight: 800;
+}
+
+article > code{
+  display: inline-block;
+  padding: 0rem .2rem;
+  border-radius: .25rem;
+  background-color: rgba(var(--bs-secondary-rgb),.15) !important;
 }
 
 /* carousel */

@@ -10,8 +10,8 @@ const SideProjectItem = ({ img, title, desc, href }: SideProject) => {
         src={img}
         className="side-project-img"
         alt={title}
-        width={200}
-        height={200}
+        width={1080}
+        height={1080}
       />
       <div className="side-project-text">
         <h3 className="side-project-title">{title}</h3>
