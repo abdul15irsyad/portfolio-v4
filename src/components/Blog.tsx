@@ -2,9 +2,14 @@
 
 import { renderTimestamp } from '@/utils/date.util';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/androidstudio.css';
 
 const Blog = ({ blog }) => {
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
   return (
     <>
       <div className="blog-detail-meta">

@@ -24,50 +24,58 @@ export const blogs = [
     <p>
     oke jika sudah clear maka langsung saja kita masuk ke langkah yang pertama
     </p>
-    <h3>1. setup nest js</h3>
+    <h3>1. Setup Nest JS</h3>
     <p>
     pertama-tama kita create project nya dengan <code>nest cli</code> dengan mengetikkan command berikut di terminal
     </p>
     <pre>
-    <code>
-    npm i -g @nestjs/cli
-    nest new nest-typeorm
+    <code class="language-bash">
+    $ npm i -g @nestjs/cli
+    $ nest new nest-typeorm
     </code>
     </pre>
     <p>
     akan muncul pertanyaan mengenai package manager yang kita gunakan, pilih yang diinginkan (saya pilih <code>yarn</code> karena sudah terbiasa) setelah itu tunggu sampai proses instalasi selesai, jika sudah akan terbuat directory/folder baru dengan nama <code>nest-typeorm</code> (sesuai nama project nya), buka directory tersebut dengan visual studio code
     </p>
     <pre>
-    code nest-typeorm
+    <code class="language-bash">
+    $ code nest-typeorm
+    </code>
     </pre>
     <p>
     langsung aja kita coba jalanin projectnya pakai mode development dengan command berikut (di terminal vs-code)
     </p>
     <pre>
-    yarn start:dev
+    <code class="language-bash">
+    $ yarn start:dev
+    </code>
     </pre>
     <p>
     jika tidak ada error maka project kita berhasil berjalan di port <code>3000</code> (default), kita bisa mengeceknya dengan mengetikkan <code>http://localhost:3000</code> di browser, akan muncul pesan <code>Hello World!</code>
     </p>
-    <h3>2. install typeorm</h3>
+    <h3>2. Install TypeORM</h3>
     <p>
     kita buat dulu database <code>postgresql</code> yang mau kita pakai di project ini, bisa menggunakan <code>psql</code> atau di aplikasi database viewer seperti dbeaver, heidisql, dll.
     </p>
     <pre>
+    <code class="language-bash">
     psql -U postgres -c "create database \\"nestjs-typeorm\\""
+    </code>
     </pre>
     <p>
     selanjutnya kita akan install library <code>typeorm</code>, di nestjs ada library <code>@nestjs/typeorm</code> untuk mempermudah integrasi nya, kita install terlebih dahulu
     </p>
     <pre>
+    <code class="language-bash">
     yarn add @nestjs/typeorm typeorm pg
+    </code>
     </pre>
-    <h3>3. datasource</h3>
+    <h3>3. Datasource</h3>
     <p>
     setelah selesai diinstall, buat folder <code>database</code> di dalam folder <code>src</code>, kegunaannya adalah untuk menyimpan segala file yang berkaitan dengan database. Lalu kita buat file <code>datasource.ts</code> di dalam folder <code>src/database</code>, untuk konfigurasi database yang akan kita pakai, kita akan gunakan file ini saat <code>migration</code> (karna migration dapat dilakukan meski server sedang tidak berjalan)
     </p>
     <pre>
-    <code class="js">
+    <code class="language-typescript">
     import { join } from 'path';
     import { DataSource } from 'typeorm';
 
@@ -88,17 +96,20 @@ export const blogs = [
     export default datasource;
     </code>
     </pre>
-    <h3>4. migration</h3>
+    <h3>4. Migration</h3>
     <p>
     setelah koneksi berhasil maka selanjutnya adalah membuat <code>migration</code> dari table-table yang akan kita gunakan di dalam project, yang saya ketahui terdapat 2 cara untuk membuat <code>migration</code>, yang pertama membuat file <code>migration</code> lalu mendeskripsikan <code>migration</code>-nya, atau yang kedua membuat <code>entity</code> terlebih dahulu, lalu men-<code>generate</code> <code>migration</code> berdasarkan <code>entity</code>, pada kesempatan kali ini kita lakukan yang pertama, misalkan buat <code>migration</code> untuk create table <code>users</code> dengan <code>typeorm cli</code>
     </p>
     <pre>
+    <code class="language-bash">
     npx typeorm-ts-node-commonjs migration:create src/database/migrations/create-table-users
+    </code>
     </pre>
     <p>
     command tersebut akan membuat file <code>{timestamp}-create-table-users.ts</code> di dalam folder <code>src/database/migrations</code>, lalu kita ubah file tersebut seperti ini
     </p>
     <pre>
+    <code class="language-typescript">
     import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
     export class CreateTableUsers1692867883026 implements MigrationInterface {
@@ -121,21 +132,26 @@ export const blogs = [
         await queryRunner.dropTable('users', true);
       }
     }
+    </code>
     </pre>
     <p>
     jika sudah kita bisa running semua migrasi (yang belum dijalankan) dengan command berikut
     </p>
     <pre>
+    <code class="language-bash">
     npx typeorm-ts-node-commonjs -d src/database/datasource.ts migration:run
+    </code>
     </pre>
     <p>
     jika berhasil maka table <code>users</code> sudah berhasil dibuat, kita bisa mengecek dengan <code>psql</code> di terminal
     </p>
     <pre>
+    <code class="language-bash">
     psql -U postgres -d "nestjs-typeorm" -c "\\d"
+    </code>
     </pre>
     <img src="/blog/1693065764.jpg" alt="1693065764.jpg" class="img-md">
-    <h3>5. persiapan seeder</h3>
+    <h3>5. Persiapan Seeder</h3>
     <p>
     selanjutnya adalah <code>seeder</code>, mengapa perlu <code>seeder</code>? dalam suatu aplikasi pastinya jika ada data-data yang diperlukan maka kita akan input ke dalam database baik itu data production ataupun data dummy, dalam hal ini kita bisa memanfaatkan <code>seeder</code> agar developer lain (jika ada) saat meng-<code>clone</code> project nya cukup menjalankan <code>seeder</code> yang ada.
     </p>
@@ -143,6 +159,7 @@ export const blogs = [
     Sebelum kita membuat <code>seeder</code>, kita buat terlebih dahulu <code>entity</code>/<code>table</code> untuk menyimpan history seeding (belum dibuat otomatis dari library seperti migrations), buat file entity <code>seeder.entity.ts</code> di folder <code>src/database/entities</code>
     </p>
     <pre>
+    <code class="language-typescript">
     import {
       Column,
       CreateDateColumn,
@@ -161,17 +178,21 @@ export const blogs = [
       @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone' })
       createdAt: Date;
     }
+    </code>
     </pre>
     <p>
     lalu buat <code>migration</code> nya
     </p>
     <pre>
+    <code class="language-bash">
     npx typeorm-ts-node-commonjs migration:create src/database/migrations/create-table-seeders
+    </code>
     </pre>
     <p>
     isi file <code>migration</code> yang baru dibuat dengan kode berikut, dimana kita membuat 3 field saja yakni <code>id</code>, <code>name</code>, <code>created_at</code>
     </p>
     <pre>
+    <code class="language-typescript">
     import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
     export class CreateTableSeeders1692874947883 implements MigrationInterface {
@@ -206,18 +227,22 @@ export const blogs = [
         await queryRunner.dropTable('seeders');
       }
     }
+    </code>
     </pre>
     <p>
     jalankan <code>migration</code> nya
     </p>
     <pre>
+    <code class="language-bash">
     npx typeorm-ts-node-commonjs -d src/database/datasource.ts migration:run
+    </code>
     </pre>
-    <h3>6. membuat user entity</h3>
+    <h3>6. Membuat User Entity</h3>
     <p>
     buat file <code>user.entity.ts</code> untuk user di folder <code>user/entites</code>
     </p>
     <pre>
+    <code class="language-typescript">
     import { Column, Entity, PrimaryColumn } from 'typeorm';
 
     @Entity('users')
@@ -234,30 +259,37 @@ export const blogs = [
       @Column('varchar', { select: false })
       password: string;
     }
+    </code>
     </pre>
-    <h3>7. membuat utililty hash password</h3>
+    <h3>7. Membuat Utililty Hash Password</h3>
     <p>
     install library <code>bcrypt</code> dan types nya
     </p>
     <pre>
+    <code class="language-bash">
     yarn add bcrypt
     yarn add -D @types/bcrypt
+    </code>
     </pre>
     <p>
     buat file <code>password.util.ts</code> di folder <code>src/shared/utils</code> untuk mempermudah proses <code>hashing password</code>
     </p>
     <pre>
+    <code class="language-typescript">
     import { genSaltSync, hashSync } from 'bcrypt';
 
     export const hashPassword = (password: string) =>
       hashSync(password, genSaltSync(10));
+    </code>
     </pre>
-    <h3>8. seeder</h3>
+    <h3>8. Seeder</h3>
     <p>
     sebelum membuat <code>seeder</code>, kita perlu menginstall <code>library</code> berikut
     </p>
     <pre>
+    <code class="language-bash">
     yarn add @jorgebodega/typeorm-seeding uuid
+    </code>
     </pre>
     <p>
     saat tulisan ini dibuat, saya belum menemukan library lain yang dapat digunakan dan sebenarnya library ini juga fork dari library resmi nya namun saat ingin pull request ke repo utama, pembuat library ini tidak dapat menghubungi owner dari library resmi, maka dari itu ia mempublish library ini.
@@ -266,6 +298,7 @@ export const blogs = [
     sekarang kita akan membuat file seeder nya, kita bisa create file di dalam folder <code>src/database/seeders</code> (buat jika belum ada), agar dapat mengurutkan berdasarkan timestamp, kita copy saja nama file timestamp dari migration <code>create-table-users</code>, lalu tambahkan nama file nya, misal jadi <code>1692867883026-users.seeder.ts</code> lalu isi file tersebut dengan
     </p>
     <pre>
+    <code class="language-typescript">
     import { DataSource, DeepPartial } from 'typeorm';
     import { Seeder } from '@jorgebodega/typeorm-seeding';
     import { SeederEntity } from '../entities/seeder.entity';
@@ -315,15 +348,15 @@ export const blogs = [
           .save({ name: UsersSeeder1692867883026.name });
       }
     }
+    </code>
     </pre>
     <p>
-    di <code>seeder</code> tersebut kita menambahkan 3 data pengguna ke table <code>users</code>, tambahkan data lain jika diperlukan
-    </p>
-    <p>
-    terakhir jalankan seluruh <code>seeder</code> yang ada
+    di <code>seeder</code> tersebut kita menambahkan 3 data pengguna ke table <code>users</code>, tambahkan data lain jika diperlukan, terakhir jalankan seluruh <code>seeder</code> yang ada
     </p>
     <pre>
+    <code class="language-bash">
     npx ts-node node_modules/@jorgebodega/typeorm-seeding/dist/cli.js seed -d src/database/datasource.ts src/database/seeders/*.seeder.ts
+    </code>
     </pre>
     <p>
     untuk command yang sekiranya panjang kita bisa persingkat dengan menaruhnya di <code>package.json</code> di dalam object <code>scripts</code>

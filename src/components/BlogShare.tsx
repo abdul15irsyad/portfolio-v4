@@ -6,12 +6,12 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
   const links = [
-    {
-      type: 'copy-link',
-      href: '',
-      icon: 'clipboard',
-      tooltip: 'copy to clipboard',
-    },
+    // {
+    //   type: 'copy-link',
+    //   href: '',
+    //   icon: 'clipboard',
+    //   tooltip: 'copy to clipboard',
+    // },
     {
       type: 'social-media',
       href: `whatsapp://send?text=${blogUrl}`,

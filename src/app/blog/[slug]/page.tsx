@@ -17,7 +17,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   })
     .split(' ')
     .slice(0, 50)
-    .join(' ');
+    .join(' ')
+    .trim();
 
   return {
     title: title,
@@ -50,7 +51,7 @@ const BlogDetail = ({ params }) => {
             <div className="blog-detail-share box-container">
               <h5 className="box-container-title">
                 <i className="bi bi-share"></i>
-                <span>Share this page</span>
+                <span>Share</span>
               </h5>
               <BlogShare blogUrl={`${BASE_URL}/blog/${blog.slug}`} />
             </div>
