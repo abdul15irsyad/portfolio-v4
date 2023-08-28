@@ -11,6 +11,9 @@ export default () => {
   const isBlogPublished = process.env.NEXT_PUBLIC_IS_BLOG_PUBLISHED
     ? Boolean(JSON.parse(process.env.NEXT_PUBLIC_IS_BLOG_PUBLISHED))
     : false;
+  const isBlogSearchPublished = process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED
+    ? Boolean(JSON.parse(process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED))
+    : false;
   const sortedBlogs = blogs.sort((a, b) =>
     dayjs(a.createdAt).isBefore(b.createdAt) ? 1 : -1,
   );
@@ -24,12 +27,14 @@ export default () => {
           <div className="col">
             <h1 className="title">Blog</h1>
             <hr />
-            <InputGroup className="search-bar mb-3">
-              <InputGroup.Text>
-                <i className="bi bi-search"></i>
-              </InputGroup.Text>
-              <Form.Control placeholder="search blog title..." />
-            </InputGroup>
+            {isBlogSearchPublished && (
+              <InputGroup className="search-bar mb-3">
+                <InputGroup.Text>
+                  <i className="bi bi-search"></i>
+                </InputGroup.Text>
+                <Form.Control placeholder="search blog title..." />
+              </InputGroup>
+            )}
           </div>
         </div>
         <div className="row">

@@ -1,3 +1,4 @@
+import { Blog } from '@/types/blog.type';
 import { renderTimestamp } from '@/utils/date.util';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 import Image from 'next/image';
@@ -5,7 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 import sanitize from 'sanitize-html';
 
-const BlogItem = ({ blog }) => {
+const BlogItem = ({ blog }: { blog: Blog }) => {
   return (
     <div className="blog-item">
       <div className="blog-feature-image">
@@ -23,6 +24,16 @@ const BlogItem = ({ blog }) => {
           {blog.title}
         </Link>
         <div className="blog-meta">
+          <div className="blog-author">
+            <Image
+              src={blog.author.photo.url}
+              alt={blog.author.photo.originalFileName}
+              className="blog-author-img"
+              width={100}
+              height={100}
+            />
+            <span className="blog-author-name">{blog.author.name}</span>
+          </div>
           <div className="blog-created-at">
             <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(blog.createdAt)}

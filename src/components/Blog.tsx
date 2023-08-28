@@ -4,15 +4,40 @@ import { renderTimestamp } from '@/utils/date.util';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
+import { Blog } from '@/types/blog.type';
+import CopyButtonPlugin from 'highlightjs-copy';
 import 'highlight.js/styles/androidstudio.css';
+import 'highlightjs-copy/dist/highlightjs-copy.min.css';
+hljs.addPlugin(
+  new CopyButtonPlugin({
+    hook: (text: string, el) => {
+      if (el.result.language === 'bash') {
+        text = text.replace('$ ', '');
+        text = text.replace(/\n\$\ /g, '\n');
+      }
+      return text;
+    },
+  }),
+);
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog }: { blog: Blog }) => {
   useEffect(() => {
     hljs.initHighlighting();
-  }, []);
+  });
   return (
     <>
+      <h1 className="blog-detail-title">{blog.title}s</h1>
       <div className="blog-detail-meta">
+        <div className="blog-author">
+          <Image
+            src={blog.author.photo.url}
+            alt={blog.author.photo.originalFileName}
+            className="blog-author-img"
+            width={100}
+            height={100}
+          />
+          <span className="blog-author-name">{blog.author.name}</span>
+        </div>
         <div className="blog-detail-created-at">
           <i className="bi bi-calendar4-week"></i>
           {renderTimestamp(blog.createdAt)}
@@ -32,8 +57,10 @@ const Blog = ({ blog }) => {
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
       <div className="blog-detail-tags">
-        {blog.tags.map((tag) => (
-          <div className="blog-tag">{tag}</div>
+        {blog.tags.map((tag, index) => (
+          <div key={index} className="blog-tag">
+            {tag}
+          </div>
         ))}
       </div>
     </>

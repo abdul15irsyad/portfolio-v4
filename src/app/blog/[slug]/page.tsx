@@ -22,6 +22,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
   return {
     title: title,
+    keywords: blog.tags,
     description,
     twitter: {
       title: title,
@@ -44,7 +45,6 @@ const BlogDetail = ({ params }) => {
       <div className="container">
         <div className="row">
           <div className="col-xl-9">
-            <h1 className="blog-detail-title">{blog.title}</h1>
             <Blog blog={blog} />
           </div>
           <div className="col-xl-3 blog-sidebar">

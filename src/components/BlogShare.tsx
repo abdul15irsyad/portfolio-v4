@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+// import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
   const links = [
@@ -30,21 +30,29 @@ const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
       icon: 'twitter',
       tooltip: 'share to Twitter',
     },
+    {
+      type: 'social-media',
+      href: `https://t.me/share/url?url=${blogUrl}`,
+      icon: 'telegram',
+      tooltip: 'share to Telegram',
+    },
   ];
   return (
     <>
       {links.map((link, index) => (
-        <OverlayTrigger
-          key={index}
-          overlay={<Tooltip id={`tooltip-test`}>{link.tooltip}</Tooltip>}
-          placement="bottom"
-        >
+        // <OverlayTrigger
+        //   key={index}
+        //   overlay={<Tooltip id={`tooltip-test`}>{link.tooltip}</Tooltip>}
+        //   placement="bottom"
+        // >
+        <>
           {link.type === 'copy-link' ? (
-            <div className="blog-detail-share-item">
+            <div key={index} className="blog-detail-share-item">
               <i className="bi bi-clipboard"></i>
             </div>
           ) : (
             <Link
+              key={index}
               href={link.href!}
               target="_blank"
               className="blog-detail-share-item"
@@ -52,7 +60,8 @@ const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
               <i className={`bi bi-${link.icon}`}></i>
             </Link>
           )}
-        </OverlayTrigger>
+        </>
+        // </OverlayTrigger>
       ))}
     </>
   );
