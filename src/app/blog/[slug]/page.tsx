@@ -12,19 +12,20 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const blog = getBlog(params.slug);
   if (!blog) notFound();
   const title = `${blog.title} - Irsyad Abdul`;
-  const description = sanitize(blog.content, {
+  const description = `${sanitize(blog.content, {
     ...defaultSanitizeOptions,
   })
     .split(' ')
-    .slice(0, 50)
+    .slice(0, 20)
     .join(' ')
-    .trim();
+    .trim()}...`;
 
   return {
     title: title,
     keywords: blog.tags,
     description,
     twitter: {
+      card: 'summary',
       title: title,
       images: [blog?.featureImage.url],
       description,
