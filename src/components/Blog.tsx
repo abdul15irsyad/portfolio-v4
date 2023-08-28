@@ -26,7 +26,7 @@ const Blog = ({ blog }: { blog: Blog }) => {
   });
   return (
     <>
-      <h1 className="blog-detail-title">{blog.title}s</h1>
+      <h1 className="blog-detail-title">{blog.title}</h1>
       <div className="blog-detail-meta">
         <div className="blog-author">
           <Image

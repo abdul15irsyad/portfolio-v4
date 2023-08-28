@@ -8,6 +8,10 @@ const nextConfig = {
         hostname: 'localhost',
         port: '4000',
       },
+      {
+        protocol: 'https',
+        hostname: 'irsyadabdul.my.id',
+      },
     ],
   },
 };
