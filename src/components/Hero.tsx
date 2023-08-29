@@ -69,7 +69,7 @@ const Hero = () => {
             </Link>
           </div>
           <div className="col-md-6 hero-image mb-3">
-            <Image src="/hero.png" alt="hero" width={400} height={400} />
+            <Image src="/hero2.png" alt="hero" width={400} height={400} />
           </div>
         </div>
       </div>

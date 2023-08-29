@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
+import { APP_NAME } from '@/configs/app.config';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import MyNavbar from '@/components/Navbar';
@@ -13,7 +14,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Irsyad Abdul',
+  title: APP_NAME,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   metadataBase: new URL('https://irsyadabdul.my.id/'),
   keywords: [
@@ -28,23 +29,19 @@ export const metadata: Metadata = {
     'project',
   ],
   twitter: {
-    title: 'Irsyad Abdul',
+    title: APP_NAME,
     images: '/meta-image.jpg',
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
   openGraph: {
     url: new URL('https://irsyadabdul.my.id/'),
-    title: 'Irsyad Abdul',
+    title: APP_NAME,
     images: '/meta-image.jpg',
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={plusJakartaSans.className}>

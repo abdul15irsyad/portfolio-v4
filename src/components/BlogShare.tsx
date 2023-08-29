@@ -14,6 +14,12 @@ const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
     // },
     {
       type: 'social-media',
+      href: `https://www.linkedin.com/shareArticle?mini=true&url=${blogUrl}`,
+      icon: 'linkedin',
+      tooltip: 'share to Linkedin',
+    },
+    {
+      type: 'social-media',
       href: `whatsapp://send?text=${blogUrl}`,
       icon: 'whatsapp',
       tooltip: 'share to Whatsapp',
