@@ -2,7 +2,7 @@ export interface Blog {
   id: string;
   title: string;
   slug: string;
-  author: {
+  author?: {
     name: string;
     photo: {
       originalFileName: string;
@@ -15,6 +15,7 @@ export interface Blog {
   };
   content: string;
   tags: string[];
+  publishedAt?: string;
   createdAt: string;
   updatedAt: string;
 }

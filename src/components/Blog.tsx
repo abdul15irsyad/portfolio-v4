@@ -28,19 +28,21 @@ const Blog = ({ blog }: { blog: Blog }) => {
     <>
       <h1 className="blog-detail-title">{blog.title}</h1>
       <div className="blog-detail-meta">
-        <div className="blog-author">
-          <Image
-            src={blog.author.photo.url}
-            alt={blog.author.photo.originalFileName}
-            className="blog-author-img"
-            width={100}
-            height={100}
-          />
-          <span className="blog-author-name">{blog.author.name}</span>
-        </div>
+        {blog.author && (
+          <div className="blog-author">
+            <Image
+              src={blog.author.photo.url}
+              alt={blog.author.photo.originalFileName}
+              className="blog-author-img"
+              width={100}
+              height={100}
+            />
+            <span className="blog-author-name">{blog.author.name}</span>
+          </div>
+        )}
         <div className="blog-detail-created-at">
           <i className="bi bi-calendar4-week"></i>
-          {renderTimestamp(blog.createdAt)}
+          {renderTimestamp(blog.publishedAt!)}
         </div>
       </div>
       <div className="blog-detail-feature-image">

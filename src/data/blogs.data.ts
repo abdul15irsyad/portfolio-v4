@@ -1,5 +1,6 @@
 import { BASE_URL } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
+import dayjs from 'dayjs';
 
 export const blogs: Blog[] = [
   {
@@ -191,27 +192,100 @@ export const blogs: Blog[] = [
     <p>
     baik itu saja setup <code>database</code> di <code>nest js</code> dengan <code>typeorm</code>, masih banyak yang bisa dilakukan mengenai <code>migration</code> & <code>seeder</code> nya, tinggal disesuaikan dengan kebutuhan masing-masing project dan tips dari saya adalah buatkan logika untuk data <code>dummy</code> yang tidak akan dimasukkan di environment <code>production</code>, karena sesuai namanya data tersebut hanyalah data untuk contoh saja.
     </p>
+    <br>
+    <br>
     <p>
-    jika ada kekurangan mohon maaf, semoga bermanfaat :-)
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
     </p>
     </article>
     `,
+    publishedAt: '2023-08-28 12:04:34.788 +0700',
     tags: ['nestjs', 'typeorm', 'postgresql', 'typescript'],
     createdAt: '2023-08-28 12:04:34.788 +0700',
     updatedAt: '2023-08-28 12:04:34.788 +0700',
   },
-  // {
-  //   id: 'bd7a365d-b8ca-40c9-81f2-10ebaed28304',
-  //   title: 'Judul Baru',
-  //   slug: 'judul-baru',
-  //   featureImage: {
-  //     originalFileName: 'gsms.jpg',
-  //     url: `${BASE_URL}/portfolio/gsms-1.png`,
-  //   },
-  //   content: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  //   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
-  //   tags: ['nestjs', 'frontend', 'kemdikbud', 'fullstack'],
-  //   createdAt: '2023-02-27 01:50:34.788 +0700',
-  //   updatedAt: '2023-08-26 12:04:34.788 +0700',
-  // },
-];
+  {
+    id: '79d35e33-c391-473c-a0a5-0e9c504f2cf6',
+    title: 'Prinsip Penggunaan Seeder di Suatu Project',
+    slug: 'prinsip-penggunaan-seeder-di-suatu-project',
+    featureImage: {
+      originalFileName: 'prinsip-penggunaan-seeder-di-suatu-project.png',
+      url: `${BASE_URL}/blog/prinsip-penggunaan-seeder-di-suatu-project.png`,
+    },
+    author: {
+      name: 'irsyad abdul',
+      photo: {
+        originalFileName: 'abdul15irsyad.jpg',
+        url: `${BASE_URL}/blog/abdul15irsyad.jpg`,
+      },
+    },
+    content: `
+    <article>
+    <p>
+    halooooo.... kali ini saya mau sharing mengenai konsep sedikit yakni penggunaan <code>seeder</code> di suatu project, pada umumnya <code>seeding</code> adalah proses mengisi data di suatu table yang sudah ada di seluruh environment yang ada baik itu <code>production</code>, <code>staging</code>, maupun <code>dev</code>. 
+    </p>
+    <p>
+    bayangin kita punya suatu aplikasi <code>e-commerce</code> dimana terdapat halaman list produk-produk yang akan dilihat oleh publik, dari bagian <code>frontend developer</code> sudah membuat code untuk tampilan produk dengan data <code>endpoint</code> dari backend, namun belum ada data yang dapat ditampilkan, maka akan menimbulkan kekhawatiran apakah sudah sesuai dengan yang direncanakan atau belum (yaaa walaupun misal <code>frontend</code> sudah mencoba dengan data <code>static</code> pastinya), nah maka dari itu <code>seeder</code> dapat menjadi solusi untuk menyelesaikan permasalahan tersebut.
+    </p>
+    <p>
+    oke kita bahas dulu keuntungan menggunakan <code>seeder</code> di project yang sedang kita kembangkan
+    </p>
+    <ul>
+    <li><strong>mempermudah proses <code>development</code></strong><br>misal ketika kita membuat fitur <code>pagination</code>, kita perlu menge-test apakah fitur tersebut bekerja dengan baik saat data halaman ke-2 atau seterusnya diambil, maka dari itu kita perlu data-data contoh atau data <code>dummy</code>, karena jika tidak ada data maka kita belum yakin apakah sudah berjalan dengan baik atau belum.
+    </li>
+    <li><strong>mempermudah proses <code>deployment</code></strong><br>jika terdapat data yang dibutuhkan untuk <code>production</code>, maka kita cukup membuat <code>seeder</code> untuk data tersebut, saat sudah di-<code>push</code> ke server <code>production</code> tinggal dijalankan <code>seeder</code> nya maka data tersebut sudah ditambahkan ke <code>database production</code>.
+    </li>
+    <li><strong>mempermudah tim <code>developer</code> (jika dikerjakan lebih dari 1 orang)</strong><br>saat project dikerjakan lebih dari 1 orang, maka masing-masing ada kemungkinan memerlukan data <code>production</code>, yang bisa jadi akan menjadi <code>bug</code> (level no data) jika <code>developer</code> lain menjalankan projectnya namun data yang dibutuhkan tidak ada, dengan adanya <code>seeder</code>, kondisi tersebut dapat diatasi dengan mudah.
+    </li>
+    <li><strong>mempermudah <code>frontend developer</code></strong><br>saat frontend developer membuat tampilan, akan lebih baik jika terdapat contoh data untuk memvisualisasikan tampilan yang sudah dibuat, agar lebih yakin bahwa sudah sesuai dengan desain yang diharapkan
+    </li>
+    </ul>
+    <p>
+    mungkin masih banyak keuntungan-keuntungan lain yang saya kurang ngeh, setelah kita telah tahu apa keuntungannya, ada beberapa hal yang perlu kita perhatikan saat membuat seeder agar nantinya kita tidak mengalami kesulitan di kemudian hari
+    </p>
+    <h3>Timestamp Nama File</h3>
+    <p>
+    di beberapa orm seperti <code>typeorm</code> (dengan library <a href="https://www.npmjs.com/package/@jorgebodega/typeorm-seeding" target="_blank"><code>@jorgebodega/typeorm-seeding</code></a>), <code>seeder</code> akan dijalankan berdasarkan urutan nama file di folder yang telah ditentukan, akan lebih mudah jika kita menamakan semua file <code>seeder</code> berdasarkan kapan waktu file tersebut dibuat lalu dilanjut nama file seperti biasa, jadi ketika kita menambahkan <code>seeder</code> baru, maka otomatis sudah terurutkan (kira-kira seperti ini <code>1692867883026-users.seeder.ts</code>).
+    </p>
+    <h3>Environment</h3>
+    <p>
+    kita perlu membuat kondisi untuk <code>seeder</code> apa saja yang akan dijalankan di <code>environment</code> tertentu, pastinya data <code>dummy</code> tidak akan ditambahkan di <code>production</code>, karena data tersebut diperuntukkan hanya di <code>environment development</code>. cukup menambahkan logic <code>if</code> di awal file <code>seeder</code> nya seperti berikut
+    </p>
+    <pre>
+    <code class="language-typescript">if (process.env.NODE_ENV !== 'production') {\n  \/\/ isi dari seedernya\n}</code>
+    </pre>
+    <h3>Historical Seeder</h3>
+    <p>
+    seperti tulisan saya sebelumnya <a href="${BASE_URL}/blog/nest-js-setup-database-with-typeorm" target="_blank">di sini</a>, diperlukan table <code>seeder</code> (di beberapa <code>orm</code> belum dibuatkan) untuk menyimpan data-data <code>seeder</code> yang telah dieksekusi agar <code>seeder</code> yang telah dijalankan tidak dieksekusi 2 kali, dan saat menjalankan <code>seeder</code> yang baru hanya perlu running semua <code>seeder</code> (otomatis hanya menjalankan yang belum dieksekusi karena telah dicek kondisinya).
+    </p>
+    <pre>
+    <code class="language-typescript">if (\n  await datasource\n    .getRepository(SeederEntity)\n    .findOneBy({ name: UsersSeeder1692867883026.name }) // diambil dari nama seeder nya\n){\n  return;\n}</code>
+    </pre>
+    <h3>Buat Id Untuk Data Production Menjadi Static</h3>
+    <p>
+    saya pernah mengalami kendala ketika saya membuat data <code>seeder</code> untuk <code>production</code> (misal seperti data <code>role</code>), saya men-generate <code>uuid</code> saat proses <code>seeder</code> dijalankan, namun <code>id</code> yang ada di <code>development</code> berbeda dengan <code>id</code> yang ada di <code>production</code>, ini akan menjadi problem ketika kita hendak migrasi <code>database</code> ke server lain, walaupun case ini jarang, namun saya lebih menyarankan untuk membuat <code>id</code> nya menjadi static (dibuatkan manual <code>uuid</code> nya), bisa melalui website berikut <a href="https://www.uuidgenerator.net/" target="_blank">Online UUID Generator Tool</a>.
+    </p>
+    <pre>
+    <code class="language-typescript">const roles: DeepPartial&lt;Role&gt;[] = [\n  {\n    id: 'b7a32203-9ec2-46ab-bb15-fefbd688cfee',\n    name: 'Super Administrator',\n    slug: 'super-administrator' \n  },\n  {\n    id: 'dc3c5465-4429-45ea-be10-9e39cba6997f',\n    name: 'User',\n    slug: 'user' \n  },\n  {\n    id: '9b3d9a9f-05a5-4ee4-9220-854042e88c5a',\n    name: 'Editor',\n    slug: 'editor' \n  }\n];</code>
+    </pre>
+    <h3>Tidak Mengubah Seeder Yang Sudah Dijalankan Di Production</h3>
+    <p>
+    ada kalanya kita salah input data atau ada perubahan table di <code>migration</code> nya, maka dari itu perlu ada penyesuaian pula di data-data nya melalui <code>seeder</code>. dibanding mengubah <code>seeder</code> yang ada, akan lebih baik jika perubahan-perubahan data yang baru dibuatkan <code>seeder</code> baru pula (ini berlaku juga dalam case <code>migration</code>), karena <code>seeder</code> yang lama tidak akan dijalankan lagi di <code>production</code>.
+    </p>
+    <br>
+    <br>
+    <p>
+    oke itu saja yang mau saya share, mungkin saja ada hal-hal lain yang perlu diperhatikan saat pembuatan <code>seeder</code> menyesuaikan kondisi dari project tersebut.
+    </p>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['typeorm', 'seeder', 'uuid', 'typescript'],
+    createdAt: '2023-09-04 10:54:24.403 +0700',
+    updatedAt: '2023-09-04 10:54:24.403 +0700',
+  },
+]
+  .filter((blog) => blog.publishedAt)
+  .sort((a, b) => (dayjs(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1));

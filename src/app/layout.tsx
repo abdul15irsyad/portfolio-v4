@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: APP_NAME,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   metadataBase: new URL('https://irsyadabdul.my.id/'),
+  other: {
+    'google-site-verification': '-204Rp6WHentTB7kMjizFhmMKYllQEah-eSEZ-SyG8A',
+  },
   keywords: [
     'backend developer',
     'fullstack developer',

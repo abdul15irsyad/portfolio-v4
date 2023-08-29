@@ -3,7 +3,6 @@
 import BlogItem from '@/components/BlogItem';
 import ComingSoon from '@/components/ComingSoon';
 import { blogs } from '@/data/blogs.data';
-import dayjs from 'dayjs';
 import React from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 
@@ -14,9 +13,7 @@ export default () => {
   const isBlogSearchPublished = process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED
     ? Boolean(JSON.parse(process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED))
     : false;
-  const sortedBlogs = blogs.sort((a, b) =>
-    dayjs(a.createdAt).isBefore(b.createdAt) ? 1 : -1,
-  );
+
   const allTags = [...new Set(blogs.map((blog) => blog.tags).flat())].sort(
     (a, b) => (a > b ? 1 : -1),
   );
@@ -39,7 +36,7 @@ export default () => {
         </div>
         <div className="row">
           <div className="col-xl-9 col-12">
-            {sortedBlogs.map((blog) => (
+            {blogs.map((blog) => (
               <BlogItem key={blog.id} blog={blog} />
             ))}
           </div>

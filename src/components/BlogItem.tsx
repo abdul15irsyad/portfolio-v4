@@ -24,19 +24,21 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           {blog.title}
         </Link>
         <div className="blog-meta">
-          <div className="blog-author">
-            <Image
-              src={blog.author.photo.url}
-              alt={blog.author.photo.originalFileName}
-              className="blog-author-img"
-              width={100}
-              height={100}
-            />
-            <span className="blog-author-name">{blog.author.name}</span>
-          </div>
+          {blog.author && (
+            <div className="blog-author">
+              <Image
+                src={blog.author.photo.url}
+                alt={blog.author.photo.originalFileName}
+                className="blog-author-img"
+                width={100}
+                height={100}
+              />
+              <span className="blog-author-name">{blog.author.name}</span>
+            </div>
+          )}
           <div className="blog-created-at">
             <i className="bi bi-calendar4-week"></i>
-            {renderTimestamp(blog.createdAt)}
+            {renderTimestamp(blog.publishedAt!)}
           </div>
         </div>
         <div
