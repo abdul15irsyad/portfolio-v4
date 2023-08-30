@@ -38,7 +38,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   };
 }
 
-const BlogDetail = ({ params }) => {
+const BlogDetail = ({ params, searchParams }) => {
   const blog = getBlog(params.slug);
   if (!blog) notFound();
   return (
@@ -46,7 +46,7 @@ const BlogDetail = ({ params }) => {
       <div className="container">
         <div className="row">
           <div className="col-xl-8 col-lg-9">
-            <Blog blog={blog} />
+            <Blog blog={blog} searchParams={searchParams} />
           </div>
           <div className="col-xl-3 offset-xl-1 col-lg-3 blog-sidebar">
             <div className="blog-detail-share box-container">

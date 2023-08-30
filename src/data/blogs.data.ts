@@ -275,8 +275,9 @@ export const blogs: Blog[] = [
     </p>
     </article>
     `,
-    tags: ['seeder', 'uuid', 'typescript'],
+    tags: ['seeder', 'uuid', 'postgresql', 'typescript'],
     publishedAt: undefined,
+    // publishedAt: '2023-09-04 10:54:24.403 +0700',
     createdAt: '2023-09-04 10:54:24.403 +0700',
     updatedAt: '2023-09-04 10:54:24.403 +0700',
   },

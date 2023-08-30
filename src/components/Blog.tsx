@@ -2,12 +2,14 @@
 
 import { renderTimestamp } from '@/utils/date.util';
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import hljs from 'highlight.js';
 import { Blog } from '@/types/blog.type';
 import CopyButtonPlugin from 'highlightjs-copy';
 import 'highlight.js/styles/androidstudio.css';
 import 'highlightjs-copy/dist/highlightjs-copy.min.css';
+import { useRouter } from 'next/navigation';
+import { setQueryString } from '@/utils/url.util';
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el) => {
@@ -20,7 +22,11 @@ hljs.addPlugin(
   }),
 );
 
-const Blog = ({ blog }: { blog: Blog }) => {
+const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
+  const router = useRouter();
+  const addQueryString = useCallback(setQueryString(searchParams), [
+    searchParams,
+  ]);
   useEffect(() => {
     hljs.initHighlighting();
   });
@@ -60,7 +66,11 @@ const Blog = ({ blog }: { blog: Blog }) => {
       />
       <div className="blog-detail-tags">
         {blog.tags.map((tag, index) => (
-          <div key={index} className="blog-tag">
+          <div
+            key={index}
+            className="blog-tag"
+            onClick={() => router.push(`/blog?${addQueryString('tag', tag!)}`)}
+          >
             {tag}
           </div>
         ))}

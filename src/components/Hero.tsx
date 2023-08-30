@@ -21,13 +21,10 @@ const Hero = () => {
       loop: true,
     });
 
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
-  const whatsappLink =
-    'https://api.whatsapp.com/send?phone=6288809151020&text=Assalamualaikum';
+  const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
+    ?.href;
   return (
     <div className="hero section bg-light mb-0" id="hero">
       <div className="container">
@@ -60,7 +57,7 @@ const Hero = () => {
               <span ref={typedText}></span>
             </h4>
             <Link
-              href={whatsappLink}
+              href={whatsappLink!}
               target="_blank"
               className="btn btn-primary contact-me px-3"
             >
