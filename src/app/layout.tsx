@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
-import { APP_NAME } from '@/configs/app.config';
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import MyNavbar from '@/components/Navbar';
@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: APP_NAME,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  metadataBase: new URL('https://irsyadabdul.my.id/'),
+  metadataBase: new URL(BASE_URL),
   other: {
     'google-site-verification': '-204Rp6WHentTB7kMjizFhmMKYllQEah-eSEZ-SyG8A',
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
   openGraph: {
-    url: new URL('https://irsyadabdul.my.id/'),
+    url: new URL(BASE_URL),
     title: APP_NAME,
     images: '/meta-image.jpg',
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',

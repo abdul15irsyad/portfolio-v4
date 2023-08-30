@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
 import dayjs from 'dayjs';
+import { authors } from './authors.data';
 
 export const blogs: Blog[] = [
   {
@@ -9,15 +10,11 @@ export const blogs: Blog[] = [
     slug: 'nest-js-setup-database-with-typeorm',
     featureImage: {
       originalFileName: 'nest-js-setup-database-with-typeorm.jpg',
-      url: `/blog/nest-js-setup-database-with-typeorm.jpg`,
+      url: `${BASE_URL}/blog/nest-js-setup-database-with-typeorm.jpg`,
     },
-    author: {
-      name: 'irsyad abdul',
-      photo: {
-        originalFileName: 'abdul15irsyad.jpg',
-        url: `/blog/abdul15irsyad.jpg`,
-      },
-    },
+    author: authors.find(
+      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    ),
     content: `
     <article>
     <p>
@@ -206,19 +203,15 @@ export const blogs: Blog[] = [
   },
   {
     id: '79d35e33-c391-473c-a0a5-0e9c504f2cf6',
-    title: 'Prinsip Penggunaan Seeder di Suatu Project',
-    slug: 'prinsip-penggunaan-seeder-di-suatu-project',
+    title: 'Penggunaan Seeder di Suatu Project',
+    slug: 'penggunaan-seeder-di-suatu-project',
     featureImage: {
-      originalFileName: 'prinsip-penggunaan-seeder-di-suatu-project.png',
-      url: `/blog/prinsip-penggunaan-seeder-di-suatu-project.png`,
+      originalFileName: 'penggunaan-seeder-di-suatu-project.png',
+      url: `${BASE_URL}/blog/penggunaan-seeder-di-suatu-project.png`,
     },
-    author: {
-      name: 'irsyad abdul',
-      photo: {
-        originalFileName: 'abdul15irsyad.jpg',
-        url: `/blog/abdul15irsyad.jpg`,
-      },
-    },
+    author: authors.find(
+      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    ),
     content: `
     <article>
     <p>

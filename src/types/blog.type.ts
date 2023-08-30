@@ -1,14 +1,10 @@
+import { Author } from './author.type';
+
 export interface Blog {
   id: string;
   title: string;
   slug: string;
-  author?: {
-    name: string;
-    photo: {
-      originalFileName: string;
-      url: string;
-    };
-  };
+  author?: Author;
   featureImage: {
     originalFileName: string;
     url: string;

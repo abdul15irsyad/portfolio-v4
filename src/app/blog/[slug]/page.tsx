@@ -45,16 +45,18 @@ const BlogDetail = ({ params }) => {
     <div className="blog-detail section doodle-background">
       <div className="container">
         <div className="row">
-          <div className="col-xl-9">
+          <div className="col-xl-8 col-lg-9">
             <Blog blog={blog} />
           </div>
-          <div className="col-xl-3 blog-sidebar">
+          <div className="col-xl-3 offset-xl-1 col-lg-3 blog-sidebar">
             <div className="blog-detail-share box-container">
               <h5 className="box-container-title">
                 <i className="bi bi-share"></i>
                 <span>Share</span>
               </h5>
-              <BlogShare blogUrl={`${BASE_URL}/blog/${blog.slug}`} />
+              <div className="blog-detail-share-items">
+                <BlogShare blogUrl={`${BASE_URL}/blog/${blog.slug}`} />
+              </div>
             </div>
           </div>
         </div>
