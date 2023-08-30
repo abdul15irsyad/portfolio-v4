@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Script from 'next/script';
+import { ENV } from '@/configs/app.config';
 
 interface Props {
   children: React.ReactNode;
@@ -15,17 +16,18 @@ export default function AnalyticsProvider({ children }: Props) {
   return (
     <>
       {children}
-      {/* <GoogleAnalytics trackPageViews /> */}
-      <Script
-        id="google-analytics-js-cdn"
-        src={`${DOMAIN}/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {ENV === 'production' && (
+        <>
+          <Script
+            id="google-analytics-js-cdn"
+            src={`${DOMAIN}/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -36,8 +38,10 @@ export default function AnalyticsProvider({ children }: Props) {
                  first_party_collection: true
               });
           `,
-        }}
-      />
+            }}
+          />
+        </>
+      )}
     </>
   );
 }
