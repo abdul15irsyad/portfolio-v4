@@ -9,13 +9,13 @@ export const blogs: Blog[] = [
     slug: 'nest-js-setup-database-with-typeorm',
     featureImage: {
       originalFileName: 'nest-js-setup-database-with-typeorm.jpg',
-      url: `${BASE_URL}/blog/nest-js-setup-database-with-typeorm.jpg`,
+      url: `/blog/nest-js-setup-database-with-typeorm.jpg`,
     },
     author: {
       name: 'irsyad abdul',
       photo: {
         originalFileName: 'abdul15irsyad.jpg',
-        url: `${BASE_URL}/blog/abdul15irsyad.jpg`,
+        url: `/blog/abdul15irsyad.jpg`,
       },
     },
     content: `
@@ -210,13 +210,13 @@ export const blogs: Blog[] = [
     slug: 'prinsip-penggunaan-seeder-di-suatu-project',
     featureImage: {
       originalFileName: 'prinsip-penggunaan-seeder-di-suatu-project.png',
-      url: `${BASE_URL}/blog/prinsip-penggunaan-seeder-di-suatu-project.png`,
+      url: `/blog/prinsip-penggunaan-seeder-di-suatu-project.png`,
     },
     author: {
       name: 'irsyad abdul',
       photo: {
         originalFileName: 'abdul15irsyad.jpg',
-        url: `${BASE_URL}/blog/abdul15irsyad.jpg`,
+        url: `/blog/abdul15irsyad.jpg`,
       },
     },
     content: `
@@ -283,6 +283,7 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['typeorm', 'seeder', 'uuid', 'typescript'],
+    publishedAt: '2023-09-04 10:54:24.403 +0700',
     createdAt: '2023-09-04 10:54:24.403 +0700',
     updatedAt: '2023-09-04 10:54:24.403 +0700',
   },

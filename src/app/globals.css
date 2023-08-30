@@ -645,8 +645,9 @@ ul li {
 .blog-sidebar .blog-detail-share .blog-detail-share-item{
   cursor: pointer;
   display: inline-block;
-  padding: .5rem .75rem;
-  margin-right: .5rem;
+  padding: .4rem .65rem;
+  margin-right: .4rem;
+  margin-bottom: .4rem;
   /* color: #185242; */
   color: var(--bs-primary);
   border-radius: .5rem;

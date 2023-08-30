@@ -27,7 +27,7 @@ const Footer = () => {
                         </li>
                       </Link>
                     ) : (
-                      <li>
+                      <li key={index}>
                         <i className={`bi bi-${icon}`}></i>
                         <span>{label}</span>
                       </li>
