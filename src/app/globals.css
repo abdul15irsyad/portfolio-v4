@@ -975,6 +975,10 @@ ul li {
   .blog-detail .blog-detail-feature-image img{
     height: 200px;
   }
+  .blog-detail article img.img-sm,
+  .blog-detail article img.img-md{
+    width: 100%;
+  }
 }
 
 /* carousel */
