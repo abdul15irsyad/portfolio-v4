@@ -1,15 +1,16 @@
+import { APP_NAME } from '@/configs/app.config';
 import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Blog - Irsyad Abdul',
+  title: `Blog - ${APP_NAME}`,
   description: 'My blog for sharing about programming or anything',
   twitter: {
-    title: 'Blog - Irsyad Abdul',
+    title: `Blog - ${APP_NAME}`,
     description: 'My blog for sharing about programming or anything',
   },
   openGraph: {
-    title: 'Blog - Irsyad Abdul',
+    title: `Blog - ${APP_NAME}`,
     description: 'My blog for sharing about programming or anything',
   },
 };

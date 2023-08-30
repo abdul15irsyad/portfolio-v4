@@ -14,7 +14,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: APP_NAME,
+  title: `${APP_NAME} - Web Portfolio`,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   metadataBase: new URL(BASE_URL),
   other: {

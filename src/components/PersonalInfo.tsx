@@ -16,7 +16,7 @@ const PersonalInfo = () => {
           </div>
           <div className="col-md-8 col-12 align-self-center">
             <p>
-              Saya adalah seorang <strong>Fullstack Developer</strong> dengan
+              Saya seorang <strong>Fullstack Developer</strong> dengan
               pengalaman 3+ tahun, dimana saya memiliki prinsip{' '}
               <strong>"keep improving"</strong> karena saya merasa dalam dunia
               pengembangan web/aplikasi kita perlu terus menerus mempelajari

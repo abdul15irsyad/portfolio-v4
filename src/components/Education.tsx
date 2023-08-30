@@ -22,7 +22,7 @@ const Education = () => {
               if (major) meta.push(major);
               return (
                 <Card key={index} className="education-item">
-                  <Card.Img variant="top" src={icon} />
+                  <Card.Img variant="top" src={icon} alt={icon} title={icon} />
                   <Card.Body>
                     <Card.Title>{institution}</Card.Title>
                     <Card.Subtitle className="text-secondary">

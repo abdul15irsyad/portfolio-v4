@@ -8,12 +8,10 @@ import Empty from '@/components/Empty';
 import { useRouter } from 'next/navigation';
 import { Blog } from '@/types/blog.type';
 import { setQueryString } from '@/utils/url.util';
+import { ENV } from '@/configs/app.config';
 
 const BlogPage = ({ searchParams }) => {
   const router = useRouter();
-  const isBlogSearchPublished = process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED
-    ? Boolean(JSON.parse(process.env.NEXT_PUBLIC_IS_BLOG_SEARCH_PUBLISHED))
-    : false;
   const tag = Array.isArray(searchParams.tag)
     ? searchParams.tag[searchParams.tag.length - 1]
     : searchParams.tag;
@@ -34,7 +32,7 @@ const BlogPage = ({ searchParams }) => {
             <div className="col">
               <h1 className="title">Blog</h1>
               <hr />
-              {isBlogSearchPublished && (
+              {ENV === 'development' && (
                 <InputGroup className="search-bar mb-3">
                   <InputGroup.Text>
                     <i className="bi bi-search"></i>
@@ -68,17 +66,19 @@ const BlogPage = ({ searchParams }) => {
                   <i className="bi bi-tags"></i>
                   <span>All Tags</span>
                 </h5>
-                {allTags.map((tag, index) => (
-                  <div
-                    key={index}
-                    className="blog-tag"
-                    onClick={() =>
-                      router.push(`/blog?${addQueryString('tag', tag!)}`)
-                    }
-                  >
-                    {tag}
-                  </div>
-                ))}
+                <div className="blog-tags">
+                  {allTags.map((tag, index) => (
+                    <div
+                      key={index}
+                      className="blog-tag"
+                      onClick={() =>
+                        router.push(`/blog?${addQueryString('tag', tag!)}`)
+                      }
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

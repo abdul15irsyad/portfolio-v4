@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/configs/app.config';
+import { BASE_URL, ENV } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
 import dayjs from 'dayjs';
 import { authors } from './authors.data';
@@ -276,8 +276,8 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['seeder', 'uuid', 'postgresql', 'typescript'],
-    publishedAt: undefined,
-    // publishedAt: '2023-09-04 10:54:24.403 +0700',
+    publishedAt:
+      ENV === 'development' ? '2023-09-04 10:54:24.403 +0700' : undefined,
     createdAt: '2023-09-04 10:54:24.403 +0700',
     updatedAt: '2023-09-04 10:54:24.403 +0700',
   },
