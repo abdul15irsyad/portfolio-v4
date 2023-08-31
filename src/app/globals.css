@@ -22,6 +22,12 @@ html {
   scroll-padding-top: 50px;
 }
 
+@media(max-width: 567px){
+  html{
+    font-size: 14px !important;
+  }
+}
+
 body {
   min-height: 100vh;
 }
@@ -62,6 +68,7 @@ ul li {
   right: .5rem !important;
   transform: none !important;
 }
+
 .hljs-copy-button:hover{
   background-color: rgba(255,255,255,.1);
 }

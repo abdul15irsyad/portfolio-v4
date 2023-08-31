@@ -25,6 +25,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     title: title,
     keywords: blog.tags,
     description,
+    authors: [{ name: blog.author?.name }],
     twitter: {
       card: 'summary',
       title: title,
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     },
     openGraph: {
       title: title,
+      authors: blog.author?.name,
       images: [blog?.featureImage.url],
       description,
     },
