@@ -10,7 +10,7 @@ import { Blog } from '@/types/blog.type';
 import { setQueryString } from '@/utils/url.util';
 import { ENV } from '@/configs/app.config';
 
-const BlogPage = ({ searchParams }) => {
+const Blog = ({ searchParams }) => {
   const router = useRouter();
   const tag = Array.isArray(searchParams.tag)
     ? searchParams.tag[searchParams.tag.length - 1]
@@ -88,4 +88,4 @@ const BlogPage = ({ searchParams }) => {
   );
 };
 
-export default BlogPage;
+export default Blog;
