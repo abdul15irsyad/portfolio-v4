@@ -647,7 +647,7 @@ ul li {
 
 .blog .blog-sidebar .blog-tags{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-wrap: wrap;
   gap: .5rem
 }
@@ -662,6 +662,10 @@ ul li {
 }
 
 @media(max-width: 991px){
+  .blog .blog-sidebar .blog-tags{
+    justify-content: center;
+  }
+
   .blog .blog-filter .blog-filter-heading{
     font-size: 24px;
     text-align: center;
