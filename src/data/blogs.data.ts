@@ -1,4 +1,4 @@
-import { BASE_URL, ENV } from '@/configs/app.config';
+import { BASE_URL } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
 import dayjs from 'dayjs';
 import { authors } from './authors.data';
