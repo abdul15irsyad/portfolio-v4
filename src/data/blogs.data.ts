@@ -276,10 +276,9 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['seeder', 'uuid', 'postgresql', 'typescript'],
-    publishedAt:
-      ENV === 'development' ? '2023-09-04 10:54:24.403 +0700' : undefined,
-    createdAt: '2023-09-04 10:54:24.403 +0700',
-    updatedAt: '2023-09-04 10:54:24.403 +0700',
+    publishedAt: '2023-09-04 10:32:24.403 +0700',
+    createdAt: '2023-09-04 10:32:24.403 +0700',
+    updatedAt: '2023-09-04 10:32:24.403 +0700',
   },
 ]
   .filter((blog) => blog.publishedAt)
