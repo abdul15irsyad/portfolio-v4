@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/configs/app.config';
+import { BASE_URL, ENV } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
 import dayjs from 'dayjs';
 import { authors } from './authors.data';
@@ -279,6 +279,155 @@ export const blogs: Blog[] = [
     publishedAt: '2023-09-04 10:32:24.403 +0700',
     createdAt: '2023-09-04 10:32:24.403 +0700',
     updatedAt: '2023-09-04 10:32:24.403 +0700',
+  },
+  {
+    id: '0287abee-7fff-4174-b5c1-988165c1081c',
+    title: 'Nest JS Authentication Menggunakan Passport JS - Part 1',
+    slug: 'nest-js-authentication-menggunakan-passport-js-part-1',
+    featureImage: {
+      originalFileName:
+        'nest-js-authentication-menggunakan-passport-part-1-min.jpg',
+      url: `${BASE_URL}/blog/nest-js-authentication-menggunakan-passport-part-1-min.jpg`,
+    },
+    author: authors.find(
+      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    ),
+    content: `
+    <article>
+    <p>
+    pagi, siang, malam teman-teman... dimanapun kalian berada semoga sehat selalu. saya mau share lagi mengenai nest js, untuk sekarang ini adalah fitur otentikasi (authentication) menggunakan <a href="https://www.passportjs.org/" target="_blank">Passport JS</a>, yakni kurang lebih fitur login pengguna, dan bagaimana membatasi endpoint yang hanya bisa diakses dengan jwt (json web token) yang valid sebagai tanda bahwa pengguna tersebut telah melakukan proses login yang mana ini adalah tulisan lanjutan dari tulisan <a href="/blog/nest-js-setup-database-with-typeorm" target="_blank">Nest JS Setup Database With TypeORM</a>.
+    </p>
+    <p>
+    kenapa aplikasi memerlukan otentikasi? jika web aplikasi yang kita bangun seperti landing page maka kita tidak memerlukan otentikasi karena semua pengguna hanya diperuntukkan untuk melihat informasi yang ditampilkan, namun jika kita memiliki suatu aplikasi yang hanya bisa diakses oleh orang tertentu atau perlu dibatasi antara masing-masing pengguna maka kita akan membatasi dengan proses otentikasi tersebut.
+    </p>
+    <p>
+    apa itu library passport? <strong>"passport merupakan pustaka otentikasi node js yang paling populer, sudah dikenal oleh banyak developer dan berhasil digunakan dalam banyak aplikasi"</strong> (generate dari chat gpt 😝). di nest js sendiri memiliki library untuk integrasi dengan passport yaitu <code>@nestjs/passport</code>. passport memiliki banyak strategi yang dapat diimplementasi dalam proses otentikasi seperti facebook, twitter, google, dll. namun yang ingin saya gunakan kali ini hanyalah local strategy (username & password) dan jwt strategy.
+    </p>
+    <p>
+    langsung aja dah gaaass...
+    </p>
+    <h3>1. Install Dependencies & Setup</h3>
+    <p>
+    oke pertama-tama kita implementasi yang local terlebih dahulu, kita perlu install beberapa dependencies yang dibutuhkan beserta package types nya
+    </p>
+    <pre>
+    <code class="language-bash">$ yarn add @nestjs/passport passport passport-local\n$ yarn add -D @types/passport-local</code>
+    </pre>
+    <p>
+    setelah berhasil meng-install, kita buat modul <code>auth</code> beserta service nya dengan <code>nestjs cli</code>, sebenernya bisa buat manual tapi biar keren aja
+    </p>
+    <pre>
+    <code class="language-bash">$ nest generate module auth\n$ nest generate service auth --no-spec</code>
+    </pre>
+    <p>
+    flag <code>--no-spec</code> agar tidak men-generate file testing (tidak diperlukan untuk tulisan ini), command <code>generate module</code> tesebut juga sudah otomatis menambahkan modul yang dibuat ke dalam list modul yang ada di file <code>app.module.ts</code>, jadi ga biar keren doangan.
+    </p>
+    <p>
+    lalu kita akan buat module <code>user</code> dan servicenya untuk memisahkan service yang berkaitan dengan user, agar dapat digunakan di tempat lain nantinya. kita bisa menyingkat command-nya agar lebih cepet kalo ngetik, lebih lengkapnya bisa lihat di dokumentasi <a href="https://docs.nestjs.com/cli/usages" target="_blank">nest js cli</a>.
+    </p>
+    <pre>
+    <code class="language-bash">$ nest g mo user\n$ nest g s user --no-spec</code>
+    </pre>
+    <p>
+    untuk penamaan nama modul dibebaskan mau menggunakan singular atau plural, tapi menurut saya yang harus diperhatikan adalah konsistensi di keseluruhan aplikasi agar tidak membingungkan nantinya dan kesepakatan sesama developer (kalo dikerjakan lebih dari 1 orang), jika memilih singular maka seluruh nama modul yang ada harus menggunakan singular, begitu pula jika memilih plural, di sini saya memilih singular.
+    </p>
+    <p>
+    pastikan kita sudah meng-import <code>TypeOrmModule</code> di <code>app.module.ts</code> dengan options <code>datasource</code> yang sudah dibuat sebelumnya, agar kita bisa menggunakan repository yang ada di typeorm.
+    </p>
+    <pre>
+    <code class="language-typescript">import { Module } from '@nestjs/common';\nimport { AppController } from './app.controller';\nimport { AppService } from './app.service';\nimport { AuthModule } from './auth/auth.module';\nimport { UserModule } from './user/user.module';\nimport { TypeOrmModule } from '@nestjs/typeorm';\nimport datasource from './database/datasource';\n\n@Module({\n  imports: [\n    TypeOrmModule.forRoot({ ...datasource.options, autoLoadEntities: true }),\n    AuthModule,\n    UserModule,\n  ],\n  controllers: [AppController],\n  providers: [AppService],\n})\nexport class AppModule {}</code>
+    </pre>
+    <h3>2. Membuat UserService</h3>
+    <p>
+    selanjutnya kita perlu meng-import <code>TypeOrmModule.forFeature</code> dan menyertakan entity <code>User</code> di file <code>src/user/user.module.ts</code>, jika tidak diimport maka kita tidak bisa meng-injectnya ke dalam service, kemudian sekalian kita masukkan <code>UserService</code> ke list <code>exports</code> supaya bisa digunakan di modul selain user (nanti akan kita gunakan di <code>AuthService</code>).
+    </p>
+    <pre>
+    <code class="language-typescript">import { Module } from '@nestjs/common';\nimport { UserService } from './user.service';\nimport { TypeOrmModule } from '@nestjs/typeorm';\nimport { User } from './entities/user.entity';\n\n@Module({\n  imports: [TypeOrmModule.forFeature([User])],\n  providers: [UserService],\n  exports: [UserService],\n})\nexport class UserModule {}</code>
+    </pre>
+    <p>
+    jika sudah ditambahkan maka kita bisa meng-inject repository ke dalam file user service yang akan kita buat seperti berikut
+    </p>
+    <pre>
+    <code class="language-typescript">import { Injectable } from '@nestjs/common';\nimport { InjectRepository } from '@nestjs/typeorm';\nimport { Repository } from 'typeorm';\nimport { User } from './entities/user.entity';\n\n@Injectable()\nexport class UserService {\n  constructor(@InjectRepository(User) private userRepo: Repository&lt;User&gt;) {}\n}</code>
+    </pre>
+    <p>
+    setelah itu tambahkan method <code>findOneWithPassword</code> di dalam <code>UserService</code> untuk mengambil 1 user dengan password, karena di tulisan sebelumnya diset untuk password default nya tidak akan ditampilkan (<code>select : false</code>)
+    </p>
+    <pre>
+    <code class="language-typescript">async findOneWithPassword(options: FindOptionsWhere&lt;User&gt;): Promise&ltUser&gt {\n  return this.userRepo.findOne({\n    where: options,\n    select: { id: true, password: true },\n  });\n}</code>
+    </pre>
+    <h3>3. Membuat AuthService</h3>
+    <p>
+    import terlebih dahulu <code>UserModule</code> ke dalam <code>AuthModule</code> dengan <code>forwardRef</code> (agar tidak terjadi circular dependencies)
+    </p>
+    <pre>
+    <code class="language-typescript">import { Module, forwardRef } from '@nestjs/common';\nimport { AuthService } from './auth.service';\nimport { UserModule } from '../user/user.module';\n\n@Module({\n  imports: [forwardRef(() => UserModule)],\n  providers: [AuthService],\n})\nexport class AuthModule {}</code>
+    </pre>
+    <p>
+    setelah berhasil import, kita buatkan method <code>validateUser</code> untuk memvalidasi email dan password yang di masukkan oleh pengguna (jangan lupa meng-inject <code>UserService</code> di constructor <code>AuthService</code>)
+    </p>
+    <pre>
+    <code class="language-typescript">import { Injectable } from '@nestjs/common';\nimport { UserService } from '../user/user.service';\nimport { compareSync } from 'bcrypt';\n\n@Injectable()\nexport class AuthService {\n  constructor(private userService: UserService) {}\n\n  async validateUser(email: string, password: string) {\n    const user = await this.userService.findOneWithPassword({ email });\n    if (!user || !compareSync(password, user.password)) return null;\n    return user;\n  }\n}</code>
+    </pre>
+    <h3>4. Implement Passport Local</h3>
+    <p>
+    buat file <code>local.strategy.ts</code> di dalam folder auth, dan tambahkan kode berikut
+    </p>
+    <pre>
+    <code class="language-typescript">import { Strategy } from 'passport-local';\nimport { PassportStrategy } from '@nestjs/passport';\nimport { Injectable, UnauthorizedException } from '@nestjs/common';\nimport { AuthService } from './auth.service';\n\n@Injectable()\nexport class LocalStrategy extends PassportStrategy(Strategy) {\n  constructor(private authService: AuthService) {\n    super({ usernameField: 'email' });\n  }\n\n  async validate(email: string, password: string) {\n    const user = await this.authService.validateUser(email, password);\n    if (!user) throw new UnauthorizedException();\n    return user;\n  }\n}</code>
+    </pre>
+    <p>
+    kita menambahkan sedikit konfigurasi karena default field credential dari <code>pasport-local</code> adalah username, karena kita menggunakan email maka perlu ditambahkan konfigurasi di dalam method <code>super()</code> seperti di atas jika menggunakan username maka biarkan kosong.
+    <p>
+    </p>
+    selanjutnya menambahkan class <code>PassportModule</code> dan <code>LocalStrategy</code> ke dalam <code>AuthModule</code>.
+    </p>
+    <pre>
+    <code class="language-typescript">import { PassportModule } from '@nestjs/passport';\nimport { LocalStrategy } from './local.strategy';\n\n@Module({\n  imports: [forwardRef(() => UserModule), PassportModule],\n  providers: [AuthService, LocalStrategy],\n})\nexport class AuthModule {}</code>
+    </pre>
+    <h3>5. Implementasi di Controller</h3>
+    <p>
+    buat file <code>auth.controller.ts</code> lalu kita buat routing untuk login sebagai contoh dari implementasi <code>passport-local</code> nya
+    </p>
+    <pre>
+    <code class="language-typescript">import { Controller, Post, Request, UseGuards } from '@nestjs/common';\nimport { AuthGuard } from '@nestjs/passport';\nimport { User } from '../user/entities/user.entity';\n\n@Controller('auth')\nexport class AuthController {\n  @UseGuards(AuthGuard('local'))\n  @Post('login')\n  async login(@Request() req: Request & { user: User }) {\n    return req.user;\n  }\n}</code>
+    </pre>
+    <p>
+    import class <code>AuthController</code> ke dalam <code>AuthModule</code> di list <code>controllers</code> seperti berikut:
+    </p>
+    <pre>
+    <code class="language-typescript">import { AuthController } from './auth.controller';\n\n@Module({\n  imports: [forwardRef(() => UserModule), PassportModule],\n  controllers: [AuthController],\n  providers: [AuthService, LocalStrategy],\n})</code>
+    </pre>
+    <p>
+    oke, sekarang kita bisa coba buat request menggunakan postman dengan method <code>POST</code> ke url <code>/auth/login</code>, untuk <code>{{base_url}}</code> bisa disesuaikan dengan base url masing-masing.
+    </p>
+    <img src="/blog/1694288499.jpg" alt="1694288499.jpg" class="img-lg">
+    <p>
+    untuk sementara seperti itu menandakan bahwa implementasi authentication <code>passport-local</code> sudah berjalan, nantinya dapat diolah informasi user <code>id</code> yang ada untuk dibuatkan token
+    </p>
+    <img src="/blog/1694288438.jpg" alt="1694288438.jpg" class="img-lg">
+    <p>
+    begitu pula jika password yang diinput tidak sesuai, maka akan menampilkan status error 401 unauthorized. jika ingin menampilkan pesan error, saya menyarankan untuk tidak memberitahu apakah emailnya belum terdaftar atau passwordnya yang salah, cukup memberitahu bahwa email atau password tidak valid.
+    </p>
+    <p>
+    oke untuk part 1 sampai di sini terlebih dahulu, di part selanjutnya kita akan implementasi <code>json web token</code> untuk endpoint-endpoint yang ingin dibatasi aksesnya.
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini, semoga bermanfaat 😊
+    </p>
+    </article>
+    `,
+    tags: ['nestjs', 'auth', 'passport'],
+    publishedAt:
+      ENV === 'production'
+        ? dayjs().isAfter('2023-09-11 09:00:00 +0700')
+          ? '2023-09-11 09:00:00 +0700'
+          : undefined
+        : '2023-09-09 10:32:24.403 +0700',
+    createdAt: '2023-09-09 10:32:24.403 +0700',
+    updatedAt: '2023-09-09 10:32:24.403 +0700',
   },
 ]
   .filter((blog) => blog.publishedAt)

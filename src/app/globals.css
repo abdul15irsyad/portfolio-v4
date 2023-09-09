@@ -980,6 +980,8 @@ ul li {
 .blog-detail article img{
   width: 100%;
   border-radius: .5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(var(--bs-secondary-rgb),.25);
 }
 
 .blog-detail article img.img-lg{
