@@ -79,7 +79,7 @@ const Blog = async ({ searchParams }) => {
                         key={index}
                         className="blog-tag"
                       >
-                        {tag}
+                        {tag as string}
                       </Link>
                     ))}
                   </div>
