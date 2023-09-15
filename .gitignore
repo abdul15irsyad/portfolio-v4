@@ -40,3 +40,6 @@ next-env.d.ts
 # next-sitemap
 public/robots.txt
 public/sitemap*.xml
+
+# prisma generated
+src/prisma/generated
