@@ -21,7 +21,7 @@ const Blog = async ({ searchParams }) => {
     totalPage,
     totalAllData,
   } = await getBlogWithPagination({ page: 1, limit: 10, tag, search });
-  const allTags = await getAllTags();
+  const allTags: string[] = await getAllTags();
 
   return (
     <>
@@ -73,7 +73,7 @@ const Blog = async ({ searchParams }) => {
                 </h5>
                 {allTags.length > 0 ? (
                   <div className="blog-tags">
-                    {allTags.map((tag: string, index: number) => (
+                    {allTags.map((tag, index) => (
                       <Link
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
