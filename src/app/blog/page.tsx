@@ -73,7 +73,7 @@ const Blog = async ({ searchParams }) => {
                 </h5>
                 {allTags.length > 0 ? (
                   <div className="blog-tags">
-                    {allTags.map((tag, index) => (
+                    {allTags.map((tag: string, index: number) => (
                       <Link
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
