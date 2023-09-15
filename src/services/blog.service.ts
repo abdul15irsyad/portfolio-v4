@@ -21,19 +21,21 @@ export const getBlogWithPagination = async ({
   limit = limit ?? 10;
   orderBy = orderBy ?? 'createdAt';
   orderDir = orderDir ?? 'desc';
-  const filter: Prisma.BlogWhereInput = {
+  const filter = {
     publishedAt: { not: null, lte: dayjs().toDate() },
     tags: tag ? { has: tag } : undefined,
   };
 
-  const whereOptions: Prisma.BlogWhereInput = {
-    OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
-  };
-
-  const totalAllData = await prisma.blog.count({ where: whereOptions });
+  const totalAllData = await prisma.blog.count({
+    where: {
+      OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
+    },
+  });
 
   const data = await prisma.blog.findMany({
-    where: whereOptions,
+    where: {
+      OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
+    },
     take: limit,
     skip: limit ? (page - 1) * limit : undefined,
     orderBy: { [orderBy]: orderDir },
