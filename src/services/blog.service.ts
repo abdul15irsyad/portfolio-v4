@@ -60,7 +60,5 @@ export const getAllTags = async () => {
     },
     select: { tags: true },
   });
-  return [...new Set(blogs!.map((blog) => blog.tags).flat())].sort((a, b) =>
-    a > b ? 1 : -1,
-  );
+  return [...new Set(blogs!.map((blog) => blog.tags).flat())];
 };
