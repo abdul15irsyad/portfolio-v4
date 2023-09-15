@@ -5,6 +5,9 @@
   },
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
+  },
   "scripts": {
     "dev": "next dev -p 4000",
     "build": "next build",
@@ -13,6 +16,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.3.0",
+    "@supabase/supabase-js": "^2.33.2",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "dayjs": "^1.11.9",
@@ -39,6 +44,7 @@
     "@types/sanitize-html": "^2.9.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.2"
+    "prettier": "^3.0.2",
+    "prisma": "^5.3.0"
   }
 }

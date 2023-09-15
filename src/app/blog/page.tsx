@@ -1,29 +1,28 @@
-'use client';
-
 import BlogItem from '@/components/BlogItem';
-import { blogs } from '@/data/blogs.data';
-import React, { useCallback } from 'react';
-import { Form, InputGroup } from 'react-bootstrap';
+import React from 'react';
 import Empty from '@/components/Empty';
-import { useRouter } from 'next/navigation';
-import { Blog } from '@/types/blog.type';
-import { setQueryString } from '@/utils/url.util';
-import { ENV } from '@/configs/app.config';
+import SearchBar from '@/components/SearchBar';
+import Link from 'next/link';
+import { getAllTags, getBlogWithPagination } from '@/services/blog.service';
 
-const Blog = ({ searchParams }) => {
-  const router = useRouter();
-  const tag = Array.isArray(searchParams.tag)
-    ? searchParams.tag[searchParams.tag.length - 1]
-    : searchParams.tag;
-  let listBlogs: Blog[] = [];
-  if (tag) listBlogs = blogs.filter((blog) => blog.tags.includes(tag));
-  else listBlogs = blogs;
-  const addQueryString = useCallback(setQueryString(searchParams), [
-    searchParams,
-  ]);
-  const allTags = [...new Set(blogs.map((blog) => blog.tags).flat())].sort(
-    (a, b) => (a > b ? 1 : -1),
-  );
+const Blog = async ({ searchParams }) => {
+  const parseSearchParams = (key: string[] | string) =>
+    Array.isArray(key) ? key[key.length - 1] : key;
+  const tag = parseSearchParams(searchParams.tag);
+  const search = parseSearchParams(searchParams.search);
+  const queryString = (name: string, value: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (value === '') params.delete(name);
+    else params.set(name, value);
+    return params.toString();
+  };
+  const {
+    data: blogs,
+    totalPage,
+    totalAllData,
+  } = await getBlogWithPagination({ page: 1, limit: 10, tag, search });
+  const allTags = await getAllTags();
+
   return (
     <>
       <div className="blog section doodle-background">
@@ -32,30 +31,36 @@ const Blog = ({ searchParams }) => {
             <div className="col">
               <h1 className="title">Blog</h1>
               <hr />
-              {ENV === 'development' && (
-                <InputGroup className="search-bar mb-3">
-                  <InputGroup.Text>
-                    <i className="bi bi-search"></i>
-                  </InputGroup.Text>
-                  <Form.Control placeholder="search blog title..." />
-                </InputGroup>
-              )}
+              <SearchBar />
             </div>
           </div>
           <div className="row">
             <div className="col-xl-9 col-12">
-              {tag && (
+              {(search || tag) && (
                 <div className="blog-filter">
-                  <h4 className="blog-filter-heading">
-                    Result for <span>#{tag}</span>
-                  </h4>
-                  <div className="blog-filter-meta">
-                    showing {listBlogs.length} of {blogs.length} blogs
+                  <div className="blog-filter-text">
+                    <h4 className="blog-filter-heading">
+                      Result for {search && <span>"{search}"</span>}{' '}
+                      {search && tag && 'and'} {tag && <span>#{tag}</span>}
+                    </h4>
+                    <div className="blog-filter-meta">
+                      showing {blogs.length} of {totalAllData} blogs
+                    </div>
+                  </div>
+                  <div className="blog-filter-reset">
+                    <Link
+                      href="/blog"
+                      type="button"
+                      className="btn btn-sm btn-outline-danger mt-3"
+                    >
+                      <i className="bi bi-trash me-1"></i>
+                      <span>Clear Filter</span>
+                    </Link>
                   </div>
                 </div>
               )}
-              {listBlogs.length > 0 ? (
-                listBlogs.map((blog) => <BlogItem key={blog.id} blog={blog} />)
+              {blogs.length > 0 ? (
+                blogs.map((blog) => <BlogItem key={blog.id} blog={blog} />)
               ) : (
                 <Empty />
               )}
@@ -66,19 +71,21 @@ const Blog = ({ searchParams }) => {
                   <i className="bi bi-tags"></i>
                   <span>All Tags</span>
                 </h5>
-                <div className="blog-tags">
-                  {allTags.map((tag, index) => (
-                    <div
-                      key={index}
-                      className="blog-tag"
-                      onClick={() =>
-                        router.push(`/blog?${addQueryString('tag', tag!)}`)
-                      }
-                    >
-                      {tag}
-                    </div>
-                  ))}
-                </div>
+                {allTags.length > 0 ? (
+                  <div className="blog-tags">
+                    {allTags.map((tag, index) => (
+                      <Link
+                        href={`/blog?${queryString('tag', tag)}`}
+                        key={index}
+                        className="blog-tag"
+                      >
+                        {tag}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center text-secondary">No Tag</div>
+                )}
               </div>
             </div>
           </div>

@@ -636,16 +636,21 @@ ul li {
 
 .blog .blog-filter{
   margin-bottom: 3rem;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
 }
 
 .blog .blog-filter .blog-filter-heading{
   font-size: 36px;
   margin-bottom: .25rem;
   color: rgba(var(--bs-secondary-rgb),.75);
+  font-weight: 400;
 }
 
 .blog .blog-filter .blog-filter-heading span{
-  color: var(--bs-primary);
+  font-weight: 800;
+  color: rgba(var(--bs-dark-rgb),.85);
 }
 
 .blog .blog-filter .blog-filter-meta{
@@ -673,9 +678,11 @@ ul li {
     justify-content: center;
   }
 
+  .blog .blog-filter{
+    text-align: center;
+  }
   .blog .blog-filter .blog-filter-heading{
     font-size: 24px;
-    text-align: center;
   }
   .blog .blog-filter .blog-filter-meta{
     text-align: center;

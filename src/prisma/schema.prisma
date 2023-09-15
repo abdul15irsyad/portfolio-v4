@@ -1,0 +1,51 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Blog {
+  id             String    @id @default(uuid())
+  title          String
+  slug           String    @unique
+  featureImage   File      @relation(fields: [featureImageId], references: [id])
+  featureImageId String    @map("feature_image_id")
+  content        String    @db.Text
+  publishedAt    DateTime? @map("published_at")
+  tags           String[]
+  author         Author?   @relation(fields: [authorId], references: [id])
+  authorId       String?   @map("author_id")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("blogs")
+}
+
+model Author {
+  id        String   @id @default(uuid())
+  name      String
+  photo     File?    @relation(fields: [photoId], references: [id])
+  photoId   String?  @map("photo_id")
+  blogs     Blog[]
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("authors")
+}
+
+model File {
+  id               String   @id @default(uuid())
+  path             String
+  fileName         String   @map("file_name")
+  originalFileName String   @map("original_file_name")
+  mime             String
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz()
+  authors          Author[]
+  blogs            Blog[]
+
+  @@map("files")
+}

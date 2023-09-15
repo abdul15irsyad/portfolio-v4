@@ -12,8 +12,8 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
       <div className="blog-feature-image">
         <Link href={`/blog/${blog.slug}`}>
           <Image
-            src={blog.featureImage.url}
-            alt={blog.featureImage.originalFileName}
+            src={blog.featureImage!.url!}
+            alt={blog.featureImage!.originalFileName}
             width={400}
             height={100}
           />
@@ -27,8 +27,8 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           {blog.author && (
             <div className="blog-author">
               <Image
-                src={blog.author.photo.url}
-                alt={blog.author.photo.originalFileName}
+                src={blog.author.photo?.url ?? '/blog/default-profile.png'}
+                alt={blog.author.name}
                 className="blog-author-img"
                 width={100}
                 height={100}

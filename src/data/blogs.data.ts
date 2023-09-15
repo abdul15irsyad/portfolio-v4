@@ -1,20 +1,12 @@
-import { BASE_URL, ENV } from '@/configs/app.config';
 import { Blog } from '@/types/blog.type';
-import dayjs from 'dayjs';
-import { authors } from './authors.data';
 
 export const blogs: Blog[] = [
   {
     id: 'bd7a365d-b8ca-40c9-81f2-10ebaed28304',
     title: 'Nest JS Setup Database With TypeORM',
     slug: 'nest-js-setup-database-with-typeorm',
-    featureImage: {
-      originalFileName: 'nest-js-setup-database-with-typeorm.jpg',
-      url: `${BASE_URL}/blog/nest-js-setup-database-with-typeorm.jpg`,
-    },
-    author: authors.find(
-      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
-    ),
+    featureImageId: 'b21f2576-b044-481c-a030-bdad3d31c334',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
     content: `
     <article>
     <p>
@@ -196,22 +188,17 @@ export const blogs: Blog[] = [
     </p>
     </article>
     `,
-    publishedAt: '2023-08-28 12:04:34.788 +0700',
     tags: ['nestjs', 'typeorm', 'postgresql', 'typescript'],
-    createdAt: '2023-08-28 12:04:34.788 +0700',
-    updatedAt: '2023-08-28 12:04:34.788 +0700',
+    publishedAt: new Date('2023-08-28 05:04:34+00'),
+    createdAt: new Date('2023-08-28 05:04:34+00'),
+    updatedAt: new Date('2023-08-28 05:04:34+00'),
   },
   {
     id: '79d35e33-c391-473c-a0a5-0e9c504f2cf6',
     title: 'Penggunaan Seeder di Suatu Project',
     slug: 'penggunaan-seeder-di-suatu-project',
-    featureImage: {
-      originalFileName: 'penggunaan-seeder-di-suatu-project.png',
-      url: `${BASE_URL}/blog/penggunaan-seeder-di-suatu-project.png`,
-    },
-    author: authors.find(
-      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
-    ),
+    featureImageId: 'a67191bf-24af-4aeb-8936-28ef81cfead8',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
     content: `
     <article>
     <p>
@@ -249,7 +236,7 @@ export const blogs: Blog[] = [
     </pre>
     <h3>Historical Seeder</h3>
     <p>
-    seperti tulisan saya sebelumnya <a href="${BASE_URL}/blog/nest-js-setup-database-with-typeorm" target="_blank">di sini</a>, diperlukan table <code>seeder</code> (di beberapa <code>orm</code> belum dibuatkan) untuk menyimpan data-data <code>seeder</code> yang telah dieksekusi agar <code>seeder</code> yang telah dijalankan tidak dieksekusi 2 kali, dan saat menjalankan <code>seeder</code> yang baru hanya perlu running semua <code>seeder</code> (otomatis hanya menjalankan yang belum dieksekusi karena telah dicek kondisinya).
+    seperti tulisan saya sebelumnya <a href="/blog/nest-js-setup-database-with-typeorm" target="_blank">di sini</a>, diperlukan table <code>seeder</code> (di beberapa <code>orm</code> belum dibuatkan) untuk menyimpan data-data <code>seeder</code> yang telah dieksekusi agar <code>seeder</code> yang telah dijalankan tidak dieksekusi 2 kali, dan saat menjalankan <code>seeder</code> yang baru hanya perlu running semua <code>seeder</code> (otomatis hanya menjalankan yang belum dieksekusi karena telah dicek kondisinya).
     </p>
     <pre>
     <code class="language-typescript">if (\n  await datasource\n    .getRepository(SeederEntity)\n    .findOneBy({ name: UsersSeeder1692867883026.name }) // diambil dari nama seeder nya\n){\n  return;\n}</code>
@@ -276,22 +263,16 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['seeder', 'uuid', 'postgresql', 'typescript'],
-    publishedAt: '2023-09-04 10:32:24.403 +0700',
-    createdAt: '2023-09-04 10:32:24.403 +0700',
-    updatedAt: '2023-09-04 10:32:24.403 +0700',
+    publishedAt: new Date('2023-09-04 07:08:23+00'),
+    createdAt: new Date('2023-09-04 07:08:23+00'),
+    updatedAt: new Date('2023-09-04 07:08:23+00'),
   },
   {
     id: '0287abee-7fff-4174-b5c1-988165c1081c',
     title: 'Nest JS Authentication Menggunakan Passport JS - Part 1',
     slug: 'nest-js-authentication-menggunakan-passport-js-part-1',
-    featureImage: {
-      originalFileName:
-        'nest-js-authentication-menggunakan-passport-part-1-min.jpg',
-      url: `${BASE_URL}/blog/nest-js-authentication-menggunakan-passport-part-1-min.jpg`,
-    },
-    author: authors.find(
-      ({ id }) => id === '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
-    ),
+    featureImageId: '7ad95cdf-d9bc-4115-8420-7ed88d009333',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
     content: `
     <article>
     <p>
@@ -420,15 +401,8 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['nestjs', 'auth', 'passport'],
-    publishedAt:
-      ENV === 'production'
-        ? dayjs().isAfter('2023-09-11 09:00:00 +0700')
-          ? '2023-09-11 09:00:00 +0700'
-          : undefined
-        : '2023-09-09 10:32:24.403 +0700',
-    createdAt: '2023-09-09 10:32:24.403 +0700',
-    updatedAt: '2023-09-09 10:32:24.403 +0700',
+    publishedAt: new Date('2023-09-11 07:13:50+00'),
+    createdAt: new Date('2023-09-11 07:13:50+00'),
+    updatedAt: new Date('2023-09-11 07:13:50+00'),
   },
-]
-  .filter((blog) => blog.publishedAt)
-  .sort((a, b) => (dayjs(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1));
+];

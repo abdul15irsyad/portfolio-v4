@@ -4,4 +4,4 @@ export const BASE_URL =
 type Environment = 'local' | 'development' | 'staging' | 'production';
 export const ENV: Environment = process.env.NEXT_PUBLIC_ENV
   ? (process.env.NEXT_PUBLIC_ENV as Environment)
-  : 'development';
+  : 'local';

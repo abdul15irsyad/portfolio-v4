@@ -4,7 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
-export const renderTimestamp = (timestamp: string) => {
+export const renderTimestamp = (timestamp: string | Date) => {
   return dayjs().diff(timestamp, 'month') === 0
     ? dayjs(timestamp).fromNow()
     : dayjs(timestamp).format(

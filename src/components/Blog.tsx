@@ -10,6 +10,7 @@ import 'highlight.js/styles/androidstudio.css';
 import 'highlightjs-copy/dist/highlightjs-copy.min.css';
 import { useRouter } from 'next/navigation';
 import { setQueryString } from '@/utils/url.util';
+import dayjs from 'dayjs';
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el) => {
@@ -37,8 +38,8 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
         {blog.author && (
           <div className="blog-author">
             <Image
-              src={blog.author.photo.url}
-              alt={blog.author.photo.originalFileName}
+              src={blog.author.photo!.url ?? '/blog/default-profile.png'}
+              alt={blog.author.name}
               className="blog-author-img"
               width={100}
               height={100}
@@ -48,13 +49,13 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
         )}
         <div className="blog-detail-created-at">
           <i className="bi bi-calendar4-week"></i>
-          {renderTimestamp(blog.publishedAt!)}
+          {renderTimestamp(dayjs(blog.publishedAt).toString())}
         </div>
       </div>
       <div className="blog-detail-feature-image">
         <Image
-          src={blog.featureImage.url}
-          alt={blog.featureImage.originalFileName}
+          src={blog.featureImage!.url!}
+          alt={blog.featureImage!.originalFileName}
           width={1000}
           height={300}
           quality={100}

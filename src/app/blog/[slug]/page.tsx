@@ -1,6 +1,5 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { getBlog } from './service';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 import { Metadata } from 'next';
 import sanitize from 'sanitize-html';
@@ -8,9 +7,17 @@ import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import BlogShare from '@/components/BlogShare';
 import Blog from '@/components/Blog';
 import Link from 'next/link';
+import { prisma } from '@/prisma/client';
+import dayjs from 'dayjs';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const blog = getBlog(params.slug);
+  const blog = await prisma.blog.findUnique({
+    where: {
+      slug: params.slug,
+      publishedAt: { not: null, lte: dayjs().toDate() },
+    },
+    include: { featureImage: true, author: { include: { photo: true } } },
+  });
   if (!blog) notFound();
   const title = `${blog.title} - ${APP_NAME}`;
   const description = `${sanitize(blog.content, {
@@ -29,20 +36,23 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     twitter: {
       card: 'summary',
       title: title,
-      images: [blog?.featureImage.url],
+      images: [blog?.featureImage!.url],
       description,
     },
     openGraph: {
       title: title,
       authors: blog.author?.name,
-      images: [blog?.featureImage.url],
+      images: [blog?.featureImage!.url],
       description,
     },
   };
 }
 
-const BlogDetail = ({ params, searchParams }) => {
-  const blog = getBlog(params.slug);
+const BlogDetail = async ({ params, searchParams }) => {
+  const blog = await prisma.blog.findUnique({
+    where: { slug: params.slug },
+    include: { featureImage: true, author: { include: { photo: true } } },
+  });
   if (!blog) notFound();
   return (
     <div className="blog-detail section doodle-background">
