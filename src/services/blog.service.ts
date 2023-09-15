@@ -53,7 +53,7 @@ export const getBlogWithPagination = async ({
   };
 };
 
-export const getAllTags = async (): Promise<string[]> => {
+export const getAllTags = async () => {
   const blogs = await prisma.blog.findMany({
     where: {
       publishedAt: { not: null, lte: dayjs().toDate() },
