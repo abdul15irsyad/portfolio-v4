@@ -6,13 +6,14 @@
   "version": "0.1.0",
   "private": true,
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts",
+    "schema": "src/prisma/schema.prisma"
   },
   "scripts": {
     "dev": "next dev -p 4000",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "postbuild": "next-sitemap",
-    "postinstall": "npx prisma generate --schema src/prisma/schema.prisma",
+    "postinstall": "npx prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
