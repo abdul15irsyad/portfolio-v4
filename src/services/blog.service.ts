@@ -26,16 +26,16 @@ export const getBlogWithPagination = async ({
     tags: tag ? { has: tag } : undefined,
   };
 
+  const whereOptions: Prisma.BlogWhereInput = {
+    OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
+  };
+
   const totalAllData = await prisma.blog.count({
-    where: {
-      OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
-    },
+    where: whereOptions,
   });
 
   const data = await prisma.blog.findMany({
-    where: {
-      OR: [{ title: { contains: search, mode: 'insensitive' }, ...filter }],
-    },
+    where: whereOptions,
     take: limit,
     skip: limit ? (page - 1) * limit : undefined,
     orderBy: { [orderBy]: orderDir },
