@@ -1,4 +1,6 @@
 import { Blog } from '@/types/blog.type';
+import { files } from './files.data';
+import { authors } from './authors.data';
 
 export const blogs: Blog[] = [
   {
@@ -406,3 +408,11 @@ export const blogs: Blog[] = [
     updatedAt: new Date('2023-09-11 07:13:50+00'),
   },
 ];
+
+export const blogDatas = blogs.map((blog) => {
+  return {
+    ...blog,
+    featureImage: files.find(({ id }) => id === blog.featureImageId),
+    author: authors.find(({ id }) => id === blog.authorId),
+  };
+});

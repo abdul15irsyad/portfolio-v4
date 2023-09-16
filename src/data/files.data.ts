@@ -1,3 +1,4 @@
+import { BASE_URL } from '../configs/app.config';
 import { File } from '@/types/file.type';
 
 export const files: File[] = [
@@ -39,3 +40,10 @@ export const files: File[] = [
     mime: 'image/jpg',
   },
 ];
+
+export const fileDatas = files.map((file) => {
+  return {
+    ...file,
+    url: `${BASE_URL}/${file.path}/${file.fileName}`,
+  };
+});

@@ -1,4 +1,5 @@
 import { Author } from '@/types/author.type';
+import { files } from './files.data';
 
 export const authors: Author[] = [
   {
@@ -9,3 +10,7 @@ export const authors: Author[] = [
     updatedAt: new Date('2023-08-28 08:09:18+00'),
   },
 ];
+
+export const authorDatas = authors.map((author) => {
+  return { ...author, photo: files.find(({ id }) => id === author.photoId) };
+});
