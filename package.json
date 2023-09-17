@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@prisma/client": "^5.3.0",
-    "@supabase/supabase-js": "^2.33.2",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "dayjs": "^1.11.9",
@@ -27,6 +26,7 @@
     "eslint-config-next": "13.4.13",
     "highlight.js": "^11.8.0",
     "highlightjs-copy": "^1.0.5",
+    "ioredis": "^5.3.2",
     "next": "13.4.13",
     "next-sitemap": "^4.2.2",
     "nextjs-google-analytics": "^2.3.3",

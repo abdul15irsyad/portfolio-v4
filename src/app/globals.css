@@ -954,6 +954,10 @@ ul li {
   font-weight: 800;
 }
 
+.blog-detail article p{
+  word-wrap: break-word;
+}
+
 .blog-detail article > code{
   display: inline-block;
   padding: 0rem .2rem;
@@ -1001,6 +1005,28 @@ ul li {
 
 .blog-detail article img.img-sm{
   width: 50%;
+}
+
+.blog-detail article table{
+  margin: 0 auto;
+}
+
+.blog-detail article table th,
+.blog-detail article table td{
+  border: 1px solid black;
+}
+
+.blog-detail article table th{
+  background-color: rgba(var(--bs-primary-rgb),.25);
+}
+
+.blog-detail article table th,
+.blog-detail article table td{
+  padding: .25rem 1rem;
+}
+
+.blog-detail article table tr:nth-child(even) {
+  background-color: rgba(var(--bs-secondary-rgb),.15);
 }
 
 .blog-detail .blog-detail-content{

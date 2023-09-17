@@ -10,7 +10,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
   return (
     <div className="blog-item">
       <div className="blog-feature-image">
-        <Link href={`/blog/${blog.slug}`}>
+        <Link href={`/blog/${blog.slug}`} prefetch={false}>
           <Image
             src={blog.featureImage!.url!}
             alt={blog.featureImage!.originalFileName}
@@ -20,7 +20,11 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
         </Link>
       </div>
       <div className="blog-text">
-        <Link href={`/blog/${blog.slug}`} className="blog-title">
+        <Link
+          href={`/blog/${blog.slug}`}
+          className="blog-title"
+          prefetch={false}
+        >
           {blog.title}
         </Link>
         <div className="blog-meta">

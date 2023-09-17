@@ -1,6 +1,6 @@
 import { Blog } from '@/types/blog.type';
-import { files } from './files.data';
-import { authors } from './authors.data';
+import { fileDatas } from './files.data';
+import { authorDatas } from './authors.data';
 
 export const blogs: Blog[] = [
   {
@@ -409,10 +409,16 @@ export const blogs: Blog[] = [
   },
 ];
 
-export const blogDatas = blogs.map((blog) => {
-  return {
-    ...blog,
-    featureImage: files.find(({ id }) => id === blog.featureImageId),
-    author: authors.find(({ id }) => id === blog.authorId),
-  };
-});
+export const blogDatas = blogs
+  .map((blog) => {
+    return {
+      ...blog,
+      featureImage: fileDatas.find(({ id }) => id === blog.featureImageId),
+      author: authorDatas.find(({ id }) => id === blog.authorId),
+    };
+  })
+  .sort((a, b) => {
+    if (!a.publishedAt) return 1;
+    else if (!b.publishedAt) return -1;
+    return a.publishedAt < b.publishedAt ? 1 : -1;
+  });

@@ -1,5 +1,5 @@
 import { Author } from '@/types/author.type';
-import { files } from './files.data';
+import { fileDatas } from './files.data';
 
 export const authors: Author[] = [
   {
@@ -12,5 +12,8 @@ export const authors: Author[] = [
 ];
 
 export const authorDatas = authors.map((author) => {
-  return { ...author, photo: files.find(({ id }) => id === author.photoId) };
+  return {
+    ...author,
+    photo: fileDatas.find(({ id }) => id === author.photoId),
+  };
 });

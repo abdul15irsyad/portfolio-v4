@@ -4,6 +4,7 @@ import Empty from '@/components/Empty';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 import { getAllTags, getBlogWithPagination } from '@/services/blog.service';
+// import { blogDatas } from '@/data/blogs.data';
 
 const Blog = async ({ searchParams }) => {
   const parseSearchParams = (key: string[] | string) =>
@@ -21,6 +22,8 @@ const Blog = async ({ searchParams }) => {
     totalPage,
     totalAllData,
   } = await getBlogWithPagination({ page: 1, limit: 10, tag, search });
+  // const blogs = blogDatas;
+  // const totalAllData = blogDatas.length;
   const allTags = await getAllTags();
 
   return (
@@ -52,6 +55,7 @@ const Blog = async ({ searchParams }) => {
                       href="/blog"
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
+                      prefetch={false}
                     >
                       <i className="bi bi-trash me-1"></i>
                       <span>Clear Filter</span>
@@ -78,6 +82,7 @@ const Blog = async ({ searchParams }) => {
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
                         className="blog-tag"
+                        prefetch={false}
                       >
                         {tag}
                       </Link>

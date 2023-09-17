@@ -9,6 +9,7 @@ import Blog from '@/components/Blog';
 import Link from 'next/link';
 import { prisma } from '@/prisma/client';
 import dayjs from 'dayjs';
+// import { blogDatas } from '@/data/blogs.data';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const blog = await prisma.blog.findUnique({
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     },
     include: { featureImage: true, author: { include: { photo: true } } },
   });
+  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   const title = `${blog.title} - ${APP_NAME}`;
   const description = `${sanitize(blog.content, {
@@ -53,6 +55,7 @@ const BlogDetail = async ({ params, searchParams }) => {
     where: { slug: params.slug },
     include: { featureImage: true, author: { include: { photo: true } } },
   });
+  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   return (
     <div className="blog-detail section doodle-background">
