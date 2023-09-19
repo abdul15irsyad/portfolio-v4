@@ -66,7 +66,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
       <div className="blog-detail-tags">
-        {blog.tags.map((tag, index) => (
+        {blog.tags?.map((tag, index) => (
           <div
             key={index}
             className="blog-tag"

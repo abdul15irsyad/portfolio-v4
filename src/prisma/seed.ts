@@ -29,7 +29,7 @@ async function main() {
   for (const blog of blogs) {
     const data = {
       ...blog,
-      tags: blog.tags.join(','),
+      tags: blog.tags?.join(','),
       featureImage: undefined,
       author: undefined,
     };

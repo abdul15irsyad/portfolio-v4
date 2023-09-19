@@ -6,7 +6,7 @@ CREATE TABLE "blogs" (
     "feature_image_id" TEXT NOT NULL,
     "content" TEXT NOT NULL,
     "published_at" DATETIME,
-    "tags" TEXT NOT NULL,
+    "tags" TEXT NULL,
     "author_id" TEXT,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL,

@@ -10,7 +10,7 @@ export interface Blog {
   featureImageId: string;
   featureImage?: File | null;
   content: string;
-  tags: string[];
+  tags: string[] | null;
   publishedAt?: Date | null;
   createdAt: Date;
   updatedAt: Date;
