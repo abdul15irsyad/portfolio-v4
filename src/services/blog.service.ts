@@ -53,6 +53,16 @@ export const getBlogWithPagination = async ({
   };
 };
 
+export const getBlog = async ({ slug }: { slug: string }) => {
+  return await prisma.blog.findUnique({
+    where: {
+      slug,
+      publishedAt: { not: null, lte: dayjs().toDate() },
+    },
+    include: { featureImage: true, author: { include: { photo: true } } },
+  });
+};
+
 export const getAllTags = async () => {
   const blogs = await prisma.blog.findMany({
     where: {

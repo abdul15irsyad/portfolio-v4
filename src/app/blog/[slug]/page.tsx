@@ -8,17 +8,14 @@ import BlogShare from '@/components/BlogShare';
 import Blog from '@/components/Blog';
 import Link from 'next/link';
 import { prisma } from '@/prisma/client';
-import dayjs from 'dayjs';
+import { getBlog } from '@/services/blog.service';
+import { cache } from '@/redis/redis.util';
 // import { blogDatas } from '@/data/blogs.data';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const blog = await prisma.blog.findUnique({
-    where: {
-      slug: params.slug,
-      publishedAt: { not: null, lte: dayjs().toDate() },
-    },
-    include: { featureImage: true, author: { include: { photo: true } } },
-  });
+  const blog = await cache(`blog:${params.slug}`, () =>
+    getBlog({ slug: params.slug }),
+  );
   // const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   const title = `${blog.title} - ${APP_NAME}`;
@@ -51,10 +48,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 const BlogDetail = async ({ params, searchParams }) => {
-  const blog = await prisma.blog.findUnique({
-    where: { slug: params.slug },
-    include: { featureImage: true, author: { include: { photo: true } } },
-  });
+  const blog = await cache(`blog:${params.slug}`, () =>
+    getBlog({ slug: params.slug }),
+  );
   // const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   return (

@@ -4,6 +4,7 @@ import Empty from '@/components/Empty';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 import { getAllTags, getBlogWithPagination } from '@/services/blog.service';
+import { cache } from '@/redis/redis.util';
 // import { blogDatas } from '@/data/blogs.data';
 
 const Blog = async ({ searchParams }) => {
@@ -17,11 +18,14 @@ const Blog = async ({ searchParams }) => {
     else params.set(name, value);
     return params.toString();
   };
+  const findOptions = { page: 1, limit: 10, tag, search };
   const {
     data: blogs,
     totalPage,
     totalAllData,
-  } = await getBlogWithPagination({ page: 1, limit: 10, tag, search });
+  } = await cache(`blogs:${JSON.stringify(findOptions)}`, () =>
+    getBlogWithPagination(findOptions),
+  );
   // const blogs = blogDatas;
   // const totalAllData = blogDatas.length;
   const allTags = await getAllTags();
