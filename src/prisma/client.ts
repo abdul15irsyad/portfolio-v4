@@ -16,7 +16,7 @@ const prismaClientSingleton = () => {
         tags: {
           compute(blog) {
             return typeof blog.tags === 'string'
-              ? blog.tags?.split(',')
+              ? (blog.tags as string)?.split(',')
               : blog.tags;
           },
         },

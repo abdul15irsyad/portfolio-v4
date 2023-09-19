@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -13,17 +13,13 @@ model Blog {
   slug           String    @unique
   featureImage   File      @relation(fields: [featureImageId], references: [id])
   featureImageId String    @map("feature_image_id")
-  // content        String    @db.Text
-  content        String
+  content        String    @db.Text
   publishedAt    DateTime? @map("published_at")
-  // tags           String[]
-  tags           String?
+  tags           String[]
   author         Author?   @relation(fields: [authorId], references: [id])
   authorId       String?   @map("author_id")
-  // createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz()
-  // updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz()
-  createdAt      DateTime  @default(now()) @map("created_at")
-  updatedAt      DateTime  @updatedAt @map("updated_at")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz()
 
   @@map("blogs")
 }
@@ -34,10 +30,8 @@ model Author {
   photo     File?    @relation(fields: [photoId], references: [id])
   photoId   String?  @map("photo_id")
   blogs     Blog[]
-  // createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
-  // updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz()
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz()
 
   @@map("authors")
 }
@@ -48,10 +42,8 @@ model File {
   fileName         String   @map("file_name")
   originalFileName String   @map("original_file_name")
   mime             String
-  // createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz()
-  // updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz()
-  createdAt        DateTime @default(now()) @map("created_at")
-  updatedAt        DateTime @updatedAt @map("updated_at")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz()
   authors          Author[]
   blogs            Blog[]
 

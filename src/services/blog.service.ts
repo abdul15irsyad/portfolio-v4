@@ -23,7 +23,7 @@ export const getBlogWithPagination = async ({
   orderDir = orderDir ?? 'desc';
   const filter: Prisma.BlogWhereInput = {
     publishedAt: { not: null, lte: dayjs().toDate() },
-    tags: tag ? { contains: tag } : undefined,
+    tags: tag ? { has: tag } : undefined,
   };
 
   const whereOptions: Prisma.BlogWhereInput = {
