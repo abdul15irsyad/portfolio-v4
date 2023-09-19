@@ -34,9 +34,8 @@ export const files: File[] = [
     createdAt: new Date('2023-09-11 07:13:05+00'),
     updatedAt: new Date('2023-09-11 07:13:05+00'),
     path: 'blog',
-    fileName: 'nest-js-authentication-menggunakan-passport-part-1-min.jpg',
-    originalFileName:
-      'nest-js-authentication-menggunakan-passport-part-1-min.jpg',
+    fileName: 'nest-js-authentication-menggunakan-passport-part-1.jpg',
+    originalFileName: 'nest-js-authentication-menggunakan-passport-part-1.jpg',
     mime: 'image/jpg',
   },
 ];

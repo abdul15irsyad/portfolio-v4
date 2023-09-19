@@ -12,6 +12,15 @@ const prismaClientSingleton = () => {
           },
         },
       },
+      blog: {
+        tags: {
+          compute(blog) {
+            return typeof blog.tags === 'string'
+              ? blog.tags?.split(',')
+              : blog.tags;
+          },
+        },
+      },
     },
   });
 };
