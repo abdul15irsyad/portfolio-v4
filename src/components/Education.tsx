@@ -1,6 +1,7 @@
 'use client';
 
 import { educations } from '@/data/educations.data';
+import Image from 'next/image';
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
@@ -21,18 +22,22 @@ const Education = () => {
               const meta: string[] = [level];
               if (major) meta.push(major);
               return (
-                <Card key={index} className="education-item">
-                  <Card.Img variant="top" src={icon} alt={icon} title={icon} />
-                  <Card.Body>
-                    <Card.Title>{institution}</Card.Title>
-                    <Card.Subtitle className="text-secondary">
-                      {meta.join(' - ')}
-                    </Card.Subtitle>
-                    <div className="mt-3 text-secondary">
-                      {startYear} - {endYear}
+                <>
+                  <div key={index} className="education-item">
+                    <div className="education-item-icon">
+                      <Image src={icon} alt={icon} width={60} height={60} />
                     </div>
-                  </Card.Body>
-                </Card>
+                    <div className="education-item-text">
+                      <h5 className="fw-bold">{meta.join(' - ')}</h5>
+                      <div className="text-secondary">
+                        <p className="mb-0">{institution}</p>
+                        <span>
+                          {startYear} - {endYear}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </>
               );
             },
           )}

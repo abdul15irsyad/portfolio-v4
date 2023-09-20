@@ -10,13 +10,7 @@ const Hero = () => {
   const typedText = useRef(null);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      strings: [
-        'Fullstack Developer',
-        'Backend Developer',
-        'Frontend Developer',
-        'Freelancer',
-        'Informatics Engineering',
-      ],
+      strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
       typeSpeed: 80,
       loop: true,
     });
@@ -25,6 +19,11 @@ const Hero = () => {
   }, []);
   const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
     ?.href;
+  const features = [
+    { icon: '/icons/api.png', title: 'API' },
+    { icon: '/icons/servers.png', title: 'Database' },
+    { icon: '/icons/puzzle.png', title: 'Problem Solve' },
+  ];
   return (
     <div className="hero section bg-light mb-0" id="hero">
       <div className="container">
@@ -68,6 +67,16 @@ const Hero = () => {
           <div className="col-md-6 hero-image mb-3">
             <Image src="/hero2.png" alt="hero" width={400} height={400} />
           </div>
+        </div>
+        <div className="features">
+          {features.map(({ icon, title }) => (
+            <div className="feature">
+              <div className="feature-icon">
+                <Image src={icon} alt={title} width={40} height={40} />
+              </div>
+              <h6 className="feature-title">{title}</h6>
+            </div>
+          ))}
         </div>
       </div>
     </div>
