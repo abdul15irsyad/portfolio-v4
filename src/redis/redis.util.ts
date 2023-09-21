@@ -19,7 +19,7 @@ export const cache = async <T extends object | null>(
 };
 
 export const cacheRevive = (key: string, value: string) => {
-  if (['createdAt', 'updatedAt', 'deletedAt'].includes(key))
+  if (['createdAt', 'updatedAt', 'publishedAt', 'deletedAt'].includes(key))
     return value && new Date(value);
   return value;
 };

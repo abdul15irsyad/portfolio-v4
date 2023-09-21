@@ -64,13 +64,20 @@ export const getBlog = async ({ slug }: { slug: string }) => {
 };
 
 export const getAllTags = async () => {
-  const blogs = await prisma.blog.findMany({
-    where: {
-      publishedAt: { not: null, lte: dayjs().toDate() },
-    },
-    select: { tags: true },
-  });
-  return [...new Set(blogs!.map((blog) => blog.tags).flat())].sort((a, b) =>
-    a! > b! ? 1 : -1,
-  );
+  const tags: string[] = (
+    (await prisma.$queryRaw`select distinct tag from (select unnest(tags) as tag from blogs) as tag`) as {
+      tag: string;
+    }[]
+  ).map(({ tag }) => tag);
+  return tags;
+
+  // const blogs = await prisma.blog.findMany({
+  //   where: {
+  //     publishedAt: { not: null, lte: dayjs().toDate() },
+  //   },
+  //   select: { tags: true },
+  // });
+  // return [...new Set(blogs!.map((blog) => blog.tags).flat())].sort((a, b) =>
+  //   a! > b! ? 1 : -1,
+  // );
 };

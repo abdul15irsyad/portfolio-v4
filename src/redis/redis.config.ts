@@ -11,7 +11,7 @@ export const REDIS_TTL = process.env.REDIS_TTL ? +process.env.REDIS_TTL : 1800;
 
 const redisOptions: RedisOptions = {
   connectionName: 'portfolio',
-  // retryStrategy: () => null,
+  retryStrategy: () => null,
 };
 const redisClientSingleton = () => new Redis(REDIS_URL, redisOptions);
 
