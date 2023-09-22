@@ -7,7 +7,6 @@ import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import BlogShare from '@/components/BlogShare';
 import Blog from '@/components/Blog';
 import Link from 'next/link';
-import { prisma } from '@/prisma/client';
 import { getBlog } from '@/services/blog.service';
 import { cache } from '@/redis/redis.util';
 // import { blogDatas } from '@/data/blogs.data';

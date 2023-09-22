@@ -1,34 +1,60 @@
+'use client';
+
 import BlogItem from '@/components/BlogItem';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Empty from '@/components/Empty';
+import { Blog } from '@/types/blog.type';
+import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
-import { getAllTags, getBlogWithPagination } from '@/services/blog.service';
-import { cache } from '@/redis/redis.util';
+import { setQueryString } from '@/utils/url.util';
 // import { blogDatas } from '@/data/blogs.data';
 
-const Blog = async ({ searchParams }) => {
-  const parseSearchParams = (key: string[] | string) =>
-    Array.isArray(key) ? key[key.length - 1] : key;
-  const tag = parseSearchParams(searchParams.tag);
-  const search = parseSearchParams(searchParams.search);
-  const queryString = (name: string, value: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (value === '') params.delete(name);
-    else params.set(name, value);
-    return params.toString();
-  };
-  const findOptions = { page: 1, limit: 10, tag, search };
-  const {
-    data: blogs,
-    totalPage,
-    totalAllData,
-  } = await cache(`blogs:${JSON.stringify(findOptions)}`, () =>
-    getBlogWithPagination(findOptions),
-  );
+const Blog = () => {
+  const searchParams = useSearchParams();
+  const page = searchParams.get('page');
+  const tag = searchParams.get('tag');
+  const search = searchParams.get('search');
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [meta, setMeta] = useState<{
+    currentPage?: number;
+    totalPage?: number;
+    totalData?: number;
+    totalAllData?: number;
+  }>({
+    currentPage: page ? +page : 1,
+    totalAllData: 0,
+  });
   // const blogs = blogDatas;
   // const totalAllData = blogDatas.length;
-  const allTags = await getAllTags();
+  const [tags, setTags] = useState<string[]>([]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams();
+    searchParams.set('limit', '7');
+    if (page) searchParams.set('page', page);
+    if (tag) searchParams.set('tag', tag);
+    if (search) searchParams.set('search', search);
+    const url = `/api/blog${
+      searchParams.size > 0 ? `?${searchParams.toString()}` : ''
+    }`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        setBlogs(res.data);
+        setMeta(res.meta);
+      });
+  }, [searchParams]);
+
+  useEffect(() => {
+    fetch('/api/blog/tag')
+      .then((res) => res.json())
+      .then((res) => {
+        setTags(res.data);
+      });
+  }, []);
+
+  const queryString = useCallback(setQueryString(searchParams), [searchParams]);
 
   return (
     <>
@@ -51,7 +77,7 @@ const Blog = async ({ searchParams }) => {
                       {search && tag && 'and'} {tag && <span>#{tag}</span>}
                     </h4>
                     <div className="blog-filter-meta">
-                      showing {blogs.length} of {totalAllData} blogs
+                      showing {blogs.length} of {meta.totalAllData} blogs
                     </div>
                   </div>
                   <div className="blog-filter-reset">
@@ -59,7 +85,6 @@ const Blog = async ({ searchParams }) => {
                       href="/blog"
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
-                      prefetch={false}
                     >
                       <i className="bi bi-trash me-1"></i>
                       <span>Clear Filter</span>
@@ -79,11 +104,11 @@ const Blog = async ({ searchParams }) => {
                   <i className="bi bi-tags"></i>
                   <span>All Tags</span>
                 </h5>
-                {allTags.length > 0 ? (
+                {tags.length > 0 ? (
                   <div className="blog-tags">
-                    {allTags.map((tag, index) => (
+                    {tags.map((tag, index) => (
                       <Link
-                        href={`/blog?${queryString('tag', tag!)}`}
+                        href={`/blog?${queryString('tag', tag)}`}
                         key={index}
                         className="blog-tag"
                         prefetch={false}

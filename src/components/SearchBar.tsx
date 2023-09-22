@@ -1,5 +1,6 @@
 'use client';
 
+import { setQueryString } from '@/utils/url.util';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
 import { InputGroup, Form } from 'react-bootstrap';
@@ -12,15 +13,7 @@ const SearchBar = () => {
     setSearch(searchParams.get('search') ?? '');
   }, [searchParams]);
 
-  const queryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams as any);
-      if (value === '') params.delete(name);
-      else params.set(name, value);
-      return params.toString();
-    },
-    [searchParams],
-  );
+  const queryString = useCallback(setQueryString(searchParams), [searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

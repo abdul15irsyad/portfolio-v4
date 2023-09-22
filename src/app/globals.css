@@ -93,6 +93,10 @@ ul li {
   background-size: 300px 300px;
 }
 
+.placeholder{
+  border-radius: .25rem;
+}
+
 /* section */
 .section {
   padding: 6rem 1rem;
@@ -1096,7 +1100,7 @@ ul li {
 
 .blog-detail .blog-detail-tags .blog-tag{
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 10rem;
   padding: .25rem .75rem;
 }
