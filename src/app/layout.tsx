@@ -7,6 +7,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import MyNavbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnalyticsProvider from '@/components/Analytics';
+import ReactQuery from '@/components/ReactQuery';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',
@@ -48,11 +49,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={plusJakartaSans.className}>
-        <AnalyticsProvider>
-          <MyNavbar />
-          {children}
-          <Footer />
-        </AnalyticsProvider>
+        <ReactQuery>
+          <AnalyticsProvider>
+            <MyNavbar />
+            {children}
+            <Footer />
+          </AnalyticsProvider>
+        </ReactQuery>
       </body>
     </html>
   );

@@ -1,55 +1,48 @@
 'use client';
 
 import BlogItem from '@/components/BlogItem';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import Empty from '@/components/Empty';
-import { Blog } from '@/types/blog.type';
 import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 import { setQueryString } from '@/utils/url.util';
+import { useQuery } from '@tanstack/react-query';
+import LoadingTags from '@/components/LoadingTags';
+import LoadingBlogs from '@/components/LoadingBlogs';
+import { Blog } from '@/types/blog.type';
+import { ApiResponseAll } from '@/types/api-response.type';
 
 const Blog = () => {
   const searchParams = useSearchParams();
   const page = searchParams.get('page');
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [meta, setMeta] = useState<{
-    currentPage?: number;
-    totalPage?: number;
-    totalData?: number;
-    totalAllData?: number;
-  }>({
-    currentPage: page ? +page : 1,
-    totalAllData: 0,
+
+  const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
+    ApiResponseAll<Blog>
+  >({
+    queryKey: ['blogs', { page, tag, search }],
+    queryFn: async () => {
+      const newSearchParams = new URLSearchParams();
+      const limit = 7;
+      newSearchParams.set('limit', limit.toString());
+      if (page) newSearchParams.set('page', page);
+      if (tag) newSearchParams.set('tag', tag);
+      if (search) newSearchParams.set('search', search);
+      const url = `/api/blog${
+        newSearchParams.size > 0 ? `?${newSearchParams.toString()}` : ''
+      }`;
+      return (await fetch(url)).json();
+    },
   });
-  const [tags, setTags] = useState<string[]>([]);
 
-  useEffect(() => {
-    const searchParams = new URLSearchParams();
-    searchParams.set('limit', '7');
-    if (page) searchParams.set('page', page);
-    if (tag) searchParams.set('tag', tag);
-    if (search) searchParams.set('search', search);
-    const url = `/api/blog${
-      searchParams.size > 0 ? `?${searchParams.toString()}` : ''
-    }`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setBlogs(res.data);
-        setMeta(res.meta);
-      });
-  }, [searchParams]);
-
-  useEffect(() => {
-    fetch('/api/blog/tag')
-      .then((res) => res.json())
-      .then((res) => {
-        setTags(res.data);
-      });
-  }, []);
+  const { data: tags, isLoading: isLoadingTags } = useQuery<
+    ApiResponseAll<string>
+  >({
+    queryKey: ['allTags'],
+    queryFn: async () => (await fetch('/api/blog/tag')).json(),
+  });
 
   const queryString = useCallback(setQueryString(searchParams), [searchParams]);
 
@@ -74,12 +67,13 @@ const Blog = () => {
                       {search && tag && 'and'} {tag && <span>#{tag}</span>}
                     </h4>
                     <div className="blog-filter-meta">
-                      showing {blogs.length} of {meta.totalAllData} blogs
+                      showing {blogs?.data.length} of {blogs?.meta.totalAllData}{' '}
+                      blogs
                     </div>
                   </div>
                   <div className="blog-filter-reset">
                     <Link
-                      href="/blog"
+                      href="/blog?tag=&search="
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
                     >
@@ -89,8 +83,12 @@ const Blog = () => {
                   </div>
                 </div>
               )}
-              {blogs.length > 0 ? (
-                blogs.map((blog) => <BlogItem key={blog.id} blog={blog} />)
+              {isLoadingBlogs ? (
+                <LoadingBlogs />
+              ) : blogs!.data.length > 0 ? (
+                blogs!.data.map((blog) => (
+                  <BlogItem key={blog.id} blog={blog} />
+                ))
               ) : (
                 <Empty />
               )}
@@ -101,9 +99,11 @@ const Blog = () => {
                   <i className="bi bi-tags"></i>
                   <span>All Tags</span>
                 </h5>
-                {tags.length > 0 ? (
+                {isLoadingTags ? (
+                  <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
+                ) : tags!.data.length > 0 ? (
                   <div className="blog-tags">
-                    {tags.map((tag, index) => (
+                    {tags?.data.map((tag, index) => (
                       <Link
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
