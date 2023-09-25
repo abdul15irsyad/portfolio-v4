@@ -8,7 +8,6 @@ import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 import { setQueryString } from '@/utils/url.util';
-// import { blogDatas } from '@/data/blogs.data';
 
 const Blog = () => {
   const searchParams = useSearchParams();
@@ -25,8 +24,6 @@ const Blog = () => {
     currentPage: page ? +page : 1,
     totalAllData: 0,
   });
-  // const blogs = blogDatas;
-  // const totalAllData = blogDatas.length;
   const [tags, setTags] = useState<string[]>([]);
 
   useEffect(() => {
