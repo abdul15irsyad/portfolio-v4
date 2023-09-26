@@ -34,4 +34,9 @@ export const contacts = [
     label: 'abdulirsyad15',
     href: 'https://twitter.com/abdulirsyad15',
   },
+  {
+    icon: 'telegram',
+    label: 'abdulirsyad15',
+    href: 'https://t.me/abdulirsyad15',
+  },
 ];
