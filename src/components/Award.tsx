@@ -15,7 +15,7 @@ const Award = () => {
           </div>
           <div className="col-md-8">
             <ul className="award-items">
-              <li className="award-item">
+              <li className="award-item" data-aos="fade-up">
                 <div className="icon">
                   <i className="bi bi-award"></i>
                 </div>

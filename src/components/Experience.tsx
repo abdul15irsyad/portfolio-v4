@@ -11,7 +11,7 @@ const Experience = () => {
         </h2>
         <hr />
         {workExperiences.map(({ position, timespan, company, desc }, index) => (
-          <div key={index} className="row">
+          <div key={index} className="row" data-aos="fade-up">
             <div className="col-md-5 col-12">
               <div className="d-flex justify-content-md-end">
                 <div className="left">

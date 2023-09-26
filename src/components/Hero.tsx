@@ -28,7 +28,10 @@ const Hero = () => {
     <div className="hero section bg-light mb-0" id="hero">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 hero-title align-self-center">
+          <div
+            className="col-md-6 hero-title align-self-center"
+            data-aos="fade-right"
+          >
             <div className="social-media-wrapper">
               {contacts
                 .filter(({ icon }) =>
@@ -65,10 +68,16 @@ const Hero = () => {
             </Link>
           </div>
           <div className="col-md-6 hero-image mb-3">
-            <Image src="/hero2.png" alt="hero" width={400} height={400} />
+            <Image
+              src="/hero2.png"
+              alt="hero"
+              width={400}
+              height={400}
+              data-aos="fade-left"
+            />
           </div>
         </div>
-        <div className="features">
+        <div className="features" data-aos="fade-up">
           {features.map(({ icon, title }, index) => (
             <div className="feature" key={index}>
               <div className="feature-icon">

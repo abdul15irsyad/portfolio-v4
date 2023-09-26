@@ -8,6 +8,7 @@ import MyNavbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnalyticsProvider from '@/components/Analytics';
 import ReactQuery from '@/components/ReactQuery';
+import 'aos/dist/aos.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',

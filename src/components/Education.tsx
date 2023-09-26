@@ -23,7 +23,11 @@ const Education = () => {
               if (major) meta.push(major);
               return (
                 <>
-                  <div key={index} className="education-item">
+                  <div
+                    key={index}
+                    className="education-item"
+                    data-aos="fade-up"
+                  >
                     <div className="education-item-icon">
                       <Image src={icon} alt={icon} width={60} height={60} />
                     </div>

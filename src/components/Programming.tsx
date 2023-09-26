@@ -13,7 +13,11 @@ const Programming = () => {
         <hr />
         <div className="row justify-content-center">
           {programmingSkills.map(({ title, list }, index) => (
-            <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-12">
+            <div
+              key={index}
+              className="col-xl-3 col-lg-4 col-md-6 col-12"
+              data-aos="fade-up"
+            >
               <div className="category">
                 <div className="category-title">{title}</div>
                 <ul className="category-items">
