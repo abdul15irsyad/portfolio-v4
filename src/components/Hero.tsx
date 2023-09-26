@@ -69,8 +69,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="features">
-          {features.map(({ icon, title }) => (
-            <div className="feature">
+          {features.map(({ icon, title }, index) => (
+            <div className="feature" key={index}>
               <div className="feature-icon">
                 <Image src={icon} alt={title} width={40} height={40} />
               </div>

@@ -51,6 +51,11 @@ const Portfolio = () => {
                       },
                       { value: 'backend', label: 'Backend', selected: false },
                       { value: 'frontend', label: 'Frontend', selected: false },
+                      {
+                        value: 'wordpress',
+                        label: 'Wordpress',
+                        selected: false,
+                      },
                     ]}
                     handleChange={(e) => setType(e.target.value)}
                   />

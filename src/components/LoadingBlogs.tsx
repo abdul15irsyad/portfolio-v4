@@ -5,9 +5,9 @@ import LoadingTags from './LoadingTags';
 const LoadingBlogs = () => {
   return (
     <div className="loading-blogs">
-      {[...Array(2)].map(() => (
-        <div className="blog-item">
-          <div className="blog-feature-image">
+      {[...Array(2)].map((_, index) => (
+        <div className="blog-item" key={index}>
+          <div className="blog-feature-image" style={{ marginBottom: '.5rem' }}>
             <Placeholder animation="glow">
               <Placeholder
                 style={{
@@ -20,17 +20,26 @@ const LoadingBlogs = () => {
           </div>
           <div className="blog-text" style={{ width: '100%' }}>
             <Placeholder animation="glow">
-              <Placeholder
-                style={{
-                  height: '24px',
-                  width: '100%',
-                  display: 'block',
-                  marginBottom: '1rem',
-                }}
-              />
+              <div
+                className="blog-title-placeholder"
+                style={{ marginBottom: '.75rem' }}
+              >
+                {[100, 80].map((item, index) => (
+                  <Placeholder
+                    key={index}
+                    style={{
+                      height: '24px',
+                      width: `${item}%`,
+                      display: 'block',
+                      marginBottom: '.5rem',
+                    }}
+                  />
+                ))}
+              </div>
               <div style={{ marginBottom: '1rem' }}>
-                {[...Array(2)].map(() => (
+                {[...Array(2)].map((_, index) => (
                   <div
+                    key={index}
                     style={{
                       marginRight: '1rem',
                       display: 'inline-block',
@@ -53,8 +62,9 @@ const LoadingBlogs = () => {
                   </div>
                 ))}
               </div>
-              {[...Array(3)].map(() => (
+              {[...Array(3)].map((_, index) => (
                 <Placeholder
+                  key={index}
                   style={{
                     width: '100%',
                     height: '16px',

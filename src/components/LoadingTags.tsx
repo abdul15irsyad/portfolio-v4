@@ -11,8 +11,9 @@ const LoadingTags = ({ sizes }: { sizes: number[] }) => {
       animation="glow"
       style={{ display: 'flex', gap: '.5rem' }}
     >
-      {sizes.map((size) => (
+      {sizes.map((size, index) => (
         <Placeholder
+          key={index}
           style={{
             width: `${size}0px`,
             height: '22px',

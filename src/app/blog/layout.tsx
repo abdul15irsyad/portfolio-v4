@@ -1,4 +1,4 @@
-import { APP_NAME } from '@/configs/app.config';
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -7,10 +7,12 @@ export const metadata: Metadata = {
   description: 'My blog for sharing about programming or anything',
   twitter: {
     title: `Blog - ${APP_NAME}`,
+    images: `${BASE_URL}/meta-image.jpg`,
     description: 'My blog for sharing about programming or anything',
   },
   openGraph: {
     title: `Blog - ${APP_NAME}`,
+    images: `${BASE_URL}/meta-image.jpg`,
     description: 'My blog for sharing about programming or anything',
   },
 };

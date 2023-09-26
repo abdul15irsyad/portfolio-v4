@@ -5,6 +5,7 @@ export const portfolios: Portfolio[] = [
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
     year: 2023,
+    order: 202303,
     type: 'Backend',
     desc: `
       <p>
@@ -42,6 +43,7 @@ export const portfolios: Portfolio[] = [
     title: 'PPKD Pemantaun & Evaluasi',
     href: 'https://monevppkd.kemdikbud.go.id',
     year: 2023,
+    order: 202302,
     type: 'Backend',
     desc: `
       <p>
@@ -74,6 +76,7 @@ export const portfolios: Portfolio[] = [
     title: 'PPKD Dokumen',
     href: 'https://ppkd.kemdikbud.go.id',
     year: 2023,
+    order: 202301,
     type: 'Backend',
     desc: `
       <p>
@@ -114,6 +117,7 @@ export const portfolios: Portfolio[] = [
     title: 'PUSDIKLAT Tenaga Teknis Pendidikan Dan Keagamaan',
     href: 'https://pusdiklatteknis.kemenag.go.id',
     year: 2022,
+    order: 202213,
     type: 'Frontend',
     desc: `
       <p>
@@ -151,6 +155,7 @@ export const portfolios: Portfolio[] = [
     title: 'Admin Panel Digital Andaf',
     href: null,
     year: 2022,
+    order: 202212,
     type: 'Fullstack',
     desc: `
       <p>
@@ -179,6 +184,7 @@ export const portfolios: Portfolio[] = [
     title: 'Admin Panel SIPERDIK Aceh Tengah',
     href: null,
     year: 2021,
+    order: 202101,
     type: 'Fullstack',
     desc: `
       <p>
@@ -203,4 +209,127 @@ export const portfolios: Portfolio[] = [
       },
     ],
   },
-];
+  {
+    title: 'Sop Buntut Ibu Samino',
+    href: 'https://sopbuntutibusamino.com/',
+    year: 2022,
+    order: 202201,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah. Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/sop-buntut-ibu-samino-1.jpg',
+        alt: 'Sop Buntut Ibu Samino 1',
+      },
+      {
+        src: '/portfolio/sop-buntut-ibu-samino-2.jpg',
+        alt: 'Sop Buntut Ibu Samino 2',
+      },
+    ],
+  },
+  {
+    title: 'Safari Konveksi',
+    href: 'https://safarikonveksi.com',
+    year: 2022,
+    order: 202202,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra. Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/safari-konveksi-1.jpg',
+        alt: 'Safari Konveksi 1',
+      },
+      {
+        src: '/portfolio/safari-konveksi-2.jpg',
+        alt: 'Safari Konveksi 2',
+      },
+    ],
+  },
+  {
+    title: 'Beton Analytica',
+    href: 'https://betonanalytica.com/',
+    year: 2022,
+    order: 202203,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris. Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/beton-analytica-1.jpg',
+        alt: 'Beton Analytica 1',
+      },
+      {
+        src: '/portfolio/beton-analytica-2.jpg',
+        alt: 'Beton Analytica 2',
+      },
+      {
+        src: '/portfolio/beton-analytica-3.jpg',
+        alt: 'Beton Analytica 3',
+      },
+    ],
+  },
+  {
+    title: 'Padi Resort',
+    href: 'https://www.padiresort.co.id',
+    year: 2022,
+    order: 202102,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        Company profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia. Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/padi-resort-1.jpg',
+        alt: 'Padi Resort 1',
+      },
+      {
+        src: '/portfolio/padi-resort-2.jpg',
+        alt: 'Padi Resort 2',
+      },
+    ],
+  },
+  {
+    title: 'Galaxy Partani Mas',
+    href: 'https://galaxypartanimas.com',
+    year: 2022,
+    order: 202103,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya. Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/galaxy-partani-mas-1.jpg',
+        alt: 'Galaxy Partani Mas 1',
+      },
+      {
+        src: '/portfolio/galaxy-partani-mas-2.jpg',
+        alt: 'Galaxy Partani Mas 2',
+      },
+      {
+        src: '/portfolio/galaxy-partani-mas-3.jpg',
+        alt: 'Galaxy Partani Mas 3',
+      },
+    ],
+  },
+].sort((a, b) => (a.order < b.order ? 1 : -1));

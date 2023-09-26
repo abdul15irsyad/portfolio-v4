@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   ],
   twitter: {
     title: APP_NAME,
-    images: '/meta-image.jpg',
+    images: `${BASE_URL}/meta-image.jpg`,
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
   openGraph: {
     url: new URL(BASE_URL),
     title: APP_NAME,
-    images: '/meta-image.jpg',
+    images: `${BASE_URL}/meta-image.jpg`,
     description: 'Irsyad Abdul Hamid Darussalam web portfolio',
   },
 };

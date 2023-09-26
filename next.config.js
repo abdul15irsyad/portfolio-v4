@@ -10,6 +10,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'ktz1zlfp-4000.asse.devtunnels.ms',
+      },
+      {
+        protocol: 'https',
         hostname: 'irsyadabdul.my.id',
       },
     ],

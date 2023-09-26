@@ -103,6 +103,10 @@ ul li {
     width: 100% !important;
   }
 
+  .loading-blogs .blog-title-placeholder span{
+    height: 22px !important;
+  }
+
   .loading.blog-detail .blog-detail-title-placeholder{
     height: 24px !important;
   }
@@ -1191,6 +1195,7 @@ ul li {
   height: 240px;
   border-radius: 1rem;
   overflow: hidden;
+  border: 1px solid rgba(var(--bs-secondary-rgb),.2);
 }
 
 /* .carousel .carousel-item .img-wrapper .overlay{

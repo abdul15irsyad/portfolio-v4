@@ -34,8 +34,9 @@ export default () => {
                 className="blog-detail-meta-placeholder"
                 style={{ marginBottom: '1rem' }}
               >
-                {[...Array(2)].map(() => (
+                {[...Array(2)].map((_, index) => (
                   <div
+                    key={index}
                     style={{
                       marginRight: '1.5rem',
                       display: 'inline-block',
@@ -67,10 +68,11 @@ export default () => {
                   marginBottom: '2rem',
                 }}
               />
-              {[...Array(3)].map(() => (
-                <div style={{ marginBottom: '2rem' }}>
-                  {[...Array(5)].map((item, index, array) => (
+              {[...Array(3)].map((_, index) => (
+                <div key={index} style={{ marginBottom: '2rem' }}>
+                  {[...Array(5)].map((_, index, array) => (
                     <Placeholder
+                      key={index}
                       style={{
                         heigth: '18px',
                         display: 'inline-block',
@@ -93,8 +95,9 @@ export default () => {
               </h5>
               <div className="blog-detail-share-items">
                 <Placeholder animation="glow">
-                  {[...Array(6)].map(() => (
+                  {[...Array(6)].map((_, index) => (
                     <Placeholder
+                      key={index}
                       style={{
                         width: '32px',
                         height: '32px',
