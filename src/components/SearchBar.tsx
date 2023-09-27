@@ -1,24 +1,30 @@
 'use client';
 
-import { setQueryString } from '@/utils/url.util';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { InputGroup, Form } from 'react-bootstrap';
 
-const SearchBar = () => {
+type Prop = {
+  queryString: (name: string, value: string) => string;
+};
+
+const SearchBar = ({ queryString }: Prop) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get('search') ?? '');
+  const [search, setSearch] = useState(searchParams.get('search'));
+
   useEffect(() => {
-    setSearch(searchParams.get('search') ?? '');
+    setSearch(searchParams.get('search'));
   }, [searchParams]);
 
-  const queryString = useCallback(setQueryString(searchParams), [searchParams]);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/blog?${queryString('search', search ?? '')}`);
+    if (search) router.push(`/blog?${queryString('search', search)}`);
   };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setSearch(e.target.value);
+
   return (
     <Form onSubmit={handleSubmit}>
       <InputGroup className="search-bar mb-4 mb-lg-3">
@@ -28,8 +34,8 @@ const SearchBar = () => {
         <Form.Control
           name="search"
           placeholder="search blog title..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={search ?? ''}
+          onChange={handleChange}
         />
       </InputGroup>
     </Form>

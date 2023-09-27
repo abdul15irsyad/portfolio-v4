@@ -1,9 +1,5 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { defaultSanitizeOptions } from '@/utils/html.util';
-import { Metadata } from 'next';
-import sanitize from 'sanitize-html';
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import BlogShare from '@/components/BlogShare';
 import Blog from '@/components/Blog';
 import Link from 'next/link';
@@ -11,42 +7,7 @@ import { getBlog } from '@/services/blog.service';
 import { cache } from '@/redis/redis.util';
 // import { blogDatas } from '@/data/blogs.data';
 
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const blog = await cache(`blog:${params.slug}`, () =>
-    getBlog({ slug: params.slug }),
-  );
-  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
-  if (!blog) notFound();
-  const title = `${blog.title} - ${APP_NAME}`;
-  const description = `${sanitize(blog.content, {
-    ...defaultSanitizeOptions,
-  })
-    .split(' ')
-    .slice(0, 20)
-    .join(' ')
-    .trim()}...`;
-
-  return {
-    title: title,
-    keywords: blog.tags,
-    description,
-    authors: [{ name: blog.author?.name }],
-    twitter: {
-      card: 'summary',
-      title: title,
-      images: [blog?.featureImage!.url],
-      description,
-    },
-    openGraph: {
-      title: title,
-      authors: blog.author?.name,
-      images: [blog?.featureImage!.url],
-      description,
-    },
-  };
-}
-
-const BlogDetail = async ({ params, searchParams }) => {
+export default async ({ params, searchParams }) => {
   const blog = await cache(`blog:${params.slug}`, () =>
     getBlog({ slug: params.slug }),
   );
@@ -66,7 +27,7 @@ const BlogDetail = async ({ params, searchParams }) => {
                 <span>Share</span>
               </h5>
               <div className="blog-detail-share-items">
-                <BlogShare blogUrl={`${BASE_URL}/blog/${blog.slug}`} />
+                <BlogShare url={`/blog/${blog.slug}`} />
               </div>
             </div>
           </div>
@@ -83,5 +44,3 @@ const BlogDetail = async ({ params, searchParams }) => {
     </div>
   );
 };
-
-export default BlogDetail;

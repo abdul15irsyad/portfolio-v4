@@ -1,14 +1,16 @@
 'use client';
 
+import { BASE_URL } from '@/configs/app.config';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
+const BlogShare = ({ url }: { url: string }) => {
+  url = `${BASE_URL}${url}`;
   const [copied, setCopied] = useState(false);
   const copyToClipboard = () => {
     if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(blogUrl);
+    navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
@@ -21,31 +23,31 @@ const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
     },
     {
       type: 'social-media',
-      href: `https://www.linkedin.com/shareArticle?mini=true&url=${blogUrl}`,
+      href: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
       icon: 'linkedin',
       tooltip: 'share to Linkedin',
     },
     {
       type: 'social-media',
-      href: `whatsapp://send?text=${blogUrl}`,
+      href: `whatsapp://send?text=${url}`,
       icon: 'whatsapp',
       tooltip: 'share to Whatsapp',
     },
     {
       type: 'social-media',
-      href: `https://www.facebook.com/sharer/sharer.php?u=${blogUrl}`,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       icon: 'facebook',
       tooltip: 'share to Facebook',
     },
     {
       type: 'social-media',
-      href: `https://twitter.com/intent/tweet?text=${blogUrl}`,
+      href: `https://twitter.com/intent/tweet?text=${url}`,
       icon: 'twitter',
       tooltip: 'share to Twitter',
     },
     {
       type: 'social-media',
-      href: `https://t.me/share/url?url=${blogUrl}`,
+      href: `https://t.me/share/url?url=${url}`,
       icon: 'telegram',
       tooltip: 'share to Telegram',
     },
@@ -64,6 +66,7 @@ const BlogShare = ({ blogUrl }: { blogUrl: string }) => {
           className="blog-detail-share-item"
           onClick={copyToClipboard}
           disabled={copied}
+          style={{ cursor: !copied ? 'pointer' : 'default' }}
         >
           <i className={`bi bi-${copied ? 'check2' : 'clipboard'}`}></i>
         </button>

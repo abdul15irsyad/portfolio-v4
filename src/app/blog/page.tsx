@@ -6,14 +6,13 @@ import Empty from '@/components/Empty';
 import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
-import { setQueryString } from '@/utils/url.util';
 import { useQuery } from '@tanstack/react-query';
 import LoadingTags from '@/components/LoadingTags';
 import LoadingBlogs from '@/components/LoadingBlogs';
 import { Blog } from '@/types/blog.type';
 import { ApiResponseAll } from '@/types/api-response.type';
 
-const Blog = () => {
+export default () => {
   const searchParams = useSearchParams();
   const page = searchParams.get('page');
   const tag = searchParams.get('tag');
@@ -44,7 +43,15 @@ const Blog = () => {
     queryFn: async () => (await fetch('/api/blog/tag')).json(),
   });
 
-  const queryString = useCallback(setQueryString(searchParams), [searchParams]);
+  const queryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams as any);
+      if (value === '') params.delete(name);
+      else params.set(name, value);
+      return params.toString();
+    },
+    [searchParams],
+  );
 
   return (
     <>
@@ -54,7 +61,7 @@ const Blog = () => {
             <div className="col">
               <h1 className="title">Blog</h1>
               <hr />
-              <SearchBar />
+              <SearchBar queryString={queryString} />
             </div>
           </div>
           <div className="row">
@@ -73,7 +80,7 @@ const Blog = () => {
                   </div>
                   <div className="blog-filter-reset">
                     <Link
-                      href="/blog?tag=&search="
+                      href="/blog?tag="
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
                     >
@@ -125,5 +132,3 @@ const Blog = () => {
     </>
   );
 };
-
-export default Blog;
