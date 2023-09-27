@@ -5,11 +5,18 @@ import FormSelect from '@/components/FormSelect';
 import PortfolioItem from '@/components/PortfolioItem';
 import { portfolios } from '@/data/portolios.data';
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import { aosInitConfig } from '@/configs/aos.config';
 
-const Portfolio = () => {
+export default () => {
   const [year, setYear] = useState<string | number>('all');
   const [type, setType] = useState<string>('all');
   const [filteredPortfolios, setFilteredPortofolio] = useState(portfolios);
+
+  useEffect(() => {
+    AOS.init(aosInitConfig);
+  });
+
   useEffect(() => {
     setFilteredPortofolio(
       portfolios.filter((portfolio) => {
@@ -79,5 +86,3 @@ const Portfolio = () => {
     </>
   );
 };
-
-export default Portfolio;

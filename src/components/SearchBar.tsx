@@ -27,7 +27,7 @@ const SearchBar = ({ queryString }: Prop) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputGroup className="search-bar mb-4 mb-lg-3">
+      <InputGroup className="search-bar mb-3">
         <InputGroup.Text>
           <i className="bi bi-search"></i>
         </InputGroup.Text>

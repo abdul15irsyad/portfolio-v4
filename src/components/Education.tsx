@@ -3,7 +3,6 @@
 import { educations } from '@/data/educations.data';
 import Image from 'next/image';
 import React from 'react';
-import { Card } from 'react-bootstrap';
 
 const Education = () => {
   return (

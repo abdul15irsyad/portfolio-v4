@@ -8,14 +8,11 @@ import Award from '@/components/Award';
 import Education from '@/components/Education';
 import { useEffect } from 'react';
 import AOS from 'aos';
+import { aosInitConfig } from '@/configs/aos.config';
 
 const Home = () => {
   useEffect(() => {
-    AOS.init({
-      offset: 100,
-      easing: 'ease-out',
-      duration: 500,
-    });
+    AOS.init(aosInitConfig);
   });
   return (
     <main>

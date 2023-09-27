@@ -763,6 +763,10 @@ ul li {
 }
 
 @media(max-width: 991px){
+  .blog .row:nth-child(2){
+    flex-direction: column-reverse;
+  }
+
   .blog .blog-sidebar .blog-tags{
     justify-content: center;
   }
@@ -824,7 +828,7 @@ ul li {
 
 @media(max-width: 1200px){
   .blog-sidebar{
-    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
   }
 }
 
