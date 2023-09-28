@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import sanitize from 'sanitize-html';
+// import { blogDatas } from '@/data/blogs.data';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const blog = await cache(`blog:${params.slug}`, () =>

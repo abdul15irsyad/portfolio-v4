@@ -407,6 +407,168 @@ export const blogs: Blog[] = [
     createdAt: new Date('2023-09-11 07:13:50+00'),
     updatedAt: new Date('2023-09-11 07:13:50+00'),
   },
+  {
+    id: '04cf9b89-3c3d-4250-b617-6233b2bd5063',
+    title: 'Array Method .reduce() di Javascript',
+    slug: 'array-method-reduce-di-javascript',
+    featureImageId: '417db7b7-b046-4d7e-ac07-27bc05550662',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    yohohooo… yohohoo… sehat-sehat semuanya, kali ini saya mau bahas yang ringan-ringan aja dan bisa jadi basic dari javascript/typescript tapi pengen aja gitu bahas ini, daripada berat-berat mulu ya kan, mager juga nulisnya (tapi mau coba konsisten si).
+    </p>
+    <p>
+    oke, yang mau saya bahas adalah suatu array method yang bisa dibilang, terlalu sering digunain? engga, terlalu jarang? engga juga, mungkin method-method array yang udah sering kita pake itu <code>.map()</code>, <code>.filter()</code>, <code>.find()</code>, ini udah sering banget dipake, nah kalo method ini spesial punya kegunaan tersendiri tidak lain tidak bukan yaitu method <code>.reduce()</code>.
+    </p>
+    <h3>introduction</h3>
+    <p>
+    pertama-tama untuk definisi singkat <u>menurut saya</u>, method <code>.reduce()</code> ialah method yang akan melooping keseluruhan array dengan membawa nilai di tiap loopnya, untuk returnnya bisa berbeda-beda tergantung proses di dalamnya.
+    </p>
+    <p>
+    selanjutnya kita liat dulu nih parameter-parameter yang ada id method <code>.reduce()</code>, bisa terdapat 1 atau 2 parameter yakni
+    </p>
+    <ul>
+    <li>
+    callback function<br>dengan parameter <code>previousValue</code>, <code>currentValue</code>, <code>currentIndex</code>, <code>array</code>. dimana returnnya adalah value yang akan dibawa di looping selanjutnya
+    </li>
+    <li>
+    initial value (opsional)<br>untuk initial value ini opsional, jika didefinisikan maka looping akan dimulai dari value yang diberikan, lalu jika tidak maka looping akan dimulai dari indeks ke-0 dan tipe data dari return nya adalah tipe element di array tersebut.
+    </li>
+    </ul>
+    <pre>
+    <code class="language-javascript">const arr = ['1', '2', '3', '4', '5'];
+
+const result = arr.reduce((prev, curr, index) => {
+  const theReturn = prev + curr;
+  console.log({ index, prev, curr, theReturn });
+  return theReturn;
+}, 'initial');
+
+console.log(result);</code>
+    </pre>
+    <p>
+    output dari kode tersebut kurang lebih akan menampilkan seperti berikut
+    </p>
+    <img src="/blog/1695909309.jpg" alt="1695909309.jpg" class="img-md">
+    <p>
+    Terlihat bahwa saat awal (<code>index</code> nya 0) nilai prev adalah <code>"initial"</code> yang didefinisikan di parameter kedua, namun di looping selanjutnya nilai prev tersebut berubah karena return dari callback function adalah <code>prev</code> + <code>curr</code> menghasilkan <code>"intial1"</code>, dan seterusnya akan dibawa sampai looping yang terakhir hingga menjadi return dari method <code>.reduce()</code> nya yaitu <code>"initial12345"</code>.
+    </p>
+    <p>
+    jika kita coba menghilangkan <code>'initial'</code> dari parameter kedua
+    </p>
+    <pre>
+    <code class="language-javascript">const arr = ['1', '2', '3', '4', '5'];
+
+const result = arr.reduce((prev, curr, index) => {
+  const theReturn = prev + curr;
+  console.log({ index, prev, curr, theReturn });
+  return theReturn;
+});
+
+console.log(result);</code>
+    </pre>
+    <p>
+    maka outputnya akan seperti ini
+    </p>
+    <img src="/blog/1695909878.png" alt="1695909878.png" class="img-md">
+    <p>
+    looping dimulai dari indeks pertama dari array nya, karena <code>initialValue</code> tidak didefinisikan dan returnnya berupa <code>string</code> karena tipe elementnya adalah <code>string</code>.
+    </p>
+    <h3>example</h3>
+    <p>
+    setelah kita udah tau detail dari method <code>.reduce()</code>, sekarang pertanyaannya <b>"kapan kita pake ini method?"</b>, <b>"pas lagi kayak gimana ni kita butuh?"</b>, nah mungkin method ini kita bisa implementasi untuk kondisi-kondisi di bawah, kalo ada keperluan seperti berikut, cocok banget buat dipake ni
+    </p>
+    <ol>
+    <li>
+    <b>total nilai</b><br>
+    <p>ini kayak hal paling mainstream yang bisa diselesaikan menggunakan method <code>.reduce()</code> ini, yakni kalau kita mau mencari total nilai atau jumlah dari seluruh element di dalam array tersebut. contoh case nya misalkan ada pengguna di suatu e-commerce dimana pengguna memiliki keranjang belanja dan ia hendak checkout, maka aplikasi perlu menghitung total harga dari barang-barang yang dipilih karena pengguna perlu mengetahui berapa jumlah yang perlu ia bayar.
+    </p>
+    <pre>
+    <code class="language-javascript">const cart = [
+  { name: 'pensil', price: 2000 },
+  { name: 'buku', price: 5000 },
+  { name: 'penghapus', price: 6500 },
+  { name: 'tipe-x', price: 11000 },
+  { name: 'pulpen', price: 4000 },
+];
+
+const totalPrice = cart.reduce((prev, curr) => {
+  return prev + curr.price;
+}, 0);
+
+console.log(totalPrice); // 28500</code>
+    </pre>
+    <p>
+    kita set initial value nya <code>0</code> karena kita ingin return dari method nya berupa <code>number</code> bukan <code>object</code>, hasilnya kita bisa dapet total harga dari keranjang belanja nya sebesar <code>28500</code>.
+    </p>
+    </li>
+    <li>
+    <b>nilai maksimum atau minimum</b><br>selain total nilai, kita juga bisa mencari nilai maksimum atau minimum dari suatu array, misal dengan array <code>cart</code> yang sama, kita ingin mencari harga paling mahal dan paling murah dari list tersebut.
+    <pre>
+    <code class="language-javascript">const maxPrice = cart.reduce((prev, curr) => {
+  return Math.max(prev, curr.price);
+}, -Infinity);
+
+const minPrice = cart.reduce((prev, curr) => {
+  return Math.min(prev, curr.price);
+}, Infinity);
+
+console.log(maxPrice); // 11000
+console.log(minPrice); // 2000</code>
+    </pre>
+    <p>
+    kita bisa mendapatkan bahwa harga barang paling mahal sebesar <code>11000</code> dan paling murah adalah <code>2000</code>.
+    </p>
+    </li>
+    <li>
+    <b>penggabungan method <code>.filter()</code> dan <code>.map()</code></b><br>
+    <p>
+    menarik ni, maksudnya gimana tu penggabungan 2 method, jadi saya juga baru tau dari temen saya (sebut saja teguh) bahwa method <code>.reduce()</code> bisa jadi pengganti dari <code>.filter()</code> dan <code>.map()</code>, namun kondisinya memang jika menggunakan 2 method itu secara berurutan, <code>.filter()</code> baru abis itu <code>.map()</code>, bahkan secara proses lebih efisien karna proses looping arraynya hanya sekali saja. misal masih dengan array <code>cart</code> yang tadi, kita perlu mencari info tentang nama-nama barang yang harganya lebih besar dari <code>5000</code>, pertama-tama kita coba pakai <code>.filter()</code> dan <code>.map()</code> dulu.
+    </p>
+    <pre>
+    <code class="language-javascript">const itemNameWithPriceMoreThan5000 = cart
+  .filter((item) => {
+    return item.price > 5000;
+  })
+  .map((item) => item.name);
+
+console.log(itemNameWithPriceMoreThan5000); // ["penghapus", "tipe-x"]</code>
+    </pre>
+    <p>
+    hasilnya adalah array baru yang isinya <code>"penghapus"</code>, <code>"tipe-x"</code>. item dengan nama <code>"buku"</code> tidak termasuk, karena harganya pas <code>5000</code>. sekarang kita coba menggunakan method <code>.reduce()</code> untuk penggabungan method <code>.filter()</code> dan <code>.map()</code>.
+    </p>
+    <pre>
+    <code class="language-javascript">const itemNameWithPriceMoreThan5000 = cart.reduce((prev, curr) => {
+  if (!(curr.price > 5000)) {
+    return prev;
+  }
+  prev.push(curr.name);
+  return prev;
+}, []);
+
+console.log(itemNameWithPriceMoreThan5000); // ["penghapus", "tipe-x"]</code>
+    </pre>
+    <p>
+    kita mendapatkan hasil yang sama, bahkan looping yang dilakukan hanya sekali, sedangkan jika menggunakan <code>.filter()</code> dan <code>.map()</code> loopingnya sebanyak 2 kali, lebih efisien jadinya kan.
+    </p>
+    </li>
+    </ol>
+    <p>
+    oke itu tadi beberapa case yang bisa diimplementasi dengan method <code>.reduce()</code>, dengan mengetahui konsep atau flownya, kita bisa menemukan case lain yang juga dapat diselesaikan, jika sekiranya lebih efisien menggunakan <code>.reduce()</code>, bisa dipertimbangkan untuk mengganti penggunaannya (kalo masih ragu jangan, ntar malah nambah bug, hehe)
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini, semoga bermanfaat 😊
+    </p>
+    </article>
+    `,
+    tags: ['reduce', 'array', 'javascript'],
+    publishedAt: new Date('2023-09-28 07:13:50+00'),
+    createdAt: new Date('2023-09-28 07:13:50+00'),
+    updatedAt: new Date('2023-09-28 07:13:50+00'),
+  },
 ];
 
 export const blogDatas = blogs

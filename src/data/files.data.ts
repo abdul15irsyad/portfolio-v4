@@ -38,6 +38,15 @@ export const files: File[] = [
     originalFileName: 'nest-js-authentication-menggunakan-passport-part-1.jpg',
     mime: 'image/jpg',
   },
+  {
+    id: '417db7b7-b046-4d7e-ac07-27bc05550662',
+    createdAt: new Date('2023-09-28 20:24:05+00'),
+    updatedAt: new Date('2023-09-28 20:24:05+00'),
+    path: 'blog',
+    fileName: 'array-method-reduce-di-javascript.jpg',
+    originalFileName: 'array-method-reduce-di-javascript.jpg',
+    mime: 'image/jpg',
+  },
 ];
 
 export const fileDatas = files.map((file) => {
