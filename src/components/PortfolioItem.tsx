@@ -25,32 +25,35 @@ const PortfolioItem = ({
         <h3 className="portfolio-item-title">{title}</h3>
         <div className="portfolio-item-metas">
           <div className="portfolio-item-meta">{year}</div>
-          <span>-</span>
-          <div className="portfolio-item-meta">{type}</div>
+          <div className="portfolio-item-meta">{type.toLowerCase()}</div>
         </div>
         <div
           className="portfolio-item-desc"
           dangerouslySetInnerHTML={{ __html: desc }}
         ></div>
-        <div className="portfolio-item-stacks">
-          {stacks.map(({ icon, label }, index) => (
-            <OverlayTrigger
-              key={index}
-              overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
-              placement="bottom"
-            >
-              <div className="portfolio-item-stack">
-                <Image src={icon} alt={label} width={28} height={28} />
-              </div>
-            </OverlayTrigger>
-          ))}
+        <div className="portfolio-bottom">
+          <div className="portfolio-button">
+            {href && (
+              <Link href={href} target="_blank" className="btn btn-primary">
+                <span>Visit Site</span>
+                <i className="bi bi-chevron-right ms-2" />
+              </Link>
+            )}
+          </div>
+          <div className="portfolio-item-stacks">
+            {stacks.map(({ icon, label }, index) => (
+              <OverlayTrigger
+                key={index}
+                overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
+                placement="bottom"
+              >
+                <div className="portfolio-item-stack">
+                  <Image src={icon} alt={label} width={28} height={28} />
+                </div>
+              </OverlayTrigger>
+            ))}
+          </div>
         </div>
-        {href && (
-          <Link href={href} target="_blank" className="btn btn-primary">
-            <span>Visit Site</span>
-            <i className="bi bi-chevron-right ms-2" />
-          </Link>
-        )}
       </div>
     </div>
   );

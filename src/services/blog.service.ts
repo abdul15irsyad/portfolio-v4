@@ -67,7 +67,7 @@ export const getBlog = async ({ slug }: { slug: string }) => {
 
 export const getAllTags = async () => {
   const tags: string[] = (
-    (await prisma.$queryRaw`select distinct tag from (select unnest(tags) as tag from blogs) as tag`) as {
+    (await prisma.$queryRaw`select distinct tag from (select unnest(tags) as tag from blogs) as tag order by tag asc`) as {
       tag: string;
     }[]
   ).map(({ tag }) => tag);

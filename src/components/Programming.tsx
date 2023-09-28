@@ -33,7 +33,9 @@ const Programming = () => {
                         )} */}
                       </div>
                       <div>
-                        <span className="badge bg-primary">{level}</span>
+                        <span className="badge category-item-level">
+                          {level}
+                        </span>
                       </div>
                     </li>
                   ))}

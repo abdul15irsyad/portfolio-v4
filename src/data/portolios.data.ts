@@ -285,7 +285,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Padi Resort',
     href: 'https://www.padiresort.co.id',
-    year: 2022,
+    year: 2021,
     order: 202102,
     type: 'Wordpress',
     desc: `
@@ -308,7 +308,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Galaxy Partani Mas',
     href: 'https://galaxypartanimas.com',
-    year: 2022,
+    year: 2021,
     order: 202103,
     type: 'Wordpress',
     desc: `
