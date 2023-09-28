@@ -3,7 +3,7 @@ import React from 'react';
 
 const ComingSoon = () => {
   return (
-    <div className="coming-soon section">
+    <div className="coming-soon section doodle-background">
       <div className="container">
         <div className="row">
           <div className="col-md-6">

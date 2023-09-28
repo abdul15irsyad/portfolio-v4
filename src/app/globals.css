@@ -91,7 +91,7 @@ ul li {
 }
 
 .doodle-background{
-  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.95), rgba(var(--bs-light-rgb), 0.95)), url('/pattern-background.png');
+  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.97), rgba(var(--bs-light-rgb), 0.97)), url('/pattern-background.png');
   background-size: 300px 300px;
 }
 
@@ -195,8 +195,6 @@ ul li {
 
 /* hero */
 .hero {
-  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.9), rgba(var(--bs-light-rgb), 0.9)), url('/pattern-background.png');
-  background-size: 300px 300px;
   padding-bottom: 0px;
 }
 
@@ -518,7 +516,7 @@ ul li {
 
 /* award */
 .award {
-  background: linear-gradient(to bottom, rgba(76, 76, 76, 0.95), rgba(76, 76, 76, 0.95)), url('/pattern-background.png');
+  background: linear-gradient(to bottom, rgba(76, 76, 76, 0.98), rgba(76, 76, 76, 0.98)), url('/pattern-background.png');
   background-size: 300px 300px;
 }
 
@@ -1001,11 +999,6 @@ ul li {
 }
 
 /* blog-detail */
-.blog-detail{
-  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.95), rgba(var(--bs-light-rgb), 0.95)), url('/pattern-background.png');
-  background-size: 300px 300px;
-}
-
 .blog-detail .blog-detail-title{
   color: var(--bs-primary);
   font-weight: 800;
@@ -1319,8 +1312,6 @@ ul li {
 
 /* coming-soon */
 .coming-soon {
-  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.95), rgba(var(--bs-light-rgb), 0.95)), url('/pattern-background.png');
-  background-size: 300px 300px;
   padding: 8rem 2rem !important;
 }
 

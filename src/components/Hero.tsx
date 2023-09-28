@@ -25,7 +25,7 @@ const Hero = () => {
     { icon: '/icons/puzzle.png', title: 'Problem Solve' },
   ];
   return (
-    <div className="hero section bg-light mb-0" id="hero">
+    <div className="hero section mb-0 doodle-background" id="hero">
       <div className="container">
         <div className="row">
           <div
