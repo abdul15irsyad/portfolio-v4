@@ -21,7 +21,7 @@ const Hero = () => {
     ?.href;
   const features = [
     { icon: '/icons/api.png', title: 'API' },
-    { icon: '/icons/servers.png', title: 'Database' },
+    { icon: '/icons/servers.png', title: 'ERD Database' },
     { icon: '/icons/puzzle.png', title: 'Problem Solve' },
   ];
   return (
@@ -34,9 +34,7 @@ const Hero = () => {
           >
             <div className="social-media-wrapper">
               {contacts
-                .filter(({ icon }) =>
-                  ['github', 'linkedin'].find((item) => item === icon),
-                )
+                .filter(({ icon }) => ['github', 'linkedin'].includes(icon))
                 .map((socialMedia, index) => {
                   return socialMedia.href ? (
                     <Link
@@ -54,14 +52,14 @@ const Hero = () => {
                   );
                 })}
             </div>
-            <h1 className="text-jumbo">Hello, im Irsyad Abdul</h1>
+            <h1 className="text-jumbo">Hello, Im Irsyad Abdul</h1>
             <h4 className="mb-4 typed-text">
               <span ref={typedText}></span>
             </h4>
             <Link
               href={whatsappLink!}
               target="_blank"
-              className="btn btn-primary contact-me px-3"
+              className="btn contact-me px-3"
             >
               Contact Me
               <i className="bi bi-whatsapp ms-2"></i>

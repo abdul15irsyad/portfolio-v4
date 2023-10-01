@@ -19,19 +19,19 @@ export const programmingSkills: ProgrammingSkill[] = [
       // {
       //   name: 'Golang',
       //   logo: '/programming/golang.png',
-      //   level: Level.BEGINNER,
+      //   level: Level.BASIC,
       //   href: 'https://go.dev',
       // },
       {
         name: 'Nest JS',
         logo: '/programming/nestjs.png',
-        level: Level.ADVANCE,
+        level: Level.GOOD,
         href: 'https://nestjs.com',
       },
       {
         name: 'Express JS',
         logo: '/programming/express.png',
-        level: Level.ADVANCE,
+        level: Level.GOOD,
         href: 'https://expressjs.com',
       },
       {
@@ -66,13 +66,13 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Vue JS',
         logo: '/programming/vue.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
         href: 'https://vuejs.org',
       },
       {
         name: 'Next JS',
         logo: '/programming/next.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
         href: 'https://nextjs.org',
       },
     ],
@@ -95,7 +95,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Mongo DB',
         logo: '/programming/mongodb.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
         // href: 'https://www.mongodb.com',
       },
     ],
@@ -118,18 +118,18 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'CI/CD (Gitlab)',
         logo: '/programming/ci-cd.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
       },
       {
         name: 'Docker',
         logo: '/programming/docker.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
         // href: 'https://www.docker.com',
       },
       {
         name: 'Websocket',
         logo: '/programming/websocket.png',
-        level: Level.BEGINNER,
+        level: Level.BASIC,
         // href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
       },
     ],

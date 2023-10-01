@@ -4,10 +4,10 @@ import React from 'react';
 
 const Footer = () => {
   const footerContacts = contacts.filter(({ icon }) =>
-    ['whatsapp', 'envelope'].find((item) => item === icon),
+    ['whatsapp', 'telegram', 'envelope'].includes(icon),
   );
   const followMe = contacts.filter(
-    ({ icon }) => !['whatsapp', 'envelope'].find((item) => item === icon),
+    ({ icon }) => !['whatsapp', 'envelope', 'telegram'].includes(icon),
   );
   return (
     <>
@@ -36,7 +36,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="social-medias col-lg-4 col-md-6 col-12">
-                <h5>Follow me</h5>
+                <h5>Follow Me</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => {
                     return href ? (

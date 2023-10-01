@@ -10,7 +10,8 @@ export interface ProgrammingSkill {
 
 export enum Level {
   LEARNING = 'learning',
-  BEGINNER = 'beginner',
+  BASIC = 'basic',
   INTERMEDIATE = 'intermediate',
+  GOOD = 'good',
   ADVANCE = 'advance',
 }
