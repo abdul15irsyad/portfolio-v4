@@ -1,40 +1,18 @@
 'use client';
 
-import BlogItem from '@/components/BlogItem';
 import React, { useCallback } from 'react';
-import Empty from '@/components/Empty';
 import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
 import LoadingTags from '@/components/LoadingTags';
-import LoadingBlogs from '@/components/LoadingBlogs';
-import { Blog } from '@/types/blog.type';
+import { useQuery } from '@tanstack/react-query';
 import { ApiResponseAll } from '@/types/api-response.type';
+import Blogs from '@/components/Blogs';
 
 export default () => {
   const searchParams = useSearchParams();
-  const page = searchParams.get('page');
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
-
-  const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
-    ApiResponseAll<Blog>
-  >({
-    queryKey: ['blogs', { page, tag, search }],
-    queryFn: async () => {
-      const newSearchParams = new URLSearchParams();
-      const limit = 7;
-      newSearchParams.set('limit', limit.toString());
-      if (page) newSearchParams.set('page', page);
-      if (tag) newSearchParams.set('tag', tag);
-      if (search) newSearchParams.set('search', search);
-      const url = `/api/blog${
-        newSearchParams.size > 0 ? `?${newSearchParams.toString()}` : ''
-      }`;
-      return (await fetch(url)).json();
-    },
-  });
 
   const { data: tags, isLoading: isLoadingTags } = useQuery<
     ApiResponseAll<string>
@@ -73,14 +51,10 @@ export default () => {
                       Result for {search && <span>"{search}"</span>}{' '}
                       {search && tag && 'and'} {tag && <span>#{tag}</span>}
                     </h4>
-                    <div className="blog-filter-meta">
-                      showing {blogs?.data.length} of {blogs?.meta.totalAllData}{' '}
-                      blogs
-                    </div>
                   </div>
                   <div className="blog-filter-reset">
                     <Link
-                      href="/blog?tag="
+                      href="/blog"
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
                     >
@@ -90,15 +64,7 @@ export default () => {
                   </div>
                 </div>
               )}
-              {isLoadingBlogs ? (
-                <LoadingBlogs />
-              ) : blogs!.data.length > 0 ? (
-                blogs!.data.map((blog) => (
-                  <BlogItem key={blog.id} blog={blog} />
-                ))
-              ) : (
-                <Empty />
-              )}
+              <Blogs />
             </div>
             <div className="col-xl-3 col-12 blog-sidebar">
               <div className="all-tags box-container">
@@ -115,7 +81,6 @@ export default () => {
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
                         className="blog-tag"
-                        prefetch={false}
                       >
                         {tag}
                       </Link>
