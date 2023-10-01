@@ -14,7 +14,7 @@ model Blog {
   featureImage   File      @relation(fields: [featureImageId], references: [id])
   featureImageId String    @map("feature_image_id")
   content        String    @db.Text
-  publishedAt    DateTime? @map("published_at")
+  publishedAt    DateTime? @map("published_at") @db.Timestamptz()
   tags           String[]
   author         Author?   @relation(fields: [authorId], references: [id])
   authorId       String?   @map("author_id")

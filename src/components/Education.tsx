@@ -21,26 +21,20 @@ const Education = () => {
               const meta: string[] = [level];
               if (major) meta.push(major);
               return (
-                <>
-                  <div
-                    key={index}
-                    className="education-item"
-                    data-aos="fade-up"
-                  >
-                    <div className="education-item-icon">
-                      <Image src={icon} alt={icon} width={60} height={60} />
-                    </div>
-                    <div className="education-item-text">
-                      <h5 className="fw-bold">{meta.join(' - ')}</h5>
-                      <div className="text-secondary">
-                        <p className="mb-0">{institution}</p>
-                        <span>
-                          {startYear} - {endYear}
-                        </span>
-                      </div>
+                <div key={index} className="education-item" data-aos="fade-up">
+                  <div className="education-item-icon">
+                    <Image src={icon} alt={icon} width={60} height={60} />
+                  </div>
+                  <div className="education-item-text">
+                    <h5 className="fw-bold">{meta.join(' - ')}</h5>
+                    <div className="text-secondary">
+                      <p className="mb-0">{institution}</p>
+                      <span>
+                        {startYear} - {endYear}
+                      </span>
                     </div>
                   </div>
-                </>
+                </div>
               );
             },
           )}

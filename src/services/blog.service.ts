@@ -66,8 +66,11 @@ export const getBlog = async ({ slug }: { slug: string }) => {
 };
 
 export const getAllTags = async () => {
+  const now = dayjs().toDate().toISOString();
   const tags: string[] = (
-    (await prisma.$queryRaw`select distinct tag from (select unnest(tags) as tag from blogs where published_at is not null) as tag order by tag asc`) as {
+    (await prisma.$queryRaw`select distinct tag from (
+      select unnest(tags) as tag from blogs where published_at is not null and published_at <= ${now}::timestamptz
+      ) as tag order by tag asc`) as {
       tag: string;
     }[]
   ).map(({ tag }) => tag);
