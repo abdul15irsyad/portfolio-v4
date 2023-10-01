@@ -33,7 +33,7 @@ const SearchBar = ({ queryString }: Prop) => {
         </InputGroup.Text>
         <Form.Control
           name="search"
-          placeholder="search blog title..."
+          placeholder="cari judul blog . . ."
           value={search ?? ''}
           onChange={handleChange}
         />

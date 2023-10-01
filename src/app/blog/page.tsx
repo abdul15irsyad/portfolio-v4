@@ -38,6 +38,9 @@ export default () => {
           <div className="row header">
             <div className="col">
               <h1 className="title">Blog</h1>
+              <p className="sub-title">
+                tempat buat share/bahas tipis-tipis mengenai coding
+              </p>
               <hr />
               <SearchBar queryString={queryString} />
             </div>

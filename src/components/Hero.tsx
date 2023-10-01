@@ -52,7 +52,7 @@ const Hero = () => {
                   );
                 })}
             </div>
-            <h1 className="text-jumbo">Hello, Im Irsyad Abdul</h1>
+            <h1 className="text-jumbo">Hai, saya Irsyad Abdul</h1>
             <h4 className="mb-4 typed-text">
               <span ref={typedText}></span>
             </h4>
@@ -61,7 +61,7 @@ const Hero = () => {
               target="_blank"
               className="btn contact-me px-3"
             >
-              Contact Me
+              Hubungi Saya
               <i className="bi bi-whatsapp ms-2"></i>
             </Link>
           </div>

@@ -2,13 +2,13 @@ import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {
-    position: 'Back End Developer',
+    position: 'Backend Developer',
     timespan: 'Agu 2022 - Sekarang',
     company: {
       name: 'Optimap',
       logo: '/experience/optimap.png',
     },
-    desc: 'Berposisi sebagai Back End Developer, menggunakan Bahasa pemrograman TypeScript dengan Framework NestJS, dan database yang digunakan adalah PostgreSQL.',
+    desc: 'Berposisi sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
   },
   {
     position: 'IT Staff',

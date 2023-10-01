@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="contacts col-lg-4 col-md-6 col-12">
-                <h5>Contact</h5>
+                <h5>Kontak</h5>
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => {
                     return href ? (
@@ -36,7 +36,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="social-medias col-lg-4 col-md-6 col-12">
-                <h5>Follow Me</h5>
+                <h5>Ikuti Saya</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => {
                     return href ? (
@@ -54,7 +54,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="address col-md-4 col-12">
-                <h5>Address</h5>
+                <h5>Alamat</h5>
                 <p>Pamulang, South Tangerang City, Banten 15417</p>
               </div>
             </div>
