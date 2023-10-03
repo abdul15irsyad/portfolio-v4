@@ -3,4 +3,5 @@ export interface SideProject {
   title: string;
   desc: string;
   href?: string;
+  stacks: { icon: string; label: string }[];
 }

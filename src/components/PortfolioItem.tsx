@@ -35,7 +35,7 @@ const PortfolioItem = ({
           <div className="portfolio-button">
             {href && (
               <Link href={href} target="_blank" className="btn btn-primary">
-                <span>Visit Site</span>
+                <span>Lihat</span>
                 <i className="bi bi-chevron-right ms-2" />
               </Link>
             )}

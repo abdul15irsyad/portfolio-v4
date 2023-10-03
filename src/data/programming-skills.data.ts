@@ -2,26 +2,31 @@ import { ProgrammingSkill, Level } from '@/types/programming-skill.interface';
 
 export const programmingSkills: ProgrammingSkill[] = [
   {
-    title: 'Backend',
+    title: 'Language',
     list: [
-      // {
-      //   name: 'Node JS (Typescript)',
-      //   logo: '/programming/nodejs.png',
-      //   level: Level.ADVANCE,
-      //   href: 'https://nodejs.org',
-      // },
-      // {
-      //   name: 'PHP',
-      //   logo: '/programming/php.png',
-      //   level: Level.ADVANCE,
-      //   href: 'https://www.php.net',
-      // },
-      // {
-      //   name: 'Golang',
-      //   logo: '/programming/golang.png',
-      //   level: Level.BASIC,
-      //   href: 'https://go.dev',
-      // },
+      {
+        name: 'Node JS (Typescript)',
+        logo: '/programming/nodejs.png',
+        level: Level.GOOD,
+        href: 'https://nodejs.org',
+      },
+      {
+        name: 'PHP',
+        logo: '/programming/php.png',
+        level: Level.GOOD,
+        href: 'https://www.php.net',
+      },
+      {
+        name: 'Golang',
+        logo: '/programming/golang.png',
+        level: Level.LEARNING,
+        href: 'https://go.dev',
+      },
+    ],
+  },
+  {
+    title: 'Framework',
+    list: [
       {
         name: 'Nest JS',
         logo: '/programming/nestjs.png',
@@ -40,40 +45,35 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.INTERMEDIATE,
         href: 'https://laravel.com',
       },
-      {
-        name: 'Codeigniter',
-        logo: '/programming/codeigniter.png',
-        level: Level.INTERMEDIATE,
-        href: 'https://codeigniter.com',
-      },
-      {
-        name: 'Fiber',
-        logo: '/programming/fiber.png',
-        level: Level.LEARNING,
-        href: 'https://gofiber.io',
-      },
-    ],
-  },
-  {
-    title: 'Frontend',
-    list: [
+      // {
+      //   name: 'Codeigniter',
+      //   logo: '/programming/codeigniter.png',
+      //   level: Level.INTERMEDIATE,
+      //   href: 'https://codeigniter.com',
+      // },
       {
         name: 'React JS',
         logo: '/programming/react.png',
         level: Level.INTERMEDIATE,
         href: 'https://react.dev',
       },
-      {
-        name: 'Vue JS',
-        logo: '/programming/vue.png',
-        level: Level.BASIC,
-        href: 'https://vuejs.org',
-      },
+      // {
+      //   name: 'Vue JS',
+      //   logo: '/programming/vue.png',
+      //   level: Level.BASIC,
+      //   href: 'https://vuejs.org',
+      // },
       {
         name: 'Next JS',
         logo: '/programming/next.png',
         level: Level.BASIC,
         href: 'https://nextjs.org',
+      },
+      {
+        name: 'Fiber',
+        logo: '/programming/fiber.png',
+        level: Level.LEARNING,
+        href: 'https://gofiber.io',
       },
     ],
   },
@@ -110,7 +110,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         // href: 'https://git-scm.com',
       },
       {
-        name: 'Redis (Caching)',
+        name: 'Redis',
         logo: '/programming/redis.png',
         level: Level.INTERMEDIATE,
         // href: 'https://redis.io',

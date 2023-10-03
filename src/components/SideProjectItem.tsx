@@ -1,9 +1,12 @@
+'use client';
+
 import { SideProject } from '@/types/side-project.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-const SideProjectItem = ({ img, title, desc, href }: SideProject) => {
+const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
   return (
     <div className="col-md-4 col-sm-6 side-project-item">
       {href ? (
@@ -27,24 +30,26 @@ const SideProjectItem = ({ img, title, desc, href }: SideProject) => {
       )}
       <div className="side-project-text">
         {href ? (
-          <Link
-            as="h3"
-            href={href}
-            target="_blank"
-            className="side-project-title"
-          >
+          <Link href={href} target="_blank" className="side-project-title">
             {title}
           </Link>
         ) : (
           <h3 className="side-project-title">{title}</h3>
         )}
         <p>{desc}</p>
-        {/* {href && (
-          <Link href={href} target="_blank" className="btn btn-primary">
-            <span>Visit Site</span>
-            <i className="bi bi-chevron-right ms-2" />
-          </Link>
-        )} */}
+        <div className="side-project-stacks">
+          {stacks.map(({ icon, label }, index) => (
+            <OverlayTrigger
+              key={index}
+              overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
+              placement="bottom"
+            >
+              <div className="side-project-stack">
+                <Image src={icon} alt={label} width={24} height={24} />
+              </div>
+            </OverlayTrigger>
+          ))}
+        </div>
       </div>
     </div>
   );
