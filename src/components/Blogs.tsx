@@ -7,12 +7,22 @@ import { useSearchParams } from 'next/navigation';
 import LoadingBlogs from './LoadingBlogs';
 import Empty from './Empty';
 import BlogItem from './BlogItem';
+import Pagination from './Pagination';
+import { useEffect, useState } from 'react';
 
 export default () => {
   const searchParams = useSearchParams();
-  const page = searchParams.get('page');
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
+  const [page, setPage] = useState<number>(1);
+
+  useEffect(() => {
+    setPage(1);
+  }, [tag, search]);
+
+  useEffect(() => {
+    scrollTo({ top: 0 });
+  }, [page]);
 
   const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
     ApiResponseAll<Blog>
@@ -22,7 +32,7 @@ export default () => {
       const newSearchParams = new URLSearchParams();
       const limit = 7;
       newSearchParams.set('limit', limit.toString());
-      if (page) newSearchParams.set('page', page);
+      if (page) newSearchParams.set('page', page.toString());
       if (tag) newSearchParams.set('tag', tag);
       if (search) newSearchParams.set('search', search);
       const url = `/api/blog${
@@ -32,15 +42,25 @@ export default () => {
     },
   });
 
-  if (isLoadingBlogs) return <LoadingBlogs />;
+  if (isLoadingBlogs) return <LoadingBlogs count={3} />;
 
-  if (blogs!.data.length === 0) return <Empty />;
+  if (blogs && blogs.data.length === 0) return <Empty />;
 
   return (
     <>
       {blogs!.data.map((blog) => (
         <BlogItem key={blog.id} blog={blog} />
       ))}
+      <div className="blogs-meta">
+        <div className="meta-text">
+          showing {blogs!.data.length} of {blogs?.meta.totalAllData} blogs
+        </div>
+        <Pagination
+          setPage={setPage}
+          activePage={page}
+          totalPage={blogs?.meta.totalPage}
+        />
+      </div>
     </>
   );
 };

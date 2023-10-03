@@ -2,10 +2,14 @@ import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 import LoadingTags from './LoadingTags';
 
-const LoadingBlogs = () => {
+type Prop = {
+  count?: number;
+};
+
+const LoadingBlogs = ({ count = 3 }: Prop) => {
   return (
     <div className="loading-blogs">
-      {[...Array(2)].map((_, index) => (
+      {[...Array(count)].map((_, index) => (
         <div className="blog-item" key={index}>
           <div className="blog-feature-image" style={{ marginBottom: '.5rem' }}>
             <Placeholder animation="glow">
