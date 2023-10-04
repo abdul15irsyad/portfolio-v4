@@ -15,17 +15,29 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin-ext'],
 });
 
+const commonMetaData = {
+  title: APP_NAME,
+  images: `${BASE_URL}/meta-image.jpg`,
+  description: `Hello, I'm Irsyad Abdul, I have experience in PHP, Node JS, Golang and also several frameworks such as Laravel, Express JS, Nest JS and Gin`,
+};
+
 export const metadata: Metadata = {
   title: `${APP_NAME} - Web Portfolio`,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
+  themeColor: '#40b193',
   metadataBase: new URL(BASE_URL),
   other: {
     'google-site-verification': '-204Rp6WHentTB7kMjizFhmMKYllQEah-eSEZ-SyG8A',
   },
   keywords: [
-    'backend developer',
-    'fullstack developer',
-    'frontend developer',
+    'irsyad abdul',
+    'irsyad',
+    'abdul',
+    'web',
+    'developer',
+    'backend',
+    'fullstack',
+    'frontend',
     'freelance',
     'website',
     'portfolio',
@@ -33,16 +45,12 @@ export const metadata: Metadata = {
     'programming',
     'project',
   ],
-  twitter: {
-    title: APP_NAME,
-    images: `${BASE_URL}/meta-image.jpg`,
-    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  },
+  twitter: { ...commonMetaData },
   openGraph: {
     url: new URL(BASE_URL),
-    title: APP_NAME,
-    images: `${BASE_URL}/meta-image.jpg`,
-    description: 'Irsyad Abdul Hamid Darussalam web portfolio',
+    type: 'website',
+    locale: 'id_ID',
+    ...commonMetaData,
   },
 };
 

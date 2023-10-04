@@ -61,6 +61,7 @@ export default () => {
                       href="/blog"
                       type="button"
                       className="btn btn-sm btn-outline-danger mt-3"
+                      title="clear filter"
                     >
                       <i className="bi bi-trash me-1"></i>
                       <span>Clear Filter</span>
@@ -85,6 +86,7 @@ export default () => {
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}
                         className="blog-tag"
+                        title={tag}
                       >
                         {tag}
                       </Link>

@@ -13,7 +13,7 @@ import { setQueryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
 hljs.addPlugin(
   new CopyButtonPlugin({
-    hook: (text: string, el) => {
+    hook: (text: string, el: any) => {
       if (el.result.language === 'bash') {
         text = text.replace('$ ', '');
         text = text.replace(/\n\$\ /g, '\n');

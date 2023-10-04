@@ -1,4 +1,4 @@
-import { APP_NAME } from '@/configs/app.config';
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import { cache } from '@/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
 import { defaultSanitizeOptions } from '@/utils/html.util';
@@ -23,6 +23,12 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     .join(' ')
     .trim()}...`;
 
+  const commonMetaData = {
+    title: title,
+    images: [blog?.featureImage!.url],
+    description,
+  };
+
   return {
     title: title,
     keywords: blog.tags,
@@ -30,15 +36,15 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     authors: [{ name: blog.author?.name }],
     twitter: {
       card: 'summary',
-      title: title,
-      images: [blog?.featureImage!.url],
-      description,
+      ...commonMetaData,
     },
     openGraph: {
-      title: title,
+      url: `${BASE_URL}/blog/${blog.slug}`,
+      tags: blog.tags,
+      type: 'article',
+      locale: 'id_ID',
       authors: blog.author?.name,
-      images: [blog?.featureImage!.url],
-      description,
+      ...commonMetaData,
     },
   };
 }
