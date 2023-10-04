@@ -44,7 +44,15 @@ export default ({
             page < totalPage - boundaries + 1;
           if (isHide(page)) {
             if (isHide(page - 1)) return null;
-            else if (isHide(page + 1)) return <div key={index}>...</div>;
+            else if (isHide(page + 1))
+              return (
+                <div
+                  key={index}
+                  className={`${styles.item} ${styles['item-dot']}`}
+                >
+                  ...
+                </div>
+              );
           }
           return (
             <span

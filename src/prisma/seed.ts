@@ -1,13 +1,44 @@
+import { Blog } from '../types/blog.type';
 import { authors } from '../data/authors.data';
 import { blogs } from '../data/blogs.data';
 import { files } from '../data/files.data';
 import { PrismaClient } from '@prisma/client';
+import slugify from 'slugify';
+import { randomUUID } from 'crypto';
+import dayjs from 'dayjs';
+import { random } from '../utils/array.util';
+import { ENV } from '../configs/app.config';
 
 const prisma = new PrismaClient();
 async function main() {
   await prisma.file.createMany({ data: files, skipDuplicates: true });
   await prisma.author.createMany({ data: authors, skipDuplicates: true });
   await prisma.blog.createMany({ data: blogs, skipDuplicates: true });
+  if (ENV !== 'production') {
+    const dummyBlogs: Blog[] = [];
+    for (let i = 0; i < 10; i++) {
+      const tags: string[] = [];
+      for (let j = 0; j < random([2, 3]); j++) {
+        tags.push(`tag ${j + 1}`);
+      }
+      dummyBlogs.push({
+        id: randomUUID(),
+        title: `Judul ${i + 1}`,
+        slug: slugify(`Judul ${i + 1}`, { strict: true, lower: true }),
+        content: `contoh konten judul ${i + 1}`,
+        authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+        featureImageId: 'b21f2576-b044-481c-a030-bdad3d31c334',
+        tags,
+        publishedAt: dayjs().subtract(i, 'days').toDate(),
+        createdAt: dayjs().subtract(i, 'days').toDate(),
+        updatedAt: dayjs().subtract(i, 'days').toDate(),
+      });
+    }
+    await prisma.blog.createMany({
+      data: dummyBlogs,
+      skipDuplicates: true,
+    });
+  }
   // for (const file of files) {
   //   await prisma.file.upsert({
   //     update: file,

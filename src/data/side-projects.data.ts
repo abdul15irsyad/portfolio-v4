@@ -10,6 +10,7 @@ export const sideProjects: SideProject[] = [
     stacks: [
       { icon: '/programming/next.png', label: 'Next JS 13' },
       // { icon: '/programming/vercel.png', label: 'Vercel' },
+      { icon: '/programming/bootstrap.png', label: 'Bootstrap 5' },
       { icon: '/programming/redis.png', label: 'Redis' },
       { icon: '/programming/prisma.png', label: 'Prisma' },
       { icon: '/programming/supabase.png', label: 'Supabase' },

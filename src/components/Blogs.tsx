@@ -44,16 +44,15 @@ export default () => {
 
   if (isLoadingBlogs) return <LoadingBlogs count={3} />;
 
-  if (blogs && blogs.data.length === 0) return <Empty />;
+  if (blogs?.data.length === 0) return <Empty />;
 
   return (
     <>
-      {blogs!.data.map((blog) => (
-        <BlogItem key={blog.id} blog={blog} />
-      ))}
+      {blogs?.data.map((blog) => <BlogItem key={blog.id} blog={blog} />)}
       <div className="blogs-meta">
         <div className="meta-text">
-          showing {blogs!.data.length} of {blogs?.meta.totalAllData} blogs
+          menampilkan <b>{blogs?.data.length}</b> dari{' '}
+          <b>{blogs?.meta.totalAllData}</b> blog
         </div>
         <Pagination
           setPage={setPage}

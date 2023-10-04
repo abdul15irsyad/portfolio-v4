@@ -23,7 +23,7 @@
   background-color: #fff;
 }
 
-.item:hover:not(.item-active):not(.item-disable){
+.item:hover:not(.item-active):not(.item-disable):not(.item-dot){
   background-color: var(--bs-light);
 }
 
@@ -36,4 +36,10 @@
 .item-disable{
   cursor: not-allowed;
   color: rgba(var(--bs-secondary-rgb),.2);
+}
+
+.item-dot{
+  border: none;
+  background-color: transparent;
+  cursor: default;
 }
