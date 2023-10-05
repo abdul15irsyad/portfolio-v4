@@ -47,6 +47,15 @@ export const files: File[] = [
     originalFileName: 'array-method-reduce-di-javascript.jpg',
     mime: 'image/jpg',
   },
+  {
+    id: '21457d36-da60-445c-928d-f9eb2e294bb0',
+    createdAt: new Date('2023-10-05 08:24:05+00'),
+    updatedAt: new Date('2023-10-05 08:24:05+00'),
+    path: 'blog',
+    fileName: 'javascript-ternary-falsy-dan-truthy.jpg',
+    originalFileName: 'javascript-ternary-falsy-dan-truthy.jpg',
+    mime: 'image/jpg',
+  },
 ];
 
 export const fileDatas = files.map((file) => {

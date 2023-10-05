@@ -6,13 +6,13 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import sanitize from 'sanitize-html';
-// import { blogDatas } from '@/data/blogs.data';
+import { blogDatas } from '@/data/blogs.data';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const blog = await cache(`blog:${params.slug}`, () =>
-    getBlog({ slug: params.slug }),
-  );
-  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
+  // const blog = await cache(`blog:${params.slug}`, () =>
+  //   getBlog({ slug: params.slug }),
+  // );
+  const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   const title = `${blog.title} - ${APP_NAME}`;
   const description = `${sanitize(blog.content, {

@@ -1113,6 +1113,8 @@ ul li {
 
 .blog-detail article p{
   word-wrap: break-word;
+  line-height: 28px;
+  font-size: 17px;
 }
 
 .blog-detail article > code{
@@ -1165,7 +1167,7 @@ ul li {
 }
 
 .blog-detail article table{
-  margin: 0 auto;
+  margin: 0 auto 1rem;
 }
 
 .blog-detail article table th,

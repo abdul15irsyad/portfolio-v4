@@ -5,13 +5,13 @@ import Blog from '@/components/Blog';
 import Link from 'next/link';
 import { getBlog } from '@/services/blog.service';
 import { cache } from '@/redis/redis.util';
-// import { blogDatas } from '@/data/blogs.data';
+import { blogDatas } from '@/data/blogs.data';
 
 export default async ({ params, searchParams }) => {
-  const blog = await cache(`blog:${params.slug}`, () =>
-    getBlog({ slug: params.slug }),
-  );
-  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
+  // const blog = await cache(`blog:${params.slug}`, () =>
+  //   getBlog({ slug: params.slug }),
+  // );
+  const blog = blogDatas.find(({ slug }) => slug === params.slug);
   if (!blog) notFound();
   return (
     <div className="blog-detail section doodle-background">

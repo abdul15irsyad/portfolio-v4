@@ -4,196 +4,172 @@ import { authorDatas } from './authors.data';
 
 export const blogs: Blog[] = [
   {
-    id: 'bd7a365d-b8ca-40c9-81f2-10ebaed28304',
-    title: 'Nest JS Setup Database With TypeORM',
-    slug: 'nest-js-setup-database-with-typeorm',
-    featureImageId: 'b21f2576-b044-481c-a030-bdad3d31c334',
+    id: '998aeec9-7602-4d9e-98c0-18c2c40f9f59',
+    title: 'Javascript Ternary, Falsy dan Truthy',
+    slug: 'javascript-ternary-falsy-dan-truthy',
+    featureImageId: '21457d36-da60-445c-928d-f9eb2e294bb0',
     authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
     content: `
     <article>
     <p>
-    halo kawan-kawan semuaaa... pada kesempatan ini saya ingin sharing mengenai setup database (dalam contoh ini saya pakai postgresql) di <code>nest js</code> menggunakan typeorm, mengapa <code>nest js</code>? karena menurut saya mengerjakan project dengan <code>typescript</code> dapat mempermudah proses pengembangan suatu aplikasi serta beberapa library <code>nest js</code> yang mudah untuk diintegrasikan dengan teknologi lain.
+    oi… gimana kodingannya? aman? manteeeppp… pada kesempatan yang ber-<b>bug</b>-ria ini, saya mau bahas hal yang bisa membuat kita semakin produktif, karena bisa menyingkat kodingan javascript kita yang tadinya agak panjang, menjadi sedikit lebih simpel dan keliatan lebih keren aja, apakah itu? yap, javascript ternary, <code>falsy</code> & <code>truthy</code>.
     </p>
     <p>
-    sebelum kita lanjut pastikan kita sudah memahami <code>prerequisites</code> berikut biar ga bingung di pertengahan nantinya
+    mungkin udah banyak yang implement juga terkait ini, cuma mau saya mau bahas lagi aja. biasanya jika ada suatu kondisi, kita menggunakan if else atau switch case buat solve problemnya, namun beberapa case bisa kita persingkat syntax nya menggunakan operator <code>?</code>, <code>&</code>, <code>|</code>, <code>:</code>. ini sangat berguna biar kodingan kita yang tadinya terdiri dari beberapa baris bisa kita persingkat jumlah baris nya dan lebih elegan juga keliatannya.
+    </p>
+    <h3>1. ternary condition</h3>
+    <p>
+    misalkan kita memiliki array <code>users</code> dimana terdapat field <code>name</code> dan <code>age</code>, lalu kita ingin menampilkan teks mengenai apakah user tersebut sudah berumur di atas 20 tahun atau tidak. maka kita perlu membuat logic seperti berikut
+    </p>
+    <pre>
+    <code class="language-javascript">const users = [
+  { name: 'irsyad', age: 23 },
+  { name: 'roni', age: 16 },
+  { name: 'teguh', age: 21 },
+  { name: 'rijal', age: 20 },
+  { name: 'adam', age: 19 },
+];
+
+for (const user of users) {
+  let detail;
+  if (user.age > 20) {
+    detail = 'greater than 20 years old';
+  } else {
+    detail = 'less than or equal to 20 years old';
+  }
+  console.log(\`\${user.name} is \${detail}\`);
+}</code>
+    </pre>
+    <p>
+    kode tersebut akan menghasilkan output seperti di bawah ini
+    <p>
+    <img src="/blog/1696494936.jpg" alt="1696494936.jpg" class="img-sm">
+    <p>
+    kita bisa mempersingkatnya menggunakan ternary condition dengan array <code>users</code> yang sama seperti berikut
+    </p>
+    <pre>
+    <code class="language-javascript">for (const user of users) {
+  const detail =
+    user.age > 20
+      ? 'greater than 20 years old'
+      : 'less than or equal to 20 years old';
+  console.log(\`\${user.name} is \${detail}\`);
+}</code>
+    </pre>
+    <p>
+    yaaa, walaupun tidak terlalu signifikan tapi jika kita menerapkan ini di seluruh project maka kita bisa meringkas banyak kode <code>if else</code> nya. kita pun bisa membuat nested nya lagi di dalam salah satu kondisi jika diinginkan.
+    </p>
+    <h3>2. falsy dan truthy</h3>
+    <p>
+    ini terkait dengan <code>falsy</code> dan <code>truthy</code> value akan membuat operator-operator jadi bisa mempersingkat suatu kondisi, jika suatu value dapat diubah menjadi <code>true</code>, maka nilai tersebut disebut <code>truhty</code>. jika suatu value dapat diubah menjadi <code>false</code>, maka nilai tersebut disebut <code>falsy</code>.
+    </p>
+    <p>
+    beberapa value yang bisa diubah menjadi <code>falsy</code>
+    </p>
+    <table>
+    <thead>
+    <tr>
+    <th>#</th><th>value</th><th>type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>1</td><td><code>null</code></td><td>Null</td>
+    </tr>
+    <tr>
+    <td>2</td><td><code>undefined</code></td><td>Undefined</td>
+    </tr>
+    <tr>
+    <td>3</td><td><code>false</code></td><td>Boolean</td>
+    </tr>
+    <tr>
+    <td>4</td><td><code>NaN</code></td><td>Number</td>
+    </tr>
+    <tr>
+    <td>5</td><td><code>0</code></td><td>Number</td>
+    </tr>
+    <tr>
+    <td>6</td><td><code>""</code></td><td>String</td>
+    </tr>
+    <tr>
+    <td>7</td><td><code>document.all</code></td><td>Object</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>
+    selain list di atas maka dapat didefinisikan sebagai <code>truhty</code>, setelah kita tau <code>falsy</code> dan <code>truthy</code>, ada 1 lagi yakni <code>nullish</code>, nah kalau <code>nullish</code> di javascript itu cuma <code>null</code> dan <code>undefined</code>, jadi <code>nullish</code> termasuk <code>falsy</code> juga.
+    </p>
+    <p>
+    dari <code>fasly</code>, <code>truthy</code> dan <code>nullish</code> di atas, ada beberapa operator yang bisa kita gunakan untuk mempersingkat kode kita, yang mau saya bahas di sini ada <code>&&</code>, <code>||</code> dan <code>??</code>.
     </p>
     <ul>
-      <li>node js dasar (termasuk <code>typescript</code>-nya)</li>
-      <li>database (<code>postgresql</code> atau <code>mysql</code>)</li>
+    <li>
+    operator <code>&&</code><br>
+    <p>
+    terlepas dari logical operator, operator ini akan mengecek value yang pertama, jika value yang pertama itu adalah <code>truthy</code>, maka kembalikan value yang kedua, jika <code>falsy</code> maka kembalikan value yang pertama, misal terdapat syntax seperti berikut
+    </p>
+    <pre>
+    <code class="language-javascript">const result = "" && "foo"; // result is assigned "" (empty string)</code>
+    </pre>
+    <p>
+    maka variable result akan berisi empty string (<code>""</code>) karena value yang pertama (sebelah kiri) itu adalah <code>falsy</code>, jadi dia akan mengembalikan value yang pertama yaitu empty string (<code>""</code>), jika value pertama berisi misalkan <code>"bar"</code>, maka akan mengembalikan <code>"foo"</code>, karena <code>"bar"</code> termasuk ke <code>truthy</code>
+    </p>
+    <pre>
+    <code class="language-javascript">const result = "bar" && "foo"; // result is assigned "foo"</code>
+    </pre>
+    <p>
+    ini biasa digunain buat render saat fetching data di react atau next (dalam file <code>.jsx</code> atau <code>.tsx</code>), misal kita punya state <code>isLoading</code>, kita mau merender komponen setelah fetching data itu selesai atau <code>isLoading</code> sama dengan <code>false</code> (default nya <code>true</code>)
+    </p>
+    <pre>
+    <code class="language-javascript">&lt;&gt;
+  {!isLoading && (
+    &lt;SomeComponent /&gt;
+  )}
+&lt;/&gt;</code>
+    </pre>
+    </li>
+    <li>
+    operator <code>||</code><br>
+    <p>
+    operator ini kurang lebih kebalikan dari operator <code>&&</code>, yang mana operator ini akan mengecek value yang pertama, jika value yang pertama itu adalah <code>truthy</code>, maka kembalikan value yang pertama, jika <code>falsy</code> maka kembalikan value yang kedua.
+    </p>
+    <pre>
+    <code class="language-javascript">const result = "" || "foo"; // result is assigned "foo"</code>
+    </pre>
+    </li>
+    <li>
+    operator <code>??</code><br>
+    <p>
+    untuk operator yang satu ini mirip seperti operator <code>||</code>, namun bukan <code>truthy</code> atau <code>falsy</code> melainkan menggunakan <code>nullish</code>, jika value yang pertama itu adalah <code>nullish</code>, maka kembalikan value yang kedua, selain <code>nullish</code> maka kembalikan value yang pertama
+    </p>
+    <pre>
+    <code class="language-javascript">const result = "foo" ?? "bar"; // result is assigned "foo"</code>
+    </pre>
+    <p>
+    biasanya seing dipakai untuk membuat default value dari suatu environment variable jika tidak didefinisikan variablenya seperti berikut
+    </p>
+    <pre>
+    <code class="language-javascript">const DB_HOST = process.env.DB_HOST ?? "localhost";</code>
+    </pre>
+    <p>
+    jadi aplikasi kita tidak crash atau error ketika dijalankan tanpa mendefinisikan environment variable <code>DB_HOST</code> di dalam file <code>.env</code> (misalkan), walaupun terkadang ada hal-hal yang memang perlu disetup dahulu sebelum menjalankan aplikasinya
+    </p>
+    </li>
     </ul>
     <p>
-    oke jika sudah clear maka langsung saja kita masuk ke langkah yang pertama
-    </p>
-    <h3>1. Setup Nest JS</h3>
-    <p>
-    pertama-tama kita create project nya dengan <code>nest cli</code> dengan mengetikkan command berikut di terminal
-    </p>
-    <pre>
-    <code class="language-bash">$ npm i -g @nestjs/cli\n$ nest new nest-typeorm</code>
-    </pre>
-    <p>
-    akan muncul pertanyaan mengenai package manager yang kita gunakan, pilih yang diinginkan (saya pilih <code>yarn</code> karena sudah terbiasa) setelah itu tunggu sampai proses instalasi selesai, jika sudah akan terbuat directory/folder baru dengan nama <code>nest-typeorm</code> (sesuai nama project nya), buka directory tersebut dengan visual studio code
-    </p>
-    <pre>
-    <code class="language-bash">$ code nest-typeorm</code>
-    </pre>
-    <p>
-    langsung aja kita coba jalanin projectnya pakai mode development dengan command berikut (di terminal vs-code)
-    </p>
-    <pre>
-    <code class="language-bash">$ yarn start:dev</code>
-    </pre>
-    <p>
-    jika tidak ada error maka project kita berhasil berjalan di port <code>3000</code> (default), kita bisa mengeceknya dengan mengetikkan <code>http://localhost:3000</code> di browser, akan muncul pesan <code>Hello World!</code>
-    </p>
-    <h3>2. Install TypeORM</h3>
-    <p>
-    kita buat dulu database <code>postgresql</code> yang mau kita pakai di project ini, bisa menggunakan <code>psql</code> atau di aplikasi database viewer seperti dbeaver, heidisql, dll.
-    </p>
-    <pre>
-    <code class="language-bash">$ psql -U postgres -c "create database \\"nestjs-typeorm\\""</code>
-    </pre>
-    <p>
-    selanjutnya kita akan install library <code>typeorm</code>, di nestjs ada library <code>@nestjs/typeorm</code> untuk mempermudah integrasi nya, kita install terlebih dahulu
-    </p>
-    <pre>
-    <code class="language-bash">$ yarn add @nestjs/typeorm typeorm pg</code>
-    </pre>
-    <h3>3. Datasource</h3>
-    <p>
-    setelah selesai diinstall, buat folder <code>database</code> di dalam folder <code>src</code>, kegunaannya adalah untuk menyimpan segala file yang berkaitan dengan database. Lalu kita buat file <code>datasource.ts</code> di dalam folder <code>src/database</code>, untuk konfigurasi database yang akan kita pakai, kita akan gunakan file ini saat <code>migration</code> (karna migration dapat dilakukan meski server sedang tidak berjalan)
-    </p>
-    <pre>
-    <code class="language-typescript">import { join } from 'path';\nimport { DataSource } from 'typeorm';
-\nconst datasource = new DataSource({\n  type: 'postgres',\n  host: 'localhost',\n  port: 5432,\n  username: 'postgres',\n  password: 'contoh-password', // sesuaikan dengan password masing-masing\n  database: 'nestjs-typeorm',\n  entities: [join(__dirname, '..', '**', 'entities', '*.entity.{ts,js}')],\n  migrations: [join(__dirname, 'migrations', '*')],\n  migrationsTableName: 'migrations',\n  synchronize: false,\n  logging: false,\n});
-\nexport default datasource;</code>
-    </pre>
-    <h3>4. Migration</h3>
-    <p>
-    setelah koneksi berhasil maka selanjutnya adalah membuat <code>migration</code> dari table-table yang akan kita gunakan di dalam project, yang saya ketahui terdapat 2 cara untuk membuat <code>migration</code>, yang pertama membuat file <code>migration</code> lalu mendeskripsikan <code>migration</code>-nya, atau yang kedua membuat <code>entity</code> terlebih dahulu, lalu men-<code>generate</code> <code>migration</code> berdasarkan <code>entity</code>, pada kesempatan kali ini kita lakukan yang pertama, misalkan buat <code>migration</code> untuk create table <code>users</code> dengan <code>typeorm cli</code>
-    </p>
-    <pre>
-    <code class="language-bash">$ npx typeorm-ts-node-commonjs migration:create src/database/migrations/create-table-users</code>
-    </pre>
-    <p>
-    command tersebut akan membuat file <code>{timestamp}-create-table-users.ts</code> di dalam folder <code>src/database/migrations</code>, lalu kita ubah file tersebut seperti ini
-    </p>
-    <pre>
-    <code class="language-typescript">import { MigrationInterface, QueryRunner, Table } from 'typeorm';
-\nexport class CreateTableUsers1692867883026 implements MigrationInterface {\n  public async up(queryRunner: QueryRunner): Promise<void> {\n    await queryRunner.createTable(\n      new Table({\n        name: 'users',\n        columns: [\n          { name: 'id', type: 'uuid', isPrimary: true },\n          { name: 'name', type: 'varchar' },\n          { name: 'email', type: 'varchar', isUnique: true },\n          { name: 'password', type: 'varchar' },\n        ],\n      }),\n      true,\n    );\n  }
-\n  public async down(queryRunner: QueryRunner): Promise<void> {\n    await queryRunner.dropTable('users', true);\n  }\n}</code>
-    </pre>
-    <p>
-    jika sudah kita bisa running semua migrasi (yang belum dijalankan) dengan command berikut
-    </p>
-    <pre>
-    <code class="language-bash">$ npx typeorm-ts-node-commonjs -d src/database/datasource.ts migration:run</code>
-    </pre>
-    <p>
-    jika berhasil maka table <code>users</code> sudah berhasil dibuat, kita bisa mengecek dengan <code>psql</code> di terminal
-    </p>
-    <pre>
-    <code class="language-bash">$ psql -U postgres -d "nestjs-typeorm" -c "\\d"</code>
-    </pre>
-    <img src="/blog/1693065764.jpg" alt="1693065764.jpg" class="img-md">
-    <h3>5. Persiapan Seeder</h3>
-    <p>
-    selanjutnya adalah <code>seeder</code>, mengapa perlu <code>seeder</code>? dalam suatu aplikasi pastinya jika ada data-data yang diperlukan maka kita akan input ke dalam database baik itu data production ataupun data dummy, dalam hal ini kita bisa memanfaatkan <code>seeder</code> agar developer lain (jika ada) saat meng-<code>clone</code> project nya cukup menjalankan <code>seeder</code> yang ada.
-    </p>
-    <p>
-    Sebelum kita membuat <code>seeder</code>, kita buat terlebih dahulu <code>entity</code>/<code>table</code> untuk menyimpan history seeding (belum dibuat otomatis dari library seperti migrations), buat file entity <code>seeder.entity.ts</code> di folder <code>src/database/entities</code>
-    </p>
-    <pre>
-    <code class="language-typescript">import {\n  Column,\n  CreateDateColumn,\n  Entity,\n  PrimaryGeneratedColumn,\n} from 'typeorm';\n@Entity('seeders')\n\nexport class SeederEntity {\n  @PrimaryGeneratedColumn('increment')\n  id: number;\n  @Column('varchar')\n  name: string;\n  @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone' })\n  createdAt: Date;\n}</code>
-    </pre>
-    <p>
-    lalu buat <code>migration</code> nya
-    </p>
-    <pre>
-    <code class="language-bash">$ npx typeorm-ts-node-commonjs migration:create src/database/migrations/create-table-seeders</code>
-    </pre>
-    <p>
-    isi file <code>migration</code> yang baru dibuat dengan kode berikut, dimana kita membuat 3 field saja yakni <code>id</code>, <code>name</code>, <code>created_at</code>
-    </p>
-    <pre>
-    <code class="language-typescript">import { MigrationInterface, QueryRunner, Table } from 'typeorm';
-\nexport class CreateTableSeeders1692874947883 implements MigrationInterface {\n  public async up(queryRunner: QueryRunner): Promise<void> {\n    await queryRunner.createTable(\n      new Table({\n        name: 'seeders',\n        columns: [\n          {\n            name: 'id',\n            type: 'int4',\n            isPrimary: true,\n            isGenerated: true,\n            generationStrategy: 'increment',\n          },\n          {\n            name: 'name',\n            type: 'varchar',\n          },\n          {\n            name: 'created_at',\n            type: 'timestamp with time zone',\n            default: 'now()',\n          },\n        ],\n      }),\n      true,\n    );\n  }
-\n  public async down(queryRunner: QueryRunner): Promise<void> {\n    await queryRunner.dropTable('seeders');\n  }\n}</code>
-    </pre>
-    <p>
-    jalankan <code>migration</code> nya
-    </p>
-    <pre>
-    <code class="language-bash">$ npx typeorm-ts-node-commonjs -d src/database/datasource.ts migration:run</code>
-    </pre>
-    <h3>6. Membuat User Entity</h3>
-    <p>
-    buat file <code>user.entity.ts</code> untuk user di folder <code>user/entites</code>
-    </p>
-    <pre>
-    <code class="language-typescript">import { Column, Entity, PrimaryColumn } from 'typeorm';
-\n@Entity('users')\nexport class User {\n  @PrimaryColumn('uuid')\n  id: string;
-\n  @Column('varchar')\n  name: string;
-\n  @Column('varchar')\n  email: string;
-\n  @Column('varchar', { select: false })\n  password: string;\n}</code>
-    </pre>
-    <h3>7. Membuat Utililty Hash Password</h3>
-    <p>
-    install library <code>bcrypt</code> dan types nya
-    </p>
-    <pre>
-    <code class="language-bash">$ yarn add bcrypt\n$ yarn add -D @types/bcrypt</code>
-    </pre>
-    <p>
-    buat file <code>password.util.ts</code> di folder <code>src/shared/utils</code> untuk mempermudah proses <code>hashing password</code>
-    </p>
-    <pre>
-    <code class="language-typescript">import { genSaltSync, hashSync } from 'bcrypt';
-\nexport const hashPassword = (password: string) {\n  return hashSync(password, genSaltSync(10));\n}</code>
-    </pre>
-    <h3>8. Seeder</h3>
-    <p>
-    sebelum membuat <code>seeder</code>, kita perlu menginstall <code>library</code> berikut
-    </p>
-    <pre>
-    <code class="language-bash">$ yarn add @jorgebodega/typeorm-seeding uuid</code>
-    </pre>
-    <p>
-    saat tulisan ini dibuat, saya belum menemukan library lain yang dapat digunakan dan sebenarnya library ini juga fork dari library resmi nya namun saat ingin pull request ke repo utama, pembuat library ini tidak dapat menghubungi owner dari library resmi, maka dari itu ia mempublish library ini.
-    </p>
-    <p>
-    sekarang kita akan membuat file seeder nya, kita bisa create file di dalam folder <code>src/database/seeders</code> (buat jika belum ada), agar dapat mengurutkan berdasarkan timestamp, kita copy saja nama file timestamp dari migration <code>create-table-users</code>, lalu tambahkan nama file nya, misal jadi <code>1692867883026-users.seeder.ts</code> lalu isi file tersebut dengan
-    </p>
-    <pre>
-    <code class="language-javascript">import { DataSource, DeepPartial } from 'typeorm';\nimport { Seeder } from '@jorgebodega/typeorm-seeding';\nimport { SeederEntity } from '../entities/seeder.entity';\nimport { v4 as uuidv4 } from 'uuid';\nimport { hashPassword } from '../../shared/utils/password.util';\nimport { User } from '../../user/entities/user.entity';
-\nexport default class UsersSeeder1692867883026 extends Seeder {\n  public async run(datasource: DataSource): Promise<void> {\n    // if seeder already executed\n    if (\n      await datasource\n        .getRepository(SeederEntity)\n        .findOneBy({ name: UsersSeeder1692867883026.name })\n    )\n      return;
-\n    const users: DeepPartial&lt;User&gt;[] = [\n      {\n        name: 'Roni',\n        email: 'roni@email.com',\n        password: 'Qwerty123',\n      },\n      {\n        name: 'Teguh',\n        email: 'teguh@email.com',\n        password: 'Qwerty123',\n      },\n      {\n        name: 'Rijal',\n        email: 'rijal@email.com',\n        password: 'Qwerty123',\n      },\n    ];
-\n    await datasource.getRepository(User).save(\n      users.map((user) => ({\n        ...user,\n        id: user.id ?? uuidv4(),\n        password: hashPassword(user.password),\n      })),\n    );
-\n    // add to seeders table\n    await datasource\n      .getRepository(SeederEntity)\n      .save({ name: UsersSeeder1692867883026.name });\n  }\n}\n</code>
-    </pre>
-    <p>
-    di <code>seeder</code> tersebut kita menambahkan 3 data pengguna ke table <code>users</code>, tambahkan data lain jika diperlukan, terakhir jalankan seluruh <code>seeder</code> yang ada
-    </p>
-    <pre>
-    <code class="language-bash">$ npx ts-node node_modules/@jorgebodega/typeorm-seeding/dist/cli.js seed -d src/database/datasource.ts src/database/seeders/*.seeder.ts</code>
-    </pre>
-    <p>
-    untuk command yang sekiranya panjang kita bisa persingkat dengan menaruhnya di <code>package.json</code> di dalam object <code>scripts</code>
-    </p>
-    <p>
-    baik itu saja setup <code>database</code> di <code>nest js</code> dengan <code>typeorm</code>, masih banyak yang bisa dilakukan mengenai <code>migration</code> & <code>seeder</code> nya, tinggal disesuaikan dengan kebutuhan masing-masing project dan tips dari saya adalah buatkan logika untuk data <code>dummy</code> yang tidak akan dimasukkan di environment <code>production</code>, karena sesuai namanya data tersebut hanyalah data untuk contoh saja.
+    oke mungkin itu saja untuk kali ini, akhirnya jika kita implementasikan beberapa hal tadi, kodingan kita jadi lebih ringkas dan elegen pastinya apalagi di case yang memang perlu return langsung, mungkin untuk di bahasa pemrogramman lain secara konsep tidak terlalu berbeda, namun perlu ada penyesuaian aja tergantung bahasa pemrogramman nya.
     </p>
     <br>
     <br>
     <p>
-    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    kalo berhasil sampai di sini, thanks sudah baca blog ini, semoga bermanfaat 😊
     </p>
     </article>
     `,
-    tags: ['nestjs', 'typeorm', 'postgresql', 'typescript'],
-    publishedAt: new Date('2023-08-28 05:04:34+00'),
-    createdAt: new Date('2023-08-28 05:04:34+00'),
-    updatedAt: new Date('2023-08-28 05:04:34+00'),
+    tags: ['javascript', 'ternary', 'falsy', 'truthy', 'nullish'],
+    publishedAt: new Date('2023-10-05 08:24:05+00'),
+    createdAt: new Date('2023-10-05 08:24:05+00'),
+    updatedAt: new Date('2023-10-05 08:24:05+00'),
   },
   {
     id: '79d35e33-c391-473c-a0a5-0e9c504f2cf6',
