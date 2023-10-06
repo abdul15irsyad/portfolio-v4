@@ -4,10 +4,10 @@ import './globals.css';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-import MyNavbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import AnalyticsProvider from '@/components/Analytics';
-import ReactQuery from '@/components/ReactQuery';
+import MyNavbar from '@/components/navbar';
+import Footer from '@/components/footer';
+import AnalyticsProvider from '@/components/analytics';
+import ReactQuery from '@/components/react-query';
 import 'aos/dist/aos.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({

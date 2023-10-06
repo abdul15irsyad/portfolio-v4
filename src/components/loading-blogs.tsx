@@ -1,6 +1,6 @@
 import React from 'react';
 import { Placeholder } from 'react-bootstrap';
-import LoadingTags from './LoadingTags';
+import LoadingTags from './loading-tags';
 
 type Prop = {
   count?: number;

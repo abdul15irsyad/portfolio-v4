@@ -4,10 +4,10 @@ import { ApiResponseAll } from '@/types/api-response.type';
 import { Blog } from '@/types/blog.type';
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
-import LoadingBlogs from './LoadingBlogs';
-import Empty from './Empty';
-import BlogItem from './BlogItem';
-import Pagination from './Pagination';
+import LoadingBlogs from './loading-blogs';
+import Empty from './empty';
+import BlogItem from './blog-item';
+import Pagination from './pagination';
 import { useEffect, useState } from 'react';
 
 export default () => {

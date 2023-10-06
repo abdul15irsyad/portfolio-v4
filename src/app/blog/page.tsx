@@ -2,12 +2,12 @@
 
 import React, { useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
-import SearchBar from '@/components/SearchBar';
+import SearchBar from '@/components/search-bar';
 import Link from 'next/link';
-import LoadingTags from '@/components/LoadingTags';
+import LoadingTags from '@/components/loading-tags';
 import { useQuery } from '@tanstack/react-query';
 import { ApiResponseAll } from '@/types/api-response.type';
-import Blogs from '@/components/Blogs';
+import Blogs from '@/components/blogs';
 
 export default () => {
   const searchParams = useSearchParams();

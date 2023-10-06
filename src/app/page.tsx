@@ -1,11 +1,11 @@
 'use client';
 
-import Programming from '@/components/Programming';
-import Experience from '@/components/Experience';
-import Hero from '@/components/Hero';
-import PersonalInfo from '@/components/PersonalInfo';
-import Award from '@/components/Award';
-import Education from '@/components/Education';
+import Programming from '@/components/programming';
+import Experience from '@/components/experience';
+import Hero from '@/components/hero';
+import PersonalInfo from '@/components/personal-info';
+import Award from '@/components/award';
+import Education from '@/components/education';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';

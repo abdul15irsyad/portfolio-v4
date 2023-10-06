@@ -1,8 +1,8 @@
 'use client';
 
-import Empty from '@/components/Empty';
-import FormSelect from '@/components/FormSelect';
-import PortfolioItem from '@/components/PortfolioItem';
+import Empty from '@/components/empty';
+import FormSelect from '@/components/form-select';
+import PortfolioItem from '@/components/portfolio-item';
 import { portfolios } from '@/data/portolios.data';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';

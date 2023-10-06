@@ -1,4 +1,4 @@
-import SideProjectItem from '@/components/SideProjectItem';
+import SideProjectItem from '@/components/side-project-item';
 import { sideProjects } from '@/data/side-projects.data';
 import React from 'react';
 
