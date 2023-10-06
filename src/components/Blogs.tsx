@@ -8,21 +8,27 @@ import LoadingBlogs from './loading-blogs';
 import Empty from './empty';
 import BlogItem from './blog-item';
 import Pagination from './pagination';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
-export default () => {
+type Prop = {
+  limit?: number;
+  queryString: (name: string, value: string) => string;
+};
+
+export default ({ limit = 5, queryString }: Prop) => {
   const searchParams = useSearchParams();
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
-  const [page, setPage] = useState<number>(1);
+  const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
+  // const [page, setPage] = useState<number>(1);
 
-  useEffect(() => {
-    setPage(1);
-  }, [tag, search]);
+  // useEffect(() => {
+  //   setPage(1);
+  // }, [tag, search]);
 
-  useEffect(() => {
-    scrollTo({ top: 0 });
-  }, [page]);
+  // useEffect(() => {
+  //   scrollTo({ top: 0 });
+  // }, [page]);
 
   const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
     ApiResponseAll<Blog>
@@ -30,7 +36,6 @@ export default () => {
     queryKey: ['blogs', { page, tag, search }],
     queryFn: async () => {
       const newSearchParams = new URLSearchParams();
-      const limit = 7;
       newSearchParams.set('limit', limit.toString());
       if (page) newSearchParams.set('page', page.toString());
       if (tag) newSearchParams.set('tag', tag);
@@ -55,9 +60,11 @@ export default () => {
           <b>{blogs?.meta.totalAllData}</b> blog
         </div>
         <Pagination
-          setPage={setPage}
+          // setPage={setPage}
           activePage={page}
           totalPage={blogs?.meta.totalPage}
+          sibling={1}
+          queryString={queryString}
         />
       </div>
     </>

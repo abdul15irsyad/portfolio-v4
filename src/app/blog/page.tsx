@@ -8,13 +8,14 @@ import LoadingTags from '@/components/loading-tags';
 import { useQuery } from '@tanstack/react-query';
 import { ApiResponseAll } from '@/types/api-response.type';
 import Blogs from '@/components/blogs';
+import { ENV } from '@/configs/app.config';
 
 export default () => {
   const searchParams = useSearchParams();
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
 
-  const { data: tags, isLoading: isLoadingTags } = useQuery<
+  const { data: allTags, isLoading: isLoadingAllTags } = useQuery<
     ApiResponseAll<string>
   >({
     queryKey: ['allTags'],
@@ -24,6 +25,7 @@ export default () => {
   const queryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams as any);
+      if (name !== 'page') params.delete('page');
       if (value === '') params.delete(name);
       else params.set(name, value);
       return params.toString();
@@ -69,7 +71,10 @@ export default () => {
                   </div>
                 </div>
               )}
-              <Blogs />
+              <Blogs
+                limit={ENV === 'production' ? 5 : 2}
+                queryString={queryString}
+              />
             </div>
             <div className="col-xl-3 col-12 blog-sidebar">
               <div className="all-tags box-container">
@@ -77,11 +82,11 @@ export default () => {
                   <i className="bi bi-tags"></i>
                   <span>All Tags</span>
                 </h5>
-                {isLoadingTags ? (
+                {isLoadingAllTags ? (
                   <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
-                ) : tags!.data.length > 0 ? (
+                ) : allTags!.data.length > 0 ? (
                   <div className="blog-tags">
-                    {tags?.data.map((tag, index) => (
+                    {allTags?.data.map((tag, index) => (
                       <Link
                         href={`/blog?${queryString('tag', tag)}`}
                         key={index}

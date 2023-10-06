@@ -16,7 +16,7 @@ async function main() {
   await prisma.blog.createMany({ data: blogs, skipDuplicates: true });
   if (ENV !== 'production') {
     const dummyBlogs: Blog[] = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 30; i++) {
       const tags: string[] = [];
       for (let j = 0; j < random([2, 3]); j++) {
         tags.push(`tag ${j + 1}`);
@@ -27,7 +27,7 @@ async function main() {
         slug: slugify(`Judul ${i + 1}`, { strict: true, lower: true }),
         content: `contoh konten judul ${i + 1}`,
         authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
-        featureImageId: 'b21f2576-b044-481c-a030-bdad3d31c334',
+        featureImageId: random(blogs.map((blog) => blog.featureImageId)),
         tags,
         publishedAt: dayjs().subtract(i, 'days').toDate(),
         createdAt: dayjs().subtract(i, 'days').toDate(),

@@ -1,7 +1,8 @@
 'use client';
 
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import styles from './pagination.module.css';
+import { useRouter } from 'next/navigation';
 
 type Prop = {
   activePage?: number;
@@ -9,28 +10,34 @@ type Prop = {
   sibling?: number;
   boundaries?: number;
   position?: 'center' | 'start' | 'end';
-  setPage: Dispatch<SetStateAction<number>>;
+  // setPage: Dispatch<SetStateAction<number>>;
+  queryString: (name: string, value: string) => string;
 };
 
 export default ({
   activePage = 1,
   sibling = 2,
   boundaries = 1,
-  totalPage = 10,
-  setPage,
+  totalPage = 10, // setPage,
+  queryString,
 }: Prop) => {
+  const router = useRouter();
+  const setPage = (page: number) => {
+    if (page !== activePage)
+      router.push(`/blog?${queryString('page', page.toString())}`);
+  };
   const handlePrev = () => {
+    // if (activePage > 1) setPage(activePage - 1);
     if (activePage > 1) setPage(activePage - 1);
   };
   const handleNext = () => {
+    // if (activePage < totalPage) setPage(activePage + 1);
     if (activePage < totalPage) setPage(activePage + 1);
   };
   return (
     <div className={styles.pagination}>
       <div
-        className={`${styles.item} ${
-          activePage === 1 ? styles['item-disable'] : ''
-        }`}
+        className={`${styles.item} ${activePage === 1 ? styles.disable : ''}`}
         onClick={handlePrev}
       >
         <i className="bi bi-chevron-left"></i>
@@ -46,10 +53,7 @@ export default ({
             if (isHide(page - 1)) return null;
             else if (isHide(page + 1))
               return (
-                <div
-                  key={index}
-                  className={`${styles.item} ${styles['item-dot']}`}
-                >
+                <div key={index} className={`${styles.item} ${styles.dot}`}>
                   ...
                 </div>
               );
@@ -58,7 +62,7 @@ export default ({
             <span
               key={index}
               className={`${styles.item} ${
-                activePage === page ? styles['item-active'] : ''
+                activePage === page ? styles.active : ''
               }`}
               onClick={() => setPage(page)}
             >
@@ -69,7 +73,7 @@ export default ({
       </div>
       <div
         className={`${styles.item} ${
-          activePage === totalPage ? styles['item-disable'] : ''
+          activePage === totalPage ? styles.disable : ''
         }`}
         onClick={handleNext}
       >
