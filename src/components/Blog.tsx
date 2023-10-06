@@ -9,7 +9,7 @@ import CopyButtonPlugin from 'highlightjs-copy';
 import 'highlight.js/styles/androidstudio.css';
 import 'highlightjs-copy/dist/highlightjs-copy.min.css';
 import { useRouter } from 'next/navigation';
-import { setQueryString } from '@/utils/url.util';
+import { queryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
 hljs.addPlugin(
   new CopyButtonPlugin({
@@ -25,9 +25,7 @@ hljs.addPlugin(
 
 const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
   const router = useRouter();
-  const addQueryString = useCallback(setQueryString(searchParams), [
-    searchParams,
-  ]);
+  const addQueryString = useCallback(queryString(searchParams), [searchParams]);
   useEffect(() => {
     hljs.initHighlighting();
   });
