@@ -56,7 +56,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
         <div className="blog-tags">
           {blog.tags?.slice(0, 3).map((tag, index) => (
             <span key={index} className="blog-tag">
-              {tag}
+              #{tag}
             </span>
           ))}
           {blog.tags!.length > 3 && <span className="blog-tag">. . .</span>}

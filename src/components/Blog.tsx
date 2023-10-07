@@ -27,7 +27,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
   const router = useRouter();
   const addQueryString = useCallback(queryString(searchParams), [searchParams]);
   useEffect(() => {
-    hljs.initHighlighting();
+    hljs.highlightAll();
   });
   return (
     <>
@@ -70,7 +70,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
             className="blog-tag"
             onClick={() => router.push(`/blog?${addQueryString('tag', tag!)}`)}
           >
-            {tag}
+            #{tag}
           </div>
         ))}
       </div>

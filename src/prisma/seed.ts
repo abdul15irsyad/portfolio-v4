@@ -29,9 +29,9 @@ async function main() {
         authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
         featureImageId: random(blogs.map((blog) => blog.featureImageId)),
         tags,
-        publishedAt: dayjs().subtract(i, 'days').toDate(),
-        createdAt: dayjs().subtract(i, 'days').toDate(),
-        updatedAt: dayjs().subtract(i, 'days').toDate(),
+        publishedAt: dayjs('2023-10-03 00:00:00').subtract(i, 'days').toDate(),
+        createdAt: dayjs('2023-10-03 00:00:00').subtract(i, 'days').toDate(),
+        updatedAt: dayjs('2023-10-03 00:00:00').subtract(i, 'days').toDate(),
       });
     }
     await prisma.blog.createMany({

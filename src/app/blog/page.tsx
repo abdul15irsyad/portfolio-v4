@@ -93,7 +93,7 @@ export default () => {
                         className="blog-tag"
                         title={tag}
                       >
-                        {tag}
+                        #{tag}
                       </Link>
                     ))}
                   </div>

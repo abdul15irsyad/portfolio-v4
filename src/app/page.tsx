@@ -9,6 +9,7 @@ import Education from '@/components/education';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';
+import { LatestBlog } from '@/components/latest-blog';
 
 const Home = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Home = () => {
       <Experience />
       <Programming />
       <Award />
+      <LatestBlog />
     </main>
   );
 };

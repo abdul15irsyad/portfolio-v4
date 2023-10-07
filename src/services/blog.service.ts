@@ -65,6 +65,23 @@ export const getBlog = async ({ slug }: { slug: string }) => {
   });
 };
 
+export const getLatestBlog = async () => {
+  return await prisma.blog.findFirst({
+    select: {
+      title: true,
+      slug: true,
+      featureImage: true,
+      publishedAt: true,
+    },
+    where: {
+      publishedAt: { not: null, lte: dayjs().toDate() },
+    },
+    orderBy: {
+      publishedAt: 'desc',
+    },
+  });
+};
+
 export const getAllTags = async () => {
   const now = dayjs().toDate().toISOString();
   const tags: string[] = (
