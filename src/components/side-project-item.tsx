@@ -3,12 +3,17 @@
 import { SideProject } from '@/types/side-project.type';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import AOS from 'aos';
+import { aosInitConfig } from '@/configs/aos.config';
 
 const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
+  useEffect(() => {
+    AOS.init(aosInitConfig);
+  });
   return (
-    <div className="col-md-4 col-sm-6 side-project-item">
+    <div className="col-md-4 col-sm-6 side-project-item" data-aos="fade-up">
       {href ? (
         <Link href={href} target="_blank">
           <Image

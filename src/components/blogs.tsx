@@ -63,7 +63,7 @@ export default ({ limit = 5, queryString }: Prop) => {
           // setPage={setPage}
           activePage={page}
           totalPage={blogs?.meta.totalPage}
-          sibling={1}
+          sibling={2}
           queryString={queryString}
         />
       </div>

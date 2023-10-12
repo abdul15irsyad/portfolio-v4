@@ -11,10 +11,12 @@
 }
 
 .item{
+  user-select: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
   border-radius: .5rem;
   width: 32px;
   height: 32px;
@@ -44,4 +46,16 @@
   background-color: transparent;
   cursor: default;
   width: 20px;
+}
+
+@media (max-width: 767px){
+  .items{
+    gap: .25rem;
+  }
+
+  .item{
+    font-size: 15px;
+    width: 28px;
+    height: 28px;
+  }
 }
