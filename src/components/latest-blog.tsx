@@ -17,6 +17,7 @@ export const LatestBlog = () => {
   } = useQuery<{ data: Blog }>({
     queryKey: ['latestBlog'],
     queryFn: async () => (await fetch('/api/blog/latest')).json(),
+    cacheTime: 0,
   });
   return (
     <section className="latest-blog section doodle-background">
