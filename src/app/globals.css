@@ -91,7 +91,7 @@ ul li {
 }
 
 .doodle-background{
-  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.97), rgba(var(--bs-light-rgb), 0.97)), url('/pattern-background.png');
+  background: linear-gradient(to bottom, rgba(var(--bs-light-rgb), 0.98), rgba(var(--bs-light-rgb), 0.98)), url('/pattern-background.png');
   background-size: 300px 300px;
 }
 
@@ -1233,6 +1233,7 @@ ul li {
 
 .blog-detail article table{
   margin: 0 auto 1rem;
+  background-color: #fff;
 }
 
 .blog-detail article table th,
