@@ -1,0 +1,44 @@
+.image-preview{
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.8);
+}
+
+.image-preview img{
+  cursor: default;
+  object-fit: contain;
+  border-radius: .5rem;
+  user-select: none;
+  width: 80%;
+}
+
+.image-preview .close{
+  color: #fff;
+  border-radius: .5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  line-height: 48px;
+  font-size: 48px;
+}
+
+.image-preview .close:hover{
+  background-color: rgba(255,255,255,.1);
+}
+
+@media (max-width: 991px){
+  .image-preview img{
+    width: 95%;
+    border-radius: .25rem;
+  }
+}

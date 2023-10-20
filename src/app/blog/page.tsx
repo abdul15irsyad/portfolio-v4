@@ -72,7 +72,7 @@ export default () => {
                 </div>
               )}
               <Blogs
-                limit={ENV === 'production' ? 5 : 2}
+                limit={ENV === 'production' ? 5 : 5}
                 queryString={queryString}
               />
             </div>

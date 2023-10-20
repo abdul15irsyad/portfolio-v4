@@ -1213,10 +1213,12 @@ ul li {
 }
 
 .blog-detail article img{
+  display: block;
   width: 100%;
   border-radius: .5rem;
   margin-bottom: 1rem;
   border: 1px solid rgba(var(--bs-secondary-rgb),.25);
+  cursor: pointer;
 }
 
 .blog-detail article img.img-lg{
