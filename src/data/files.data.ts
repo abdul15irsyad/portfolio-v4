@@ -56,6 +56,15 @@ export const files: File[] = [
     originalFileName: 'javascript-ternary-falsy-dan-truthy.jpg',
     mime: 'image/jpg',
   },
+  {
+    id: '96180893-c966-44e6-93bd-d351693aa546',
+    createdAt: new Date('2023-10-20 08:24:05+00'),
+    updatedAt: new Date('2023-10-20 08:24:05+00'),
+    path: 'blog',
+    fileName: 'coba-install-bun-di-windows-11.jpg',
+    originalFileName: 'coba-install-bun-di-windows-11.jpg',
+    mime: 'image/jpg',
+  },
 ];
 
 export const fileDatas = files.map((file) => {

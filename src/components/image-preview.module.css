@@ -22,6 +22,18 @@
   width: 80%;
 }
 
+.image-preview img.lg{
+  width: 80%;
+}
+
+.image-preview img.md{
+  width: 60%;
+}
+
+.image-preview img.sm{
+  width: 40%;
+}
+
 .image-preview .close{
   color: #fff;
   border-radius: .5rem;
@@ -38,7 +50,7 @@
 
 @media (max-width: 991px){
   .image-preview img{
-    width: 95%;
+    width: 95% !important;
     border-radius: .25rem;
   }
 }

@@ -4,6 +4,143 @@ import { authorDatas } from './authors.data';
 
 export const blogs: Blog[] = [
   {
+    id: '6abbfc26-a69f-4522-8f29-b3230750e098',
+    title: 'Coba Install Bun di Windows 11',
+    slug: 'coba-install-bun-di-windows-11',
+    featureImageId: '96180893-c966-44e6-93bd-d351693aa546',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    bun… bun… bun… udah release nii alias v1.0 nya udah muncul, udah agak lama si, bagi kita developer javascript atau node js pasti ga asing sama bun yang baru ini, yap kurang lebih <b>bun adalah all-in-one javascript runtime & toolkit</b>, biasanya kita pakai node.js untuk menjalankan kode program javascript/typescript kita nah bun ini bisa jadi sebagai alternatif nya gitu.
+    </p>
+    <p>
+    di halaman resminya bun mengklaim memiliki <code>http</code> request per second (dengan linux x64) saat mencoba server-side rendering react 2 kali lipat lebih banyak dari deno dan 5 kali lebih banyak dibanding node.js, kalo diliat dari statistik itu aja bun udah nawarin speed yang cukup baik untuk dipertimbangkan penggunaannya.
+    </p>
+    <img src="/blog/1697788423000.png" alt="1697788423000.png" class="img-sm" />
+    <p>
+    nah saat kita mau makai bun, pastinya kita perlu install dulu dong di laptop kita, cuma jika kita buka dokumentasi mengenai instalasinya, ternyata belum support sepenuhnya dengan windows, mungkin masih dalam tahap pengembangan (kalau mac dan linux tinggal ikutin aja langkah-langkahnya), cuma kita tetep bisa nyoba install bun di windows kita dengan bantuan windows subsystem for linux atau disingkat WSL.
+    </p>
+    <p>
+    langsung aja langkah-langkah sebagai berikut
+    </p>
+    <ol>
+    <li>
+    <b>mengaktifkan WSL</b><br>
+    <p>
+    pertama-tama kita perlu menyalakan/mengaktifkankan WSL di windows kita, buka tab <b>"Windows Features"</b> dengan search, setelah terbuka lalu cari pilihan <b>"Windows Subsystem for Linux"</b> tinggal kita ceklis deh, lalu klik <b>"OK"</b>
+    </p>
+    <img src="/blog/1697789820000.png" alt="1697789820000.png" class="img-sm"/>
+    </li>
+    <li>
+    <b>install ubuntu</b><br>
+    <p>
+    selanjutnya kita perlu install linux distro yang kita mau gunakan, yang saya gunakan di sini "Ubuntu 22.04.2 LTS", bisa kita install melalui windows store, setelah selesai proses penginstallannya lalu klik open
+    </p>
+    <img src="/blog/1697790102000.png" alt="1697790102000.png" class="img-lg" />
+    </li>
+    <li>
+    <b>setup ubuntu</b><br>
+    <p>
+    setelah klik open, tunggu proses installation nya, lalu kita diminta untuk memasukkan <b>"UNIX username"</b>, boleh diisi bebas, lalu selanjutnya masukkan <b>"password"</b> yang mau kita gunakan
+    </p>
+    </li>
+    <li>
+    <b>install unzip</b><br>
+    <p>
+    setelah proses instalasi ubuntu selesai, kita memerlukan package <code>unzip</code> untuk mengekstrak saat nanti menginstall bun, di terminal ubuntu yang barusan kita install, kita ketikkan command
+    </p>
+    <pre>
+    <code class="language-bash">$ sudo apt-get install unzip</code>
+    </pre>
+    <img src="/blog/1697790358000.png" alt="1697790358000.png" class="img-lg" />
+    </li>
+    <li>
+    <b>install bun</b><br>
+    <p>
+    setelah sudah terinstall <code>unzip</code> nya, kita bisa install bun melaui command yang disediakan di halaman resmi nya lalu tunggu hingga proses instalasinya selesai
+    </p>
+    <pre>
+    <code class="language-bash">$ curl -fsSL https://bun.sh/install | bash</code>
+    </pre>
+    <img src="/blog/1697790531000.png" alt="1697790531000.png" class="img-lg" />
+    <p>
+    lalu kita diminta untuk merunning command
+    </p>
+    <pre>
+    <code class="language-bash">$ source /home/{unix-username}/.bashrc</code>
+    </pre>
+    <p>
+    setelah dijalankan kita tinggal mengecek instalasi bun dengan melihat versi dari bun nya
+    </p>
+    <pre>
+    <code class="language-bash">$ bun --version</code>
+    </pre>
+    <img src="/blog/1697790712000.png" alt="1697790712000.png" class="img-md" />
+    <p>
+    sip kalo sudah muncul version nya berarti proses instalasi bun nya sudah berhasil, selanjutnya adalah kita perlu buat kode nya dong, kita ikutin aja langkah-langkah quickstart yang ada di dokumentasi
+    </p>
+    </li>
+    <li>
+    <b>setup project</b><br>
+    <p>
+    kita buat folder terlebih dahulu untuk menampung project kita, kita namakan <code>quickstart</code> lalu open folder tersebut
+    </p>
+    <pre>
+    <code class="language-bash">$ mkdir quickstart
+$ cd quickstart</code>
+    </pre>
+    <img src="/blog/1697790911000.png" alt="1697790911000.png" class="img-lg" />
+    <p>
+    jalankan <code>bun init</code> untuk membuat bun project, lalu klik enter untuk mengatur sesuai default nya
+    </p>
+    <pre>
+    <code class="language-bash">$ bun init</code>
+    </pre>
+    <img src="/blog/1697791016000.png" alt="1697791016000.png" class="img-lg" />
+    <p>
+    Kita coba running file <code>index.ts</code> nya
+    </p>
+    <pre>
+    <code class="language-bash">$ bun index.ts</code>
+    </pre>
+    <img src="/blog/1697791119000.png" alt="1697791119000.png" class="img-lg" />
+    </li>
+    <li>
+    <b>connect vscode</b><br>
+    <p>
+    nah setelah sudah berhasil, kita mau buka folder projectnya di vscode, misalkan kita sudah punya di windows maka kita bisa membuka folder nya di vscode dengan bantuan extension WSL nya vscode, kita install dulu extensionnya
+    </p>
+    <img src="/blog/1697791206000.png" alt="1697791206000.png" class="img-lg"/>
+    <p>
+    lalu tekan <code>Ctrl</code> + <code>Shift</code> + <code>P</code> ketik "wsl" lalu pilih <b>"WSL: Connect to WSL using Distro…"</b> lalu pilih distro yang barusan kita install bun nya, lalu buka terminal vscode nya ketik
+    </p>
+    <pre>
+    <code class="language-bash">$ cd quickstart
+$ code .</code>
+    </pre>
+    <img src="/blog/1697791523000.png" alt="1697791523000.png" class="img-lg" />
+    <p>
+    yap kita bisa melanjutkan development melalui vscode, kita juga bisa jalanin project bunnya melalui terminal vscode
+    </p>
+    </li>
+    </ol>
+    <p>
+    oke akhirnya walaupun kita pakai windows, kita bisa ikut nyobain gimana make bun, apalagi sudah ada framework <code>elysia js</code> yang bisa kita kulik tanpa perlu ganti os di laptop kita, atau kalau mau running project node js kita yang sudah ada menggunakan bun juga bisa, yaaa ga terlalu keliatan beda nya si, untuk info bun lebih lanjut bisa langsung liat halaman resmi nya <a href="https://bun.sh" target="_blank">bun.sh</a>
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['bun', 'windows'],
+    publishedAt: new Date('2023-10-20 07:08:23+00'),
+    createdAt: new Date('2023-10-20 07:08:23+00'),
+    updatedAt: new Date('2023-10-20 07:08:23+00'),
+  },
+  {
     id: '998aeec9-7602-4d9e-98c0-18c2c40f9f59',
     title: 'Javascript Ternary, Falsy dan Truthy',
     slug: 'javascript-ternary-falsy-dan-truthy',
@@ -170,80 +307,6 @@ for (const user of users) {
     publishedAt: new Date('2023-10-05 08:24:05+00'),
     createdAt: new Date('2023-10-05 08:24:05+00'),
     updatedAt: new Date('2023-10-05 08:24:05+00'),
-  },
-  {
-    id: '79d35e33-c391-473c-a0a5-0e9c504f2cf6',
-    title: 'Penggunaan Seeder di Suatu Project',
-    slug: 'penggunaan-seeder-di-suatu-project',
-    featureImageId: 'a67191bf-24af-4aeb-8936-28ef81cfead8',
-    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
-    content: `
-    <article>
-    <p>
-    halooooo.... kali ini saya mau sharing mengenai konsep sedikit yakni penggunaan <code>seeder</code> di suatu project, pada umumnya <code>seeding</code> adalah proses mengisi data di suatu table yang sudah ada di seluruh environment yang ada baik itu <code>production</code>, <code>staging</code>, maupun <code>dev</code>. 
-    </p>
-    <p>
-    bayangin kita punya suatu aplikasi <code>e-commerce</code> dimana terdapat halaman list produk-produk yang akan dilihat oleh publik, dari bagian <code>frontend developer</code> sudah membuat code untuk tampilan produk dengan data <code>endpoint</code> dari backend, namun belum ada data yang dapat ditampilkan, maka akan menimbulkan kekhawatiran apakah sudah sesuai dengan yang direncanakan atau belum (yaaa walaupun misal <code>frontend</code> sudah mencoba dengan data <code>static</code> pastinya), nah maka dari itu <code>seeder</code> dapat menjadi solusi untuk menyelesaikan permasalahan tersebut.
-    </p>
-    <p>
-    oke kita bahas dulu keuntungan menggunakan <code>seeder</code> di project yang sedang kita kembangkan
-    </p>
-    <ul>
-    <li><strong>mempermudah proses <code>development</code></strong><br>misal ketika kita membuat fitur <code>pagination</code>, kita perlu menge-test apakah fitur tersebut bekerja dengan baik saat data halaman ke-2 atau seterusnya diambil, maka dari itu kita perlu data-data contoh atau data <code>dummy</code>, karena jika tidak ada data maka kita belum yakin apakah sudah berjalan dengan baik atau belum.
-    </li>
-    <li><strong>mempermudah proses <code>deployment</code></strong><br>jika terdapat data yang dibutuhkan untuk <code>production</code>, maka kita cukup membuat <code>seeder</code> untuk data tersebut, saat sudah di-<code>push</code> ke server <code>production</code> tinggal dijalankan <code>seeder</code> nya maka data tersebut sudah ditambahkan ke <code>database production</code>.
-    </li>
-    <li><strong>mempermudah tim <code>developer</code> (jika dikerjakan lebih dari 1 orang)</strong><br>saat project dikerjakan lebih dari 1 orang, maka masing-masing ada kemungkinan memerlukan data <code>production</code>, yang bisa jadi akan menjadi <code>bug</code> (level no data) jika <code>developer</code> lain menjalankan projectnya namun data yang dibutuhkan tidak ada, dengan adanya <code>seeder</code>, kondisi tersebut dapat diatasi dengan mudah.
-    </li>
-    <li><strong>mempermudah <code>frontend developer</code></strong><br>saat frontend developer membuat tampilan, akan lebih baik jika terdapat contoh data untuk memvisualisasikan tampilan yang sudah dibuat, agar lebih yakin bahwa sudah sesuai dengan desain yang diharapkan
-    </li>
-    </ul>
-    <p>
-    mungkin masih banyak keuntungan-keuntungan lain yang saya kurang ngeh, setelah kita telah tahu apa keuntungannya, ada beberapa hal yang perlu kita perhatikan saat membuat seeder agar nantinya kita tidak mengalami kesulitan di kemudian hari
-    </p>
-    <h3>Timestamp Nama File</h3>
-    <p>
-    di beberapa orm seperti <code>typeorm</code> (dengan library <a href="https://www.npmjs.com/package/@jorgebodega/typeorm-seeding" target="_blank"><code>@jorgebodega/typeorm-seeding</code></a>), <code>seeder</code> akan dijalankan berdasarkan urutan nama file di folder yang telah ditentukan, akan lebih mudah jika kita menamakan semua file <code>seeder</code> berdasarkan kapan waktu file tersebut dibuat lalu dilanjut nama file seperti biasa, jadi ketika kita menambahkan <code>seeder</code> baru, maka otomatis sudah terurutkan (kira-kira seperti ini <code>1692867883026-users.seeder.ts</code>).
-    </p>
-    <h3>Environment</h3>
-    <p>
-    kita perlu membuat kondisi untuk <code>seeder</code> apa saja yang akan dijalankan di <code>environment</code> tertentu, pastinya data <code>dummy</code> tidak akan ditambahkan di <code>production</code>, karena data tersebut diperuntukkan hanya di <code>environment development</code>. cukup menambahkan logic <code>if</code> di awal file <code>seeder</code> nya seperti berikut
-    </p>
-    <pre>
-    <code class="language-typescript">if (process.env.NODE_ENV !== 'production') {\n  \/\/ isi dari seedernya\n}</code>
-    </pre>
-    <h3>Historical Seeder</h3>
-    <p>
-    seperti tulisan saya sebelumnya <a href="/blog/nest-js-setup-database-with-typeorm" target="_blank">di sini</a>, diperlukan table <code>seeder</code> (di beberapa <code>orm</code> belum dibuatkan) untuk menyimpan data-data <code>seeder</code> yang telah dieksekusi agar <code>seeder</code> yang telah dijalankan tidak dieksekusi 2 kali, dan saat menjalankan <code>seeder</code> yang baru hanya perlu running semua <code>seeder</code> (otomatis hanya menjalankan yang belum dieksekusi karena telah dicek kondisinya).
-    </p>
-    <pre>
-    <code class="language-typescript">if (\n  await datasource\n    .getRepository(SeederEntity)\n    .findOneBy({ name: UsersSeeder1692867883026.name }) // diambil dari nama seeder nya\n){\n  return;\n}</code>
-    </pre>
-    <h3>Buat Id Untuk Data Production Menjadi Static</h3>
-    <p>
-    saya pernah mengalami kendala ketika saya membuat data <code>seeder</code> untuk <code>production</code> (misal seperti data <code>role</code>), saya men-generate <code>uuid</code> saat proses <code>seeder</code> dijalankan, namun <code>id</code> yang ada di <code>development</code> berbeda dengan <code>id</code> yang ada di <code>production</code>, ini akan menjadi problem ketika kita hendak migrasi <code>database</code> ke server lain, walaupun case ini jarang, namun saya lebih menyarankan untuk membuat <code>id</code> nya menjadi static (dibuatkan manual <code>uuid</code> nya), bisa melalui website berikut <a href="https://www.uuidgenerator.net/" target="_blank">Online UUID Generator Tool</a>.
-    </p>
-    <pre>
-    <code class="language-typescript">const roles: DeepPartial&lt;Role&gt;[] = [\n  {\n    id: 'b7a32203-9ec2-46ab-bb15-fefbd688cfee',\n    name: 'Super Administrator',\n    slug: 'super-administrator' \n  },\n  {\n    id: 'dc3c5465-4429-45ea-be10-9e39cba6997f',\n    name: 'User',\n    slug: 'user' \n  },\n  {\n    id: '9b3d9a9f-05a5-4ee4-9220-854042e88c5a',\n    name: 'Editor',\n    slug: 'editor' \n  }\n];</code>
-    </pre>
-    <h3>Tidak Mengubah Seeder Yang Sudah Dijalankan Di Production</h3>
-    <p>
-    ada kalanya kita salah input data atau ada perubahan table di <code>migration</code> nya, maka dari itu perlu ada penyesuaian pula di data-data nya melalui <code>seeder</code>. dibanding mengubah <code>seeder</code> yang ada, akan lebih baik jika perubahan-perubahan data yang baru dibuatkan <code>seeder</code> baru pula (ini berlaku juga dalam case <code>migration</code>), karena <code>seeder</code> yang lama tidak akan dijalankan lagi di <code>production</code>.
-    </p>
-    <br>
-    <br>
-    <p>
-    oke itu saja yang mau saya share, mungkin saja ada hal-hal lain yang perlu diperhatikan saat pembuatan <code>seeder</code> menyesuaikan kondisi dari project tersebut.
-    </p>
-    <p>
-    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
-    </p>
-    </article>
-    `,
-    tags: ['seeder', 'uuid', 'postgresql', 'typescript'],
-    publishedAt: new Date('2023-09-04 07:08:23+00'),
-    createdAt: new Date('2023-09-04 07:08:23+00'),
-    updatedAt: new Date('2023-09-04 07:08:23+00'),
   },
   {
     id: '0287abee-7fff-4174-b5c1-988165c1081c',

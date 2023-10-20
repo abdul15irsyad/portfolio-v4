@@ -11,7 +11,7 @@ import 'highlightjs-copy/dist/highlightjs-copy.min.css';
 import { useRouter } from 'next/navigation';
 import { queryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
-import ImagePreview from './image-preview';
+import ImagePreview, { Modal } from './image-preview';
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el: any) => {
@@ -30,16 +30,22 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
   useEffect(() => {
     hljs.highlightAll();
   });
-  const [show, setShow] = useState(false);
-  const [modalImage, setModalImage] = useState<string | null>(null);
+  const [modal, setModal] = useState<Modal>({});
   const content = useRef<HTMLDivElement>(null);
   const body = document.querySelector('body');
   useEffect(() => {
     const images = content.current?.querySelectorAll('img');
     images?.forEach((image) => {
       image.addEventListener('click', () => {
-        setShow(true);
-        setModalImage(image.src);
+        setModal({
+          ...modal,
+          show: true,
+          image: image.src,
+          size: image.getAttribute('class')?.split('-')[1] as
+            | 'sm'
+            | 'md'
+            | 'lg',
+        });
         body!.style.overflow = 'hidden';
       });
     });
@@ -81,8 +87,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
           dangerouslySetInnerHTML={{ __html: blog.content }}
           ref={content}
         />
-        <ImagePreview show={show} setShow={setShow} image={modalImage!} />
-
+        <ImagePreview modal={modal} setModal={setModal} />
         <div className="blog-detail-tags">
           {blog.tags?.map((tag, index) => (
             <div
