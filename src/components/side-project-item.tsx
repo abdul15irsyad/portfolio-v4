@@ -13,9 +13,14 @@ const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
     AOS.init(aosInitConfig);
   });
   return (
-    <div className="col-md-4 col-sm-6 side-project-item" data-aos="fade-up">
+    <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
       {href ? (
-        <Link href={href} target="_blank">
+        <div className="side-project-img-wrapper">
+          <div className="overlay">
+            <Link href={href} target="_blank" className="btn btn-sm btn-open">
+              Lihat <i className="bi bi-box-arrow-up-right ms-2"></i>
+            </Link>
+          </div>
           <Image
             src={img}
             className="side-project-img"
@@ -23,7 +28,7 @@ const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
             width={1080}
             height={1080}
           />
-        </Link>
+        </div>
       ) : (
         <Image
           src={img}
