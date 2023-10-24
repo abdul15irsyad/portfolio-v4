@@ -80,6 +80,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
             width={1000}
             height={300}
             quality={100}
+            priority={true}
           />
         </div>
         <div

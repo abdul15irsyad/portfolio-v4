@@ -1,5 +1,5 @@
 import { prisma } from '@/prisma/client';
-import { Prisma } from '@prisma/client';
+import { Blog, Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 
 export const getBlogWithPagination = async ({
@@ -65,12 +65,20 @@ export const getBlog = async ({ slug }: { slug: string }) => {
   });
 };
 
-export const getLatestBlog = async () => {
-  return await prisma.blog.findFirst({
+export const getLatestBlog = async (
+  { limit }: { limit: number } = { limit: 1 },
+) => {
+  const options = {
     select: {
+      id: true,
       title: true,
       slug: true,
-      featureImage: true,
+      featureImage: {
+        select: {
+          originalFileName: true,
+          url: true,
+        },
+      },
       publishedAt: true,
     },
     where: {
@@ -79,7 +87,13 @@ export const getLatestBlog = async () => {
     orderBy: {
       publishedAt: 'desc',
     },
-  });
+  };
+  return limit === 1
+    ? await prisma.blog.findFirst(options as any)
+    : await prisma.blog.findMany({
+        ...options,
+        take: limit,
+      } as any);
 };
 
 export const getAllTags = async () => {

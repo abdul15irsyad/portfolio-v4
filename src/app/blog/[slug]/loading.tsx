@@ -88,7 +88,7 @@ export default () => {
             </Placeholder>
           </div>
           <div className="col-xl-3 offset-xl-1 col-lg-3 blog-sidebar">
-            <div className="blog-detail-share box-container">
+            <div className="blog-detail-share box-container mb-3">
               <h5 className="box-container-title">
                 <i className="bi bi-share"></i>
                 <span>Share</span>
@@ -107,6 +107,30 @@ export default () => {
                     />
                   ))}
                 </Placeholder>
+              </div>
+            </div>
+            <div className="blog-detail-latest box-container mb-3">
+              <h5 className="box-container-title">
+                <i className="bi bi-newspaper"></i>
+                <span>Latest Blog</span>
+              </h5>
+              <div className="blog-detail-latest-items">
+                {[...Array(2)].map((_, index) => (
+                  <Placeholder
+                    animation="glow"
+                    className="blog-detail-latest-item"
+                    key={index}
+                  >
+                    <Placeholder className="blog-detail-latest-item-img" />
+                    <div
+                      className="blog-detail-latest-item-text"
+                      style={{ minWidth: '160px' }}
+                    >
+                      <Placeholder style={{ width: '90%', height: '24px' }} />
+                      <Placeholder style={{ width: '50%', height: '18px' }} />
+                    </div>
+                  </Placeholder>
+                ))}
               </div>
             </div>
           </div>

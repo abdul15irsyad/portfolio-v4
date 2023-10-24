@@ -67,8 +67,8 @@ export const LatestBlog = () => {
                         latestBlog?.data.featureImage
                           ?.originalFileName as string
                       }
-                      width={300}
-                      height={100}
+                      width={500}
+                      height={500}
                     />
                   </Link>
                   <Link href={`/blog/${latestBlog?.data.slug}`}>
