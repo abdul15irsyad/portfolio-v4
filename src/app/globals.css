@@ -1031,14 +1031,18 @@ ul li {
     margin-top: 2rem;
   }
 
+  
   .blog-sidebar .blog-detail-latest .blog-detail-latest-items .blog-detail-latest-item{
     display: flex;
     gap: 1rem;
   }
+  .blog-sidebar .blog-detail-latest .blog-detail-latest-items .blog-detail-latest-item .blog-detail-latest-item-title{
+    font-size: 16px;
+  }
   
   .blog-sidebar .blog-detail-latest .blog-detail-latest-items .blog-detail-latest-item .blog-detail-latest-item-img{
-    width: 120px !important;
-    height: 80px;
+    width: 110px !important;
+    height: 70px;
   }
 
   .blog-sidebar .blog-detail-latest .blog-detail-latest-items .blog-detail-latest-item .blog-detail-latest-item-text{
@@ -1260,6 +1264,7 @@ ul li {
   font-weight: 800;
 }
 
+.blog-detail article li,
 .blog-detail article p{
   word-wrap: break-word;
   line-height: 28px;
