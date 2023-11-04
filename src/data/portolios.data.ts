@@ -335,4 +335,27 @@ export const portfolios: Portfolio[] = [
       },
     ],
   },
+  {
+    title: 'Prima Citra Inovindo',
+    href: 'https://pci-tech.co.id',
+    year: 2022,
+    order: 202204,
+    type: 'Wordpress',
+    desc: `
+      <p>
+        <b>"PT. Prima Citra Inovindo"</b> Perusahaan Distributor Alat Kesehatan Dalam Negeri (AKD) produk yang di produksi oleh pabrikan.Website ini dibuat menggunakan Wordpress
+      </p>
+    `,
+    stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
+    images: [
+      {
+        src: '/portfolio/pci-1.jpg',
+        alt: 'Prima Citra Inovindo 1',
+      },
+      {
+        src: '/portfolio/pci-2.jpg',
+        alt: 'Prima Citra Inovindo 2',
+      },
+    ],
+  },
 ].sort((a, b) => (a.order < b.order ? 1 : -1));
