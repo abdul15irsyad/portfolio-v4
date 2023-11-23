@@ -29,6 +29,7 @@ model Author {
   name      String
   photo     File?    @relation(fields: [photoId], references: [id])
   photoId   String?  @map("photo_id")
+  url       String?
   blogs     Blog[]
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz()

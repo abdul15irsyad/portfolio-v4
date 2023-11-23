@@ -4,6 +4,130 @@ import { authorDatas } from './authors.data';
 
 export const blogs: Blog[] = [
   {
+    id: '4bd064ba-76dc-4545-80b6-28277284b8ac',
+    title: 'Bagaimana Komputer Bekerja? Bagian 1 Dunia Di Mata Komputer',
+    slug: 'bagaimana-komputer-bekerja-bagian-1-dunia-di-mata-komputer',
+    featureImageId: '25ea8ebd-3339-49e7-81dd-60480d021401',
+    authorId: '06ebb3cb-9393-4455-90bb-07f935d00562',
+    content: `
+    <article>
+    <h2>Pendahuluan</h2>
+    <p>
+    Komputer adalah tulang punggung peradaban modern. Ia adalah aktor utama dalam lahirnya teknologi-teknologi mutakhir abad ini, seperti aplikasi smartphone, internet, kecerdasan buatan, hingga block-chain. Namun, pernahkah kamu bertanya, bagaimana sebenarnya komputer bekerja? Bagaimana komputer menulis, menghitung, bermain game, bahkan berpikir mandiri?
+    </p>
+    <p>
+    Dalam artikel ini, kita akan berkenalan dengan komputer, sedikit mengurai "kabel-kabel" di dalamnya agar dapat melihatnya bekerja dari jarak dekat. 
+    </p>
+    <p>
+    Tulisan ini akan terbagi menjadi tiga bagian: 
+    </p>
+    <ul>
+    <li>
+    Bagian pertama: <i>Dunia Di Mata Komputer</i>. Ini menjelaskan bagaiamana komputer menangkap informasi dunia dan mengolahnya. Di sini kita akan berkenalan dengan bit dan gerbang logika
+    </li>
+    <li>
+    Bagian kedua: <i>Bahan-Bahan Membuat Komputer</i>. Ini menjelaskan perangkat keras utama komputer, meliputi CPU, memori, perangkat input dan output.
+    </li>
+    <li>
+    Bagian terakhir: <i>Melatih Komputer Berpikir</i>. Ini akan menjelaskan bagaimana cara komputer diprogram. Kita akan berkenalan dengan perangkat lunak, sistem operasi dan bahasa pemrograman.
+    </li>
+    </ul>
+    <p>
+    Ini adalah tulisan santai yang lebih enak disantap dengan kopi dan biskuit daripada buku catatan besar. Jadi siapkan posisi Anda. Kita meluncur!
+    </p>
+    <h2>Cara Komputer Menangkap Informasi</h2>
+    <p>
+    Di antara temuan-temuan manusia, komputer adalah temuan paling istimewa karena fleksibilitasnya dalam memproses informasi. Satu unit komputer mampu memproses huruf untuk menulis laporan, mengolah angka untuk perhitungan pajak, mengelola suara untuk menyetel musik, bahkan memproses gambar untuk mengedit foto dan video. Lihat seberapa fleksibelnya komputer dalam mengolah informasi.
+    </p>
+    <p>
+    Tapi bagaimana komputer menangkap informasi-informasi itu? Apakah komputer benar-benar menangkap angka, huruf, dan gambar sebagaimana adanya?
+    </p>
+    <p>
+    Jawabannya tidak. Komputer pada dasarnya hanyalah rongsokan silikon bodoh yang buta huruf, buta angka, dan buta warna. Untuk menangkap informasi, komputer mengandalkan sebuah elemen. Komputer menangkap seluruh informasi dalam bahasa elemen itu. Elemen ajaib itu adalah "bit".
+    </p>
+    <h4>Apa itu Bit?</h4>
+    <p>
+    Bit adalah sesuatu yang punya dua kondisi.
+    </p>
+    <p>
+    Sebagai contoh, koin yang dilempar adalah bit, karena memiliki dua nilai yang mungkin: ANGKA atau GAMBAR. Lampu kamar mandi juga merupakan bit karena memiliki dua kondisi yang mungkin: ON atau OFF.
+    </p>
+    <p>
+    Komputer adalah rumah bagi miliaran bit. Di dalam komputer, terdapat ruang-ruang kecil yang selalu berada dalam salah satu dari dua kondisi: MATI atau MENYALA. Jika ada listrik yang mengalirinya, ia menyala. Jika aliran listrik terputus, ia mati.
+    </p>
+    <p>
+    Secara umum, dua nilai bit umumnya disimbolkan dengan 1 dan 0. Artinya, 1 untuk kondisi bit menyala dan 0 untuk kondisi bit mati. Penyimbolan ini hanyalah untuk mempermudah penulisan, karena sebenarnya tidak ada angka 1 dan 0 berada di dalam komputer. Jika diinginkan, kamu dapat memberikan simbol lain seperti A dan B, atau X dan Y. Namun, sudah menjadi kesepakatan umum bahwa 1 dan 0 adalah simbol nilai bit dalam dunia komputer.
+    </p>
+    <h4>Apa fungsi bit?</h4>
+    <p>
+    Seperti manusia yang menggunakan kata-kata untuk berkomunikasi, komputer menggunakan bit sebagai bahasa mereka. Dengan kata lain, bit digunakan komputer untuk menangkap informasi.
+    </p>
+    <p>
+    Satu bit memiliki kemampuan untuk merepresentasikan dua buah informasi, seperti Ya/Tidak, Mati/Menyala, atau SATU atau NOL. Jika kamu mengaitkan satu bit dengan lampu lalu lintas, maka kamu bisa memberi dua informasi kepada pengemudi: JALAN atau BERHENTI.
+    </p>
+    <p>
+    Untuk menangkap banyak informasi, komputer membutuhkan lebih banyak bit. Dengan 8 bit, komputer mampu merepresentasikan 256 huruf Latin, termasuk huruf abjad, angka, dan tanda baca. Dengan 16 bit, komputer mampu merepresentasikan lebih dari 60.000 karakter Hanzi (huruf Mandarin). Dengan 24 bit, komputer mampu merepresentasikan 16 juta warna. Dan dengan 32 bit, komputer mampu merepresentasikan seluruh karakter, simbol, dan aksara di dunia, termasuk emoji, ikon, dan sebagainya.
+    </p>
+    <img src="/blog/1700730668.png" class="img-sm" title="Kode ASCII, sebuah standar representasi huruf latin ke dalam 8 bit.">
+    <h2>Cara Komputer Mengolah Informasi</h2>
+    <p>
+    Baiklah, kita sudah mengetahui bahwa bit merupakan potongan informasi. Tetapi, bagaimana komputer mengolah informasi itu? Dengan kata lain, bagaimana komputer memanipulasi bit-bit yang ada di dalamnya? 
+    </p>
+    <p>
+    Seperti lampu kamar mandi, bit dalam komputer juga dapat dihidupkan dan dimatikan menggunakan saklar. Kita tahu, mati-nyala-nya bit bergantung pada apakah ada listrik yang mengalirinya. Nah, "saklar komputer" bertugas untuk menghambat atau menyambung aliran listrik menuju bit. 
+    </p>
+    <p>
+    Keistimewaan "saklar komputer" terletak pada ukurannya yang sangat kecil dan kemampuannya untuk beralih kondisi miliaran kali dalam sekejap! Perbedaan lainnya terletak pada cara mengontrol tuas "saklar komputer". Alih-alih menggunakan jari tangan secara mekanik, kita bisa mengontrol tuas "saklar komputer" semi-otomatis dengan bit input. Jika bit input teraliri listrik, tuas akan menutup. Jika bit input kosong dari listrik, tuas akan terbuka.
+    </p>
+    <p>
+    Nama keren untuk "saklar komputer" adalah <b>Transistor</b>.
+    </p>
+    <img src="/blog/1700731121.gif" class="img-xs" title="Gambar saklar dikontrol secara mekanik oleh tangan">
+    <img src="/blog/1700731301.gif" class="img-xs" title="Gambar transistor dikontrol oleh bit input">
+    <h4>Apa itu Gerbang Logika?</h4>
+    <p>
+    Satu transistor saja tidak cukup untuk menciptakan keajaiban, karena hanya dapat mengedipkan bit dengan cara biasa. Transistor harus bergabung bersama, membentuk suatu rangkaian, untuk menciptakan sebuah saklar dengan aturan baru dan berguna untuk pengolahan informasi.
+    </p>
+    <p>
+    Nama keren rangkaian transistor adalah "gerbang logika"
+    </p>
+    <p>
+    Pada dasarnya, setiap komponen dalam komputer, seperti RAM, ALU (Arithmetic Logic Unit), dan Control Unit, dapat dianggap sebagai gerbang logika. Di dalamnya, terdapat serangkaian transistor yang tersusun secara cermat, membentuk aturan-aturan khusus untuk memproses bit sehingga menghasilkan informasi yang bermanfaat.
+    </p>
+    <p>
+    Dasar dari semua gerbang logika adalah gerbang NOT dan gerbang AND. Cukup bermodal dua gerbang ini, kita bisa membangun seluruh gerbang logika yang ada di dunia, bahkan membangun komputer utuh.
+    </p>
+    <p>
+    Gerbang NOT memiliki satu input dan satu output. Fungsi utamanya adalah membalikkan nilai inputnya. Dengan kata lain, jika bit input menyala maka bit output akan mati, dan sebaliknya.
+    </p>
+    <img src="/blog/1700731497.gif" class="img-xs" title="Gambar NOT Gate">
+    <img src="/blog/1700731562.gif" class="img-xs" title="Gambar AND Gate">
+    <p>
+    Gerbang AND memiliki dua atau lebih input dan satu output. Aturan main gerbang ini berbunyi: bit output hanya akan menyala, jika semua bit input menyala. Jika ada salah satu bit input yang mati, maka bit output akan mati.
+    </p>
+    <p>
+    Jika punya waktu luang, kita bisa mengkombinasikan gerbang AND dan NOT dengan berbagai kombinasi, menyambungkannya secara seri, atau secara pararel, dengan begitu kita bisa mendapatkan lebih banyak gerbang logika dengan aturan-aturan baru.
+    </p>
+    <h2>Kesimpulan</h2>
+    <p>
+    Pada dasarnya komputer hanyalah silikon yang buta huruf, buta angka, dan buta warna. Komputer pada akhirnya mampu menangkap informasi dari dunia luar dan mengolahnya berkat dua benda ajaib dan sederhana: bit dan gerbang logika. 
+    </p>
+    <p>
+    Bit komputer dalam jumlah yang besar, mampu menangkap informasi yang sangat kompleks. Gerbang logika dengan susunan yang baik dan tepat dapat mengontrol bit-bit dalam komputer untuk menghasilkan output informasi yang bermanfaat.
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['komputer'],
+    publishedAt: new Date('2023-11-24 17:00:00+00'),
+    createdAt: new Date('2023-11-23 17:00:00+00'),
+    updatedAt: new Date('2023-11-23 17:00:00+00'),
+  },
+  {
     id: '6abbfc26-a69f-4522-8f29-b3230750e098',
     title: 'Coba Install Bun di Windows 11',
     slug: 'coba-install-bun-di-windows-11',

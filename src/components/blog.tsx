@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import { queryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
 import ImagePreview, { Modal } from './image-preview';
+import Link from 'next/link';
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el: any) => {
@@ -56,18 +57,32 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
       <div className="blog-detail">
         <h1 className="blog-detail-title">{blog.title}</h1>
         <div className="blog-detail-meta">
-          {blog.author && (
-            <div className="blog-author">
-              <Image
-                src={blog.author.photo!.url ?? '/blog/default-profile.png'}
-                alt={blog.author.name}
-                className="blog-author-img"
-                width={100}
-                height={100}
-              />
-              <span className="blog-author-name">{blog.author.name}</span>
-            </div>
-          )}
+          {blog.author &&
+            (blog.author?.url ? (
+              <Link href={blog.author.url} target="_blank">
+                <div className="blog-author">
+                  <Image
+                    src={blog.author.photo?.url ?? '/blog/default-profile.png'}
+                    alt={blog.author.name}
+                    className="blog-author-img"
+                    width={100}
+                    height={100}
+                  />
+                  <span className="blog-author-name">{blog.author.name}</span>
+                </div>
+              </Link>
+            ) : (
+              <div className="blog-author">
+                <Image
+                  src={blog.author.photo!.url ?? '/blog/default-profile.png'}
+                  alt={blog.author.name}
+                  className="blog-author-img"
+                  width={100}
+                  height={100}
+                />
+                <span className="blog-author-name">{blog.author.name}</span>
+              </div>
+            ))}
           <div className="blog-detail-created-at">
             <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(dayjs(blog.publishedAt).toString())}

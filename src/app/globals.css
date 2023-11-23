@@ -1302,9 +1302,10 @@ ul li {
 }
 
 .blog-detail article img{
-  display: block;
+  display: inline-block;
   width: 100%;
   border-radius: .5rem;
+  margin-right: 1rem;
   margin-bottom: 1rem;
   border: 1px solid rgba(var(--bs-secondary-rgb),.25);
   cursor: pointer;
@@ -1320,6 +1321,9 @@ ul li {
 
 .blog-detail article img.img-sm{
   width: 50%;
+}
+.blog-detail article img.img-xs{
+  width: 35%;
 }
 
 .blog-detail article table{

@@ -65,6 +65,25 @@ export const files: File[] = [
     originalFileName: 'coba-install-bun-di-windows-11.jpg',
     mime: 'image/jpg',
   },
+  {
+    id: '25ea8ebd-3339-49e7-81dd-60480d021401',
+    createdAt: new Date('2023-11-23 15:40:05+00'),
+    updatedAt: new Date('2023-11-23 15:40:05+00'),
+    path: 'blog',
+    fileName: 'bagaimana-komputer-bekerja-bagian-1-dunia-di-mata-komputer.jpeg',
+    originalFileName:
+      'bagaimana-komputer-bekerja-bagian-1-dunia-di-mata-komputer.jpeg',
+    mime: 'image/jpeg',
+  },
+  {
+    id: 'e1c49ad2-c4db-46b6-819a-fdb7f1f76487',
+    createdAt: new Date('2023-11-23 15:40:05+00'),
+    updatedAt: new Date('2023-11-23 15:40:05+00'),
+    path: 'blog',
+    fileName: 'rijalghodi.jpeg',
+    originalFileName: 'rijalghodi.jpeg',
+    mime: 'image/jpeg',
+  },
 ];
 
 export const fileDatas = files.map((file) => {
