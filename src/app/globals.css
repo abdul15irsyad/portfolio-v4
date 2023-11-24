@@ -1405,6 +1405,9 @@ ul li {
   .blog-detail article img.img-md{
     width: 100%;
   }
+  .blog-detail article img.img-xs{
+    width: 45%;
+  }
 
   .blog-detail .blog-detail-tags{
     display: flex;
