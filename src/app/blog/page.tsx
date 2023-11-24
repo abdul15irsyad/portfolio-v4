@@ -20,6 +20,7 @@ export default () => {
   >({
     queryKey: ['allTags'],
     queryFn: async () => (await fetch('/api/blog/tag')).json(),
+    cacheTime: 0,
   });
 
   const queryString = useCallback(

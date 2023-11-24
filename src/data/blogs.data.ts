@@ -1,6 +1,7 @@
 import { Blog } from '@/types/blog.type';
 import { fileDatas } from './files.data';
 import { authorDatas } from './authors.data';
+import { ENV } from '../configs/app.config';
 
 export const blogs: Blog[] = [
   {
@@ -40,11 +41,11 @@ export const blogs: Blog[] = [
     Di antara temuan-temuan manusia, komputer adalah temuan paling istimewa karena fleksibilitasnya dalam memproses informasi. Satu unit komputer mampu memproses huruf untuk menulis laporan, mengolah angka untuk perhitungan pajak, mengelola suara untuk menyetel musik, bahkan memproses gambar untuk mengedit foto dan video. Lihat seberapa fleksibelnya komputer dalam mengolah informasi.
     </p>
     <p>
-    Tapi bagaimana komputer menangkap informasi-informasi itu? Apakah komputer benar-benar menangkap angka, huruf, dan gambar sebagaimana adanya?
+    Tapi bagaimana komputer menangkap informasi-informasi itu? Apakah komputer benar-benar menangkap angka, huruf, dan gambar sebagaimana adanya? Jawabannya tidak. Komputer pada dasarnya hanyalah rongsokan silikon bodoh yang buta huruf, buta angka, dan buta warna. Untuk menangkap informasi, komputer mengandalkan sebuah elemen. Komputer menangkap seluruh informasi dalam bahasa elemen itu. Elemen ajaib itu adalah "bit".
     </p>
-    <p>
-    Jawabannya tidak. Komputer pada dasarnya hanyalah rongsokan silikon bodoh yang buta huruf, buta angka, dan buta warna. Untuk menangkap informasi, komputer mengandalkan sebuah elemen. Komputer menangkap seluruh informasi dalam bahasa elemen itu. Elemen ajaib itu adalah "bit".
-    </p>
+    <blockquote>
+    Komputer pada dasarnya hanyalah rongsokan silikon bodoh yang buta huruf, buta angka, dan buta warna
+    </blockquote>
     <h4>Apa itu Bit?</h4>
     <p>
     Bit adalah sesuatu yang punya dua kondisi.
@@ -123,7 +124,10 @@ export const blogs: Blog[] = [
     </article>
     `,
     tags: ['komputer'],
-    publishedAt: new Date('2023-11-24 17:00:00+00'),
+    publishedAt:
+      ENV !== 'production'
+        ? new Date('2023-11-23 17:00:00+07:00')
+        : new Date('2023-11-24 17:00:00+07:00'),
     createdAt: new Date('2023-11-23 17:00:00+00'),
     updatedAt: new Date('2023-11-23 17:00:00+00'),
   },

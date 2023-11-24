@@ -1301,6 +1301,13 @@ ul li {
   overflow: auto;
 }
 
+.blog-detail article blockquote{
+  padding: 1.5rem 2rem;
+  font-size: 20px;
+  background-color: rgb(224, 224, 224);
+  border: 5x solid var(--bs-primary) !important;
+}
+
 .blog-detail article img{
   display: inline-block;
   width: 100%;
