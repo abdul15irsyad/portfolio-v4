@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { renderTimestamp } from '@/utils/date.util';
 import dayjs from 'dayjs';
 import { BackButton } from '@/components/back-button';
+import Donate from '@/components/donate';
 // import { blogDatas } from '@/data/blogs.data';
 
 export default async ({ params, searchParams }) => {
@@ -75,6 +76,7 @@ export default async ({ params, searchParams }) => {
                 ))}
               </div>
             </div>
+            <Donate />
           </div>
         </div>
         <div className="row">

@@ -1,0 +1,22 @@
+.disclaimer{
+  margin: 0 0 0 .5rem;
+}
+
+.disclaimer i{
+  color: rgba(var(--bs-dark-rgb),.75) !important;
+  cursor: pointer;
+}
+
+.disclaimer-popover{
+box-shadow: 0 0 20px 10px rgba(0,0,0,.1);
+}
+
+.disclaimer-popover h6{
+  color: var(--bs-danger);
+}
+
+@media(max-width: 767px){
+  .donate{
+    text-align: center;
+  }
+}

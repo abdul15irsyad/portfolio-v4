@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ApiResponseAll } from '@/types/api-response.type';
 import Blogs from '@/components/blogs';
 import { ENV } from '@/configs/app.config';
+import Donate from '@/components/donate';
 
 export default () => {
   const searchParams = useSearchParams();
@@ -81,7 +82,7 @@ export default () => {
               <div className="all-tags box-container">
                 <h5 className="all-tags-title box-container-title">
                   <i className="bi bi-tags"></i>
-                  <span>All Tags</span>
+                  <span>Tag</span>
                 </h5>
                 {isLoadingAllTags ? (
                   <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
@@ -102,6 +103,7 @@ export default () => {
                   <div className="text-center text-secondary">No Tag</div>
                 )}
               </div>
+              <Donate />
             </div>
           </div>
         </div>

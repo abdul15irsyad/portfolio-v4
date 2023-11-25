@@ -26,7 +26,7 @@ async function main() {
         title: `Judul ${i + 1}`,
         slug: slugify(`Judul ${i + 1}`, { strict: true, lower: true }),
         content: `contoh konten judul ${i + 1}`,
-        authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+        authorId: random(authors.map(({ id }) => id)),
         featureImageId: random(blogs.map((blog) => blog.featureImageId)),
         tags,
         publishedAt: dayjs('2023-10-03 00:00:00').subtract(i, 'days').toDate(),
