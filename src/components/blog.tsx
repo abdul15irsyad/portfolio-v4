@@ -46,6 +46,7 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
             | 'sm'
             | 'md'
             | 'lg',
+          caption: image.getAttribute('title') as string,
         });
         body!.style.overflow = 'hidden';
       });
@@ -59,17 +60,19 @@ const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
         <div className="blog-detail-meta">
           {blog.author &&
             (blog.author?.url ? (
-              <Link href={blog.author.url} target="_blank">
-                <div className="blog-author">
-                  <Image
-                    src={blog.author.photo?.url ?? '/blog/default-profile.png'}
-                    alt={blog.author.name}
-                    className="blog-author-img"
-                    width={100}
-                    height={100}
-                  />
-                  <span className="blog-author-name">{blog.author.name}</span>
-                </div>
+              <Link
+                href={blog.author.url}
+                target="_blank"
+                className="blog-author"
+              >
+                <Image
+                  src={blog.author.photo?.url ?? '/blog/default-profile.png'}
+                  alt={blog.author.name}
+                  className="blog-author-img"
+                  width={100}
+                  height={100}
+                />
+                <span className="blog-author-name">{blog.author.name}</span>
               </Link>
             ) : (
               <div className="blog-author">

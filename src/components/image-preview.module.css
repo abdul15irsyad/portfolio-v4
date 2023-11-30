@@ -11,7 +11,8 @@
   z-index: 99999;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0,0,0,.9);
+  flex-direction: column;
 }
 
 .image-preview img{
@@ -38,6 +39,13 @@
   width: 35%;
 }
 
+.image-preview h6{
+  cursor: default;
+  margin: 1rem 0 0 0;
+  color: white !important;
+  text-align: center;
+}
+
 .image-preview .close{
   color: #fff;
   border-radius: .5rem;
@@ -56,5 +64,9 @@
   .image-preview img{
     width: 95% !important;
     border-radius: .25rem;
+  }
+  .image-preview h6{
+    font-size: 16px;
+    margin: 1rem 2rem 0 2rem;
   }
 }

@@ -5,8 +5,18 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-const BlogShare = ({ url }: { url: string }) => {
+const BlogShare = ({
+  url,
+  title,
+  tags,
+}: {
+  url: string;
+  title?: string;
+  tags?: string[];
+}) => {
   url = `${BASE_URL}${url}`;
+  title = title ?? '';
+  tags = tags ?? [];
   const [copied, setCopied] = useState(false);
   const copyToClipboard = () => {
     if (!navigator.clipboard) return;
@@ -14,6 +24,11 @@ const BlogShare = ({ url }: { url: string }) => {
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
+  const text = `${encodeURIComponent(
+    `${title}\n${
+      tags.length > 0 ? `${tags?.map((tag) => `#${tag}`).join(' ')}\n` : ''
+    }${url}`,
+  )}`;
   const links = [
     {
       type: 'copy-link',
@@ -23,13 +38,13 @@ const BlogShare = ({ url }: { url: string }) => {
     },
     {
       type: 'social-media',
-      href: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+      href: `https://www.linkedin.com/shareArticle?url=${url}`,
       icon: 'linkedin',
       tooltip: 'share to Linkedin',
     },
     {
       type: 'social-media',
-      href: `whatsapp://send?text=${url}`,
+      href: `whatsapp://send?text=${text}`,
       icon: 'whatsapp',
       tooltip: 'share to Whatsapp',
     },
@@ -41,13 +56,13 @@ const BlogShare = ({ url }: { url: string }) => {
     },
     {
       type: 'social-media',
-      href: `https://twitter.com/intent/tweet?text=${url}`,
+      href: `https://twitter.com/intent/tweet?text=${text}`,
       icon: 'twitter',
       tooltip: 'share to Twitter',
     },
     {
       type: 'social-media',
-      href: `https://t.me/share/url?url=${url}`,
+      href: `https://t.me/share/url?url=${text}`,
       icon: 'telegram',
       tooltip: 'share to Telegram',
     },
@@ -63,7 +78,7 @@ const BlogShare = ({ url }: { url: string }) => {
         <button
           key={index}
           type="button"
-          className="blog-detail-share-item"
+          className={`blog-detail-share-item ${link.icon}`}
           onClick={copyToClipboard}
           disabled={copied}
           style={{ cursor: !copied ? 'pointer' : 'default' }}
@@ -76,7 +91,7 @@ const BlogShare = ({ url }: { url: string }) => {
         key={index}
         href={link.href!}
         target="_blank"
-        className="blog-detail-share-item"
+        className={`blog-detail-share-item ${link.icon}`}
       >
         <i className={`bi bi-${link.icon}`}></i>
       </Link>

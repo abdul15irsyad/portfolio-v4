@@ -5,6 +5,7 @@ export type Modal = {
   show?: boolean;
   image?: string;
   size?: 'sm' | 'md' | 'lg';
+  caption?: string;
 };
 
 type Prop = {
@@ -15,7 +16,7 @@ type Prop = {
 const ImagePreview = ({ modal, setModal }: Prop) => {
   const body = document.querySelector('body');
   const handleClick = (e: any) => {
-    if (e.target.tagName.toLowerCase() !== 'img') {
+    if (!['img', 'h6'].includes(e.target.tagName.toLowerCase())) {
       setModal({ ...modal, show: false });
       body!.style.overflow = 'auto';
     }
@@ -28,6 +29,7 @@ const ImagePreview = ({ modal, setModal }: Prop) => {
     >
       <i className={`${styles.close} bi bi-x`}></i>
       <img src={modal.image!} className={styles[modal.size ?? 'lg']} />
+      {modal.caption && <h6>{modal.caption}</h6>}
     </div>
   );
 };

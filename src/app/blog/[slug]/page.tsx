@@ -40,7 +40,11 @@ export default async ({ params, searchParams }) => {
                 <span>Bagikan</span>
               </h5>
               <div className="blog-detail-share-items">
-                <BlogShare url={`/blog/${blog.slug}`} />
+                <BlogShare
+                  title={blog.title}
+                  url={`/blog/${blog.slug}`}
+                  tags={blog.tags}
+                />
               </div>
             </div>
             <div className="blog-detail-latest box-container mb-3">

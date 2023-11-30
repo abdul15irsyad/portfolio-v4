@@ -13,6 +13,11 @@
   --bs-accent: #f9b30d !important;
   --bs-accent-rgb: 249, 179, 13 !important;
   --bs-danger-fade-rgb: 255, 183, 191 !important;
+  --linkedin-rgb: 10, 102, 194 !important;
+  --facebook-rgb: 24, 119, 242 !important;
+  --twitter-rgb: 29 161 242 !important;
+  --whatsapp-rgb: 37, 211, 102 !important;
+  --telegram-rgb: 34, 158, 216 !important;
 }
 
 :not(article pre code, article pre code *)::selection{
@@ -989,6 +994,30 @@ ul li {
   background-color: rgba(var(--bs-secondary-rgb),.15);
 }
 
+.blog-sidebar .blog-detail-share .blog-detail-share-item.linkedin:hover{
+  background-color: rgba(var(--linkedin-rgb));
+  color: white;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item.whatsapp:hover{
+  background-color: rgba(var(--whatsapp-rgb));
+  color: white;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item.facebook:hover{
+  background-color: rgba(var(--facebook-rgb));
+  color: white;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item.twitter:hover{
+  background-color: rgba(var(--twitter-rgb));
+  color: white;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item.telegram:hover{
+  background-color: rgba(var(--telegram-rgb));
+  color: white;
+}
 
 .blog-sidebar .blog-detail-latest .blog-detail-latest-items{
   display: flex;
@@ -1217,11 +1246,16 @@ ul li {
   margin-right: .5rem;
 }
 
+.blog-detail a.blog-author:hover{
+  text-decoration: underline !important;
+}
+
 .blog-detail .blog-author .blog-author-img{
   object-fit: cover;
   width: 24px;
   height: 24px;
   border-radius: 50%;
+  border: 1px solid rgba(var(--bs-secondary-rgb), .25);
 }
 
 .blog-detail .blog-detail-meta i{
