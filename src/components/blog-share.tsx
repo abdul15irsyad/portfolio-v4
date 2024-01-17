@@ -57,7 +57,7 @@ const BlogShare = ({
     {
       type: 'social-media',
       href: `https://twitter.com/intent/tweet?text=${text}`,
-      icon: 'twitter',
+      icon: 'twitter-x',
       tooltip: 'share to Twitter',
     },
     {

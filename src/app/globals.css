@@ -15,7 +15,8 @@
   --bs-danger-fade-rgb: 255, 183, 191 !important;
   --linkedin-rgb: 10, 102, 194 !important;
   --facebook-rgb: 24, 119, 242 !important;
-  --twitter-rgb: 29 161 242 !important;
+  /* --twitter-rgb: 29 161 242 !important; */
+  --twitter-rgb: 0, 0, 0 !important;
   --whatsapp-rgb: 37, 211, 102 !important;
   --telegram-rgb: 34, 158, 216 !important;
 }
@@ -1037,7 +1038,7 @@ ul li {
   color: white;
 }
 
-.blog-sidebar .blog-detail-share .blog-detail-share-item.twitter:hover {
+.blog-sidebar .blog-detail-share .blog-detail-share-item.twitter-x:hover {
   background-color: rgba(var(--twitter-rgb));
   color: white;
 }
