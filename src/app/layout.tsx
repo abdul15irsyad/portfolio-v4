@@ -9,6 +9,7 @@ import Footer from '@/components/footer';
 import AnalyticsProvider from '@/components/analytics';
 import ReactQuery from '@/components/react-query';
 import 'aos/dist/aos.css';
+import ScrollToTop from '@/components/scroll-to-top';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',
@@ -65,6 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <Footer />
           </AnalyticsProvider>
         </ReactQuery>
+        <ScrollToTop />
       </body>
     </html>
   );

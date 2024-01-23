@@ -1,0 +1,32 @@
+.scroll-to-top {
+  z-index: 99999;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transition: 0.3s;
+}
+
+.scroll-to-top .button-scroll-to-top {
+  font-size: 24px;
+  background-color: var(--bs-primary);
+  color: white;
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.scroll-to-top .button-scroll-to-top:hover {
+  opacity: 1;
+}
+
+@media (max-width: 7670px) {
+  .scroll-to-top .button-scroll-to-top {
+    opacity: 0.75;
+  }
+}
