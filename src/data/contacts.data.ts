@@ -7,7 +7,7 @@ export const contacts = [
   {
     icon: 'envelope',
     label: 'abdulirsyad15@gmail.com',
-    href: null,
+    href: 'mailto:abdulirsyad15@gmail.com',
   },
   {
     icon: 'github',
@@ -30,7 +30,7 @@ export const contacts = [
     href: 'https://facebook.com/abdul15irsyad',
   },
   {
-    icon: 'twitter',
+    icon: 'twitter-x',
     label: 'abdulirsyad15',
     href: 'https://twitter.com/abdulirsyad15',
   },
