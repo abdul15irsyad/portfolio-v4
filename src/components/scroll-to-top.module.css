@@ -1,9 +1,15 @@
 .scroll-to-top {
+  --animation-time: 0.3s;
   z-index: 99998;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   transition: 0.3s;
+  animation: fadeIn var(--animation-time);
+  -webkit-animation: fadeIn var(--animation-time);
+  -moz-animation: fadeIn var(--animation-time);
+  -o-animation: fadeIn var(--animation-time);
+  -ms-animation: fadeIn var(--animation-time);
 }
 
 .scroll-to-top .button-scroll-to-top {
@@ -28,5 +34,14 @@
 @media (max-width: 7670px) {
   .scroll-to-top .button-scroll-to-top {
     opacity: 0.75;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

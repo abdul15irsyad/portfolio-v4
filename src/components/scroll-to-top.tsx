@@ -10,7 +10,7 @@ const ScrollToTop = () => {
   };
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > 500) setShow(true);
+      if (document.documentElement.scrollTop > 600) setShow(true);
       else setShow(false);
     });
   }, []);
@@ -19,7 +19,7 @@ const ScrollToTop = () => {
     <div
       className={styles['scroll-to-top']}
       style={{
-        opacity: show ? 1 : 0,
+        display: show ? 'block' : 'none',
       }}
       onClick={handleScrollTop}
     >
