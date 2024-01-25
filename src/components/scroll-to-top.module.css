@@ -18,7 +18,7 @@
   color: white;
   width: 60px;
   height: 60px;
-  opacity: 0.5;
+  opacity: 0.25;
   cursor: pointer;
   border-radius: 1rem;
   display: flex;
@@ -31,9 +31,11 @@
   opacity: 1;
 }
 
-@media (max-width: 7670px) {
+@media (max-width: 767px) {
   .scroll-to-top .button-scroll-to-top {
-    opacity: 0.75;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
   }
 }
 
