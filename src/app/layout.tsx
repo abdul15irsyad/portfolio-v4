@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
 import MyNavbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import AnalyticsProvider from '@/components/analytics';
@@ -14,6 +14,7 @@ import ScrollToTop from '@/components/scroll-to-top';
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',
   subsets: ['latin-ext'],
+  fallback: ['sans-serif'],
 });
 
 const commonMetaData = {
