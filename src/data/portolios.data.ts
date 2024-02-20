@@ -2,6 +2,27 @@ import { Portfolio } from '@/types/portfolio.type';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Fasel Base',
+    href: 'https://faselbase.com/',
+    year: 2024,
+    order: 202401,
+    type: 'Fullstack',
+    desc: `
+      <p>
+      Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten sehingga memiliki daya saing yang profesional, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+      </p>
+    `,
+    stacks: [
+      { icon: '/programming/laravel.png', label: 'Laravel 10' },
+      { icon: '/programming/bootstrap.png', label: 'Bootstrap 5' },
+      { icon: '/programming/mysql.png', label: 'MySQL' },
+    ],
+    images: [...Array(7).keys()].map((index) => ({
+      src: `/portfolio/fasel-base-${index + 1}.jpg`,
+      alt: `Fasel Base ${index + 1}`,
+    })),
+  },
+  {
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
     year: 2023,
