@@ -1,4 +1,5 @@
 import { Portfolio } from '@/types/portfolio.type';
+import slugify from 'slugify';
 
 export const portfolios: Portfolio[] = [
   {
@@ -9,7 +10,7 @@ export const portfolios: Portfolio[] = [
     type: 'Fullstack',
     desc: `
       <p>
-      Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten sehingga memiliki daya saing yang profesional, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+      Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
       </p>
     `,
     stacks: [
@@ -379,4 +380,9 @@ export const portfolios: Portfolio[] = [
       },
     ],
   },
-].sort((a, b) => (a.order < b.order ? 1 : -1));
+]
+  .map((porfolio) => ({
+    ...porfolio,
+    slug: slugify(porfolio.title, { strict: true, lower: true }),
+  }))
+  .sort((a, b) => (a.order < b.order ? 1 : -1));

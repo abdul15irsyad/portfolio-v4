@@ -2,11 +2,11 @@
 
 import Empty from '@/components/empty';
 import FormSelect from '@/components/form-select';
-import PortfolioItem from '@/components/portfolio-item';
 import { portfolios } from '@/data/portfolios.data';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';
+import PortfolioItem2 from '@/components/portfolio-item-2';
 
 export default () => {
   const [year, setYear] = useState<string | number>('all');
@@ -76,7 +76,7 @@ export default () => {
           </div>
           {filteredPortfolios.length > 0 ? (
             filteredPortfolios.map((portfolio, index) => (
-              <PortfolioItem key={index} {...portfolio} />
+              <PortfolioItem2 key={index} {...portfolio} />
             ))
           ) : (
             <Empty />
