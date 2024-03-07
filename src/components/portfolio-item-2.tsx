@@ -9,12 +9,10 @@ import styles from './portfolio-item-2.module.css';
 
 const PortfolioItem2 = ({
   images,
-  href,
   title,
   slug,
   year,
   type,
-  desc,
   stacks,
 }: Portfolio) => {
   return (

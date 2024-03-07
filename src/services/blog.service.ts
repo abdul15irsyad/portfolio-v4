@@ -1,5 +1,5 @@
 import { prisma } from '@/prisma/client';
-import { Blog, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 
 export const getBlogWithPagination = async ({

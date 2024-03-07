@@ -12,10 +12,7 @@ const Experience = () => {
         </h2>
         <hr />
         {workExperiences.map(
-          (
-            { position, timespan, startDate, endDate, company, desc },
-            index,
-          ) => {
+          ({ position, startDate, endDate, company, desc }, index) => {
             const start = {
               short: dayjs(startDate).format('MMM YYYY'),
               long: dayjs(startDate).format('MMMM YYYY'),
