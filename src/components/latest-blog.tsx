@@ -13,7 +13,7 @@ export const LatestBlog = () => {
   const {
     data: latestBlog,
     isLoading,
-    error,
+    // error,
   } = useQuery<{ data: Blog }>({
     queryKey: ['latestBlog'],
     queryFn: async () => (await fetch('/api/blog/latest')).json(),
