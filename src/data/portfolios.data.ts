@@ -39,8 +39,8 @@ export const portfolios: Portfolio[] = [
     `,
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
-      { icon: '/programming/redis.png', label: 'Redis' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
+      { icon: '/programming/redis.png', label: 'Redis' },
       { icon: '/programming/postgresql.png', label: 'Postgre SQL' },
     ],
     images: [
