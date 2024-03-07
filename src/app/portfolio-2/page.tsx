@@ -2,11 +2,15 @@
 
 import Empty from '@/components/empty';
 import FormSelect from '@/components/form-select';
-import PortfolioItem from '@/components/portfolio-item';
 import { portfolios } from '@/data/portfolios.data';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';
+import PortfolioItem2 from '@/components/portfolio-item-2';
+import {
+  portfolioCategories,
+  portfolioYears,
+} from '@/data/portfolio-category.data';
 
 export default () => {
   const [year, setYear] = useState<string | number>('all');
@@ -38,32 +42,13 @@ export default () => {
               <div className="filters">
                 <div className="filter filter-year">
                   <FormSelect
-                    options={[
-                      { value: 'all', label: 'All Year', selected: true },
-                      { value: '2021', label: '2021', selected: false },
-                      { value: '2022', label: '2022', selected: false },
-                      { value: '2023', label: '2023', selected: false },
-                    ]}
+                    options={portfolioYears}
                     handleChange={(e) => setYear(e.target.value)}
                   />
                 </div>
                 <div className="filter filter-type">
                   <FormSelect
-                    options={[
-                      { value: 'all', label: 'All Type', selected: true },
-                      {
-                        value: 'fullstack',
-                        label: 'Fullstack',
-                        selected: false,
-                      },
-                      { value: 'backend', label: 'Backend', selected: false },
-                      { value: 'frontend', label: 'Frontend', selected: false },
-                      {
-                        value: 'wordpress',
-                        label: 'Wordpress',
-                        selected: false,
-                      },
-                    ]}
+                    options={portfolioCategories}
                     handleChange={(e) => setType(e.target.value)}
                   />
                 </div>
@@ -74,13 +59,17 @@ export default () => {
               </p>
             </div>
           </div>
-          {filteredPortfolios.length > 0 ? (
-            filteredPortfolios.map((portfolio, index) => (
-              <PortfolioItem key={index} {...portfolio} />
-            ))
-          ) : (
-            <Empty />
-          )}
+          <div className="row porfolios">
+            {filteredPortfolios.length > 0 ? (
+              filteredPortfolios.map((portfolio, index) => (
+                <div className={`col-xl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
+                  <PortfolioItem2 key={index} {...portfolio} />
+                </div>
+              ))
+            ) : (
+              <Empty />
+            )}
+          </div>
         </div>
       </div>
     </>

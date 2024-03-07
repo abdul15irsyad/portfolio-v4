@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import MyNavbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import AnalyticsProvider from '@/components/analytics';
@@ -17,7 +17,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   fallback: ['sans-serif'],
 });
 
-const commonMetaData = {
+export const commonMetaData = {
   title: APP_NAME,
   images: `${BASE_URL}/meta-image.jpg`,
   description: `Hello, I'm Irsyad Abdul, I have experience in PHP, Node JS, Golang and also several frameworks such as Laravel, Express JS, Nest JS and Gin`,

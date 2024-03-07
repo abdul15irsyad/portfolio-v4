@@ -17,7 +17,7 @@ const PortfolioItem = ({
   stacks,
 }: Portfolio) => {
   return (
-    <div className="row portfolio-item" data-aos="fade-up">
+    <div className="row portfolio-item align-items-center" data-aos="fade-up">
       <div className="col-md-5 col-12 portfolio-item-images">
         <CustomCarousel images={images} />
       </div>

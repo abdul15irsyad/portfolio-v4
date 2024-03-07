@@ -1,5 +1,6 @@
 export interface Portfolio {
   title: string;
+  slug?: string;
   href?: string | null;
   year: number;
   order: number;
