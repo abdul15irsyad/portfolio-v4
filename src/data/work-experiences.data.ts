@@ -1,9 +1,12 @@
 import { WorkExperience } from '@/types/work-experience.type';
+import dayjs from 'dayjs';
 
 export const workExperiences: WorkExperience[] = [
   {
     position: 'Backend Developer',
     timespan: 'Agu 2022 - Sekarang',
+    startDate: dayjs(`2022-08-01`).toDate(),
+    endDate: null,
     company: {
       name: 'Optimap',
       logo: '/experience/optimap.png',
@@ -13,6 +16,8 @@ export const workExperiences: WorkExperience[] = [
   {
     position: 'IT Staff',
     timespan: 'Agu 2020 - Agu 2022',
+    startDate: dayjs(`2020-08-01`).toDate(),
+    endDate: dayjs(`2022-08-01`).toDate(),
     company: {
       name: 'Andaf Corp',
       logo: '/experience/andaf.png',
@@ -22,6 +27,8 @@ export const workExperiences: WorkExperience[] = [
   {
     position: 'Internship',
     timespan: 'Feb 2020 - Mar 2020',
+    startDate: dayjs(`2020-02-01`).toDate(),
+    endDate: dayjs(`2020-03-01`).toDate(),
     company: {
       name: 'Lingkar 9',
       logo: '/experience/lingkar-9.png',
