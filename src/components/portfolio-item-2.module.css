@@ -2,26 +2,49 @@
   margin-bottom: 8rem;
 }
 
-.portfolio-item-2 .image img {
-  object-fit: cover;
-  height: 280px;
+.portfolio-item-2 .image {
+  position: relative;
+  overflow: hidden;
   border-radius: 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  user-select: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item-2 .image .overlay {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8)
+  );
+}
+.portfolio-item-2 .image > img {
+  object-fit: cover;
+  height: 220px;
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25); */
 }
 
 .portfolio-item-2 .detail {
   align-self: flex-start;
-  padding: 1rem 2.5rem;
+  padding: 0.75rem;
 }
 
 .portfolio-item-2 .detail .title {
+  font-size: 20px;
   font-weight: 800;
 }
 
 .portfolio-item-2 .detail .metas {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   /* color: var(--bs-secondary); */
   /* font-size: 14px; */
 }
@@ -46,26 +69,35 @@
   margin-bottom: 1rem;
 }
 
-.portfolio-item-2 .detail .bottom {
+.portfolio-item-2 .stacks {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.portfolio-item-2 .detail .stacks {
-  display: flex;
-  justify-content: right;
+  flex-direction: row;
   gap: 0.5rem;
 }
 
-.portfolio-item-2 .detail .stacks .stack {
-  background-color: var(--bs-light);
-  padding: 0.5rem;
-  border-radius: 100%;
+.portfolio-item-2 .stacks .stack {
+  background-color: rgba(var(--bs-light-rgb), 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+.portfolio-item-2 .stacks .stack:hover {
+  opacity: 1;
 }
 
-@media (max-width: 991px) {
-  .portfolio-item-2 .detail {
-    padding: 1rem 1.5rem;
+.portfolio-item-2 .stacks .stack img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-item-2 .image > img {
+    height: 180px;
   }
 }
