@@ -62,8 +62,11 @@ export default () => {
           <div className="row porfolios">
             {filteredPortfolios.length > 0 ? (
               filteredPortfolios.map((portfolio, index) => (
-                <div className={`col-xl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
-                  <PortfolioItem2 key={index} {...portfolio} />
+                <div
+                  key={index}
+                  className={`col-xl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}
+                >
+                  <PortfolioItem2 {...portfolio} />
                 </div>
               ))
             ) : (
