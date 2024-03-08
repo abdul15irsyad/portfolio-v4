@@ -1623,7 +1623,7 @@ ul li {
   }
 
   .carousel .carousel-item {
-    padding: 0 1rem;
+    padding: 0;
   }
 
   .carousel .carousel-item .img-wrapper {

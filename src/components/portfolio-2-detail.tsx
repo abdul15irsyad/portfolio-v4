@@ -8,7 +8,8 @@ import Image from 'next/image';
 import styles from './portfolio-2-detail.module.css';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
-  const { title, images, year, type, desc, href, stacks } = portfolio;
+  const { title, images, year, type, desc, href, stacks, challenges } =
+    portfolio;
   return (
     <div className={`${styles.portfolio} row`}>
       <div className={`${styles.images} col-md-5 col-12`}>
@@ -16,7 +17,6 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
       </div>
       <div className={`${styles.detail} col-md-7 col-12`}>
         <h3 className={styles.title}>{title}</h3>
-
         <div className={styles.metas}>
           {[year, type.toLowerCase()].map((item, index) => (
             <div key={index} className={styles.meta}>
@@ -24,11 +24,26 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
             </div>
           ))}
         </div>
-        <div className={styles['desc-section']}>
-          <h5 className={styles['section-title']}>Deskripsi</h5>
+        <div className={`${styles.section} ${styles['desc-section']}`}>
+          <h5 className={styles['section-title']}>Description</h5>
           <div dangerouslySetInnerHTML={{ __html: desc }}></div>
         </div>
-        <div className={styles['stacks-section']}>
+        {challenges && challenges?.length > 0 && (
+          <div className={`${styles.section} ${styles['challenges-section']}`}>
+            <h5 className={styles['section-title']}>Challenge</h5>
+            <div className={styles.challenges}>
+              {challenges.map((challenge, index) => {
+                return (
+                  <div key={index} className={styles.challenge}>
+                    <i className="bi bi-check-square-fill"></i>
+                    <span>{challenge.desc}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        <div className={`${styles.section} ${styles['stacks-section']}`}>
           <h5 className={styles['section-title']}>Tech Stacks</h5>
           <div className={styles.stacks}>
             {stacks.map(({ icon, label }, index) => (
@@ -39,32 +54,17 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
             ))}
           </div>
         </div>
-        <div className={styles.bottom}>
-          <div className={styles.button}>
-            {href && (
-              <Link
-                href={href}
-                target="_blank"
-                className="btn btn-md btn-primary"
-              >
-                <i className="bi bi-box-arrow-up-right me-2" />
-                <span>Lihat Website</span>
-              </Link>
-            )}
-          </div>
-          {/* <div className={styles.stacks}>
-            {stacks.map(({ icon, label }, index) => (
-              <OverlayTrigger
-                key={index}
-                overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
-                placement="bottom"
-              >
-                <div className="stack">
-                  <Image src={icon} alt={label} width={28} height={28} />
-                </div>
-              </OverlayTrigger>
-            ))}
-          </div> */}
+        <div className={styles.button}>
+          {href && (
+            <Link
+              href={href}
+              target="_blank"
+              className="btn btn-md btn-primary"
+            >
+              <i className="bi bi-box-arrow-up-right me-2" />
+              <span>Lihat Website</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>

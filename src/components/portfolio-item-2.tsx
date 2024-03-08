@@ -49,7 +49,7 @@ const PortfolioItem2 = ({
           <div className={`${styles.meta}`}>{type.toLowerCase()}</div>
         </div>
         <h3 className={`${styles.title}`}>
-          <Link href={`/portfolio-2/${slug}`} prefetch={false}>
+          <Link href={`/portfolio/${slug}`} prefetch={false}>
             {title}
           </Link>
         </h3>

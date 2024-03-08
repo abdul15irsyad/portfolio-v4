@@ -13,6 +13,17 @@ export const portfolios: Portfolio[] = [
       Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
       </p>
     `,
+    challenges: [
+      {
+        desc: 'Implementasi fitur rate limit terhadap form yang dapat diakses oleh publik seperti form review dan form kontak kami',
+      },
+      {
+        desc: 'Pemberian rating/nilai kepada fasilitator berdasarkan review dari pengguna yang sudah diapprove',
+      },
+      {
+        desc: 'Aggregasi dari perhitungan rating/nilai yang ada untuk perangkingan di home page',
+      },
+    ],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel 10' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 5' },
@@ -37,6 +48,11 @@ export const portfolios: Portfolio[] = [
         (website) maupun Dashboard (aplikasi web).
       </p>
     `,
+    challenges: [
+      {
+        desc: 'Implementasi caching untuk data-data yang sering diakses',
+      },
+    ],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
@@ -76,6 +92,11 @@ export const portfolios: Portfolio[] = [
         bagian Landing Page (website) maupun Dashboard (aplikasi web).
       </p>
     `,
+    challenges: [
+      {
+        desc: 'Aggregasi perhitungan nilai dari penginputan dokumen PPKD',
+      },
+    ],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
@@ -110,6 +131,17 @@ export const portfolios: Portfolio[] = [
         bagian Landing Page (website) maupun Dashboard (aplikasi web).
       </p>
     `,
+    challenges: [
+      {
+        desc: 'Membuat map web server untuk penampilan visual peta Indonesia',
+      },
+      {
+        desc: 'Penyusunan dokumen PPKD dengan bab yang memiliki beberapa sub bab',
+      },
+      {
+        desc: 'Print dokumen dari inputan yang ada dengan format .docx',
+      },
+    ],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
@@ -152,6 +184,7 @@ export const portfolios: Portfolio[] = [
         dengan Database MySQL dan styling menggunakan bootstrap 4.
       </p>
     `,
+    challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
@@ -189,6 +222,7 @@ export const portfolios: Portfolio[] = [
         dengan Database MySQL, untuk styling menggunakan Bootstrap 4.
       </p>
     `,
+    challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
@@ -219,6 +253,7 @@ export const portfolios: Portfolio[] = [
         tersebut belum dimigrasi ke domain yang diinginkan.
       </p>
     `,
+    challenges: [],
     stacks: [
       { icon: '/programming/codeigniter.png', label: 'Codeigniter 4' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
@@ -245,6 +280,7 @@ export const portfolios: Portfolio[] = [
         Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah. Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
@@ -268,6 +304,7 @@ export const portfolios: Portfolio[] = [
         Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra. Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
@@ -291,6 +328,7 @@ export const portfolios: Portfolio[] = [
         Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris. Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
@@ -318,6 +356,7 @@ export const portfolios: Portfolio[] = [
         Company profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia. Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
@@ -341,6 +380,7 @@ export const portfolios: Portfolio[] = [
         <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya. Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
@@ -368,6 +408,7 @@ export const portfolios: Portfolio[] = [
         <b>"PT. Prima Citra Inovindo"</b> Perusahaan Distributor Alat Kesehatan Dalam Negeri (AKD) produk yang di produksi oleh pabrikan.Website ini dibuat menggunakan Wordpress
       </p>
     `,
+    challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {
