@@ -11,4 +11,9 @@ export interface Portfolio {
     src: string;
     alt: string;
   }[];
+  challenges?: Challenge[];
+}
+
+export interface Challenge {
+  desc?: string;
 }

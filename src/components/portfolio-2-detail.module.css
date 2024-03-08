@@ -1,19 +1,23 @@
 .portfolio {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .portfolio .title {
   color: var(--bs-primary);
+  font-size: 32px;
 }
-.portfolio .detail {
-  padding: 1rem 2.5rem;
+
+.portfolio .images {
+  margin-bottom: 1rem;
 }
 
 .portfolio .detail .top {
   display: flex;
   justify-content: space-between;
 }
-.portfolio .detail .top .button {
+
+.portfolio .button {
   text-wrap: nowrap;
+  margin-top: 2.5rem;
 }
 
 .portfolio .detail .title {
@@ -44,12 +48,28 @@
   border-radius: 0.4rem;
 }
 
-.portfolio .detail .desc-section {
+.portfolio .detail .section {
   margin-bottom: 1rem;
 }
 
 .portfolio .detail .section-title {
   font-weight: 800;
+}
+
+.portfolio .detail .challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+}
+
+.portfolio .detail .challenges .challenge {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.portfolio .detail .challenges .challenge i {
+  color: rgba(var(--bs-primary-rgb), 1);
 }
 
 .portfolio .detail .stacks-section {
@@ -99,7 +119,7 @@
 } */
 
 @media (max-width: 991px) {
-  .portfolio .detail {
-    padding: 1rem 1.5rem;
+  .portfolio .title {
+    font-size: 24px;
   }
 }

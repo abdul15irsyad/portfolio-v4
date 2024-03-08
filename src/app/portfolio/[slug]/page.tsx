@@ -12,7 +12,7 @@ import Portfolio2Detail from '@/components/portfolio-2-detail';
 export async function generateMetadata({ params }): Promise<Metadata> {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) return commonMetaData;
-  const title = `${portfolio?.title} - ${APP_NAME}`;
+  const title = `${portfolio?.title} (${portfolio.year}) - ${APP_NAME}`;
   const description = `${sanitize(portfolio.desc, {
     ...defaultSanitizeOptions,
   })
@@ -47,7 +47,7 @@ export default async ({ params }) => {
   if (!portfolio) notFound();
   return (
     <div className="portfolio-detail section doodle-background">
-      <div className="container">
+      <div className="container-lg">
         <div className="row">
           <div className="col-12">
             <Portfolio2Detail portfolio={portfolio} />
