@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
+import '../components/navbar.css';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
