@@ -1,9 +1,8 @@
 'use client';
-
-import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
+import { navbarMenus } from '@/data/navbar-menus.data';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
 
@@ -12,11 +11,13 @@ export default () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      if (scrollTop > 50) setIsScrolled(true);
-      else if (scrollTop <= 0) setIsScrolled(false);
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 50); // Set isScrolled to true when scroll position is greater than 50px
     };
+
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -31,11 +32,11 @@ export default () => {
       collapseOnSelect={true}
       className={`${isScrolled ? 'shrunk' : ''}`}
     >
-      <div className="container-lg">
+      <div className="container">
         <Link href="/">
           <Navbar.Brand className="d-flex align-items-center">
             <Image
-              src="/favicon.jpg"
+              src="/favicon-portfolio.png"
               alt="Portfolio Logo"
               width={24}
               height={24}
@@ -54,43 +55,6 @@ export default () => {
                 target={newTab ? '_blank' : '_self'}
                 as={Link}
                 active={rootPath === href}
-                // as={
-                //   !['/#programming', '/#experience'].find(
-                //     (item) => item === href,
-                //   )
-                //     ? Link
-                //     : undefined
-                // }
-              >
-                {logo ? (
-                  <Image
-                    src={logo}
-                    alt={label}
-                    title={label}
-                    width={24}
-                    height={24}
-                  />
-                ) : (
-                  label
-                )}
-              </Nav.Link>
-            ))}
-          </Nav>
-          <Nav className="navbar-icon-menu">
-            {navbarIconMenus.map(({ href, label, logo, newTab }, index) => (
-              <Nav.Link
-                key={index}
-                href={href}
-                target={newTab ? '_blank' : '_self'}
-                as={Link}
-                active={rootPath === href}
-                // as={
-                //   !['/#programming', '/#experience'].find(
-                //     (item) => item === href,
-                //   )
-                //     ? Link
-                //     : undefined
-                // }
               >
                 {logo ? (
                   <Image
