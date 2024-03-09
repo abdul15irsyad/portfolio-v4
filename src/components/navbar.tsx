@@ -1,6 +1,6 @@
 'use client';
 
-import { navbarMenus } from '@/data/navbar-menus.data';
+import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -31,7 +31,7 @@ export default () => {
       collapseOnSelect={true}
       className={`${isScrolled ? 'shrunk' : ''}`}
     >
-      <div className="container">
+      <div className="container-lg">
         <Link href="/">
           <Navbar.Brand className="d-flex align-items-center">
             <Image
@@ -48,6 +48,36 @@ export default () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {navbarMenus.map(({ href, label, logo, newTab }, index) => (
+              <Nav.Link
+                key={index}
+                href={href}
+                target={newTab ? '_blank' : '_self'}
+                as={Link}
+                active={rootPath === href}
+                // as={
+                //   !['/#programming', '/#experience'].find(
+                //     (item) => item === href,
+                //   )
+                //     ? Link
+                //     : undefined
+                // }
+              >
+                {logo ? (
+                  <Image
+                    src={logo}
+                    alt={label}
+                    title={label}
+                    width={24}
+                    height={24}
+                  />
+                ) : (
+                  label
+                )}
+              </Nav.Link>
+            ))}
+          </Nav>
+          <Nav className="navbar-icon-menu">
+            {navbarIconMenus.map(({ href, label, logo, newTab }, index) => (
               <Nav.Link
                 key={index}
                 href={href}
