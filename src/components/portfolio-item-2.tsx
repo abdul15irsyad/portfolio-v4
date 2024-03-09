@@ -16,10 +16,7 @@ const PortfolioItem2 = ({
   stacks,
 }: Portfolio) => {
   return (
-    <div
-      className={`${styles['portfolio-item-2']} align-items-center`}
-      data-aos="fade-up"
-    >
+    <div className={`${styles['portfolio-item-2']} align-items-center`}>
       <div className={`${styles.image}`}>
         <div className={`${styles.overlay}`}>
           <div className={`${styles.stacks}`}>

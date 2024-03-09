@@ -2,7 +2,6 @@
 
 import React from 'react';
 import styles from './pagination.module.css';
-import { useRouter } from 'next/navigation';
 
 type Prop = {
   activePage?: number;
@@ -10,32 +9,25 @@ type Prop = {
   sibling?: number;
   boundaries?: number;
   position?: 'center' | 'start' | 'end';
-  // setPage: Dispatch<SetStateAction<number>>;
-  queryString: (name: string, value: string) => string;
+  setPage: ({ page, activePage }: { page: number; activePage: number }) => void;
 };
 
 export default ({
   activePage = 1,
   sibling = 2,
   boundaries = 1,
-  totalPage = 10, // setPage,
-  queryString,
+  totalPage = 10,
+  position,
+  setPage,
 }: Prop) => {
-  const router = useRouter();
-  const setPage = (page: number) => {
-    if (page !== activePage)
-      router.push(`/blog?${queryString('page', page.toString())}`);
-  };
   const handlePrev = () => {
-    // if (activePage > 1) setPage(activePage - 1);
-    if (activePage > 1) setPage(activePage - 1);
+    if (activePage > 1) setPage({ page: activePage - 1, activePage });
   };
   const handleNext = () => {
-    // if (activePage < totalPage) setPage(activePage + 1);
-    if (activePage < totalPage) setPage(activePage + 1);
+    if (activePage < totalPage) setPage({ page: activePage + 1, activePage });
   };
   return (
-    <div className={styles.pagination}>
+    <div className={styles.pagination} style={{ justifyContent: position }}>
       <div
         className={`${styles.item} ${activePage === 1 ? styles.disable : ''}`}
         onClick={handlePrev}
@@ -64,7 +56,7 @@ export default ({
               className={`${styles.item} ${
                 activePage === page ? styles.active : ''
               }`}
-              onClick={() => setPage(page)}
+              onClick={() => setPage({ page, activePage })}
             >
               {page}
             </span>

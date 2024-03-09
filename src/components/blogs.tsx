@@ -3,12 +3,11 @@
 import { ApiResponseAll } from '@/types/api-response.type';
 import { Blog } from '@/types/blog.type';
 import { useQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import LoadingBlogs from './loading-blogs';
 import Empty from './empty';
 import BlogItem from './blog-item';
 import Pagination from './pagination';
-// import { useEffect, useState } from 'react';
 
 type Prop = {
   limit?: number;
@@ -17,27 +16,29 @@ type Prop = {
 
 export default ({ limit = 5, queryString }: Prop) => {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
-  const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
-  // const [page, setPage] = useState<number>(1);
-
-  // useEffect(() => {
-  //   setPage(1);
-  // }, [tag, search]);
-
-  // useEffect(() => {
-  //   scrollTo({ top: 0 });
-  // }, [page]);
+  const activePage = searchParams.get('page') ? +searchParams.get('page')! : 1;
+  const setPage = ({
+    page,
+    activePage,
+  }: {
+    page: number;
+    activePage: number;
+  }) => {
+    if (page !== activePage && queryString !== undefined)
+      router.push(`/blog?${queryString('page', page.toString())}`);
+  };
 
   const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
     ApiResponseAll<Blog>
   >({
-    queryKey: ['blogs', { page, tag, search }],
+    queryKey: ['blogs', { page: activePage, tag, search }],
     queryFn: async () => {
       const newSearchParams = new URLSearchParams();
       newSearchParams.set('limit', limit.toString());
-      if (page) newSearchParams.set('page', page.toString());
+      if (activePage) newSearchParams.set('page', activePage.toString());
       if (tag) newSearchParams.set('tag', tag);
       if (search) newSearchParams.set('search', search);
       const url = `/api/blog${
@@ -60,11 +61,10 @@ export default ({ limit = 5, queryString }: Prop) => {
           <b>{blogs?.meta.totalAllData}</b> blog
         </div>
         <Pagination
-          // setPage={setPage}
-          activePage={page}
+          setPage={setPage}
+          activePage={activePage}
           totalPage={blogs?.meta.totalPage}
           sibling={2}
-          queryString={queryString}
         />
       </div>
     </>
