@@ -5,6 +5,88 @@ import { ENV } from '../configs/app.config';
 
 export const blogs: Blog[] = [
   {
+    id: '16571800-1536-43d7-8950-cb4dfe295325',
+    title: 'Soft Delete: Solusi untuk Salah Hapus',
+    slug: 'soft-delete-solusi-untuk-salah-hapus',
+    featureImageId: '26b99b44-5713-4b51-890e-8429382d3716',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    halo halo, gimana kabarnya para bug-bender? semoga semakin ahli dalam mengendalikan bug-bug yang berseliweran itu. di kesempatan kali ini, kita bahas sesuatu yang menarik ni
+    </p>
+    <p>
+    coba bayangin kita punya data di suatu project yang sedang kita bangun, di project tersebut terdapat fitur menghapus data, saat pengguna menggunakan fitur tersebut, ternyata terdapat kesalahan dalam pemilihan data yang mau dihapus terlepas dari apapun alasannya, pengguna mau data yang dihapus tadi dikembalikan, jika kita tidak nyiapin mekanisme untuk nge-handle kondisi tersebut maka data yang telah terhapus akan benar-benar hilang. nah solusi yang bisa kita implement untuk fitur itu bisa kita sebut <b>"soft delete"</b>
+    </p>
+    <h3>apa tuh soft delete?</h3>
+    <p>
+    mungkin udah banyak yang tau soal soft delete ini, tapi kurang lebih soft delete merupakan konsep dimana data ga dihapus secara permanen dari database pas user ngelakuin penghapusan, data tersebut ditandain "dihapus" atau "tidak aktif", tetapi sebenernya masih ada di database, ini memungkinkan pengguna buat ngembaliin data yang dihapus di kemudian hari jika dibutuhkan.
+    </p>
+    <p>
+    dengan menggunakan konsep tersebut, kita bisa nyimpen sementara data yang telah dihapus, jadi ga langsung dihapus gitu.
+    </p>
+    <h3>gimana cara implementasi nya?</h3>
+    <ol>
+    <b><li>tambahin kolom status</li></b>
+    <p>
+    pertama-tama kita perlu suatu field atau kolom di database yang nyimpen informasi terkait status data tersebut apakah sudah dihapus atau belum, sebelumnya kita mention bisa nandain dengan <code>boolean</code>, tapi lebih bagus lagi kita simpen dengan tipe <code>timestamp</code> dan akan kita kasih nama <code>deleted_at</code> yang berarti berisi waktu saat datanya dihapus, kalau belum dihapus maka akan berisi <code>null</code>.
+    </p>
+    <pre>
+    <code class="language-sql">ALTER TABLE table_name\nADD COLUMN deleted_at TIMESTAMP;</code>
+    </pre>
+    <b><li>ubah logika hapus/delete data</li></b>
+    <p>
+    selanjutnya kita perlu ubah proses penghapusan datanya, daripada kita paka query sql <code>DELETE</code>, saat implemen fitur soft delete kita pakai query <code>UPDATE</code> dimana kolom status yang kita siapin di langkah pertama, kita set atau ubah aja jadi waktu sekarang.
+    </p>
+    <pre>
+    <code class="language-sql">UPDATE table_name\nSET deleted_at = CURRENT_TIMESTAMP\nWHERE id = 'some_id';</code>
+    </pre>
+    <b><li>ubah logika penampilan data</li></b>
+    <p>
+    sekarang kita perlu ubah saat proses read data, dimana data yang kita tampilin itu data yang kolom statusnya <code>NULL</code> aja (di beberapa framework seperti nestjs udah dihandle) yakni data-data yang belum dihapus
+    </p>
+    <pre>
+    <code class="language-sql">SELECT * FROM table_name\nWHERE deleted_at IS NULL;</code>
+    </pre>
+    <b><li>tambahin fitur recovery</li></b>
+    <p>
+    setelah udah kita sesuain logika fitur soft delete nya, kita bisa nambahin fitur recovery, baik itu yang bisa banyak (pilih data yang mau direcovery di menu trash) atau fitur undo (setelah data dihapus munculkan fitur untuk ngembaliin langsung data nya)
+    </p>
+    <b><li>buat cron job hapus data permanen</li></b>
+    <p>
+    jika kita ga pengen terus-terusan nyimpen semua data-data yang udah dihapus di database, nah kita perlu buat cron untuk bener-bener ngehapus datanya, mungkin bisa diatur waktunya seminggu sekali dangan waktu <code>deleted_at</code> sebulan ke belakang dari sekarang.
+    </p>
+    </ol>
+    <h3>tantangan soft delete</h3>
+    <p>
+    beberapa tantangan ketika kita implementasi fitur soft delete, yakni integrasi dengan <b>unique key</b> di database, dimana <b>unique key</b> akan mengalami error jika terdapat data baru yang ditambahkan tetapi terdapat data yang sama dengan yang sudah dihapus, maka dari itu perlu kita atur <b>unique key</b> nya dengan kondisi kolom <code>deleted_at</code> yang berisi <code>null</code> saja. 
+    </p>
+    <p>
+    lalu selanjutnya table relationship, yang akan menjadi ambigu ketika kita membuat join dengan data yang sudah dihapus, seharusnya data tersebut tidak ditemukan, jadi kita perlu menggunakan kondisi saat join table di database, lagi-lagi hanya join yang <code>deleted_at</code> yang berisi <code>null</code> saja.
+    </p>
+    <p>
+    dan mungkin masih ada tantangan-tantangan lainnya yang menanti, keep calm.
+    </p>
+    <h3>penutup</h3>
+    <p>
+    oke, saat kita mengembangkan project, pengelolaan data adalah suatu hal yang sangat penting, teknik soft delete ini menawarkan solusi yang bisa membuat <b>user experience</b> lebih nyaman dengan kejadian salah hapus atau klik yang tidak disengaja apalagi data-data yang diolah adalah data-data yang sangat penting seperti data keuangan, aset, dll.
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['soft delete', 'database'],
+    publishedAt:
+      ENV !== 'production'
+        ? new Date('2024-03-11 17:00:00+07:00')
+        : new Date('2024-03-11 17:00:00+07:00'),
+    createdAt: new Date('2024-03-11 17:00:00+07:00'),
+    updatedAt: new Date('2024-03-11 17:00:00+07:00'),
+  },
+  {
     id: '4bd064ba-76dc-4545-80b6-28277284b8ac',
     title: 'Bagaimana Komputer Bekerja? Bagian 1 Dunia Di Mata Komputer',
     slug: 'bagaimana-komputer-bekerja-bagian-1-dunia-di-mata-komputer',
