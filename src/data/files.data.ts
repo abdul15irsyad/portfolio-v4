@@ -3,6 +3,15 @@ import { File } from '@/types/file.type';
 
 export const files: File[] = [
   {
+    id: '26b99b44-5713-4b51-890e-8429382d3716',
+    createdAt: new Date('2024-03-11 08:29:18+00'),
+    updatedAt: new Date('2024-03-11 08:29:18+00'),
+    path: 'blog',
+    fileName: 'soft-delete-solusi-untuk-salah-hapus.jpg',
+    originalFileName: 'soft-delete-solusi-untuk-salah-hapus.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: 'b21f2576-b044-481c-a030-bdad3d31c334',
     createdAt: new Date('2023-08-28 08:09:18+00'),
     updatedAt: new Date('2023-08-28 08:09:18+00'),
