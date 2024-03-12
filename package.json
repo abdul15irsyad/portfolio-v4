@@ -15,7 +15,9 @@
     "postbuild": "next-sitemap",
     "postinstall": "npx prisma generate",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "npx prisma migrate dev",
+    "seed": "npx prisma db seed"
   },
   "dependencies": {
     "@prisma/client": "^5.3.0",

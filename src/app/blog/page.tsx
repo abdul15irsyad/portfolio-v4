@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import SearchBar from '@/components/search-bar';
 import Link from 'next/link';
@@ -15,6 +15,7 @@ export default () => {
   const searchParams = useSearchParams();
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
+  const [isTagsExpand, setIsTagsExpand] = useState<boolean>(false);
 
   const { data: allTags, isLoading: isLoadingAllTags } = useQuery<
     ApiResponseAll<string>
@@ -79,7 +80,18 @@ export default () => {
               />
             </div>
             <div className="col-xl-3 col-12 blog-sidebar">
-              <div className="all-tags box-container">
+              <div
+                className={`all-tags box-container ${
+                  isLoadingAllTags ? 'is-loading' : ''
+                } ${isTagsExpand ? 'expand' : ''}`}
+              >
+                <div className="overlay">
+                  <i
+                    className="bi bi-chevron-down"
+                    title={`${isTagsExpand ? 'collapse' : 'expand'}`}
+                    onClick={() => setIsTagsExpand(!isTagsExpand)}
+                  ></i>
+                </div>
                 <h5 className="all-tags-title box-container-title">
                   <i className="bi bi-tags"></i>
                   <span>Tag</span>
@@ -87,18 +99,20 @@ export default () => {
                 {isLoadingAllTags ? (
                   <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
                 ) : allTags!.data.length > 0 ? (
-                  <div className="blog-tags">
-                    {allTags?.data.map((tag, index) => (
-                      <Link
-                        href={`/blog?${queryString('tag', tag)}`}
-                        key={index}
-                        className="blog-tag"
-                        title={tag}
-                      >
-                        #{tag}
-                      </Link>
-                    ))}
-                  </div>
+                  <>
+                    <div className="blog-tags">
+                      {allTags?.data.map((tag, index) => (
+                        <Link
+                          href={`/blog?${queryString('tag', tag)}`}
+                          key={index}
+                          className="blog-tag"
+                          title={tag}
+                        >
+                          #{tag}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
                 ) : (
                   <div className="text-center text-secondary">No Tag</div>
                 )}

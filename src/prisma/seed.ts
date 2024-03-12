@@ -8,6 +8,7 @@ import { randomUUID } from 'crypto';
 import dayjs from 'dayjs';
 import { random } from '../utils/array.util';
 import { ENV } from '../configs/app.config';
+import { randomInt } from '../utils/number.util';
 
 const prisma = new PrismaClient();
 async function main() {
@@ -18,8 +19,8 @@ async function main() {
     const dummyBlogs: Blog[] = [];
     for (let i = 0; i < 30; i++) {
       const tags: string[] = [];
-      for (let j = 0; j < random([2, 3]); j++) {
-        tags.push(`tag ${j + 1}`);
+      for (let j = 0; j < randomInt(1, 5); j++) {
+        tags.push(`tag ${randomInt(1, 20)}`);
       }
       dummyBlogs.push({
         id: randomUUID(),
