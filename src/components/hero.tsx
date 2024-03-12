@@ -10,8 +10,9 @@ const Hero = () => {
   const typedText = useRef(null);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
-      typeSpeed: 80,
+      // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
+      strings: ['Web Developer', 'Bugbender', 'Freelancer'],
+      typeSpeed: 100,
       loop: true,
     });
 
