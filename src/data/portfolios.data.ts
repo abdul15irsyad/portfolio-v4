@@ -1,12 +1,13 @@
 import { Portfolio } from '@/types/portfolio.type';
+import dayjs from 'dayjs';
 import slugify from 'slugify';
+import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
     title: 'Fasel Base',
     href: 'https://faselbase.com/',
-    year: 2024,
-    order: 202401,
+    publishedAt: '2024-02-10',
     type: 'Fullstack',
     desc: `
       <p>
@@ -33,12 +34,12 @@ export const portfolios: Portfolio[] = [
       src: `/portfolio/fasel-base-${index + 1}.jpg`,
       alt: `Fasel Base ${index + 1}`,
     })),
+    teams: [],
   },
   {
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
-    year: 2023,
-    order: 202303,
+    publishedAt: '2023-08-10',
     type: 'Backend',
     desc: `
       <p>
@@ -77,12 +78,38 @@ export const portfolios: Portfolio[] = [
         alt: 'GSMS 4',
       },
     ],
+    teams: [
+      {
+        // rijal
+        userId: '2f5bfc80-f7fe-4759-a281-33e803e92604',
+        role: 'Frontend Dev',
+      },
+      {
+        // teguh
+        userId: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
+        role: 'Frontend Dev',
+      },
+      {
+        // roni
+        userId: '24f40aa0-3386-4be5-be33-367ecdfcd938',
+        role: 'Frontend Dev',
+      },
+      {
+        // raihan
+        userId: '8c27ac9e-d197-473d-907c-9e162203d072',
+        role: 'System Analyst',
+      },
+      {
+        // dito
+        userId: 'a465903e-683a-4a40-8d13-f1543aed6625',
+        role: 'UI/UX Designer',
+      },
+    ],
   },
   {
     title: 'PPKD Pemantaun & Evaluasi',
     href: 'https://monevppkd.kemdikbud.go.id',
-    year: 2023,
-    order: 202302,
+    publishedAt: '2023-06-10',
     type: 'Backend',
     desc: `
       <p>
@@ -116,12 +143,33 @@ export const portfolios: Portfolio[] = [
         alt: 'PPKD Monev 3',
       },
     ],
+    teams: [
+      {
+        // teguh
+        userId: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
+        role: 'Frontend Dev',
+      },
+      {
+        // mas sis
+        userId: 'ef1b3fd9-b395-404c-b1cd-82d862a05ab3',
+        role: 'Frontend Dev',
+      },
+      {
+        // raihan
+        userId: '8c27ac9e-d197-473d-907c-9e162203d072',
+        role: 'System Analyst',
+      },
+      {
+        // dito
+        userId: 'a465903e-683a-4a40-8d13-f1543aed6625',
+        role: 'UI/UX Designer',
+      },
+    ],
   },
   {
     title: 'PPKD Dokumen',
     href: 'https://ppkd.kemdikbud.go.id',
-    year: 2023,
-    order: 202301,
+    publishedAt: '2023-03-10',
     type: 'Backend',
     desc: `
       <p>
@@ -169,12 +217,28 @@ export const portfolios: Portfolio[] = [
         alt: 'PPKD Dokumen 5',
       },
     ],
+    teams: [
+      {
+        // mas fajar
+        userId: '69cb835e-efd7-4aa5-8012-6bedbf4eacdc',
+        role: 'Frontend Dev',
+      },
+      {
+        // raihan
+        userId: '8c27ac9e-d197-473d-907c-9e162203d072',
+        role: 'System Analyst',
+      },
+      {
+        // dito
+        userId: 'a465903e-683a-4a40-8d13-f1543aed6625',
+        role: 'UI/UX Designer',
+      },
+    ],
   },
   {
     title: 'PUSDIKLAT Tenaga Teknis Pendidikan Dan Keagamaan',
     href: 'https://pusdiklatteknis.kemenag.go.id',
-    year: 2022,
-    order: 202213,
+    publishedAt: '2022-10-10',
     type: 'Frontend',
     desc: `
       <p>
@@ -208,12 +272,23 @@ export const portfolios: Portfolio[] = [
         alt: 'Pusdiklat 4',
       },
     ],
+    teams: [
+      {
+        // simi
+        userId: '4f2be582-06a8-47a4-af48-7f742544f4cf',
+        role: 'Fullstack Dev',
+      },
+      {
+        // bang aqin
+        userId: 'e05b71ec-002e-487c-b101-be953c5ac44d',
+        role: 'UI/UX Designer',
+      },
+    ],
   },
   {
     title: 'Admin Panel Digital Andaf',
     href: null,
-    year: 2022,
-    order: 202212,
+    publishedAt: '2022-01-10',
     type: 'Fullstack',
     desc: `
       <p>
@@ -242,8 +317,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Admin Panel SIPERDIK Aceh Tengah',
     href: null,
-    year: 2021,
-    order: 202101,
+    publishedAt: '2021-08-10',
     type: 'Fullstack',
     desc: `
       <p>
@@ -272,8 +346,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Sop Buntut Ibu Samino',
     href: 'https://sopbuntutibusamino.com/',
-    year: 2022,
-    order: 202201,
+    publishedAt: '2022-07-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -296,8 +369,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Safari Konveksi',
     href: 'https://safarikonveksi.com',
-    year: 2022,
-    order: 202202,
+    publishedAt: '2022-04-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -320,8 +392,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Beton Analytica',
     href: 'https://betonanalytica.com/',
-    year: 2022,
-    order: 202203,
+    publishedAt: '2022-04-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -348,8 +419,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Padi Resort',
     href: 'https://www.padiresort.co.id',
-    year: 2021,
-    order: 202102,
+    publishedAt: '2021-08-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -372,8 +442,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Galaxy Partani Mas',
     href: 'https://galaxypartanimas.com',
-    year: 2021,
-    order: 202103,
+    publishedAt: '2021-05-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -400,8 +469,7 @@ export const portfolios: Portfolio[] = [
   {
     title: 'Prima Citra Inovindo',
     href: 'https://pci-tech.co.id',
-    year: 2022,
-    order: 202204,
+    publishedAt: '2022-09-15',
     type: 'Wordpress',
     desc: `
       <p>
@@ -422,8 +490,15 @@ export const portfolios: Portfolio[] = [
     ],
   },
 ]
-  .map((porfolio) => ({
-    ...porfolio,
-    slug: slugify(porfolio.title, { strict: true, lower: true }),
+  .map((portfolio) => ({
+    ...portfolio,
+    year: dayjs(portfolio.publishedAt).year(),
+    slug: slugify(portfolio.title, { strict: true, lower: true }),
+    teams: portfolio.teams
+      ?.map((team) => ({
+        ...team,
+        user: users.find((user) => team.userId === user.id),
+      }))
+      .sort((a, b) => (a.user!.name < b.user!.name ? -1 : 1)),
   }))
-  .sort((a, b) => (a.order < b.order ? 1 : -1));
+  .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
