@@ -6,9 +6,10 @@ import React from 'react';
 import CustomCarousel from './custom-carousel';
 import Image from 'next/image';
 import styles from './portfolio-2-detail.module.css';
+import PortfolioTeam from './portfolio-team';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
-  const { title, images, year, type, desc, href, stacks, challenges } =
+  const { title, images, year, type, desc, href, stacks, challenges, teams } =
     portfolio;
   return (
     <div className={`${styles.portfolio} row`}>
@@ -54,6 +55,16 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
             ))}
           </div>
         </div>
+        {teams && teams.length > 0 && (
+          <div className={`${styles.section} ${styles['teams-section']}`}>
+            <h5 className={styles['section-title']}>Teams</h5>
+            <div className={styles.teams}>
+              {teams.map((team, index) => (
+                <PortfolioTeam key={index} team={team} />
+              ))}
+            </div>
+          </div>
+        )}
         <div className={styles.button}>
           {href && (
             <Link

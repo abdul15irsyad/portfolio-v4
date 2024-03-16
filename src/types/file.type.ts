@@ -4,7 +4,7 @@ export interface File {
   fileName: string;
   originalFileName: string;
   mime: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
   url?: string | null;
 }

@@ -1,0 +1,49 @@
+.portfolio-team {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(var(--bs-dark-rgb), 0.2);
+  border-radius: 0.5rem;
+  user-select: none;
+}
+
+.portfolio-team:hover {
+  background-color: rgba(var(--bs-dark-rgb), 0.025);
+}
+
+.portfolio-team .image img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(var(--bs-dark-rgb), 0.1);
+  transition: 0.3s;
+}
+
+.portfolio-team:hover .image img {
+  border-radius: 1rem;
+}
+
+.portfolio-team .detail .name {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 0;
+  transition: 0.3s;
+}
+
+.portfolio-team:hover .detail .name {
+  color: var(--bs-primary);
+}
+
+.portfolio-team .detail .role {
+  font-size: 12px;
+  color: rgba(var(--bs-dark-rgb), 0.5);
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-team .image img {
+    width: 36px;
+    height: 36px;
+  }
+}
