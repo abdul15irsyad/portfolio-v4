@@ -35,7 +35,7 @@ export const users: User[] = [
   },
   {
     id: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
-    name: 'M. Teguh Irawan',
+    name: 'Teguh Irawan',
     photo: {
       id: 'ebaa2777-4a01-42c1-8e7c-d43bd40434b3',
       path: 'user',
@@ -71,7 +71,7 @@ export const users: User[] = [
   },
   {
     id: '4f2be582-06a8-47a4-af48-7f742544f4cf',
-    name: 'M. Silmi Kaffah',
+    name: 'Silmi Kaffah',
     photo: {
       id: '5ab97a7d-5f7b-47d5-ad4b-fdb3f26de399',
       path: 'user',
@@ -96,6 +96,18 @@ export const users: User[] = [
   {
     id: '69cb835e-efd7-4aa5-8012-6bedbf4eacdc',
     name: 'Fajar',
+  },
+  {
+    id: 'fe0d9a80-bafb-480c-8a5f-ff90e84cb504',
+    name: 'Adhyaksa Herdhianto',
+    photo: {
+      id: 'b3b8735f-5953-4736-9166-8e1e7eb7c55b',
+      path: 'user',
+      fileName: 'adhyaksa-herdhianto.jpeg',
+      originalFileName: 'adhyaksa-herdhianto.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/adhyaksa-herdhianto/',
   },
 ].map((user) => ({
   ...user,
