@@ -33,7 +33,7 @@
 
 .portfolio-item-2 .detail {
   align-self: flex-start;
-  padding: 0.75rem;
+  padding: 0.75rem 0;
 }
 
 .portfolio-item-2 .detail .title {
@@ -85,8 +85,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 0.5rem;
   transition: 0.3s;
 }
@@ -95,8 +95,8 @@
 }
 
 .portfolio-item-2 .stacks .stack img {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 

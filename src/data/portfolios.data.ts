@@ -145,6 +145,11 @@ export const portfolios: Portfolio[] = [
     ],
     teams: [
       {
+        // rijal
+        userId: '2f5bfc80-f7fe-4759-a281-33e803e92604',
+        role: 'Frontend Dev',
+      },
+      {
         // teguh
         userId: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
         role: 'Frontend Dev',
@@ -221,6 +226,11 @@ export const portfolios: Portfolio[] = [
       {
         // mas fajar
         userId: '69cb835e-efd7-4aa5-8012-6bedbf4eacdc',
+        role: 'Frontend Dev',
+      },
+      {
+        // rijal
+        userId: '2f5bfc80-f7fe-4759-a281-33e803e92604',
         role: 'Frontend Dev',
       },
       {
@@ -311,6 +321,13 @@ export const portfolios: Portfolio[] = [
       {
         src: '/portfolio/digital-andaf-2.jpg',
         alt: 'Digital Andaf 2',
+      },
+    ],
+    teams: [
+      {
+        // bang adhy
+        userId: 'fe0d9a80-bafb-480c-8a5f-ff90e84cb504',
+        role: 'Fullstack Dev',
       },
     ],
   },
