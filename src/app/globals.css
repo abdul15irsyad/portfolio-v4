@@ -105,7 +105,7 @@ ul li {
       rgba(var(--bs-light-rgb), 0.98),
       rgba(var(--bs-light-rgb), 0.98)
     ),
-    url('/pattern-background.png');
+    url('/pattern-background.webp');
   background-size: 300px 300px;
 }
 
@@ -375,7 +375,8 @@ ul li {
       rgba(var(--bs-primary-light-rgb), 0.85) 1%,
       rgba(var(--bs-primary-light-rgb), 1)
     ),
-    url('/background-experience.png');
+    url('/background-experience.webp');
+  /* url('/background-experience.png'); */
   background-size: 400px;
   background-repeat: no-repeat;
   background-position: -40px 40px;
@@ -537,7 +538,7 @@ ul li {
       rgba(76, 76, 76, 0.98),
       rgba(76, 76, 76, 0.98)
     ),
-    url('/pattern-background.png');
+    url('/pattern-background.webp');
   background-size: 300px 300px;
 }
 
