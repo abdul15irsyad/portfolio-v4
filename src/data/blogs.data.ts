@@ -5,6 +5,134 @@ import { ENV } from '../configs/app.config';
 
 export const blogs: Blog[] = [
   {
+    id: '58c93c2d-edf5-4728-b229-fa38af396251',
+    title: 'Bahas Pointers',
+    slug: 'bahas-pointers',
+    featureImageId: 'f1fe4ba8-5eed-4f3a-8236-00716ddc1e0c',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    halo minal aidin wal faidzin semuaaaa.... mohon maaf lahir batin 🙏🏽, buat pemanasan abis libur lama, ada sesuatu yang cukup penting di dunia pengkodingan, pertama kali denger kata ini pas kuliah semester 1 di matkul dasar-dasar pemrograman, yaitu <b>pointers</b>, mungkin dosennya udah nerangin dengan cukup jelas, tapi namanya baru lulus sma, for loop aja masih muter-muter (ya bener), akhirnya di-skip aja dulu soal mahamin gimana itu cara kerjanya. awalnya, pas belom ngerti agak bingung ini gunanya buat apa? kenapa harus dipake? kalo ga dipake apakah bakal error? tapi begitu udah ngeh, jadinya bermanfaat banget buat efisiensi saat membuat program atau aplikasi.
+    </p>
+    <p>
+    penerapan pointer di beberapa bahasa ada yang udah otomatis (karena lebih mengedepankan simplicity) dan ada yang manual (kita bisa atur pointer nya), jadi tergantung kita lagi pakai bahasa pemrograman apa. contoh bahasa yang otomatis itu ada php, javascript, python, dll. lalu kalau yang manual itu ada c++, golang, java, dll. di java penyebutannya itu reference, ada perbedaan tapi secara konsep mirip dengan pointers.
+    </p>
+    <blockquote>
+    pointers merupakan suatu penyimpanan yang tidak menyimpan suatu nilai secara langsung, melainkan menyimpan alamat memori dari variabel lain.
+    </blockquote>
+    <img src="/blog/1713364910.jpg" class="img-md" title="ilustrasi pointers">
+    <p>
+    contoh sederhana, misalkan kita punya variabel <code>name</code> yang menyimpan nilai <code>"john doe"</code>, maka kita bisa membuat variabel baru yang menyimpan alamat memori dari variabel <code>name</code> tersebut.
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+func main(){
+  var name string = "john doe"
+  var pointers *string = &name
+  fmt.Println(name, pointers, *pointers)
+}</code>
+    </pre>
+    <p>
+    pada contoh di atas tipe data <code>*string</code> menandakan bahwa variabel tersebut merupakan sebuah pointers dengan tipe data <code>string</code>, ketika kita coba tampilkan value dari variabel <code>pointers</code>, maka akan muncul alamat memori dari variable <code>name</code>, jika kita ingin menampilkan value dari variabel yang ada di dalam alamat memori kita bisa gunakan tanda <code>*</code> di depan variabelnya seperti <code>*pointers</code>.
+    </p>
+    <p>
+    kalo ga pake pointers apa bakal error kodingannya? engga juga, tapi ada beberapa keuntungan yang ga bisa kita pakai dan sayang buat dilewatin, lebih jelasnya kita bahas <b>pass by value</b> dan <b>pass by reference</b>.
+    </p>
+    <h4>
+    pass by value
+    </h4>
+    <p>
+    maksudnya adalah mempassing variabel ke sebuah fungsi berdasarkan value yang dimiliki variabel tersebut. contoh, misalkan kita punya sebuah fungsi <code>duplicate</code> untuk mengalikan parameter yang dimasukkan dengan 2.
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+    
+func duplicate(number int){
+  number = number * 2
+}
+    
+func main(){
+  age := 19
+  duplicate(age)
+  fmt.Println(age)
+}</code>
+    </pre>
+    <p>
+    saat diprint setelah fungsi <code>duplicate</code> dipanggil, maka value dari variabel <code>age</code> tetap <code>19</code>, karena value dari variabel <code>number</code> merupakan variabel dengan alamat memori yang berbeda dengan <code>age</code> (yang dipassing adalah data copy dari variabel <code>age</code>), jadi value yang dikalikan 2 hanya variable <code>number</code> yang ada di dalam fungsi <code>duplicate</code>
+    </p>
+    <h4>
+    pass by reference
+    </h4>
+    <p>
+    maksudnya adalah mempassing variabel ke sebuah fungsi berdasarkan alamat memori yang dimiliki variabel tersebut. contoh dengan fungsi yang sama.
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+func duplicate(number *int) {
+  *number = *number * 2
+}
+
+func main() {
+  age := 19
+  duplicate(&age)
+  fmt.Println(age)
+}</code>
+    </pre>
+    <p>
+    saat diprint setelah fungsi <code>duplicate</code> dipanggil, maka value dari variabel <code>age</code> menjadi <code>38</code>, karena yang dimasukkan ke fungsi <code>duplicate</code> adalah alamat memori nya, jadi saat ada perubahan value di dalam fungsi akan berpengaruh terhadap seluruh variabel yang memiliki alamat memori yang sama (bila ada variabel pointers yang lain).
+    </p>
+    <p>
+    jika tetap ingin menggunakan <b>pass by value</b> untuk case tersebut, maka kita perlu merubah sedikit fungsinya supaya memiliki nilai <code>return</code> dan diassign ke variabel asal seperti berikut
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+func duplicate(number int) int {
+  return number * 2
+}
+
+func main() {
+  age := 19
+  age = duplicate(age)
+  fmt.Println(age)
+}</code>
+    </pre>
+    <p>
+    maka yang akan muncul adalah <code>38</code> sama seperti <b>pass by reference</b>, namun cara ini tidak direkomendasikan takutnya nanti jadi kebiasaan hehe.
+    </p>
+    <h3>
+    kesimpulan
+    </h3>
+    <p>
+    penggunaan pointers sangat dianjurkan untuk efisiensi memori dan meningkatkan performance, karena value yang disimpan ialah alamat memorinya, valuenya tetap ada di satu tempat, apalagi valuenya berupa array yang cukup besar, maka akan disayangkan jika kita gunakan <b>pass by value</b>, karena array tersebut akan dicopy data menjadi data baru lalu diassign ke variabel yang ada di dalam fungsi.
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['pointers', 'golang'],
+    publishedAt:
+      ENV !== 'production'
+        ? new Date('2024-04-17 20:00:00+07:00')
+        : new Date('2024-04-18 10:00:00+07:00'),
+    createdAt: new Date('2024-04-17 21:45:46+07:00'),
+    updatedAt: new Date('2024-04-17 21:45:46+07:00'),
+  },
+  {
     id: '16571800-1536-43d7-8950-cb4dfe295325',
     title: 'Soft Delete: Solusi untuk Salah Hapus',
     slug: 'soft-delete-solusi-untuk-salah-hapus',

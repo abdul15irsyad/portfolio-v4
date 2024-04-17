@@ -8,6 +8,7 @@ import LoadingBlogs from './loading-blogs';
 import Empty from './empty';
 import BlogItem from './blog-item';
 import Pagination from './pagination';
+// import { blogDatas } from '@/data/blogs.data';
 
 type Prop = {
   limit?: number;
@@ -41,6 +42,20 @@ export default ({ limit = 5, queryString }: Prop) => {
       if (activePage) newSearchParams.set('page', activePage.toString());
       if (tag) newSearchParams.set('tag', tag);
       if (search) newSearchParams.set('search', search);
+      // return {
+      //   data: blogDatas.slice((activePage - 1) * limit, limit),
+      //   message: 'test',
+      //   meta: {
+      //     currentPage: activePage,
+      //     totalPage: limit
+      //       ? Math.ceil(blogDatas.length / limit)
+      //       : blogDatas.slice((activePage - 1) * limit, limit).length > 0
+      //       ? 1
+      //       : null,
+      //     totalData: blogDatas.slice((activePage - 1) * limit, limit).length,
+      //     totalAllData: blogDatas.length,
+      //   },
+      // } as any;
       const url = `/api/blog${
         newSearchParams.size > 0 ? `?${newSearchParams.toString()}` : ''
       }`;

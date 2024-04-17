@@ -3,6 +3,15 @@ import { File } from '@/types/file.type';
 
 export const files: File[] = [
   {
+    id: 'f1fe4ba8-5eed-4f3a-8236-00716ddc1e0c',
+    createdAt: new Date('2024-04-17 21:45:46+07:00'),
+    updatedAt: new Date('2024-04-17 21:45:46+07:00'),
+    path: 'blog',
+    fileName: 'bahas-pointers.jpg',
+    originalFileName: 'bahas-pointers.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '26b99b44-5713-4b51-890e-8429382d3716',
     createdAt: new Date('2024-03-11 08:29:18+00'),
     updatedAt: new Date('2024-03-11 08:29:18+00'),
