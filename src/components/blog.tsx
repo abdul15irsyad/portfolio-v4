@@ -4,7 +4,7 @@ import { renderTimestamp } from '@/utils/date.util';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import hljs from 'highlight.js';
-import { Blog } from '@/types/blog.type';
+import { Blog as BlogInterface } from '@/types/blog.type';
 import CopyButtonPlugin from 'highlightjs-copy';
 import 'highlight.js/styles/androidstudio.css';
 import 'highlightjs-copy/dist/highlightjs-copy.min.css';
@@ -25,7 +25,13 @@ hljs.addPlugin(
   }),
 );
 
-const Blog = ({ blog, searchParams }: { blog: Blog; searchParams: any }) => {
+const Blog = ({
+  blog,
+  searchParams,
+}: {
+  blog: BlogInterface;
+  searchParams: any;
+}) => {
   const router = useRouter();
   const addQueryString = useCallback(queryString(searchParams), [searchParams]);
   useEffect(() => {
