@@ -11,12 +11,14 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
     <div className="blog-item">
       <div className="blog-feature-image">
         <Link href={`/blog/${blog.slug}`} prefetch={false}>
-          <Image
-            src={blog.featureImage!.url!}
-            alt={blog.featureImage!.originalFileName}
-            width={400}
-            height={100}
-          />
+          <div className="image-link">
+            <Image
+              src={blog.featureImage!.url!}
+              alt={blog.featureImage!.originalFileName}
+              width={400}
+              height={100}
+            />
+          </div>
         </Link>
       </div>
       <div className="blog-text">

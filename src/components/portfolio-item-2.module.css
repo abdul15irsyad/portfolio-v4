@@ -5,9 +5,9 @@
 .portfolio-item-2 .image {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   user-select: none;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-item-2 .image .overlay {
