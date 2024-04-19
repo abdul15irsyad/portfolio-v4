@@ -5,22 +5,28 @@ export const programmingSkills: ProgrammingSkill[] = [
     title: 'Language',
     list: [
       {
-        name: 'Node JS (Typescript)',
-        logo: '/programming/nodejs.png',
+        name: 'Typescript',
+        logo: '/programming/typescript.png',
         level: Level.GOOD,
-        href: 'https://nodejs.org',
+        // href: 'https://www.typescriptlang.org',
       },
       {
         name: 'PHP',
         logo: '/programming/php.png',
         level: Level.GOOD,
-        href: 'https://www.php.net',
+        // href: 'https://www.php.net',
+      },
+      {
+        name: 'Python',
+        logo: '/programming/python.png',
+        level: Level.BASIC,
+        // href: 'https://www.python.org',
       },
       {
         name: 'Golang',
         logo: '/programming/golang.png',
         level: Level.LEARNING,
-        href: 'https://go.dev',
+        // href: 'https://go.dev',
       },
     ],
   },
@@ -42,7 +48,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Laravel',
         logo: '/programming/laravel.png',
-        level: Level.INTERMEDIATE,
+        level: Level.GOOD,
         href: 'https://laravel.com',
       },
       // {
@@ -51,18 +57,18 @@ export const programmingSkills: ProgrammingSkill[] = [
       //   level: Level.INTERMEDIATE,
       //   href: 'https://codeigniter.com',
       // },
-      {
-        name: 'React JS',
-        logo: '/programming/react.png',
-        level: Level.INTERMEDIATE,
-        href: 'https://react.dev',
-      },
       // {
-      //   name: 'Vue JS',
-      //   logo: '/programming/vue.png',
-      //   level: Level.BASIC,
-      //   href: 'https://vuejs.org',
+      //   name: 'React JS',
+      //   logo: '/programming/react.png',
+      //   level: Level.INTERMEDIATE,
+      //   href: 'https://react.dev',
       // },
+      {
+        name: 'Vue JS',
+        logo: '/programming/vue.png',
+        level: Level.BASIC,
+        href: 'https://vuejs.org',
+      },
       {
         name: 'Next JS',
         logo: '/programming/next.png',
@@ -75,10 +81,16 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.LEARNING,
         href: 'https://gofiber.io',
       },
+      {
+        name: 'Flutter',
+        logo: '/programming/flutter.png',
+        level: Level.LEARNING,
+        href: 'https://flutter.dev',
+      },
     ],
   },
   {
-    title: 'Database',
+    title: 'Other',
     list: [
       {
         name: 'MySQL',
@@ -87,22 +99,17 @@ export const programmingSkills: ProgrammingSkill[] = [
         // href: 'https://www.mysql.com',
       },
       {
-        name: 'PostgreSQL',
-        logo: '/programming/postgresql.png',
-        level: Level.INTERMEDIATE,
-        // href: 'https://www.postgresql.org/',
-      },
-      {
         name: 'Mongo DB',
         logo: '/programming/mongodb.png',
         level: Level.BASIC,
         // href: 'https://www.mongodb.com',
       },
-    ],
-  },
-  {
-    title: 'Other',
-    list: [
+      {
+        name: 'PostgreSQL',
+        logo: '/programming/postgresql.png',
+        level: Level.INTERMEDIATE,
+        // href: 'https://www.postgresql.org/',
+      },
       {
         name: 'Git',
         logo: '/programming/git.png',
