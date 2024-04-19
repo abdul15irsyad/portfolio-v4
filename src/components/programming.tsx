@@ -52,7 +52,9 @@ const CategoryItem = ({ name, level, logo }) => (
       <span>{name.toLowerCase()}</span>
     </div>
     <div>
-      <span className="badge category-item-level">{level}</span>
+      <span className={`badge category-item-level level-${level}`}>
+        {level}
+      </span>
     </div>
   </span>
 );
