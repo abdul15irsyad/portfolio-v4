@@ -1,6 +1,7 @@
 import { contacts } from '@/data/contacts.data';
 import Link from 'next/link';
 import React from 'react';
+import Copyright from './copyright';
 
 const Footer = () => {
   const footerContacts = contacts.filter(({ icon }) =>
@@ -60,15 +61,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="copyright">
-          <div className="container"></div>
-          <div className="row">
-            <span>
-              &copy; Copyright abdul15irsyad {new Date().getFullYear()}. <br />
-              All rights reserved
-            </span>
-          </div>
-        </div>
+        <Copyright />
       </footer>
     </>
   );
