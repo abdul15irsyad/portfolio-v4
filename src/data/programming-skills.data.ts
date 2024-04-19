@@ -93,9 +93,15 @@ export const programmingSkills: ProgrammingSkill[] = [
     title: 'Other',
     list: [
       {
+        name: 'PostgreSQL',
+        logo: '/programming/postgresql.png',
+        level: Level.GOOD,
+        // href: 'https://www.postgresql.org/',
+      },
+      {
         name: 'MySQL',
         logo: '/programming/mysql.png',
-        level: Level.INTERMEDIATE,
+        level: Level.GOOD,
         // href: 'https://www.mysql.com',
       },
       {
@@ -103,12 +109,6 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/mongodb.png',
         level: Level.BASIC,
         // href: 'https://www.mongodb.com',
-      },
-      {
-        name: 'PostgreSQL',
-        logo: '/programming/postgresql.png',
-        level: Level.INTERMEDIATE,
-        // href: 'https://www.postgresql.org/',
       },
       {
         name: 'Git',

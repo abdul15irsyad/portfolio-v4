@@ -9,6 +9,7 @@
   --bs-primary-light: #f2fffc !important;
   --bs-primary-light-rgb: 242, 255, 252 !important;
   --bs-default-primary: #0d6efd !important;
+  --bs-default-primary-rgb: 13, 110, 253 !important;
   /* --bs-accent: #ffc051 !important; */
   --bs-accent: #f9b30d !important;
   --bs-accent-rgb: 249, 179, 13 !important;
@@ -524,10 +525,21 @@ ul li {
   font-size: 80%;
 } */
 
-.programming .category .category-items .category-item-level {
+.programming .category .category-items .level-good {
+  background-color: rgba(var(--bs-default-primary-rgb), 0.1);
+  color: rgba(var(--bs-default-primary-rgb), 1);
+  /* border: 1px solid rgba(var(--bs-primary-rgb), 1); */
+}
+
+.programming .category .category-items .level-intermediate {
   background-color: rgba(var(--bs-primary-rgb), 0.1);
   color: rgba(var(--bs-primary-rgb), 1);
-  /* border: 1px solid rgba(var(--bs-primary-rgb), 1); */
+}
+
+.programming .category .category-items .level-basic,
+.programming .category .category-items .level-learning {
+  background-color: rgba(var(--bs-secondary-rgb), 0.1);
+  color: rgba(var(--bs-secondary-rgb), 1);
 }
 
 @media (min-width: 992px) {
