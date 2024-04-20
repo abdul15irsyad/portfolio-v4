@@ -16,9 +16,7 @@ const QuoteOfTheDay = () => {
   }>({
     queryKey: ['quoteOfTheDay'],
     queryFn: async () => {
-      console.log('fetching data');
       const data = await fetch('/api/quote-of-the-day');
-      if (data.status !== 200) console.log(data.status);
       return data.json();
     },
     cacheTime: ENV === 'production' ? 60 * 60 * 1000 : 0,
