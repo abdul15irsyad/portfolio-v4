@@ -50,3 +50,13 @@ model File {
 
   @@map("files")
 }
+
+model QuoteOfTheDay {
+  id      String   @id
+  date    DateTime @db.Date
+  content String
+  author  String?
+  tags    String[]
+
+  @@map("quote_of_the_days")
+}

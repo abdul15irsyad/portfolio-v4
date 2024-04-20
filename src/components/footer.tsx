@@ -2,6 +2,7 @@ import { contacts } from '@/data/contacts.data';
 import Link from 'next/link';
 import React from 'react';
 import Copyright from './copyright';
+import QuoteOfTheDay from './quote-of-the-day';
 
 const Footer = () => {
   const footerContacts = contacts.filter(({ icon }) =>
@@ -12,6 +13,7 @@ const Footer = () => {
   );
   return (
     <>
+      <QuoteOfTheDay />
       <footer>
         <div className="top">
           <div className="container">
