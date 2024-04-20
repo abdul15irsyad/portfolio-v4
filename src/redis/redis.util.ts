@@ -1,7 +1,7 @@
 import { REDIS_TTL } from './redis.config';
 import { RedisService } from './redis.service';
 
-const redisService = new RedisService();
+export const redisService = new RedisService();
 
 export const cache = async <T extends object | null>(
   key: string,

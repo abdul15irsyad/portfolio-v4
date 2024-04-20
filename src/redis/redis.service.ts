@@ -13,6 +13,15 @@ export class RedisService {
     }
   }
 
+  async set(key: RedisKey, value: string | number | Buffer) {
+    try {
+      return await this.client.set(key, value);
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
   async setex(
     key: RedisKey,
     seconds: string | number,
