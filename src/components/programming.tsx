@@ -8,7 +8,7 @@ const Programming = () => {
     <div className="programming section" id="programming">
       <div className="container">
         <h2 className="title text-center">
-          <strong>Tech Stack</strong>
+          <strong>Skills</strong>
         </h2>
         <hr />
         <div className="row justify-content-start">
