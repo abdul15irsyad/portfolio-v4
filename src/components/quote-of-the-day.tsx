@@ -4,7 +4,6 @@ import { QuoteOfTheDay as QuoteOfTheDayInterface } from '@/types/quote-of-the-da
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import styles from './quote-of-the-day.module.css';
-import { ENV } from '@/configs/app.config';
 
 const QuoteOfTheDay = () => {
   const { data: response, isLoading } = useQuery<{
@@ -19,7 +18,7 @@ const QuoteOfTheDay = () => {
       const data = await fetch('/api/quote-of-the-day');
       return data.json();
     },
-    cacheTime: ENV === 'production' ? 60 * 60 * 1000 : 0,
+    cacheTime: 0,
   });
   const quote = response?.data?.quote;
   if (isLoading) return null;
