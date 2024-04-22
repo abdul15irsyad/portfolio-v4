@@ -17,9 +17,10 @@ export async function GET() {
           (await redisService.get('quoteOfTheDayIds')) ?? '[]',
         );
         // if (quoteIds.find((quoteId) => quoteId === quote._id))
-        //   console.log(quote);
+        //   console.log(quote.content);
         i = i + 1;
-      } while (quoteIds.find((quoteId) => quoteId === quote._id) && i < 10);
+      } while (quoteIds.find((quoteId) => quoteId === quote._id) && i < 20);
+      // console.log(i);
       await redisService.setex(
         'quoteOfTheDayIds',
         365 * 24 * 60 * 60,
