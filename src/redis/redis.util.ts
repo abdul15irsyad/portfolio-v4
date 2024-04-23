@@ -6,14 +6,18 @@ export const redisService = new RedisService();
 export const cache = async <T extends object | null>(
   key: string,
   getData: () => Promise<T>,
-  ttl?: number,
+  ttlInSeconds?: number,
 ) => {
   const cachedData = await redisService.get(key);
   const data = cachedData
     ? (JSON.parse(cachedData, cacheRevive) as T)
     : await getData();
   if (!cachedData && data && (Array.isArray(data) ? data.length > 0 : true)) {
-    await redisService.setex(key, ttl ?? REDIS_TTL, JSON.stringify(data));
+    await redisService.setex(
+      key,
+      ttlInSeconds ?? REDIS_TTL,
+      JSON.stringify(data),
+    );
   }
   return data;
 };
