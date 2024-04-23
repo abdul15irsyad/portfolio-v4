@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const date = dayjs().format('YYYY-MM-DD');
+  console.log('date quote of the day', date);
   const quoteOfTheDay = await cache(
     `quoteOfTheDay:${date}`,
     async () => {
