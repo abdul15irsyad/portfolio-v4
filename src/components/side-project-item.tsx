@@ -55,7 +55,7 @@ const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
               placement="bottom"
             >
               <div className="side-project-stack">
-                <Image src={icon} alt={label} width={24} height={24} />
+                <Image src={icon} alt={label} width={100} height={100} />
               </div>
             </OverlayTrigger>
           ))}
