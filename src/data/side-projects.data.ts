@@ -3,6 +3,17 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    title: 'Gin GORM REST API',
+    img: '/side-project/gin-gorm-rest-api.jpg',
+    desc: 'project for learning golang with gin framework and gorm as ORM',
+    href: 'https://github.com/abdul15irsyad/gin-gorm-rest-api',
+    stacks: [
+      { icon: '/programming/gin.png', label: 'Gin' },
+      { icon: '/programming/gorm.png', label: 'GORM' },
+      { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
+    ],
+  },
+  {
     title: 'Web Portfolio',
     img: '/side-project/portfolio.jpg',
     desc: 'Web portfolio saya beserta blog untuk sharing hal-hal mengenai coding & pemrograman',
