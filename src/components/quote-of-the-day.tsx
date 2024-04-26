@@ -5,11 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import styles from './quote-of-the-day.module.css';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
+// import utc from 'dayjs/plugin/utc';
+// import timezone from 'dayjs/plugin/timezone';
 import { Placeholder } from 'react-bootstrap';
-dayjs.extend(utc);
-dayjs.extend(timezone);
+// dayjs.extend(utc);
+// dayjs.extend(timezone);
 
 const QuoteOfTheDay = () => {
   const { data: response, isLoading } = useQuery<{
@@ -21,7 +21,8 @@ const QuoteOfTheDay = () => {
   }>({
     queryKey: ['quoteOfTheDay'],
     queryFn: async () => {
-      const date = dayjs().utc().format('YYYY-MM-DD');
+      // const date = dayjs().utc().format('YYYY-MM-DD');
+      const date = dayjs().format('YYYY-MM-DD');
       const data = await fetch(`/api/quote-of-the-day?date=${date}`);
       return data.json();
     },
