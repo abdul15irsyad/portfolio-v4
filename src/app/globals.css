@@ -1399,7 +1399,7 @@ ul li {
 }
 
 /* blog-detail */
-.blog-detail {
+.blog-detail.section {
   padding-top: 8rem;
 }
 .blog-detail .blog-detail-title {
@@ -1612,7 +1612,7 @@ ul li {
 }
 
 @media (max-width: 767px) {
-  .blog-detail {
+  .blog-detail.section {
     padding-top: 6rem;
   }
 }
