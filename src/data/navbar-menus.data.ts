@@ -12,13 +12,13 @@ export const navbarMenus: NavbarMenu[] = [
 export const navbarIconMenus: NavbarMenu[] = [
   {
     label: 'Github',
-    logo: '/icons/github.svg',
+    logo: '/icons/github.png',
     href: 'https://github.com/abdul15irsyad',
     newTab: true,
   },
   {
     label: 'Linkedin',
-    logo: '/icons/linkedin.svg',
+    logo: '/icons/linkedin.png',
     href: 'https://www.linkedin.com/in/irsyad-abdul-hamid-d/',
     newTab: true,
   },

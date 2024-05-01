@@ -83,6 +83,7 @@
 }
 
 .portfolio .detail .stacks .stack {
+  text-wrap: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
