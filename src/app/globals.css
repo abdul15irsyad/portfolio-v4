@@ -1507,7 +1507,40 @@ ul li {
     Courier, monospace;
   margin-bottom: 0;
   line-height: normal;
-  background-color: none !important;
+  /* background-color: none !important; */
+}
+.blog-detail article pre {
+  display: block;
+  position: relative;
+}
+.blog-detail article pre code::after {
+  content: '';
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 28px;
+  height: 28px;
+}
+.blog-detail article pre code.language-javascript::after {
+  background-image: url('/programming/javascript.png');
+}
+.blog-detail article pre code.language-typescript::after {
+  background-image: url('/programming/typescript.png');
+}
+.blog-detail article pre code.language-golang::after {
+  background-image: url('/programming/golang.png');
+}
+.blog-detail article pre code.language-bash::after {
+  background-image: url('/programming/bash.png');
+}
+.blog-detail article pre code.language-postgresql::after,
+.blog-detail article pre code.language-sql::after {
+  background-image: url('/programming/postgresql.png');
 }
 
 .blog-detail article pre code {
