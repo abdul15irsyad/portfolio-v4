@@ -9,6 +9,11 @@
 .portfolio .images {
   margin-bottom: 1rem;
 }
+.portfolio .images img {
+  object-fit: cover;
+  height: unset !important;
+  aspect-ratio: 16 / 9 !important;
+}
 
 .portfolio .detail .top {
   display: flex;

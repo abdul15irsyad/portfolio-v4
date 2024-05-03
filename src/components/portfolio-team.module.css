@@ -6,10 +6,11 @@
   border: 1px solid rgba(var(--bs-dark-rgb), 0.2);
   border-radius: 0.5rem;
   user-select: none;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .portfolio-team:hover {
-  background-color: rgba(var(--bs-dark-rgb), 0.025);
+  background-color: rgba(var(--bs-light-rgb), 1);
 }
 
 .portfolio-team .image img {
@@ -23,6 +24,11 @@
 
 .portfolio-team:hover .image img {
   border-radius: 1rem;
+}
+
+.portfolio-team .detail {
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolio-team .detail .name {
@@ -43,7 +49,16 @@
 
 @media screen and (max-width: 767px) {
   .portfolio-team .image img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .portfolio-team .detail .name {
+    font-size: 12px;
+  }
+
+  .portfolio-team .detail .role {
+    font-size: 11px;
+    color: rgba(var(--bs-dark-rgb), 0.5);
   }
 }
