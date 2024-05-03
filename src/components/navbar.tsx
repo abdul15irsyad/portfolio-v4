@@ -40,7 +40,7 @@ export default () => {
               height={24}
               className="me-2"
             />
-            <strong>IRSYAD</strong>&nbsp;ABDUL
+            <strong className="text-primary">IRSYAD</strong>&nbsp;ABDUL
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle />
