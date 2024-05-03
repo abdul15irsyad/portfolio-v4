@@ -25,7 +25,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Golang',
         logo: '/programming/golang.png',
-        level: Level.LEARNING,
+        level: Level.BASIC,
         // href: 'https://go.dev',
       },
     ],
@@ -64,16 +64,22 @@ export const programmingSkills: ProgrammingSkill[] = [
       //   href: 'https://react.dev',
       // },
       {
-        name: 'Vue JS',
-        logo: '/programming/vue.png',
-        level: Level.BASIC,
-        href: 'https://vuejs.org',
-      },
-      {
         name: 'Next JS',
         logo: '/programming/next.png',
         level: Level.BASIC,
         href: 'https://nextjs.org',
+      },
+      {
+        name: 'Gin',
+        logo: '/programming/gin.png',
+        level: Level.BASIC,
+        href: 'https://gin-gonic.com/',
+      },
+      {
+        name: 'Vue JS',
+        logo: '/programming/vue.png',
+        level: Level.BASIC,
+        href: 'https://vuejs.org',
       },
       {
         name: 'Fiber',
@@ -81,12 +87,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.LEARNING,
         href: 'https://gofiber.io',
       },
-      {
-        name: 'Flutter',
-        logo: '/programming/flutter.png',
-        level: Level.LEARNING,
-        href: 'https://flutter.dev',
-      },
+      // {
+      //   name: 'Flutter',
+      //   logo: '/programming/flutter.png',
+      //   level: Level.LEARNING,
+      //   href: 'https://flutter.dev',
+      // },
     ],
   },
   {
