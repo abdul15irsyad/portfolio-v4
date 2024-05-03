@@ -16,6 +16,7 @@ export default () => {
       if (scrollTop > 50) setIsScrolled(true);
       else if (scrollTop <= 0) setIsScrolled(false);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);

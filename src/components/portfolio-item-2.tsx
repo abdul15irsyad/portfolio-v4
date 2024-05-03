@@ -17,8 +17,23 @@ const PortfolioItem2 = ({
 }: Portfolio) => {
   return (
     <div className={`${styles['portfolio-item-2']} align-items-center`}>
-      <div className={`${styles.image}`}>
-        <div className={`${styles.overlay}`}>
+      <Link href={`/portfolio/${slug}`} prefetch={false}>
+        <div className={`${styles.image}`}>
+          {/* <div className={`${styles.overlay}`}></div> */}
+          <Image
+            src={images[0].src}
+            alt={images[0].alt}
+            width={480}
+            height={480}
+          />
+        </div>
+      </Link>
+      <div className={`${styles.detail}`}>
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <div className={`${styles.metas}`}>
+            <div className={`${styles.meta}`}>{year}</div>
+            <div className={`${styles.meta}`}>{type.toLowerCase()}</div>
+          </div>
           <div className={`${styles.stacks}`}>
             {stacks.map(({ icon, label }, index) => (
               <OverlayTrigger
@@ -32,18 +47,6 @@ const PortfolioItem2 = ({
               </OverlayTrigger>
             ))}
           </div>
-        </div>
-        <Image
-          src={images[0].src}
-          alt={images[0].alt}
-          width={480}
-          height={480}
-        />
-      </div>
-      <div className={`${styles.detail}`}>
-        <div className={`${styles.metas}`}>
-          <div className={`${styles.meta}`}>{year}</div>
-          <div className={`${styles.meta}`}>{type.toLowerCase()}</div>
         </div>
         <h3 className={`${styles.title}`}>
           <Link href={`/portfolio/${slug}`} prefetch={false}>

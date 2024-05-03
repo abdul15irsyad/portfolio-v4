@@ -9,6 +9,11 @@
 .portfolio .images {
   margin-bottom: 1rem;
 }
+.portfolio .images img {
+  object-fit: cover;
+  height: unset !important;
+  aspect-ratio: 16 / 9 !important;
+}
 
 .portfolio .detail .top {
   display: flex;
@@ -87,7 +92,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  background-color: rgba(var(--bs-dark-rgb), 0.1);
+  background-color: rgba(var(--bs-light-rgb), 1);
   border: 1px solid rgba(var(--bs-dark-rgb), 0.1);
   color: rgba(var(--bs-dark-rgb), 1);
   padding: 0.25rem 0.5rem;
