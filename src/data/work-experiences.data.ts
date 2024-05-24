@@ -4,9 +4,9 @@ import dayjs from 'dayjs';
 export const workExperiences: WorkExperience[] = [
   {
     position: 'Backend Developer',
-    timespan: 'Agu 2022 - Sekarang',
+    timespan: 'Agu 2022 - Mei 2024',
     startDate: dayjs(`2022-08-01`).toDate(),
-    endDate: null,
+    endDate: dayjs(`2024-05-22`).toDate(),
     company: {
       name: 'Optimap',
       logo: '/experience/optimap.png',
