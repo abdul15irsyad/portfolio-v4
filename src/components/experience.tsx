@@ -28,7 +28,11 @@ const Experience = () => {
             const monthDiff = dayjs(endDate).diff(startDate, 'months');
             const workDuration =
               monthDiff / 12 > 1
-                ? `${Math.floor(monthDiff / 12)} tahun`
+                ? `${Math.floor(monthDiff / 12)} tahun${
+                    Math.floor(monthDiff % 12) > 0
+                      ? ` ${Math.floor(monthDiff % 12)} bulan`
+                      : ''
+                  }`
                 : `${monthDiff} bulan`;
             return (
               <div key={index} className="row" data-aos="fade-up">
