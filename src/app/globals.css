@@ -401,6 +401,12 @@ ul li {
   border-left: 2px dashed var(--bs-primary);
 }
 
+.experience .row > :first-child .d-flex .right img {
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+}
+
 .experience .row .position {
   font-weight: 800;
   font-size: 130%;

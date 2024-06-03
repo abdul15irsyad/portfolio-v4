@@ -7,5 +7,5 @@ export interface WorkExperience {
     name: string;
     logo: string;
   };
-  desc: string;
+  desc?: string;
 }

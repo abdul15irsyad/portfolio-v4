@@ -5,6 +5,17 @@ export const workExperiences: WorkExperience[] = [
   {
     position: 'Backend Developer',
     timespan: 'Agu 2022 - Mei 2024',
+    startDate: dayjs(`2024-06-03`).toDate(),
+    endDate: null,
+    company: {
+      name: 'BRI',
+      logo: '/experience/bri.jpeg',
+    },
+    desc: 'Berposisi sebagai Backend Developer',
+  },
+  {
+    position: 'Backend Developer',
+    timespan: 'Agu 2022 - Mei 2024',
     startDate: dayjs(`2022-08-01`).toDate(),
     endDate: dayjs(`2024-05-22`).toDate(),
     company: {
