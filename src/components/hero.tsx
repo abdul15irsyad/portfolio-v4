@@ -18,8 +18,8 @@ const Hero = () => {
 
     return () => typed.destroy();
   }, []);
-  const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
-    ?.href;
+  // const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
+  //   ?.href;
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
@@ -57,13 +57,21 @@ const Hero = () => {
             <h4 className="mb-4 typed-text">
               <span ref={typedText}></span>
             </h4>
-            <Link
+            {/* <Link
               href={whatsappLink!}
               target="_blank"
               className="btn contact-me px-3"
             >
               Hubungi Saya
               <i className="bi bi-whatsapp ms-2"></i>
+            </Link> */}
+            <Link
+              href="/resume-irsyad-abdul.pdf"
+              target="_blank"
+              className="btn btn-primary px-3"
+            >
+              See Resume
+              <i className="bi bi-filetype-pdf ms-2"></i>
             </Link>
           </div>
           <div className="col-md-6 hero-image mb-3">
