@@ -41,11 +41,13 @@ const Experience = () => {
                     <div className="left">
                       <div className="position">{position}</div>
                       <div className="timespan-n-company">
-                        <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span>
-                        <span className="timespan d-block d-md-none">{`${start.short} - ${end.short}`}</span>
+                        {/* <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span> */}
+                        <span className="timespan">{`${start.short} - ${end.short}`}</span>
                         <span className="company">{company.name}</span>
                       </div>
-                      <span className="work-duration">{workDuration}</span>
+                      {monthDiff > 0 && (
+                        <span className="work-duration">{workDuration}</span>
+                      )}
                     </div>
                     <div className="right align-self-center">
                       <Image
