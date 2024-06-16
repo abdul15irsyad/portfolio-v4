@@ -3,6 +3,16 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    title: 'Acak Kata',
+    img: '/side-project/acak-kata.jpeg',
+    desc: 'mengacak kata yang ada di list buat main "tebak satu kata" sama temen',
+    href: 'https://acak-kata-v2.vercel.app',
+    stacks: [
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/bootstrap.png', label: 'Bootstrap 5' },
+    ],
+  },
+  {
     title: 'Gin GORM REST API',
     img: '/side-project/gin-gorm-rest-api.jpg',
     desc: 'project for learning golang with gin framework and gorm as ORM',
