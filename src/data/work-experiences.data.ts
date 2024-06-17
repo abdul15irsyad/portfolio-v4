@@ -25,7 +25,7 @@ export const workExperiences: WorkExperience[] = [
     desc: 'Berposisi sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
   },
   {
-    position: 'IT Staff',
+    position: 'Web Developer',
     timespan: 'Agu 2020 - Agu 2022',
     startDate: dayjs(`2020-08-01`).toDate(),
     endDate: dayjs(`2022-08-01`).toDate(),
@@ -33,7 +33,7 @@ export const workExperiences: WorkExperience[] = [
       name: 'Andaf Corp',
       logo: '/experience/andaf.png',
     },
-    desc: 'Berposisi sebagai IT Staff, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
+    desc: 'Berposisi sebagai Web Developer, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
   },
   {
     position: 'Internship',

@@ -70,8 +70,8 @@ const Hero = () => {
               target="_blank"
               className="btn btn-primary px-3"
             >
+              <i className="bi bi-filetype-pdf me-2"></i>
               See Resume
-              <i className="bi bi-filetype-pdf ms-2"></i>
             </Link>
           </div>
           <div className="col-md-6 hero-image mb-3">
