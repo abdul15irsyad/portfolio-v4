@@ -5,6 +5,124 @@ import { ENV } from '../configs/app.config';
 
 export const blogs: Blog[] = [
   {
+    id: 'acb38df5-a3ac-4ff4-b06f-d6ca07287634',
+    title: 'Kenalan sama Required, Partial, Pick dan Omit di typescript',
+    slug: 'kenalan-sama-required-partial-pick-dan-omit-di-typescript',
+    featureImageId: '799ee782-faef-4ac4-a4af-2d2a0870b98e',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    how's your day? is it good? alhamdulillah kalo gitu, abis libur enaknya nulis sesuatu kali ya
+    </p>
+    <p>
+    nah ini mungkin udah banyak yang pake juga, kurang lebih topiknya tentang beberapa utility di typescript yang bisa kita pakai untuk memanipulasi <code>type</code> atau <code>interface</code> yang udah ada. sebenernya masih ada lagi utility-utility lainnya, tapi coba kita fokus ke 4 utility yang saya pribadi mungkin sering gunain di project, yaitu <code>Required</code>, <code>Partial</code>, <code>Pick</code> dan <code>Omit</code>.
+    </p>
+    <h3>Latar Belakang</h3>
+    <p>
+    pernah ga si, misal kita udah buat interface atau type gitu yang sudah mendeskripsikan propertinya apakah itu wajib atau opsional, nah ada satu kondisi kita mau buat interface baru dengan properti yang sama tapi dengan ketentuan yang beda-beda tipis aja gitu, daripada kita buat ulang interfacenya, mending kita manipulasi aja interface yang udah ada trus disesuain deh jadi ga perlu ada interface yang redundant atau buang2 baris kode buat deskripsiin interface baru, belom lagi kalau ntar ada perubahan di interface utama nya, kalo redundant jadi perlu ngubah semua.
+    </p>
+    <h3>Pembahasan</h3>
+    <p>
+    coba kita bahas satu per satu utilitynya:
+    </p>
+    <ol>
+    <b><li>Required</li></b>
+    <p>
+    oke yang pertama ini utility <code>Required</code>, dari namanya aja mungkin udah ketebak kegunaan dari utility ini yaitu bakal ngebuat suatu properti di interface menjadi <b>wajib diisi</b> semua walaupun di deskripsiin sebelumnya ada yang opsional, misal kita punya interface <code>User</code> dengan spesifikasi sebagai berikut:
+    </p>
+    <pre>
+    <code class="language-typescript">export interface User {
+  id: string,
+  name: string,
+  email: string,
+  password: string,
+  imageUrl?: string,
+  address?: string
+}</code>
+    </pre>
+    <p>
+    bisa kita lihat di interface tersebut, properti <code>imageUrl</code> dan <code>address</code> bersifat opsional alias boleh kosong tu, nah cuma somehow kita ada fungsi yang punya parameter object dari <code>User</code> tapi wajib memiliki <code>imageUrl</code> atau <code>address</code>, nah daripada kita deskripsiin interface baru yang sama kayak <code>User</code>, mending kita pake aja utility <code>Required</code> seperti berikut:
+    </p>
+    <pre>
+    <code class="language-typescript">export interface RequiredUser extends Required&lt;User&gt; {}</code>
+    </pre>
+    <p>
+    nah cukup dengan seperti itu kita udah ngebuat properti <code>imageUrl</code> dan <code>address</code> di object <code>RequiredUser</code> menjadi wajib ada, kalau kita comment atau hilangkan properti <code>imageUrl</code> maka akan muncul error seperti berikut dari typescript
+    </p>
+    <img src="/blog/kenalan-sama-required-partial-pick-dan-omit-1.png" class="img-lg" title="error typescript Pick">
+    <b><li>Partial</li></b>
+    <p>
+    nah selanjutnya ini <code>Partial</code>, kegunaan dari utility ini adalah kebalikan dari <code>Required</code>, yakni memanipulasi suatu interface agar propertinya bersifat opsional semuanya, misal dengan interface <code>User</code> yang sama seperti di atas, kita buat interface baru yakni <code>PartialUser</code> dengan meng-extends interface <code>User</code> dibungkus dengan utility <code>Partial</code>
+    </p>
+    <pre>
+    <code class="language-typescript">export interface PartialUser extends Partial&lt;User&gt; {}</code>
+    </pre>
+    <p>
+    setelah kita buat seperti itu jika kita buat object dengan interface <code>PartialUser</code>, maka kita bisa menghilangkan properti <code>password</code> yang padahal tidak opsional di deskripsi interface <code>User</code>, begitu juga dengan properti yang lainnya jika dibutuhkan untuk dikosongkan
+    </p>
+    <pre>
+    <code class="language-typescript">const partialUser: PartialUser = {
+  id: '9e1cdde1-5edb-4133-bf65-1e34ed8204ce',
+  name: 'Hamid',
+  email: 'hamid@email.com',
+  imageUrl: '/assets/image-2.jpg',
+  address: 'Jakarta',
+};</code>
+    </pre>
+    <b><li>Pick</li></b>
+    <p>
+    kegunaan dari utility <code>Pick</code> ini adalah untuk membuat interface baru dengan list properti yang dimasukkan di parameter kedua dipisahkan dengan tanda garis lurus <code>|</code> dengan aturan opsional yang sama, misal dengan interface <code>User</code> yang sama, kita perlu interface untuk <code>Credential</code> authentication, maka kita cukup ambil <code>email</code> dan <code>password</code> dari <code>User</code> seperti berikut
+    </p>
+    <pre>
+    <code class="language-typescript">export interface Credential extends Pick&lt;User, 'email' | 'password'&gt; {}</code>
+    </pre>
+    <p>
+    maka kita bisa buat object <code>credential</code> dengan interface <code>Credential</code> yang hanya memiliki properti <code>email</code> dan <code>password</code>
+    </p>
+    <pre>
+    <code class="language-typescript">const credential: Credential = {
+  email: 'abdul@email.com',
+  password: 'Qwerty123',
+};</code>
+    </pre>
+    <b><li>Omit</li></b>
+    <p>
+    utility ini kebalikannya dari <code>Pick</code>, dimana list properti di parameter kedua adalah properti yang dihilangkan dari interface, misal kita mau ambil semua properti dari interface <code>User</code> kecuali <code>password</code>, kalau kita gunakan <code>Pick</code> juga bisa, tapi list properti yang ada di parameter kedua akan panjang, agar lebih singkat kita bisa gunakan <code>Omit</code> seperti berikut
+    </p>
+    <pre>
+    <code class="language-typescript">export interface UserProfile extends Omit&lt;User, 'password'&gt; {}</code>
+    </pre>
+    <p>
+    dengan begitu, interface <code>UserProfile</code> tidak lagi memiliki properti <code>password</code> karena mungkin memang <code>password</code> tidak ditampilkan di halaman profile, jika kita menambahkan properti <code>password</code> maka akan error seperti berikut
+    </p>
+    <img src="/blog/kenalan-sama-required-partial-pick-dan-omit-2.png" class="img-lg" title="error typescript Omit" />
+    </ol>
+    <h3>Kesimpulan</h3>
+    <p>
+    dari utility-utility di atas kita masih dapat mengkreasikannya dengan menggabungkannya satu sama lain menyesuaikan kebutuh type di project masing-masing, jadi lebih efisien lagi dalam penulisan type di kodingan kita. 
+    <p>
+    penggunaannya sangat direkomendasikan dibanding menulis semua interface satu per satu, selain <b>lebih singkat</b>, kita juga jadi <b>lebih mudah ketika ada perubahan</b> serta kodingan kita menjadi <b>lebih konsisten</b> sehingga lebih mudah dipahami oleh developer lain ketika join ke dalam project yang sedang kita kerjakan atau <b>dibaca kembali</b> oleh kita di kemudian hari.
+    </p>
+    <p>
+    itu aja buat kali ini, masih banyak utility-utility lainnya yang dapat mepermudah kita, mungkin kalau ada waktu bisa kita bahas next time.
+    </p>
+    <br>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['typescript', 'required', 'partial', 'pick', 'omit'],
+    publishedAt:
+      ENV !== 'production'
+        ? new Date('2024-06-18 20:00:00+07:00')
+        : new Date('2024-06-19 10:00:00+07:00'),
+    createdAt: new Date('2024-06-18 21:48:46+07:00'),
+    updatedAt: new Date('2024-06-18 21:48:46+07:00'),
+  },
+  {
     id: '58c93c2d-edf5-4728-b229-fa38af396251',
     title: 'Bahas Pointers',
     slug: 'bahas-pointers',
