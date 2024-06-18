@@ -69,15 +69,17 @@ export default () => {
                 />
               </div>
             </div>
-            <p
-              className="text-center text-secondary mt-3 mb-0"
-              dangerouslySetInnerHTML={{
-                __html: t('showing-result', {
-                  totalData: portfolios.length,
-                  totalAllData,
-                }),
-              }}
-            ></p>
+            {totalAllData > 0 && (
+              <p
+                className="text-center text-secondary mt-3 mb-0"
+                dangerouslySetInnerHTML={{
+                  __html: t('showing-result', {
+                    totalData: portfolios.length,
+                    totalAllData,
+                  }),
+                }}
+              />
+            )}
           </div>
         </div>
         <div className="row porfolios mb-lg-5 mb-3">
@@ -94,15 +96,17 @@ export default () => {
             <Empty />
           )}
         </div>
-        <Pagination
-          position="center"
-          activePage={page}
-          setPage={({ page }) => {
-            setPage(page);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          totalPage={Math.ceil(totalAllData / limit)}
-        />
+        {totalAllData > 0 && (
+          <Pagination
+            position="center"
+            activePage={page}
+            setPage={({ page }) => {
+              setPage(page);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            totalPage={Math.ceil(totalAllData / limit)}
+          />
+        )}
       </div>
     </div>
   );

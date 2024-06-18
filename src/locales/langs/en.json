@@ -47,5 +47,8 @@
   "support": "support",
   "disclaimer": "disclaimer",
   "disclaimer-desc": "Blogs that were created a lot were inspired by other blogs on the internet, thank you very much if you want to support this blog 🙏🏽",
-  "share": "share"
+  "share": "share",
+  "empty-data": "empty data",
+  "empty-data-message": "sorry, there is no data found",
+  "link-copied": "link copied"
 }

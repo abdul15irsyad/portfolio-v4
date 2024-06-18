@@ -3,16 +3,18 @@
 import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
 import { capitalizeEachWord } from '@/utils/change-case';
 import { useTranslation } from 'react-i18next';
+import dayjs from 'dayjs';
 
 export default () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const rootPath = `/${usePathname().split('/')[1]}`;
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
@@ -25,6 +27,15 @@ export default () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleChangeLanguage = useCallback(
+    (newLanguage: string) => {
+      i18n.changeLanguage(newLanguage);
+      dayjs.locale(newLanguage);
+      setShow(false);
+    },
+    [i18n.language],
+  );
 
   return (
     <Navbar
@@ -46,8 +57,17 @@ export default () => {
             <strong className="text-primary">IRSYAD</strong>&nbsp;ABDUL
           </Navbar.Brand>
         </Link>
-        <Navbar.Toggle />
-        <Navbar.Offcanvas id="navbar-offcanvas" placement="end">
+        <Navbar.Toggle
+          className={!show ? 'collapsed' : ''}
+          onClick={() => setShow(!show)}
+        />
+        <Navbar.Offcanvas
+          show={show}
+          id="navbar-offcanvas"
+          onHide={() => setShow(false)}
+          style={{ border: 'none' }}
+          placement="end"
+        >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title></Offcanvas.Title>
           </Offcanvas.Header>
@@ -60,6 +80,7 @@ export default () => {
                   target={newTab ? '_blank' : '_self'}
                   as={Link}
                   active={rootPath === href}
+                  onClick={() => setShow(false)}
                   // as={
                   //   !['/#programming', '/#experience'].find(
                   //     (item) => item === href,
@@ -81,6 +102,13 @@ export default () => {
                   )}
                 </Nav.Link>
               ))}
+              <Nav.Link
+                onClick={() =>
+                  handleChangeLanguage(i18n.language === 'en' ? 'id' : 'en')
+                }
+              >
+                {i18n.language === 'en' ? 'ID' : 'EN'}
+              </Nav.Link>
             </Nav>
             <Nav className="navbar-icon-menu">
               {navbarIconMenus.map(({ href, label, logo, newTab }, index) => (
