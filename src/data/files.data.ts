@@ -3,6 +3,15 @@ import { File } from '@/types/file.type';
 
 export const files: File[] = [
   {
+    id: '799ee782-faef-4ac4-a4af-2d2a0870b98e',
+    createdAt: new Date('2024-06-18 21:38:46+07:00'),
+    updatedAt: new Date('2024-06-18 21:38:46+07:00'),
+    path: 'blog',
+    fileName: 'kenalan-sama-required-partial-pick-dan-omit.jpg',
+    originalFileName: 'kenalan-sama-required-partial-pick-dan-omit.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: 'f1fe4ba8-5eed-4f3a-8236-00716ddc1e0c',
     createdAt: new Date('2024-04-17 21:45:46+07:00'),
     updatedAt: new Date('2024-04-17 21:45:46+07:00'),
