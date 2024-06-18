@@ -1,18 +1,24 @@
 import { workExperiences } from '@/data/work-experiences.data';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Experience = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="experience section" id="experience">
       <div className="container">
         <h2 className="title text-center">
-          <strong>Work Experience</strong>
+          <strong>{capitalizeEachWord(t('work-experience'))}</strong>
         </h2>
         <hr />
         {workExperiences.map(
-          ({ position, startDate, endDate, company, desc }, index) => {
+          (
+            { position, startDate, endDate, company, desc, translates },
+            index,
+          ) => {
             const start = {
               short: dayjs(startDate).format('MMM YYYY'),
               long: dayjs(startDate).format('MMMM YYYY'),
@@ -22,31 +28,36 @@ const Experience = () => {
                   short: dayjs(endDate).format('MMM YYYY'),
                   long: dayjs(endDate).format('MMMM YYYY'),
                 }
-              : { short: 'Skrg', long: 'Sekarang' };
+              : {
+                  short: capitalize(t('present-short')),
+                  long: capitalize(t('present')),
+                };
 
             endDate = endDate ?? new Date();
             const monthDiff = dayjs(endDate).diff(startDate, 'months');
             const workDuration =
               monthDiff / 12 > 1
-                ? `${Math.floor(monthDiff / 12)} tahun${
+                ? `${Math.floor(monthDiff / 12)} ${t('year')}${
                     Math.floor(monthDiff % 12) > 0
-                      ? ` ${Math.floor(monthDiff % 12)} bulan`
+                      ? ` ${Math.floor(monthDiff % 12)} ${t('month')}`
                       : ''
                   }`
-                : `${monthDiff} bulan`;
+                : `${monthDiff} ${t('month')}`;
             return (
               <div key={index} className="row" data-aos="fade-up">
                 <div className="col-lg-5 col-12">
                   <div className="d-flex justify-content-lg-end">
                     <div className="left">
                       <div className="position">{position}</div>
-                      <div className="timespan-n-company">
+                      <div className="timespan-n-company justify-content-lg-end">
                         {/* <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span> */}
                         <span className="timespan">{`${start.short} - ${end.short}`}</span>
                         <span className="company">{company.name}</span>
                       </div>
                       {monthDiff > 0 && (
-                        <span className="work-duration">{workDuration}</span>
+                        <div className="d-inline-block work-duration mt-1">
+                          {workDuration}
+                        </div>
                       )}
                     </div>
                     <div className="right align-self-center">
@@ -61,7 +72,10 @@ const Experience = () => {
                   </div>
                 </div>
                 <div className="col-lg-7 col-12">
-                  <p>{desc}</p>
+                  <p>
+                    {translates?.find(({ lang }) => lang === i18n.language)
+                      ?.desc ?? desc}
+                  </p>
                 </div>
               </div>
             );

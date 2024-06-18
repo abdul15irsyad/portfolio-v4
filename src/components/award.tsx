@@ -1,15 +1,18 @@
 import { awards } from '@/data/awards.data';
+import { capitalizeEachWord } from '@/utils/change-case';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Award = () => {
+  const { t } = useTranslation();
   return (
     <div className="award section" id="award">
       <div className="container">
         <div className="row">
           <div className="col-md-4">
             <h2 className="title">
-              <strong>Personal Award</strong>
+              <strong>{capitalizeEachWord(t('award'))}</strong>
             </h2>
             <hr />
           </div>
@@ -31,7 +34,9 @@ const Award = () => {
                           className="btn btn-danger"
                         >
                           <i className="bi bi-filetype-pdf me-2"></i>
-                          Certificate
+                          {capitalizeEachWord(
+                            t('see-item', { item: t('certificate') }),
+                          )}
                         </Link>
                       )}
                     </div>

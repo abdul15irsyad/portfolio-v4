@@ -8,4 +8,5 @@ export interface WorkExperience {
     logo: string;
   };
   desc?: string;
+  translates?: { lang: string; desc: string }[];
 }

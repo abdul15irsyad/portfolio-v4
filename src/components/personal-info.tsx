@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const PersonalInfo = () => {
+  const { t } = useTranslation();
   return (
     <div className="personal-info section" id="personal-info">
       <div className="container" data-aos="fade-up">
@@ -15,13 +17,7 @@ const PersonalInfo = () => {
             />
           </div>
           <div className="col-md-8 col-12 align-self-center">
-            <p>
-              Saya seorang <strong>Web Developer</strong> dengan pengalaman 3+
-              tahun, dimana saya memiliki prinsip{' '}
-              <strong>"keep improving"</strong> karena saya merasa dalam dunia
-              pengembangan web/aplikasi kita perlu terus menerus mempelajari
-              hal-hal baru yang relevan.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t('personal-info') }}></p>
           </div>
         </div>
       </div>
