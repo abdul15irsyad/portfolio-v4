@@ -9,20 +9,42 @@ export const portfolios: Portfolio[] = [
     href: 'https://faselbase.com/',
     publishedAt: '2024-02-10',
     type: 'Fullstack',
-    desc: `
-      <p>
-      Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
-      </p>
-    `,
     challenges: [
       {
-        desc: 'Implementasi fitur rate limit terhadap form yang dapat diakses oleh publik seperti form review dan form kontak kami',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi fitur rate limit terhadap form yang dapat diakses oleh publik seperti form review dan form kontak kami',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of the rate limit feature to the form that can be accessed by the public such as the review form and contact us form',
+          },
+        ],
       },
       {
-        desc: 'Pemberian rating/nilai kepada fasilitator berdasarkan review dari pengguna yang sudah diapprove',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Pemberian rating/nilai kepada fasilitator berdasarkan review dari pengguna yang sudah diapprove',
+          },
+          {
+            lang: 'en',
+            desc: 'Providing ratings/values to the facilitator based on a review of users who have been approved',
+          },
+        ],
       },
       {
-        desc: 'Aggregasi dari perhitungan rating/nilai yang ada untuk perangkingan di home page',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Aggregasi dari perhitungan rating/nilai yang ada untuk perangkingan di home page',
+          },
+          {
+            lang: 'en',
+            desc: 'Aggregation from the Rating/Value Calculation for Ranking on the Home Page',
+          },
+        ],
       },
     ],
     stacks: [
@@ -35,23 +57,42 @@ export const portfolios: Portfolio[] = [
       alt: `Fasel Base ${index + 1}`,
     })),
     teams: [],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Fasel Base adalah sebuah wadah dimana para Fasilitator Experiential Learning (Fasel) dapat mengembangkan kualitas memfasilitasi pelatihan "belajar dari pengalaman" berbasis tantangan, petualangan, tourism, atau digital agar lebih berkompeten, adapun peran saya dalam project ini adalah sebagai <strong>Fullstack Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Fasel Base is a forum where the Facilitators of Experiential Learning (Fasel) can develop the quality of facilitating training "Learning from Experience" based on challenges, adventures, tourism, or digital to be more competent, as for my role in this project is as <strong>Fullstack Developer</Strong> both in the landing page (website) and dashboard (web application).
+          </p>
+        `,
+      },
+    ],
   },
   {
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
     publishedAt: '2023-08-10',
     type: 'Backend',
-    desc: `
-      <p>
-        Gerakan Seniman Masuk Sekolah (GSMS) 2023 adalah program seniman memberikan
-        pembelajaran kesenian pada kegiatan ekstrakurikuler di Sekolah, adapun peran saya
-        dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page
-        (website) maupun Dashboard (aplikasi web).
-      </p>
-    `,
     challenges: [
       {
-        desc: 'Implementasi caching untuk data-data yang sering diakses',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi caching untuk data-data yang sering diakses',
+          },
+          {
+            lang: 'en',
+            desc: 'Caching Implementation for data that is often accessed',
+          },
+        ],
       },
     ],
     stacks: [
@@ -105,23 +146,42 @@ export const portfolios: Portfolio[] = [
         role: 'UI/UX Designer',
       },
     ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Gerakan Seniman Masuk Sekolah (GSMS) 2023 adalah program dimana seniman memberikan pembelajaran kesenian pada kegiatan ekstrakurikuler di Sekolah, adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Gerakan Seniman Masuk Sekolah (GSMS) 2023 is a program where the artist teaching art in extracurricular activities in schools, as for my role in this project is as <strong>Backend Developer</strong> both in the landing page section (Website) and Dashboard (Web Application).
+          </p>
+        `,
+      },
+    ],
   },
   {
     title: 'PPKD Pemantaun & Evaluasi',
     href: 'https://monevppkd.kemdikbud.go.id',
     publishedAt: '2023-06-10',
     type: 'Backend',
-    desc: `
-      <p>
-        Website Pokok Pikiran Kebudayaan Daerah (PPKD) Dokumen merupakan aplikasi web
-        yang diperuntukkan kepada dinas daerah dalam penyusunan dokumen PPKD,
-        adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di
-        bagian Landing Page (website) maupun Dashboard (aplikasi web).
-      </p>
-    `,
     challenges: [
       {
-        desc: 'Aggregasi perhitungan nilai dari penginputan dokumen PPKD',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Aggregasi perhitungan nilai dari penginputan dokumen PPKD',
+          },
+          {
+            lang: 'en',
+            desc: 'Aggregation calculation of the value of the input of PPKD documents',
+          },
+        ],
       },
     ],
     stacks: [
@@ -169,6 +229,29 @@ export const portfolios: Portfolio[] = [
         userId: 'a465903e-683a-4a40-8d13-f1543aed6625',
         role: 'UI/UX Designer',
       },
+      {
+        // acha
+        userId: '10b8004a-d98f-4b1f-9545-ea92e38e80cf',
+        role: 'Backend Developer',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Website Pokok Pikiran Kebudayaan Daerah (PPKD) Pemantauan & Evaluasi merupakan aplikasi web yang diperuntukkan kepada dinas daerah dalam pemantauan pembuatan dokumen PPKD oleh pemerintah pusat, adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Pokok Pikiran Kebudayaan Daerah (PPKD) Monitoring & Evaluation website is a web application that is intended for regional offices in monitoring PPKD documents by the central government, while my role in this project is as <strong> backend developer </strong> both in the landing page (website) and dashboard (web application).
+          </p>
+        `,
+      },
     ],
   },
   {
@@ -176,23 +259,42 @@ export const portfolios: Portfolio[] = [
     href: 'https://ppkd.kemdikbud.go.id',
     publishedAt: '2023-03-10',
     type: 'Backend',
-    desc: `
-      <p>
-        Website Pokok Pikiran Kebudayaan Daerah (PPKD) Dokumen merupakan aplikasi web
-        yang diperuntukkan kepada dinas daerah dalam penyusunan dokumen PPKD,
-        adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di
-        bagian Landing Page (website) maupun Dashboard (aplikasi web).
-      </p>
-    `,
     challenges: [
       {
-        desc: 'Membuat map web server untuk penampilan visual peta Indonesia',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Membuat map web server untuk penampilan visual peta Indonesia',
+          },
+          {
+            lang: 'en',
+            desc: 'Create a map web server for the visual appearance of the Indonesian map',
+          },
+        ],
       },
       {
-        desc: 'Penyusunan dokumen PPKD dengan bab yang memiliki beberapa sub bab',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Penyusunan dokumen PPKD dengan bab yang memiliki beberapa sub bab',
+          },
+          {
+            lang: 'en',
+            desc: 'Preparation of PPKD documents with chapters that have several sub-chapters',
+          },
+        ],
       },
       {
-        desc: 'Print dokumen dari inputan yang ada dengan format .docx',
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Print dokumen dari inputan yang ada dengan format <code>.docx</code>',
+          },
+          {
+            lang: 'en',
+            desc: 'Print documents from existing input in <code>.docx</code> format',
+          },
+        ],
       },
     ],
     stacks: [
@@ -244,20 +346,30 @@ export const portfolios: Portfolio[] = [
         role: 'UI/UX Designer',
       },
     ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+        <p>
+          Website Pokok Pikiran Kebudayaan Daerah (PPKD) Dokumen merupakan aplikasi web yang diperuntukkan kepada dinas daerah dalam penyusunan dokumen PPKD, adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+        </p>
+      `,
+      },
+      {
+        lang: 'en',
+        desc: `
+        <p>
+          Pokok Pikiran Kebudayaan Daerah (PPKD) Dokumen website is a web application that is intended for regional government in the preparation of PPKD documents, while my role in this project is as <strong>Backend Developer</strong> both in the landing page (website) and dashboard (web application).
+        </p>
+      `,
+      },
+    ],
   },
   {
     title: 'PUSDIKLAT Tenaga Teknis Pendidikan Dan Keagamaan',
     href: 'https://pusdiklatteknis.kemenag.go.id',
     publishedAt: '2022-10-10',
     type: 'Frontend',
-    desc: `
-      <p>
-        Saya ikut andil dalam pembuatan website PUSDIKLAT Tenaga Teknis Pendidikan Dan
-        Keagamaan, yakni website untuk informasi seputar Lembaga tersebut. Saya
-        mengerjakan bagian tampilan untuk website ini, dibuat menggunakan Laravel 7
-        dengan Database MySQL dan styling menggunakan bootstrap 4.
-      </p>
-    `,
     challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel' },
@@ -294,22 +406,33 @@ export const portfolios: Portfolio[] = [
         role: 'UI/UX Designer',
       },
     ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Saya ikut andil dalam pembuatan website PUSDIKLAT Tenaga Teknis Pendidikan Dan Keagamaan, yakni website untuk informasi seputar Lembaga tersebut. Saya mengerjakan bagian tampilan untuk website ini.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            I took part in making the website of the Education and Religious Technical Training Center, which is a website for information about the institution. I work on the display section for this website.
+          </p>
+        `,
+      },
+    ],
   },
   {
     title: 'Admin Panel Digital Andaf',
     href: null,
     publishedAt: '2022-01-10',
     type: 'Fullstack',
-    desc: `
-      <p>
-        Saya ikut andil dalam pembuatan project Digital Andaf, yakni web app untuk tracking
-        pengerjaan suatu project di kantor. Digital Andaf ini dibuat menggunakan Laravel 7
-        dengan Database MySQL, untuk styling menggunakan Bootstrap 4.
-      </p>
-    `,
     challenges: [],
     stacks: [
-      { icon: '/programming/laravel.png', label: 'Laravel' },
+      { icon: '/programming/laravel.png', label: 'Laravel 7' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
       { icon: '/programming/mysql.png', label: 'MySQL' },
     ],
@@ -330,21 +453,44 @@ export const portfolios: Portfolio[] = [
         role: 'Fullstack Dev',
       },
     ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Saya ikut andil dalam pembuatan project Digital Andaf, yakni web app untuk tracking pengerjaan suatu project di kantor.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            I took part in making the Digital Andaf project, which is a web app for tracking the work on a project in the office.
+          </p>
+        `,
+      },
+    ],
   },
   {
     title: 'Admin Panel SIPERDIK Aceh Tengah',
     href: null,
     publishedAt: '2021-08-10',
     type: 'Fullstack',
-    desc: `
-      <p>
-        Pada project tersebut saya membuat admin panel untuk website SIPERDIK
-        Aceh Tengah, dibuat menggunakan framework CodeIniter 4 dengan Database
-        MySQL, untuk styling saya menggunakan Bootstrap 4, namun project
-        tersebut belum dimigrasi ke domain yang diinginkan.
-      </p>
-    `,
-    challenges: [],
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Sinkronisasi data sekolah, siswa, guru, dll. dengan data yang ada di DAPODIK <a href="https://dapo.kemdikbud.go.id/" target="_blank">https://dapo.kemdikbud.go.id</a> untuk daerah Aceh Tengah',
+          },
+          {
+            lang: 'en',
+            desc: 'Synchronization of school data, students, teachers, etc. with the data in Dapodik <a href="https://dapo.kemdikbud.go.id/" target="_blank">https://dapo.kemdikbud.go.id</a> for Central Aceh region',
+          },
+        ],
+      },
+    ],
     stacks: [
       { icon: '/programming/codeigniter.png', label: 'Codeigniter 4' },
       { icon: '/programming/bootstrap.png', label: 'Bootstrap 4' },
@@ -359,6 +505,24 @@ export const portfolios: Portfolio[] = [
         alt: 'Siperdik 2',
       },
     ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+        <p>
+          Pada project tersebut saya membuat admin panel untuk website SIPERDIK Aceh Tengah, dibuat menggunakan framework CodeIniter 4 dengan Database MySQL, untuk styling saya menggunakan Bootstrap 4, namun project tersebut belum dimigrasi ke domain yang diinginkan.
+        </p>
+      `,
+      },
+      {
+        lang: 'en',
+        desc: `
+        <p>
+          In this project I made an admin panel for the Central Aceh SIPERDIK website, made using the Codeiniter 4 framework with a MySQL database, for my styling using Bootstrap 4, but the project has not been migrated to the desired domain.
+        </p>
+      `,
+      },
+    ],
   },
   {
     title: 'Sop Buntut Ibu Samino',
@@ -367,7 +531,7 @@ export const portfolios: Portfolio[] = [
     type: 'Wordpress',
     desc: `
       <p>
-        Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah. Website ini dibuat menggunakan Wordpress
+        Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah.
       </p>
     `,
     challenges: [],
@@ -390,7 +554,7 @@ export const portfolios: Portfolio[] = [
     type: 'Wordpress',
     desc: `
       <p>
-        Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra. Website ini dibuat menggunakan Wordpress
+        Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra.
       </p>
     `,
     challenges: [],
@@ -413,7 +577,7 @@ export const portfolios: Portfolio[] = [
     type: 'Wordpress',
     desc: `
       <p>
-        Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris. Website ini dibuat menggunakan Wordpress
+        Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris.
       </p>
     `,
     challenges: [],
@@ -440,7 +604,7 @@ export const portfolios: Portfolio[] = [
     type: 'Wordpress',
     desc: `
       <p>
-        Company profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia. Website ini dibuat menggunakan Wordpress
+        Company profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia.
       </p>
     `,
     challenges: [],
@@ -463,7 +627,7 @@ export const portfolios: Portfolio[] = [
     type: 'Wordpress',
     desc: `
       <p>
-        <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya. Website ini dibuat menggunakan Wordpress
+        <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya.
       </p>
     `,
     challenges: [],
@@ -488,11 +652,6 @@ export const portfolios: Portfolio[] = [
     href: 'https://pci-tech.co.id',
     publishedAt: '2022-09-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        <b>"PT. Prima Citra Inovindo"</b> Perusahaan Distributor Alat Kesehatan Dalam Negeri (AKD) produk yang di produksi oleh pabrikan.Website ini dibuat menggunakan Wordpress
-      </p>
-    `,
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
@@ -503,6 +662,24 @@ export const portfolios: Portfolio[] = [
       {
         src: '/portfolio/pci-2.jpg',
         alt: 'Prima Citra Inovindo 2',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            <b>"PT. Prima Citra Inovindo"</b> Perusahaan Distributor Alat Kesehatan Dalam Negeri (AKD) produk  yang di produksi oleh pabrikan.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            <b>"PT. Prima Citra Inovindo"</b> Domestic Medical Device Distributor Company (AKD) Products produced by the manufacturer.
+          </p>
+        `,
       },
     ],
   },

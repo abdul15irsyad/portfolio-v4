@@ -8,6 +8,7 @@ import LoadingBlogs from './loading-blogs';
 import Empty from './empty';
 import BlogItem from './blog-item';
 import Pagination from './pagination';
+import { useTranslation } from 'react-i18next';
 // import { blogDatas } from '@/data/blogs.data';
 
 type Prop = {
@@ -16,6 +17,7 @@ type Prop = {
 };
 
 export default ({ limit = 5, queryString }: Prop) => {
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
   const tag = searchParams.get('tag');
@@ -71,10 +73,15 @@ export default ({ limit = 5, queryString }: Prop) => {
     <>
       {blogs?.data.map((blog) => <BlogItem key={blog.id} blog={blog} />)}
       <div className="blogs-meta">
-        <div className="meta-text">
-          menampilkan <b>{blogs?.data.length}</b> dari{' '}
-          <b>{blogs?.meta.totalAllData}</b> blog
-        </div>
+        <div
+          className="meta-text"
+          dangerouslySetInnerHTML={{
+            __html: t('showing-result', {
+              totalData: blogs?.data.length,
+              totalAllData: blogs?.meta.totalAllData,
+            }),
+          }}
+        ></div>
         <Pagination
           setPage={setPage}
           activePage={activePage}

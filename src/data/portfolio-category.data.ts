@@ -1,5 +1,5 @@
 export const portfolioCategories = [
-  { value: 'all', label: 'All Type', selected: true },
+  { value: 'all', label: 'all-type', selected: true },
   {
     value: 'fullstack',
     label: 'Fullstack',
@@ -15,7 +15,7 @@ export const portfolioCategories = [
 ];
 
 export const portfolioYears = [
-  { value: 'all', label: 'All Year', selected: true },
+  { value: 'all', label: 'all-year', selected: true },
   { value: '2021', label: '2021', selected: false },
   { value: '2022', label: '2022', selected: false },
   { value: '2023', label: '2023', selected: false },

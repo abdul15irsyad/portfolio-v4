@@ -3,12 +3,14 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { InputGroup, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 type Prop = {
   queryString: (name: string, value: string) => string;
 };
 
 const SearchBar = ({ queryString }: Prop) => {
+  const { t } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState(searchParams.get('search'));
@@ -33,7 +35,7 @@ const SearchBar = ({ queryString }: Prop) => {
         </InputGroup.Text>
         <Form.Control
           name="search"
-          placeholder="cari judul blog . . ."
+          placeholder={`${t('search-blog-title')}...`}
           value={search ?? ''}
           onChange={handleChange}
         />

@@ -77,6 +77,11 @@
   color: rgba(var(--bs-primary-rgb), 1);
 }
 
+.portfolio .detail .challenges .challenge a {
+  color: default;
+  text-decoration: underline;
+}
+
 .portfolio .detail .stacks-section {
   margin-bottom: 1rem;
 }
@@ -92,7 +97,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  background-color: rgba(var(--bs-light-rgb), 1);
+  /* background-color: rgba(var(--bs-light-rgb), 1); */
+  background-color: white;
   border: 1px solid rgba(var(--bs-dark-rgb), 0.1);
   color: rgba(var(--bs-dark-rgb), 1);
   padding: 0.25rem 0.5rem;

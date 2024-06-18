@@ -1,12 +1,15 @@
-import React from 'react';
+import { capitalizeEachWord } from '@/utils/change-case';
+import React, { ChangeEventHandler } from 'react';
 import { Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   options: { value: string; label: string; selected: boolean }[];
-  handleChange?: (e) => void;
+  handleChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
 const FormSelect = ({ options, handleChange }: Props) => {
+  const { t } = useTranslation();
   return (
     <Form.Select
       aria-label="Default select example"
@@ -15,7 +18,7 @@ const FormSelect = ({ options, handleChange }: Props) => {
     >
       {options.map(({ value, label }, index) => (
         <option key={index} value={value}>
-          {label}
+          {capitalizeEachWord(t(label))}
         </option>
       ))}
     </Form.Select>

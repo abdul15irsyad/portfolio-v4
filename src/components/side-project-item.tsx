@@ -7,18 +7,33 @@ import React, { useEffect } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';
+import { useTranslation } from 'react-i18next';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
-const SideProjectItem = ({ img, title, desc, href, stacks }: SideProject) => {
+const SideProjectItem = ({
+  img,
+  title,
+  desc,
+  href,
+  stacks,
+  translates,
+}: SideProject) => {
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     AOS.init(aosInitConfig);
   });
+  title = capitalizeEachWord(
+    translates?.find(({ lang }) => lang === i18n.language)?.title ?? title!,
+  );
+  desc = translates?.find(({ lang }) => lang === i18n.language)?.desc ?? desc!;
   return (
     <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
       {href ? (
         <div className="side-project-img-wrapper">
           <div className="overlay">
             <Link href={href} target="_blank" className="btn btn-sm btn-open">
-              Lihat <i className="bi bi-box-arrow-up-right ms-2"></i>
+              {capitalize(t('see'))}{' '}
+              <i className="bi bi-box-arrow-up-right ms-2"></i>
             </Link>
           </div>
           <Image

@@ -10,8 +10,11 @@ import { ApiResponseAll } from '@/types/api-response.type';
 import Blogs from '@/components/blogs';
 import { ENV } from '@/configs/app.config';
 import Donate from '@/components/donate';
+import { useTranslation } from 'react-i18next';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export default () => {
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
@@ -42,11 +45,8 @@ export default () => {
         <div className="container">
           <div className="row header">
             <div className="col">
-              <h1 className="title">Blog</h1>
-              <p className="sub-title">
-                tempat buat share/bahas tipis-tipis mengenai coding &
-                pemrogramman
-              </p>
+              <h1 className="title">{capitalize(t('blog'))}</h1>
+              <p className="sub-title">{t('blog-desc')}</p>
               <hr />
               <SearchBar queryString={queryString} />
             </div>
@@ -57,8 +57,9 @@ export default () => {
                 <div className="blog-filter">
                   <div className="blog-filter-text">
                     <h4 className="blog-filter-heading">
-                      Result for {search && <span>"{search}"</span>}{' '}
-                      {search && tag && 'and'} {tag && <span>#{tag}</span>}
+                      {capitalize(t('result-for'))}{' '}
+                      {search && <span>"{search}"</span>}{' '}
+                      {search && tag && t('and')} {tag && <span>#{tag}</span>}
                     </h4>
                   </div>
                   <div className="blog-filter-reset">
@@ -69,7 +70,7 @@ export default () => {
                       title="clear filter"
                     >
                       <i className="bi bi-trash me-1"></i>
-                      <span>Clear Filter</span>
+                      <span>{capitalizeEachWord(t('clear-filter'))}</span>
                     </Link>
                   </div>
                 </div>
@@ -94,7 +95,7 @@ export default () => {
                 </div>
                 <h5 className="all-tags-title box-container-title">
                   <i className="bi bi-tags"></i>
-                  <span>Tag</span>
+                  <span>{capitalize(t('tags'))}</span>
                 </h5>
                 {isLoadingAllTags ? (
                   <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
@@ -114,7 +115,9 @@ export default () => {
                     </div>
                   </>
                 ) : (
-                  <div className="text-center text-secondary">No Tag</div>
+                  <div className="text-center text-secondary">
+                    {capitalizeEachWord(t('no-tag'))}
+                  </div>
                 )}
               </div>
               <Donate />

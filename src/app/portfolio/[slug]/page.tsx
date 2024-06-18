@@ -13,13 +13,17 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) return commonMetaData;
   const title = `${portfolio?.title} (${portfolio.year}) - ${APP_NAME}`;
-  const description = `${sanitize(portfolio.desc, {
-    ...defaultSanitizeOptions,
-  })
-    .split(' ')
-    .slice(0, 20)
-    .join(' ')
-    .trim()}...`;
+  const porfolioDesc = portfolio.translates?.find(({ lang }) => lang === 'id')
+    ?.desc;
+  const description = porfolioDesc
+    ? `${sanitize(porfolioDesc ?? '', {
+        ...defaultSanitizeOptions,
+      })
+        .split(' ')
+        .slice(0, 20)
+        .join(' ')
+        .trim()}...`
+    : undefined;
   const metaData = {
     title: title,
     images: [portfolio?.images[0]!.src],

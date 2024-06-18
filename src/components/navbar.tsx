@@ -6,8 +6,11 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
+import { capitalizeEachWord } from '@/utils/change-case';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
+  const { t } = useTranslation();
   const rootPath = `/${usePathname().split('/')[1]}`;
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   useEffect(() => {
@@ -74,7 +77,7 @@ export default () => {
                       height={24}
                     />
                   ) : (
-                    label
+                    capitalizeEachWord(t(label))
                   )}
                 </Nav.Link>
               ))}
