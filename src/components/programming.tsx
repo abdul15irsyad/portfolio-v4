@@ -1,14 +1,17 @@
 import { programmingSkills } from '@/data/programming-skills.data';
+import { capitalizeEachWord } from '@/utils/change-case';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Programming = () => {
+  const { t } = useTranslation();
   return (
     <div className="programming section" id="programming">
       <div className="container">
         <h2 className="title text-center">
-          <strong>Skills</strong>
+          <strong>{capitalizeEachWord(t('skills'))}</strong>
         </h2>
         <hr />
         <div className="row justify-content-start">
@@ -19,7 +22,9 @@ const Programming = () => {
               data-aos="fade-up"
             >
               <div className="category">
-                <div className="category-title">{title}</div>
+                <div className="category-title">
+                  {capitalizeEachWord(t(title))}
+                </div>
                 <ul className="category-items">
                   {list.map(({ name, logo, level, href }, index) =>
                     href ? (

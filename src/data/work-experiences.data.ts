@@ -11,7 +11,17 @@ export const workExperiences: WorkExperience[] = [
       name: 'BRI',
       logo: '/experience/bri.jpeg',
     },
-    desc: 'Berposisi sebagai Backend Developer',
+    // desc: 'Berposisi sebagai Backend Developer',
+    translates: [
+      {
+        lang: 'id',
+        desc: 'Berposisi sebagai Backend Developer',
+      },
+      {
+        lang: 'en',
+        desc: 'Positioned as a Backend Developer',
+      },
+    ],
   },
   {
     position: 'Backend Developer',
@@ -22,7 +32,16 @@ export const workExperiences: WorkExperience[] = [
       name: 'Optimap',
       logo: '/experience/optimap.png',
     },
-    desc: 'Berposisi sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
+    translates: [
+      {
+        lang: 'id',
+        desc: 'Berposisi sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
+      },
+      {
+        lang: 'en',
+        desc: 'Positioned as a Backend Developer, my responsibility is making an API (using REST & GraphQL) using the Typescript programming language with NestJS framework and the database that we used is PostgreSQL and creating an entity relationships diagram (ERD) in a project',
+      },
+    ],
   },
   {
     position: 'Web Developer',
@@ -33,10 +52,19 @@ export const workExperiences: WorkExperience[] = [
       name: 'Andaf Corp',
       logo: '/experience/andaf.png',
     },
-    desc: 'Berposisi sebagai Web Developer, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
+    translates: [
+      {
+        lang: 'id',
+        desc: 'Berposisi sebagai Web Developer, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
+      },
+      {
+        lang: 'en',
+        desc: 'Positioned as a Web Developer, I work on a website for clients both using WordPress (CMS) or using frameworks such as Laravel, Codeigniter, etc.',
+      },
+    ],
   },
   {
-    position: 'Internship',
+    position: 'Internship - Web Developer',
     timespan: 'Feb 2020 - Mar 2020',
     startDate: dayjs(`2020-02-01`).toDate(),
     endDate: dayjs(`2020-03-01`).toDate(),
@@ -44,6 +72,15 @@ export const workExperiences: WorkExperience[] = [
       name: 'Lingkar 9',
       logo: '/experience/lingkar-9.png',
     },
-    desc: 'Untuk menambah pengalaman saya memutuskan untuk magang di perusahaan ini, saya diajarkan berbagai macam hal terkait dunia kerja dan dunia pemrograman',
+    translates: [
+      {
+        lang: 'id',
+        desc: 'Untuk menambah pengalaman saya memutuskan untuk magang di perusahaan ini, saya diajarkan berbagai macam hal terkait dunia kerja dan dunia pemrograman',
+      },
+      {
+        lang: 'en',
+        desc: 'For get an experience I decided to do an internship at this company, I was taught various things related to the world of work and the world of programming',
+      },
+    ],
   },
 ];

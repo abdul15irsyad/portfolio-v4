@@ -234,6 +234,7 @@ ul li {
   border-radius: 0.75rem;
   padding: 2rem;
   text-align: center;
+  transition: 0.3s;
 }
 
 .hero .features .feature:hover {

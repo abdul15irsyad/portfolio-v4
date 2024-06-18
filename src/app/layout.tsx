@@ -7,10 +7,10 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import MyNavbar from '@/components/navbar';
 import Footer from '@/components/footer';
-import AnalyticsProvider from '@/components/analytics';
 import ReactQuery from '@/components/react-query';
 import 'aos/dist/aos.css';
 import ScrollToTop from '@/components/scroll-to-top';
+import { AllProvider } from '@/components/provider';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',
@@ -62,11 +62,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={plusJakartaSans.className}>
         <ReactQuery>
-          <AnalyticsProvider>
+          <AllProvider>
             <MyNavbar />
             {children}
             <Footer />
-          </AnalyticsProvider>
+          </AllProvider>
         </ReactQuery>
         <ScrollToTop />
       </body>

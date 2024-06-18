@@ -1,10 +1,15 @@
+'use client';
+
 import { contacts } from '@/data/contacts.data';
 import Link from 'next/link';
 import React from 'react';
 import Copyright from './copyright';
 import QuoteOfTheDay from './quote-of-the-day';
+import { useTranslation } from 'react-i18next';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const footerContacts = contacts.filter(({ icon }) =>
     ['whatsapp', 'telegram', 'envelope'].includes(icon),
   );
@@ -19,7 +24,7 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="contacts col-lg-4 col-md-6 col-12">
-                <h5>Kontak</h5>
+                <h5>{capitalize(t('contact'))}</h5>
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => {
                     return href ? (
@@ -39,7 +44,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="social-medias col-lg-4 col-md-6 col-12">
-                <h5>Ikuti Saya</h5>
+                <h5>{capitalizeEachWord(t('follow-me'))}</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => {
                     return href ? (
@@ -57,8 +62,8 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="address col-md-4 col-12">
-                <h5>Alamat</h5>
-                <p>Pamulang, South Tangerang City, Banten 15417</p>
+                <h5>{capitalize(t('address'))}</h5>
+                <p>{t('my-address')}</p>
               </div>
             </div>
           </div>

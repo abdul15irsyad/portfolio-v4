@@ -1,0 +1,29 @@
+.text-animation {
+  user-select: none;
+  display: inline-flex;
+}
+
+.text-animation .split-char {
+  font-weight: 200;
+  transition: font-weight 0.3s ease;
+}
+
+.text-animation .split-char:hover {
+  font-weight: 900;
+}
+
+/* // right side */
+.text-animation .split-char:hover + .split-char {
+  font-weight: 700;
+}
+.text-animation .split-char:hover + .split-char + .split-char {
+  font-weight: 400;
+}
+
+/* // left side */
+.text-animation .split-char:has(+ .split-char:hover) {
+  font-weight: 700;
+}
+.text-animation .split-char:has(+ .split-char + .split-char:hover) {
+  font-weight: 400;
+}

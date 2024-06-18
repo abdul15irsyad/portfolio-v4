@@ -5,9 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Typed from 'typed.js';
 import { contacts } from '@/data/contacts.data';
+import { useTranslation } from 'react-i18next';
+import { TextAnimation } from './text-animation';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Hero = () => {
   const typedText = useRef(null);
+  const { t } = useTranslation();
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
@@ -23,7 +27,10 @@ const Hero = () => {
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
-    { icon: '/icons/puzzle.png', title: 'Problem Solve' },
+    {
+      icon: '/icons/puzzle.png',
+      title: capitalizeEachWord(t('problem-solve')),
+    },
   ];
   return (
     <div className="hero section mb-0 doodle-background" id="hero">
@@ -53,7 +60,14 @@ const Hero = () => {
                   );
                 })}
             </div>
-            <h1 className="text-jumbo">Hai, saya Irsyad Abdul</h1>
+            {/* <h1 className="text-jumbo">
+              {t('greeting', { name: 'Irsyad Abdul' })}
+            </h1> */}
+            <h1 className="text-jumbo">
+              <TextAnimation
+                text={capitalize(t('greeting', { name: 'Irsyad Abdul' }))}
+              />
+            </h1>
             <h4 className="mb-4 typed-text">
               <span ref={typedText}></span>
             </h4>
@@ -68,10 +82,10 @@ const Hero = () => {
             <Link
               href="/resume-irsyad-abdul.pdf"
               target="_blank"
-              className="btn btn-primary px-3"
+              className="btn btn-primary text-capitalize px-3"
             >
               <i className="bi bi-filetype-pdf me-2"></i>
-              See Resume
+              {t('see-item', { item: t('resume') })}
             </Link>
           </div>
           <div className="col-md-6 hero-image mb-3">

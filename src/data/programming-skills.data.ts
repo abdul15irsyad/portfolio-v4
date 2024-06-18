@@ -96,7 +96,7 @@ export const programmingSkills: ProgrammingSkill[] = [
     ],
   },
   {
-    title: 'Other',
+    title: 'other',
     list: [
       {
         name: 'PostgreSQL',

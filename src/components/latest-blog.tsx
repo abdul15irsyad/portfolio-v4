@@ -1,6 +1,7 @@
 'use client';
 
 import { Blog } from '@/types/blog.type';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 import { renderTimestamp } from '@/utils/date.util';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
@@ -8,8 +9,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Placeholder } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 export const LatestBlog = () => {
+  const { t } = useTranslation();
   const {
     data: latestBlog,
     isLoading,
@@ -25,12 +28,13 @@ export const LatestBlog = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-lg-6">
-            <h1 className="title">Blog Terbaru</h1>
+            <h1 className="title">{capitalizeEachWord(t('latest-blog'))}</h1>
             <p className="sub-title mb-4 mb-lg-5">
-              lihat blog terbaru seputar coding atau pemrograman
+              {capitalize(t('latest-blog-desc'))}
             </p>
             <Link href="/blog" className="btn btn-primary btn-show-all-page">
-              Lihat Semua Blog <i className="bi bi-chevron-right"></i>
+              {capitalizeEachWord(t('see-item', { item: t('all-blogs') }))}{' '}
+              <i className="bi bi-chevron-right"></i>
             </Link>
           </div>
           <div className="col-12 col-lg-6">
