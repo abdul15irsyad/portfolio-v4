@@ -1106,7 +1106,7 @@ ul li {
 
 .blog-sidebar .box-container .blog-detail-share-items {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
