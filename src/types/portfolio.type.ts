@@ -7,7 +7,7 @@ export interface Portfolio {
   year: number;
   publishedAt: string;
   type: string;
-  desc: string;
+  desc?: string;
   stacks: { icon: string; label: string }[];
   images: {
     src: string;
@@ -15,8 +15,10 @@ export interface Portfolio {
   }[];
   challenges?: Challenge[];
   teams?: Team[];
+  translates?: { lang: string; desc?: string }[];
 }
 
 export interface Challenge {
   desc?: string;
+  translates?: { lang: string; desc?: string }[];
 }

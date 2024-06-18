@@ -1,9 +1,11 @@
 'use client';
 
 import { BASE_URL } from '@/configs/app.config';
+import { capitalizeEachWord } from '@/utils/change-case';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const BlogShare = ({
   url,
@@ -14,6 +16,7 @@ const BlogShare = ({
   title?: string;
   tags?: string[];
 }) => {
+  const { t } = useTranslation();
   url = `${BASE_URL}${url}`;
   title = title ?? '';
   tags = tags ?? [];
@@ -34,44 +37,38 @@ const BlogShare = ({
       type: 'copy-link',
       href: '',
       icon: 'clipboard',
-      tooltip: 'copy to clipboard',
     },
     {
       type: 'social-media',
       href: `https://www.linkedin.com/shareArticle?url=${url}`,
       icon: 'linkedin',
-      tooltip: 'share to Linkedin',
     },
     {
       type: 'social-media',
       href: `whatsapp://send?text=${text}`,
       icon: 'whatsapp',
-      tooltip: 'share to Whatsapp',
     },
     {
       type: 'social-media',
       href: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       icon: 'facebook',
-      tooltip: 'share to Facebook',
     },
     {
       type: 'social-media',
       href: `https://twitter.com/intent/tweet?text=${text}`,
       icon: 'twitter-x',
-      tooltip: 'share to Twitter',
     },
     {
       type: 'social-media',
       href: `https://t.me/share/url?url=${text}`,
       icon: 'telegram',
-      tooltip: 'share to Telegram',
     },
   ];
   return links.map((link, index) => {
     return link.type === 'copy-link' ? (
       <OverlayTrigger
         key={index}
-        overlay={<Tooltip>Copied</Tooltip>}
+        overlay={<Tooltip>{capitalizeEachWord(t('link-copied'))}</Tooltip>}
         placement="bottom"
         show={copied}
       >

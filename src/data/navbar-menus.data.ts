@@ -1,12 +1,10 @@
 import { NavbarMenu } from '@/types/navbar-menu.type';
 
 export const navbarMenus: NavbarMenu[] = [
-  { label: 'Home', href: '/' },
-  // { label: 'Work Experience', href: '/#experience' },
-  // { label: 'Programming', href: '/#programming' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Side Project', href: '/side-project' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'home', href: '/' },
+  { label: 'portfolio', href: '/portfolio' },
+  { label: 'side-project', href: '/side-project' },
+  { label: 'blog', href: '/blog' },
 ];
 
 export const navbarIconMenus: NavbarMenu[] = [

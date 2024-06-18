@@ -7,10 +7,25 @@ import CustomCarousel from './custom-carousel';
 import Image from 'next/image';
 import styles from './portfolio-2-detail.module.css';
 import PortfolioTeam from './portfolio-team';
+import { useTranslation } from 'react-i18next';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
-  const { title, images, year, type, desc, href, stacks, challenges, teams } =
-    portfolio;
+  const { t, i18n } = useTranslation();
+  const {
+    title,
+    images,
+    year,
+    type,
+    href,
+    stacks,
+    challenges,
+    teams,
+    translates,
+  } = portfolio;
+  const desc =
+    translates?.find(({ lang }) => lang === i18n.language)?.desc ??
+    portfolio.desc!;
   return (
     <div className={`${styles.portfolio} row`}>
       <div className={`${styles.images} col-md-5 col-12`}>
@@ -26,18 +41,29 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
           ))}
         </div>
         <div className={`${styles.section} ${styles['desc-section']}`}>
-          <h5 className={styles['section-title']}>Description</h5>
+          <h5 className={styles['section-title']}>
+            {capitalize(t('description'))}
+          </h5>
           <div dangerouslySetInnerHTML={{ __html: desc }}></div>
         </div>
         {challenges && challenges?.length > 0 && (
           <div className={`${styles.section} ${styles['challenges-section']}`}>
-            <h5 className={styles['section-title']}>Challenge</h5>
+            <h5 className={styles['section-title']}>
+              {capitalize(t('challenge'))}
+            </h5>
             <div className={styles.challenges}>
               {challenges.map((challenge, index) => {
                 return (
                   <div key={index} className={styles.challenge}>
                     <i className="bi bi-check-square-fill"></i>
-                    <span>{challenge.desc}</span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          challenge.translates?.find(
+                            ({ lang }) => lang === i18n.language,
+                          )?.desc ?? challenge.desc!,
+                      }}
+                    ></span>
                   </div>
                 );
               })}
@@ -45,7 +71,9 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
           </div>
         )}
         <div className={`${styles.section} ${styles['stacks-section']}`}>
-          <h5 className={styles['section-title']}>Tech Stacks</h5>
+          <h5 className={styles['section-title']}>
+            {capitalizeEachWord(t('tech-stacks'))}
+          </h5>
           <div className={styles.stacks}>
             {stacks.map(({ icon, label }, index) => (
               <div key={index} className={styles.stack}>
@@ -57,7 +85,9 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
         </div>
         {teams && teams.length > 0 && (
           <div className={`${styles.section} ${styles['teams-section']}`}>
-            <h5 className={styles['section-title']}>Teams</h5>
+            <h5 className={styles['section-title']}>
+              {capitalize(t('teams'))}
+            </h5>
             <div className={styles.teams}>
               {teams.map((team, index) => (
                 <PortfolioTeam key={index} team={team} />
@@ -73,7 +103,9 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
               className="btn btn-md btn-primary"
             >
               <i className="bi bi-box-arrow-up-right me-2" />
-              <span>Lihat Website</span>
+              <span>
+                {capitalizeEachWord(t('see-item', { item: 'Website' }))}
+              </span>
             </Link>
           )}
         </div>

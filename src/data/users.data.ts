@@ -58,6 +58,18 @@ export const users: User[] = [
     linkedin: 'https://www.linkedin.com/in/roniardiyanto/',
   },
   {
+    id: '10b8004a-d98f-4b1f-9545-ea92e38e80cf',
+    name: 'Sultan Pasha Abbas',
+    photo: {
+      id: '2543ce37-8bee-463c-a55d-aa26e9618081',
+      path: 'user',
+      fileName: 'acha.jfif',
+      originalFileName: 'acha.jfif',
+      mime: 'image/jfif',
+    },
+    linkedin: 'https://www.linkedin.com/in/muhammad-sultan-pasha-abbas/',
+  },
+  {
     id: 'ef1b3fd9-b395-404c-b1cd-82d862a05ab3',
     name: 'Sistiandy Syahbana',
     photo: {

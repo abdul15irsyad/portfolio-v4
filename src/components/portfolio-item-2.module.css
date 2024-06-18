@@ -87,7 +87,8 @@
 }
 
 .portfolio-item-2 .stacks .stack {
-  background-color: var(--bs-light);
+  /* background-color: var(--bs-light); */
+  background-color: white;
   border: 1px solid rgba(var(--bs-secondary-rgb), 0.25);
   display: flex;
   align-items: center;

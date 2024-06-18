@@ -3,13 +3,16 @@
 import React from 'react';
 import styles from './donate.module.css';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { capitalize } from '@/utils/change-case';
 
 export default () => {
+  const { t } = useTranslation();
   return (
     <div className={`${styles.donate} box-container`}>
       <h5 className="box-container-title">
         <i className="bi bi-gift"></i>
-        <span>Support</span>
+        <span>{capitalize(t('support'))}</span>
         <OverlayTrigger
           trigger={['hover', 'focus']}
           placement="top"
@@ -17,11 +20,7 @@ export default () => {
             <Popover className={styles['disclaimer-popover']}>
               <Popover.Body>
                 <h6>Disclaimer</h6>
-                <p className="mb-0">
-                  blog yang dibuat banyak terinspirasi dari blog-blog lain yang
-                  ada di internet, terima kasih banyak jika mau men-support blog
-                  ini 🙏🏽
-                </p>
+                <p className="mb-0">{t('disclaimer-desc')}</p>
               </Popover.Body>
             </Popover>
           }

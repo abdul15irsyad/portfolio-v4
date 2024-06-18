@@ -12,8 +12,11 @@ import {
 import { paginatedArray } from '@/utils/array.util';
 import Pagination from '@/components/pagination';
 import { Portfolio } from '@/types/portfolio.type';
+import { useTranslation } from 'react-i18next';
+import { capitalize } from '@/utils/change-case';
 
 export default () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
   const [year, setYear] = useState<string | number>('all');
   const [type, setType] = useState<string>('all');
@@ -50,7 +53,7 @@ export default () => {
       <div className="container">
         <div className="row header">
           <div className="col">
-            <h1 className="title">Portfolio</h1>
+            <h1 className="title">{capitalize(t('portfolio'))}</h1>
             <hr />
             <div className="filters">
               <div className="filter filter-year">
@@ -66,10 +69,17 @@ export default () => {
                 />
               </div>
             </div>
-            <p className="text-center text-secondary mt-3 mb-0">
-              Showing <strong>{portfolios.length}</strong> of{' '}
-              <strong>{totalAllData}</strong> portfolios
-            </p>
+            {totalAllData > 0 && (
+              <p
+                className="text-center text-secondary mt-3 mb-0"
+                dangerouslySetInnerHTML={{
+                  __html: t('showing-result', {
+                    totalData: portfolios.length,
+                    totalAllData,
+                  }),
+                }}
+              />
+            )}
           </div>
         </div>
         <div className="row porfolios mb-lg-5 mb-3">
@@ -86,15 +96,17 @@ export default () => {
             <Empty />
           )}
         </div>
-        <Pagination
-          position="center"
-          activePage={page}
-          setPage={({ page }) => {
-            setPage(page);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          totalPage={Math.ceil(totalAllData / limit)}
-        />
+        {totalAllData > 0 && (
+          <Pagination
+            position="center"
+            activePage={page}
+            setPage={({ page }) => {
+              setPage(page);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            totalPage={Math.ceil(totalAllData / limit)}
+          />
+        )}
       </div>
     </div>
   );
