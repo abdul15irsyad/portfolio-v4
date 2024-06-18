@@ -29,7 +29,7 @@ const PortfolioItem = ({
         </div>
         <div
           className="portfolio-item-desc"
-          dangerouslySetInnerHTML={{ __html: desc }}
+          dangerouslySetInnerHTML={{ __html: desc ?? '' }}
         ></div>
         <div className="portfolio-bottom">
           <div className="portfolio-button">
