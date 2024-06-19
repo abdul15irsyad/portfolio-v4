@@ -21,7 +21,7 @@ export const LatestBlog = () => {
     queryKey: ['latestBlog'],
     queryFn: async () => (await fetch('/api/blog/latest')).json(),
     cacheTime: 0,
-    // networkMode: 'online',
+    networkMode: 'always',
   });
   return (
     <section className="latest-blog section doodle-background">
