@@ -5,7 +5,7 @@ dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
 export const renderTimestamp = (timestamp: string | Date) => {
-  return dayjs().diff(timestamp, 'month') === 0
+  return dayjs().diff(timestamp, 'month') <= 6
     ? dayjs(timestamp).fromNow()
     : dayjs(timestamp)
         .format(

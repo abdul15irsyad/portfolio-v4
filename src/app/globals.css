@@ -1305,6 +1305,10 @@ ul li {
   gap: 1rem;
   align-items: center;
   margin: 0.5rem 0 0.75rem 0;
+  flex-wrap: wrap;
+}
+.blog-item .blog-text .blog-meta * {
+  text-wrap: nowrap;
 }
 
 .blog-item .blog-text .blog-author {
@@ -1423,6 +1427,10 @@ ul li {
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.blog-detail .blog-detail-meta * {
+  text-wrap: nowrap;
 }
 
 .blog-detail .blog-author {

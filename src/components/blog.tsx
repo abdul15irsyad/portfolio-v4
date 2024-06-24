@@ -111,7 +111,7 @@ const Blog = ({
             <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(dayjs(blog.publishedAt).toString())}
           </div>
-          <div className="blog-detail-created-at">
+          <div className="blog-detail-min-read">
             <i className="bi bi-stopwatch"></i>
             {minutesRead} {t('minutes-read')}
           </div>
