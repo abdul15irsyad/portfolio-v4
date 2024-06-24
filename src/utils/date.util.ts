@@ -9,7 +9,7 @@ export const renderTimestamp = (timestamp: string | Date) => {
     ? dayjs(timestamp).fromNow()
     : dayjs(timestamp)
         .format(
-          dayjs().year() === dayjs(timestamp).year() ? 'D MMMM' : 'D MMMM YYYY',
+          dayjs().year() === dayjs(timestamp).year() ? 'D MMMM' : 'D MMMM YY',
         )
         .toLowerCase();
 };
