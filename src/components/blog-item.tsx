@@ -1,12 +1,24 @@
+'use client';
+
 import { Blog } from '@/types/blog.type';
 import { renderTimestamp } from '@/utils/date.util';
 import { defaultSanitizeOptions } from '@/utils/html.util';
+import { calculateMinutesRead } from '@/utils/string.util';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
+  const { t } = useTranslation();
+  const minutesRead = useMemo(
+    () =>
+      calculateMinutesRead({
+        text: sanitize(blog.content),
+      }),
+    [blog.content],
+  );
   return (
     <div className="blog-item">
       <div className="blog-feature-image">
@@ -45,6 +57,10 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           <div className="blog-created-at">
             <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(blog.publishedAt!)}
+          </div>
+          <div className="blog-created-at">
+            <i className="bi bi-stopwatch"></i>
+            {minutesRead} {t('minutes-read')}
           </div>
         </div>
         <div

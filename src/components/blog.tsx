@@ -2,7 +2,13 @@
 
 import { renderTimestamp } from '@/utils/date.util';
 import Image from 'next/image';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import hljs from 'highlight.js';
 import { Blog as BlogInterface } from '@/types/blog.type';
 import CopyButtonPlugin from 'highlightjs-copy';
@@ -13,6 +19,9 @@ import { queryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
 import ImagePreview, { Modal } from './image-preview';
 import Link from 'next/link';
+import { calculateMinutesRead } from '@/utils/string.util';
+import { useTranslation } from 'react-i18next';
+import sanitize from 'sanitize-html';
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el: any) => {
@@ -33,10 +42,16 @@ const Blog = ({
   searchParams: any;
 }) => {
   const router = useRouter();
+  const { t } = useTranslation();
+  const minutesRead = useMemo(
+    () =>
+      calculateMinutesRead({
+        text: sanitize(blog.content),
+      }),
+    [blog.content],
+  );
   const addQueryString = useCallback(queryString(searchParams), [searchParams]);
-  useEffect(() => {
-    hljs.highlightAll();
-  });
+  useEffect(() => hljs.highlightAll());
   const [modal, setModal] = useState<Modal>({});
   const content = useRef<HTMLDivElement>(null);
   const body = document.querySelector('body');
@@ -95,6 +110,10 @@ const Blog = ({
           <div className="blog-detail-created-at">
             <i className="bi bi-calendar4-week"></i>
             {renderTimestamp(dayjs(blog.publishedAt).toString())}
+          </div>
+          <div className="blog-detail-created-at">
+            <i className="bi bi-stopwatch"></i>
+            {minutesRead} {t('minutes-read')}
           </div>
         </div>
         <div className="blog-detail-feature-image">
