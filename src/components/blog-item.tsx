@@ -71,7 +71,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
             }),
           }}
         />
-        <div className="blog-min-read d-block d-lg-none mb-3">
+        <div className="blog-min-read text-secondary d-block d-lg-none mb-3">
           <i className="bi bi-stopwatch me-2"></i>
           {minutesRead} {t('minutes-read')}
         </div>
