@@ -38,8 +38,8 @@ export const BlogDetailSidebar = ({
           <span>{capitalizeEachWord(t('latest-blog'))}</span>
         </h5>
         <div className="blog-detail-latest-items">
-          {latestBlogs?.map((latestBlog) => (
-            <div className="blog-detail-latest-item">
+          {latestBlogs?.map((latestBlog, index) => (
+            <div key={index} className="blog-detail-latest-item">
               <Link href={`/blog/${latestBlog.slug}`}>
                 <Image
                   src={latestBlog.featureImage?.url ?? ''}

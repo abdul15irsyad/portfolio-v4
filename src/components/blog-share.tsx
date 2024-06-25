@@ -27,11 +27,10 @@ const BlogShare = ({
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
-  const text = `${encodeURIComponent(
-    `${title}\n${
-      tags.length > 0 ? `${tags?.map((tag) => `#${tag}`).join(' ')}\n` : ''
-    }${url}`,
-  )}`;
+  const text = `${title}\n${
+    tags.length > 0 ? `${tags?.map((tag) => `#${tag}`).join(' ')}\n` : ''
+  }${url}`;
+  const encodedText = encodeURIComponent(text);
   const links = [
     {
       type: 'copy-link',
@@ -45,7 +44,7 @@ const BlogShare = ({
     },
     {
       type: 'social-media',
-      href: `whatsapp://send?text=${text}`,
+      href: `whatsapp://send?text=${encodedText}`,
       icon: 'whatsapp',
     },
     {
@@ -55,15 +54,29 @@ const BlogShare = ({
     },
     {
       type: 'social-media',
-      href: `https://twitter.com/intent/tweet?text=${text}`,
+      href: `https://twitter.com/intent/tweet?text=${encodedText}`,
       icon: 'twitter-x',
     },
     {
       type: 'social-media',
-      href: `https://t.me/share/url?url=${text}`,
+      href: `https://t.me/share/url?url=${encodedText}`,
       icon: 'telegram',
     },
+    {
+      type: 'social-media',
+      href: `https://threads.net/intent/post?text=${encodedText}`,
+      icon: 'threads',
+    },
   ];
+
+  if (navigator.canShare({ title })) {
+    links.push({
+      type: 'share',
+      href: '',
+      icon: 'share',
+    });
+  }
+
   return links.map((link, index) => {
     return link.type === 'copy-link' ? (
       <OverlayTrigger
@@ -83,6 +96,22 @@ const BlogShare = ({
           <i className={`bi bi-${copied ? 'check2' : 'clipboard'}`}></i>
         </button>
       </OverlayTrigger>
+    ) : link.type === 'share' ? (
+      <button
+        key={index}
+        type="button"
+        className={`blog-detail-share-item ${link.icon}`}
+        onClick={async () => {
+          const shareData: ShareData = {
+            title,
+            text,
+            url,
+          };
+          await navigator.share(shareData);
+        }}
+      >
+        <i className={`bi bi-${link.icon}`}></i>
+      </button>
     ) : (
       <Link
         key={index}

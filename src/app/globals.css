@@ -20,6 +20,7 @@
   --twitter-rgb: 0, 0, 0 !important;
   --whatsapp-rgb: 37, 211, 102 !important;
   --telegram-rgb: 34, 158, 216 !important;
+  --threads-rgb: 30, 30, 30 !important;
 }
 
 :not(article pre code, article pre code *)::selection {
@@ -1149,6 +1150,11 @@ ul li {
 
 .blog-sidebar .blog-detail-share .blog-detail-share-item.telegram:hover {
   background-color: rgba(var(--telegram-rgb));
+  color: white;
+}
+
+.blog-sidebar .blog-detail-share .blog-detail-share-item.threads:hover {
+  background-color: rgba(var(--threads-rgb));
   color: white;
 }
 
