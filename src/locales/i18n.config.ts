@@ -7,7 +7,7 @@ import translationId from './langs/id.json';
 import 'dayjs/locale/id';
 
 export const I18N_KEY = 'i18nextLng';
-export const defaultLanguage = 'id';
+export const defaultLanguage = 'en';
 let lng: string;
 try {
   lng = localStorage?.getItem(I18N_KEY) ?? defaultLanguage;
