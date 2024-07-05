@@ -1,6 +1,6 @@
 export interface WorkExperience {
   position: string;
-  timespan: string;
+  timespan?: string;
   startDate?: Date;
   endDate?: Date | null;
   company: {
