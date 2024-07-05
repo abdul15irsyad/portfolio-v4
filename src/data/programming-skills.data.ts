@@ -5,6 +5,11 @@ export const programmingSkills: ProgrammingSkill[] = [
     title: 'Language',
     list: [
       {
+        name: 'Javascript',
+        logo: '/programming/javascript.png',
+        level: Level.GOOD,
+      },
+      {
         name: 'Typescript',
         logo: '/programming/typescript.png',
         level: Level.GOOD,
@@ -17,16 +22,16 @@ export const programmingSkills: ProgrammingSkill[] = [
         // href: 'https://www.php.net',
       },
       {
-        name: 'Python',
-        logo: '/programming/python.png',
-        level: Level.BASIC,
-        // href: 'https://www.python.org',
-      },
-      {
         name: 'Golang',
         logo: '/programming/golang.png',
         level: Level.BASIC,
         // href: 'https://go.dev',
+      },
+      {
+        name: 'Python',
+        logo: '/programming/python.png',
+        level: Level.BASIC,
+        // href: 'https://www.python.org',
       },
     ],
   },
@@ -66,7 +71,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Next JS',
         logo: '/programming/next.png',
-        level: Level.BASIC,
+        level: Level.INTERMEDIATE,
         href: 'https://nextjs.org',
       },
       {
@@ -129,7 +134,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         // href: 'https://redis.io',
       },
       {
-        name: 'CI/CD (Gitlab)',
+        name: 'CI/CD',
         logo: '/programming/ci-cd.png',
         level: Level.BASIC,
       },

@@ -4,28 +4,25 @@ import dayjs from 'dayjs';
 export const workExperiences: WorkExperience[] = [
   {
     position: 'Backend Developer',
-    timespan: 'Agu 2022 - Mei 2024',
     startDate: dayjs(`2024-06-03`).toDate(),
     endDate: null,
     company: {
       name: 'BRI',
       logo: '/experience/bri.jpeg',
     },
-    // desc: 'Berposisi sebagai Backend Developer',
     translates: [
       {
         lang: 'id',
-        desc: 'Berposisi sebagai Backend Developer',
+        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim.',
       },
       {
         lang: 'en',
-        desc: 'Positioned as a Backend Developer',
+        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager.',
       },
     ],
   },
   {
     position: 'Backend Developer',
-    timespan: 'Agu 2022 - Mei 2024',
     startDate: dayjs(`2022-08-01`).toDate(),
     endDate: dayjs(`2024-05-22`).toDate(),
     company: {
@@ -45,7 +42,6 @@ export const workExperiences: WorkExperience[] = [
   },
   {
     position: 'Web Developer',
-    timespan: 'Agu 2020 - Agu 2022',
     startDate: dayjs(`2020-08-01`).toDate(),
     endDate: dayjs(`2022-08-01`).toDate(),
     company: {
@@ -65,7 +61,6 @@ export const workExperiences: WorkExperience[] = [
   },
   {
     position: 'Internship - Web Developer',
-    timespan: 'Feb 2020 - Mar 2020',
     startDate: dayjs(`2020-02-01`).toDate(),
     endDate: dayjs(`2020-03-01`).toDate(),
     company: {
