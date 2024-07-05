@@ -5,6 +5,140 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Optimining',
+    href: null,
+    publishedAt: '2024-05-22',
+    type: 'Backend',
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi GraphQL Federation (mirip seperti API Gateway di RESTful API)',
+          },
+          {
+            lang: 'en',
+            desc: 'Implement GraphQL Federation (similar to the API Gateway in RESTful API)',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi messaging menggunakan BullMQ dengan Redis sebagai tempat penyimpanan antrian',
+          },
+          {
+            lang: 'en',
+            desc: 'Messaging implementation using BullMQ with Redis as queue storage',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi 2 bahasa yakni English dan Bahasa di dalam response API khususnya saat validasi data',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of 2 languages, English and Bahasa in API response, especially when validating data',
+          },
+        ],
+      },
+    ],
+    stacks: [
+      { icon: '/programming/nestjs.png', label: 'Nest JS' },
+      { icon: '/programming/typeorm.png', label: 'TypeORM' },
+      { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
+      { icon: '/programming/redis.png', label: 'Redis' },
+    ],
+    images: [...Array(4).keys()].map((index) => ({
+      src: `/portfolio/optimining-${index + 1}.jpeg`,
+      alt: `Optimining ${index + 1}`,
+    })),
+    teams: [
+      {
+        // rijal
+        userId: '2f5bfc80-f7fe-4759-a281-33e803e92604',
+        role: 'Frontend Dev',
+      },
+      {
+        // teguh
+        userId: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
+        role: 'Frontend Dev',
+      },
+      {
+        // roni
+        userId: '24f40aa0-3386-4be5-be33-367ecdfcd938',
+        role: 'Frontend Dev',
+      },
+      {
+        // raihan
+        userId: '8c27ac9e-d197-473d-907c-9e162203d072',
+        role: 'System Analyst',
+      },
+      {
+        // adam
+        userId: '16beb85b-6a1a-48a5-bd6e-a5297ac11959',
+        role: 'Backend Dev',
+      },
+      {
+        // chendra
+        userId: '89499fd9-c590-44ef-b727-2d8d934e608d',
+        role: 'Backend Dev',
+      },
+      {
+        // mba dian
+        userId: '0ceb6e1c-a88b-46c1-a7b9-8d6263960758',
+        role: 'Project Manager',
+      },
+      {
+        // pak kum
+        userId: '3dc9f9a1-22c1-444d-a46e-24ca6b1a2a7f',
+        role: 'Product Owner',
+      },
+      {
+        // mas kukuh
+        userId: '4bcf42b3-8624-4ef3-8a38-11f4cf0f712f',
+        role: 'Senior Developer',
+      },
+      {
+        // mas roy
+        userId: '88365261-588a-4a70-b97e-780a9679e56b',
+        role: 'Senior Developer',
+      },
+      {
+        // april
+        userId: '51c93428-eb19-48dc-b84d-d659161c85f9',
+        role: 'UI/UX Designer',
+      },
+      {
+        // elvis
+        userId: '65f72b53-e798-4ba1-9fa9-0d578e0b0140',
+        role: 'UI/UX Designer',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Optimining merupakan dashboard untuk mengelola tambang mineral seperti Ore, Overburden, dll. Saya ikut andil di project ini sebagai <strong>Backend Developer</strong> dimana tanggung jawab saya ialah mendesain database dalam bentuk ERD lalu mengembangkan endpoint dengan GraphQL untuk menyuplai data ke Frontend
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Optimining is a dashboard for managing mineral mines such as Ore, Overburden, etc. I took part in this project as <strong>Backend Developer</strong> where my responsibility is to design a database in the form ERD and then develop endpoint with GraphQL for supply data to Frontend.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'Fasel Base',
     href: 'https://faselbase.com/',
     publishedAt: '2024-02-10',
@@ -98,8 +232,8 @@ export const portfolios: Portfolio[] = [
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
-      { icon: '/programming/redis.png', label: 'Redis' },
       { icon: '/programming/postgresql.png', label: 'Postgre SQL' },
+      { icon: '/programming/redis.png', label: 'Redis' },
     ],
     images: [
       {
@@ -160,6 +294,117 @@ export const portfolios: Portfolio[] = [
         desc: `
           <p>
             Gerakan Seniman Masuk Sekolah (GSMS) 2023 is a program where the artist teaching art in extracurricular activities in schools, as for my role in this project is as <strong>Backend Developer</strong> both in the landing page section (Website) and Dashboard (Web Application).
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    title: 'Optimap Landing Page',
+    href: null,
+    publishedAt: '2023-07-12',
+    type: 'Backend',
+    challenges: [],
+    stacks: [
+      { icon: '/programming/nestjs.png', label: 'Nest JS' },
+      { icon: '/programming/typeorm.png', label: 'TypeORM' },
+      { icon: '/programming/postgresql.png', label: 'Postgre SQL' },
+      { icon: '/programming/redis.png', label: 'Redis' },
+    ],
+    images: [...Array(4).keys()].map((index) => ({
+      src: `/portfolio/optimap-landing-page-${index + 1}.jpg`,
+      alt: `Optimap Landing Page ${index + 1}`,
+    })),
+    teams: [
+      {
+        // teguh
+        userId: '25a009a4-eeb7-42f9-8545-13b479b54ad4',
+        role: 'Frontend Dev',
+      },
+      {
+        // raihan
+        userId: '8c27ac9e-d197-473d-907c-9e162203d072',
+        role: 'System Analyst',
+      },
+      {
+        // april
+        userId: '51c93428-eb19-48dc-b84d-d659161c85f9',
+        role: 'UI/UX Designer',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Landing Page dari PT. Optima Media Teknologi atau dikenal juga sebagai Optimap disertakan juga CMS untuk mengatur data-data dinamis yang ditampilkan seperti portfolio, member, dll.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Landing Page from PT.Optima Media Technology or also known as Optimap is also included CMS to manage dynamic data displayed such as portfolio, member, etc..
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    title: 'Indeks Pembangunan Kebudayaan',
+    href: 'https://ipk.kemdikbud.go.id',
+    publishedAt: '2023-06-10',
+    type: 'Fullstack',
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Membaca source code dari project yang dikembangkan oleh developer sebelumnya',
+          },
+          {
+            lang: 'en',
+            desc: 'Read the source code of the project developed by the previous developer',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Menambahkan beberapa tampilan yang menyesuaikan dengan project yang sudah ada',
+          },
+          {
+            lang: 'en',
+            desc: 'Add some display that adjusts to the existing project',
+          },
+        ],
+      },
+    ],
+    stacks: [
+      { icon: '/programming/laravel.png', label: 'Laravel 7' },
+      { icon: '/programming/mysql.png', label: 'MySQL' },
+    ],
+    images: [...Array(4).keys()].map((index) => ({
+      src: `/portfolio/ipk-${index + 1}.jpg`,
+      alt: `Indeks Pembangunan Kebudayaan ${index + 1}`,
+    })),
+    teams: [],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Indeks Pembangunan Kebudayaan (IPK) disusun sebagai salah satu instrumen untuk memberikan gambaran kemajuan pembangunan kebudayaan yang dapat digunakan sebagai basis formulasi kebijakan bidang kebudayaan. Adapun peranan saya hanya <strong>menambahkan data tahun 2022</strong> dan menambahkan beberapa tampilan di halaman beranda
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Indeks Pembangunan Kebudayaan (IPK) is compiled as one of the instruments to provide an overview of the progress of cultural development that can be used as a basis for the formulation of cultural policies. My role in this project only <strong>added data in 2022</strong> and added a few views on the home page.
           </p>
         `,
       },

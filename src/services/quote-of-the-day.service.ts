@@ -17,9 +17,9 @@ export const getQuoteOfTheDay = async () => {
     const url = `https://api.quotable.io/random?maxLength=${maxLength}&tags="${randomTags.join(
       '|',
     )}"`;
-    console.log(`fetching ${url}`);
+    // console.log(`fetching ${url}`);
     const res = await (await fetch(url)).json();
-    console.log(`get quote with id ${res._id}`);
+    // console.log(`get quote with id ${res._id}`);
     return res;
   };
 
