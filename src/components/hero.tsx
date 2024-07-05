@@ -90,7 +90,8 @@ const Hero = () => {
           </div>
           <div className="col-md-6 hero-image mb-3">
             <Image
-              src="/hero2.png"
+              // src="/hero2.png"
+              src="/hero3.png"
               alt="hero"
               width={400}
               height={400}
