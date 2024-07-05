@@ -20,6 +20,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
         ...defaultSanitizeOptions,
       })
         .split(' ')
+        .filter((word) => word !== '')
         .slice(0, 20)
         .join(' ')
         .trim()}...`
