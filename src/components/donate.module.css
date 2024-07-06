@@ -20,10 +20,13 @@
   background-color: #be1e2d;
   color: white;
   font-size: 14px;
-  padding: 2px 1rem;
-  line-height: 36px;
+  padding: 0.5rem 1.25rem;
+  /* line-height: 36px; */
   font-weight: 700;
   transition: 0.3s;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
 }
 .trakteer:hover {
   background-color: #8c121e;
