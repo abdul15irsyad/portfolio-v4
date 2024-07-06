@@ -5,9 +5,15 @@ import styles from './donate.module.css';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { capitalize } from '@/utils/change-case';
+import { Quicksand } from 'next/font/google';
 
 import Link from 'next/link';
-import { quicksand } from '@/app/layout';
+
+const quicksand = Quicksand({
+  style: 'normal',
+  subsets: ['latin-ext'],
+  fallback: ['sans-serif'],
+});
 
 export default () => {
   const { t } = useTranslation();
