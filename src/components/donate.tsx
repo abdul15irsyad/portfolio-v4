@@ -6,8 +6,12 @@ import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { capitalize } from '@/utils/change-case';
 
+import Link from 'next/link';
+import { quicksand } from '@/app/layout';
+
 export default () => {
   const { t } = useTranslation();
+
   return (
     <div className={`${styles.donate} box-container`}>
       <h5 className="box-container-title">
@@ -19,8 +23,7 @@ export default () => {
           overlay={
             <Popover className={styles['disclaimer-popover']}>
               <Popover.Body>
-                <h6>Disclaimer</h6>
-                <p className="mb-0">{t('disclaimer-desc')}</p>
+                <p className="mb-0">{t('donate-msg')}😇</p>
               </Popover.Body>
             </Popover>
           }
@@ -30,13 +33,32 @@ export default () => {
           </span>
         </OverlayTrigger>
       </h5>
-      <a href="https://www.nihbuatjajan.com/abdul15irsyad" target="_blank">
-        <img
-          src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
-          alt="Nih buat jajan"
-          style={{ width: '70%' }}
-        />
-      </a>
+      <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
+        <div>
+          <Link
+            href="https://trakteer.id/abdul15irsyad/tip"
+            target="_blank"
+            className={`${styles.trakteer} ${quicksand.className}`}
+          >
+            <img
+              src="https://trakteer.id/images/mix/coffee.png"
+              alt="Traktiran"
+              className={`${styles.icon} wiggle`}
+            />
+            <span>Trakteer Saya Kopi</span>
+          </Link>
+        </div>
+        <Link
+          href="https://www.nihbuatjajan.com/abdul15irsyad"
+          target="_blank"
+          style={{ width: '80%', maxWidth: '200px' }}
+        >
+          <img
+            src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
+            alt="Nih buat jajan"
+          />
+        </Link>
+      </div>
     </div>
   );
 };

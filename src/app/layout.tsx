@@ -11,8 +11,15 @@ import ReactQuery from '@/components/react-query';
 import 'aos/dist/aos.css';
 import ScrollToTop from '@/components/scroll-to-top';
 import { AllProvider } from '@/components/provider';
+import { Quicksand } from 'next/font/google';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
+  style: 'normal',
+  subsets: ['latin-ext'],
+  fallback: ['sans-serif'],
+});
+
+export const quicksand = Quicksand({
   style: 'normal',
   subsets: ['latin-ext'],
   fallback: ['sans-serif'],

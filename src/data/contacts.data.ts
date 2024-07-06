@@ -39,4 +39,9 @@ export const contacts = [
     label: 'abdulirsyad15',
     href: 'https://t.me/abdulirsyad15',
   },
+  {
+    icon: 'threads',
+    label: 'abdul15irsyad',
+    href: 'https://www.threads.net/@abdul15irsyad',
+  },
 ];
