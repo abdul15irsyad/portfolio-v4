@@ -1,13 +1,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { BackButton } from '@/components/back-button';
 import { portfolios } from '@/data/portfolios.data';
 import { Metadata } from 'next';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import sanitize from 'sanitize-html';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 import { commonMetaData } from '@/app/layout';
-import Portfolio2Detail from '@/components/portfolio-2-detail';
+import { PortfolioDetailView } from '@/sections/portfolio/portfolio-detail-view';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
@@ -50,20 +49,5 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 export default async ({ params }) => {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) notFound();
-  return (
-    <div className="portfolio-detail section doodle-background">
-      <div className="container-lg">
-        <div className="row">
-          <div className="col-12">
-            <Portfolio2Detail portfolio={portfolio} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <BackButton />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <PortfolioDetailView portfolio={portfolio} />;
 };

@@ -825,7 +825,20 @@ export const portfolios: Portfolio[] = [
         Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris.
       </p>
     `,
-    challenges: [],
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi 2 bahasa yakni English dan Bahasa',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of 2 languages English and Bahasa',
+          },
+        ],
+      },
+    ],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
       {

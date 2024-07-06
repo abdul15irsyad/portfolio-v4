@@ -2,7 +2,7 @@
 
 import Empty from '@/components/empty';
 import FormSelect from '@/components/form-select';
-import PortfolioItem from '@/components/portfolio-item';
+import PortfolioItem from '@/sections/portfolio/portfolio-item';
 import { portfolios } from '@/data/portfolios.data';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';

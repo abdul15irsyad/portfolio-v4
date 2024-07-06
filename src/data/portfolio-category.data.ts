@@ -16,8 +16,8 @@ export const portfolioCategories = [
 
 export const portfolioYears = [
   { value: 'all', label: 'all-year', selected: true },
-  { value: '2021', label: '2021', selected: false },
-  { value: '2022', label: '2022', selected: false },
-  { value: '2023', label: '2023', selected: false },
   { value: '2024', label: '2024', selected: false },
+  { value: '2023', label: '2023', selected: false },
+  { value: '2022', label: '2022', selected: false },
+  { value: '2021', label: '2021', selected: false },
 ];
