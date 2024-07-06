@@ -86,7 +86,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
         {teams && teams.length > 0 && (
           <div className={`${styles.section} ${styles['teams-section']}`}>
             <h5 className={styles['section-title']}>
-              {capitalize(t('teams'))}
+              {capitalizeEachWord(t('teams'))}
             </h5>
             <div className={styles.teams}>
               {teams.map((team, index) => (
