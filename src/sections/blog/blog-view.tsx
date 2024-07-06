@@ -1,6 +1,6 @@
 'use client';
 
-import Blogs from '@/components/blogs';
+import Blogs from '@/sections/blog/blogs';
 import Donate from '@/components/donate';
 import LoadingTags from '@/components/loading-tags';
 import SearchBar from '@/components/search-bar';

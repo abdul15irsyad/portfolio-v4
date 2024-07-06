@@ -10,7 +10,7 @@ const Copyright = () => {
       <div className="row">
         <span>
           &copy; Copyright abdul15irsyad {year}. <br />
-          All rights reserved
+          Made with 💀. All rights reserved
         </span>
       </div>
     </div>

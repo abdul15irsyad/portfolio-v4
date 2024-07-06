@@ -19,3 +19,18 @@ export const paginatedArray = <T>(
   const endIndex = startIndex + limit;
   return array.slice(startIndex, endIndex);
 };
+
+export const searchInArray = <T>(
+  array: T[],
+  { search, fields }: { search: string; fields: (keyof T)[] },
+) => {
+  const filteredArray = array.filter((data) =>
+    fields
+      .map(
+        (field) =>
+          `${data[field]}`.toLowerCase().indexOf(search.toLowerCase()) !== -1,
+      )
+      .includes(true),
+  );
+  return filteredArray;
+};
