@@ -2,7 +2,7 @@ export interface ProgrammingSkill {
   title: string;
   list: {
     name: string;
-    logo: string;
+    logo: string | string[];
     level: Level;
     href?: string;
   }[];

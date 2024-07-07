@@ -2,15 +2,16 @@ import { ProgrammingSkill, Level } from '@/types/programming-skill.interface';
 
 export const programmingSkills: ProgrammingSkill[] = [
   {
-    title: 'Language',
+    title: 'language',
     list: [
+      // {
+      //   name: 'Javascript',
+      //   logo: '/programming/javascript.png',
+      //   level: Level.GOOD,
+      // },
       {
-        name: 'Javascript',
-        logo: '/programming/javascript.png',
-        level: Level.GOOD,
-      },
-      {
-        name: 'Typescript',
+        name: 'Node JS (Typescript)',
+        // logo: ['/programming/nodejs.png', '/programming/typescript.png'],
         logo: '/programming/typescript.png',
         level: Level.GOOD,
         // href: 'https://www.typescriptlang.org',
@@ -121,6 +122,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.BASIC,
         // href: 'https://www.mongodb.com',
       },
+
       {
         name: 'Git',
         logo: '/programming/git.png',
@@ -143,6 +145,11 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/docker.png',
         level: Level.BASIC,
         // href: 'https://www.docker.com',
+      },
+      {
+        name: 'GraphQL',
+        logo: '/programming/graphql.png',
+        level: Level.BASIC,
       },
       {
         name: 'Websocket',

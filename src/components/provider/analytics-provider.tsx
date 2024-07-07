@@ -8,7 +8,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function AnalyticsProvider({ children }: Props) {
+export const AnalyticsProvider = ({ children }: Props) => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const DOMAIN = 'https://www.googletagmanager.com';
   const REPORT_DOMAIN = 'https://www.google-analytics.com';
@@ -44,4 +44,4 @@ export default function AnalyticsProvider({ children }: Props) {
       )}
     </>
   );
-}
+};

@@ -40,31 +40,41 @@ export default () => {
         </OverlayTrigger>
       </h5>
       <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
-        <div>
-          <Link
-            href="https://trakteer.id/abdul15irsyad/tip"
-            target="_blank"
-            className={`${styles.trakteer} ${quicksand.className}`}
-          >
-            <img
-              src="https://trakteer.id/images/mix/coffee.png"
-              alt="Traktiran"
-              className={`${styles.icon} wiggle`}
-            />
-            <span>Trakteer Saya Kopi</span>
-          </Link>
-        </div>
-        <Link
-          href="https://www.nihbuatjajan.com/abdul15irsyad"
-          target="_blank"
-          style={{ width: '80%', maxWidth: '200px' }}
-        >
-          <img
-            src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
-            alt="Nih buat jajan"
-          />
-        </Link>
+        <Trakteer />
+        <NihBuatJajan />
       </div>
     </div>
   );
 };
+
+const Trakteer = () => (
+  <div>
+    <Link
+      href="https://trakteer.id/abdul15irsyad/tip"
+      target="_blank"
+      className={`${styles.trakteer} ${quicksand.className}`}
+    >
+      <img
+        src="https://trakteer.id/images/mix/coffee.png"
+        alt="Traktiran"
+        className={`${styles.icon} wiggle`}
+      />
+      <span>Trakteer Saya Kopi</span>
+    </Link>
+  </div>
+);
+
+const NihBuatJajan = () => (
+  <div>
+    <Link
+      href="https://www.nihbuatjajan.com/abdul15irsyad"
+      target="_blank"
+      style={{ width: '80%', maxWidth: '200px' }}
+    >
+      <img
+        src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
+        alt="Nih buat jajan"
+      />
+    </Link>
+  </div>
+);

@@ -10,7 +10,7 @@ import { aosInitConfig } from '@/configs/aos.config';
 import { useTranslation } from 'react-i18next';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
-const SideProjectItem = ({
+export const SideProjectItem = ({
   img,
   title,
   desc,
@@ -79,5 +79,3 @@ const SideProjectItem = ({
     </div>
   );
 };
-
-export default SideProjectItem;

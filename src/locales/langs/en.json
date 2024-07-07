@@ -1,5 +1,6 @@
 {
   "greeting": "hi, my name is {{name}}",
+  "contact-me": "contact me",
   "problem-solve": "problem solve",
   "see-item": "see {{item}}",
   "resume": "resume",
@@ -14,6 +15,7 @@
   "present": "present",
   "present-short": "present",
   "skills": "skills",
+  "language": "language",
   "other": "other",
   "award": "award",
   "certificate": "certificate",

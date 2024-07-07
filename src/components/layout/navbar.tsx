@@ -4,13 +4,13 @@ import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Nav, Navbar as BootstrapNavbar, Offcanvas } from 'react-bootstrap';
 import { usePathname } from 'next/navigation';
 import { capitalizeEachWord } from '@/utils/change-case';
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
 
-export default () => {
+export const Navbar = () => {
   const { t, i18n } = useTranslation();
   const rootPath = `/${usePathname().split('/')[1]}`;
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -38,15 +38,15 @@ export default () => {
   );
 
   return (
-    <Navbar
+    <BootstrapNavbar
       expand="lg"
       sticky="top"
       collapseOnSelect={true}
-      className={`${isScrolled ? 'shrunk' : ''}`}
+      className={isScrolled ? 'shrunk' : ''}
     >
-      <div className="container-lg">
+      <div className="container-md">
         <Link href="/">
-          <Navbar.Brand className="d-flex align-items-center">
+          <BootstrapNavbar.Brand className="d-flex align-items-center">
             <Image
               src="/favicon.jpg"
               alt="Portfolio Logo"
@@ -55,13 +55,13 @@ export default () => {
               className="me-2"
             />
             <strong className="text-primary">IRSYAD</strong>&nbsp;ABDUL
-          </Navbar.Brand>
+          </BootstrapNavbar.Brand>
         </Link>
-        <Navbar.Toggle
+        <BootstrapNavbar.Toggle
           className={!show ? 'collapsed' : ''}
           onClick={() => setShow(!show)}
         />
-        <Navbar.Offcanvas
+        <BootstrapNavbar.Offcanvas
           show={show}
           id="navbar-offcanvas"
           onHide={() => setShow(false)}
@@ -141,8 +141,8 @@ export default () => {
               ))}
             </Nav>
           </Offcanvas.Body>
-        </Navbar.Offcanvas>
+        </BootstrapNavbar.Offcanvas>
       </div>
-    </Navbar>
+    </BootstrapNavbar>
   );
 };

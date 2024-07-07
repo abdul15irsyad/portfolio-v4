@@ -1,14 +1,14 @@
 'use client';
 
-import Empty from '@/components/empty';
-import FormSelect from '@/components/form-select';
+import { Empty } from '@/components/empty/empty';
+import { FormSelect } from '@/components/form-select/form-select';
 import React, { useEffect, useState } from 'react';
 import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
 import {
   portfolioCategories,
   portfolioYears,
 } from '@/data/portfolio-category.data';
-import Pagination from '@/components/pagination';
+import { Pagination } from '@/components/pagination/pagination';
 import { Portfolio } from '@/types/portfolio.type';
 import { useTranslation } from 'react-i18next';
 import { capitalize } from '@/utils/change-case';

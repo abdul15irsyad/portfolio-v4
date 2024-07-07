@@ -11,7 +11,7 @@ interface Props {
   }[];
 }
 
-const CustomCarousel = ({ images }: Props) => {
+export const CustomCarousel = ({ images }: Props) => {
   return (
     <Carousel
       prevIcon={<i className="bi bi-chevron-left"></i>}
@@ -29,5 +29,3 @@ const CustomCarousel = ({ images }: Props) => {
     </Carousel>
   );
 };
-
-export default CustomCarousel;

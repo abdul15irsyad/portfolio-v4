@@ -4,10 +4,10 @@ import { ApiResponseAll } from '@/types/api-response.type';
 import { Blog } from '@/types/blog.type';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
-import LoadingBlogs from '../../components/loading-blogs';
-import Empty from '../../components/empty';
+import LoadingBlogs from './loading-blogs';
+import { Empty } from '@/components/empty/empty';
 import BlogItem from './blog-item';
-import Pagination from '../../components/pagination';
+import { Pagination } from '@/components/pagination/pagination';
 import { useTranslation } from 'react-i18next';
 // import { blogDatas } from '@/data/blogs.data';
 

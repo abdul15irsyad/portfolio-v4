@@ -1,9 +1,9 @@
 'use client';
 
 import Blogs from '@/sections/blog/blogs';
-import Donate from '@/components/donate';
-import LoadingTags from '@/components/loading-tags';
-import SearchBar from '@/components/search-bar';
+import Donate from '@/components/donate/donate';
+import LoadingTags from '@/sections/blog/loading-tags';
+import { SearchBar } from '@/components/search-bar/search-bar';
 import { ENV } from '@/configs/app.config';
 import { ApiResponseAll } from '@/types/api-response.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';

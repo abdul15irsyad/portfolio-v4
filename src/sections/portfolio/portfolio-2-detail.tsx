@@ -3,7 +3,7 @@
 import { Portfolio } from '@/types/portfolio.type';
 import Link from 'next/link';
 import React from 'react';
-import CustomCarousel from '../../components/custom-carousel';
+import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
 import Image from 'next/image';
 import styles from './portfolio-2-detail.module.css';
 import PortfolioTeam from './portfolio-team';

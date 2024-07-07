@@ -11,7 +11,7 @@ import { Placeholder } from 'react-bootstrap';
 // dayjs.extend(utc);
 // dayjs.extend(timezone);
 
-const QuoteOfTheDay = () => {
+export const QuoteOfTheDay = () => {
   const { data: response, isLoading } = useQuery<{
     message: string;
     data: {
@@ -87,5 +87,3 @@ const QuoteOfTheDay = () => {
 
 interface PickQuoteOfTheDay
   extends Pick<QuoteOfTheDayInterface, '_id' | 'author' | 'content' | 'tags'> {}
-
-export default QuoteOfTheDay;
