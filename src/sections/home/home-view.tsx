@@ -1,12 +1,12 @@
 'use client';
 
-import Award from '@/components/award';
-import Education from '@/components/education';
-import Experience from '@/components/experience';
-import Hero from '@/components/hero';
-import { LatestBlog } from '@/components/latest-blog';
-import PersonalInfo from '@/components/personal-info';
-import Programming from '@/components/programming';
+import Award from '@/sections/home/award';
+import Education from '@/sections/home/education';
+import Experience from '@/sections/home/experience';
+import Hero from '@/sections/home/hero';
+import { LatestBlog } from '@/sections/home/latest-blog';
+import PersonalInfo from '@/sections/home/personal-info';
+import Programming from '@/sections/home/programming';
 import { aosInitConfig } from '@/configs/aos.config';
 import AOS from 'aos';
 import React, { useEffect } from 'react';

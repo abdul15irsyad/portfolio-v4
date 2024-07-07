@@ -1,5 +1,6 @@
 {
   "greeting": "hai, saya {{name}}",
+  "contact-me": "hubungi saya",
   "problem-solve": "pemecahan masalah",
   "see-item": "lihat {{item}}",
   "resume": "resume",
@@ -14,6 +15,7 @@
   "present": "sekarang",
   "present-short": "skrg",
   "skills": "kemampuan",
+  "language": "bahasa",
   "other": "lainnya",
   "award": "prestasi",
   "certificate": "sertifikat",

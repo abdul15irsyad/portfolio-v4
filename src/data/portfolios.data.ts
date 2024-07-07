@@ -49,6 +49,7 @@ export const portfolios: Portfolio[] = [
     ],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
+      { icon: '/programming/graphql.png', label: 'GraphQL' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
       { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
       { icon: '/programming/redis.png', label: 'Redis' },
@@ -101,17 +102,22 @@ export const portfolios: Portfolio[] = [
       {
         // mas kukuh
         userId: '4bcf42b3-8624-4ef3-8a38-11f4cf0f712f',
-        role: 'Senior Developer',
+        role: 'Senior Dev',
       },
       {
         // mas roy
         userId: '88365261-588a-4a70-b97e-780a9679e56b',
-        role: 'Senior Developer',
+        role: 'Senior Dev',
       },
       {
         // april
         userId: '51c93428-eb19-48dc-b84d-d659161c85f9',
         role: 'UI/UX Designer',
+      },
+      {
+        // puan
+        userId: '17f4cca2-0e9d-4e33-baaa-7c7265427934',
+        role: 'System Analyst',
       },
       {
         // elvis
@@ -231,6 +237,7 @@ export const portfolios: Portfolio[] = [
     ],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
+      { icon: '/programming/graphql.png', label: 'GraphQL' },
       { icon: '/programming/typeorm.png', label: 'TypeORM' },
       { icon: '/programming/postgresql.png', label: 'Postgre SQL' },
       { icon: '/programming/redis.png', label: 'Redis' },
@@ -477,7 +484,7 @@ export const portfolios: Portfolio[] = [
       {
         // acha
         userId: '10b8004a-d98f-4b1f-9545-ea92e38e80cf',
-        role: 'Backend Developer',
+        role: 'Backend Dev',
       },
     ],
     translates: [

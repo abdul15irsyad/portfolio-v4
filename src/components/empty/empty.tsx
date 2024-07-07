@@ -7,7 +7,7 @@ interface Props {
   message?: string;
 }
 
-const Empty = ({ message }: Props) => {
+export const Empty = ({ message }: Props) => {
   const { t } = useTranslation();
   message = message ?? t('empty-data-message');
   return (
@@ -22,5 +22,3 @@ const Empty = ({ message }: Props) => {
     </div>
   );
 };
-
-export default Empty;

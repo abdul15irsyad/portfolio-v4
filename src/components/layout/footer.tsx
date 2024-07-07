@@ -3,12 +3,12 @@
 import { contacts } from '@/data/contacts.data';
 import Link from 'next/link';
 import React from 'react';
-import Copyright from './copyright';
-import QuoteOfTheDay from './quote-of-the-day';
+import { Copyright } from './copyright';
+import { QuoteOfTheDay } from './quote-of-the-day';
 import { useTranslation } from 'react-i18next';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
-const Footer = () => {
+export const Footer = () => {
   const { t } = useTranslation();
   const footerContacts = contacts.filter(({ icon }) =>
     ['whatsapp', 'telegram', 'envelope'].includes(icon),
@@ -73,5 +73,3 @@ const Footer = () => {
     </>
   );
 };
-
-export default Footer;

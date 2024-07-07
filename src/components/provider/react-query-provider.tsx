@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export default ({ children }) => {
+export const ReactQueryProvider = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );

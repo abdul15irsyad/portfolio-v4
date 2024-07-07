@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CustomCarousel from '../../components/custom-carousel';
+import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
 import Link from 'next/link';
 import Image from 'next/image';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';

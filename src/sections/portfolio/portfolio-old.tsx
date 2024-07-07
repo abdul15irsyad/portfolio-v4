@@ -1,14 +1,14 @@
 'use client';
 
-import Empty from '@/components/empty';
-import FormSelect from '@/components/form-select';
+import { Empty } from '@/components/empty/empty';
+import { FormSelect } from '@/components/form-select/form-select';
 import PortfolioItem from '@/sections/portfolio/portfolio-item';
 import { portfolios } from '@/data/portfolios.data';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import { aosInitConfig } from '@/configs/aos.config';
 
-export default () => {
+export const PortfolioOld = () => {
   const [year, setYear] = useState<string | number>('all');
   const [type, setType] = useState<string>('all');
   const [filteredPortfolios, setFilteredPortofolio] = useState(portfolios);

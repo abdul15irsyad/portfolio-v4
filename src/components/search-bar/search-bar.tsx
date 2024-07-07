@@ -9,7 +9,7 @@ type Prop = {
   queryString: (name: string, value: string) => string;
 };
 
-const SearchBar = ({ queryString }: Prop) => {
+export const SearchBar = ({ queryString }: Prop) => {
   const { t } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -43,5 +43,3 @@ const SearchBar = ({ queryString }: Prop) => {
     </Form>
   );
 };
-
-export default SearchBar;

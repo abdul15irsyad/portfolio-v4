@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './scroll-to-top.module.css';
 
-const ScrollToTop = () => {
+export const ScrollToTop = () => {
   const [show, setShow] = useState(false);
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,5 +29,3 @@ const ScrollToTop = () => {
     </div>
   );
 };
-
-export default ScrollToTop;

@@ -12,7 +12,7 @@ type Prop = {
   setPage: ({ page, activePage }: { page: number; activePage: number }) => void;
 };
 
-export default ({
+export const Pagination = ({
   activePage = 1,
   sibling = 2,
   boundaries = 1,

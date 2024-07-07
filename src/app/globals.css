@@ -198,7 +198,6 @@ ul li {
 }
 
 .hero .hero-title .contact-me {
-  margin-top: 1.5rem;
   transition: 0.3s ease-in-out;
   background-color: #ffffff00;
   color: rgba(var(--bs-primary-rgb), 1);
@@ -280,11 +279,11 @@ ul li {
   }
 
   .hero .hero-title .text-jumbo {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .hero .hero-title .typed-text {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .hero .hero-image {
@@ -349,20 +348,24 @@ ul li {
   border: 1px solid rgba(var(--bs-secondary-rgb), 0.15);
   border-radius: 1rem;
   padding: 1rem;
+  transition: 0.3s !important;
 }
 .education .education-item:hover {
-  border-color: var(--bs-primary);
+  border: 1px solid var(--bs-primary);
 }
 
-.education .education-item-icon {
+.education .education-item .education-item-icon {
   background-color: rgba(var(--bs-secondary-rgb), 0.05);
   border-radius: 50%;
 }
-.education .education-item img {
+
+.education .education-item .education-item-icon img {
   filter: invert(56%) sepia(44%) saturate(500%) hue-rotate(114deg)
     brightness(97%) contrast(92%);
   margin: 0 auto;
-  padding: 0.75rem;
+  padding: 1rem;
+  height: 70px;
+  width: 70px;
 }
 
 @media (max-width: 991px) {
@@ -372,6 +375,16 @@ ul li {
   }
   .education .education-item {
     min-width: 100%;
+  }
+  .education .education-item .education-item-icon img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .education .education-item .education-item-text h5 {
+    font-size: 1.15rem;
   }
 }
 
@@ -788,7 +801,7 @@ ul li {
 
 .portfolio .portfolio-item .portfolio-item-detail .portfolio-item-stacks {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   gap: 0.5rem;
 }
 
@@ -1038,7 +1051,7 @@ ul li {
 
 .blog .blog-sidebar .blog-tags {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -1107,7 +1120,7 @@ ul li {
 
 .blog-sidebar .box-container .blog-detail-share-items {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.4rem;
 }

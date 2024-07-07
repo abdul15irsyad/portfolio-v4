@@ -2,8 +2,8 @@ import React from 'react';
 import Blog from './blog';
 import { Blog as BlogType } from '@/types/blog.type';
 import { BlogDetailSidebar } from './blog-detail-sidebar';
-import Donate from '@/components/donate';
-import { BackButton } from '@/components/back-button';
+import Donate from '@/components/donate/donate';
+import { BackButton } from '@/components/back-button/back-button';
 
 export const BlogDetailView = ({
   blog,

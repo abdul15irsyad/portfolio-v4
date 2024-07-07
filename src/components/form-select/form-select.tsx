@@ -8,7 +8,7 @@ interface Props {
   handleChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
-const FormSelect = ({ options, handleChange }: Props) => {
+export const FormSelect = ({ options, handleChange }: Props) => {
   const { t } = useTranslation();
   return (
     <Form.Select
@@ -24,5 +24,3 @@ const FormSelect = ({ options, handleChange }: Props) => {
     </Form.Select>
   );
 };
-
-export default FormSelect;

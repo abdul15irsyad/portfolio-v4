@@ -130,6 +130,18 @@ export const users: User[] = [
     linkedin: 'https://www.linkedin.com/in/apriliyaard/',
   },
   {
+    id: '17f4cca2-0e9d-4e33-baaa-7c7265427934',
+    name: 'Puan Nadia',
+    photo: {
+      id: 'e7ce1939-8781-4d29-a73c-9c41f7038b9c',
+      path: 'user',
+      fileName: 'puan.jfif',
+      originalFileName: 'puan.jfif',
+      mime: 'image/jfif',
+    },
+    linkedin: 'https://www.linkedin.com/in/puannadia/',
+  },
+  {
     id: '65f72b53-e798-4ba1-9fa9-0d578e0b0140',
     name: 'Elvis M. Rizqy',
     photo: {

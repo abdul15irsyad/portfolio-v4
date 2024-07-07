@@ -1,4 +1,5 @@
 import { programmingSkills } from '@/data/programming-skills.data';
+import { Level } from '@/types/programming-skill.interface';
 import { capitalizeEachWord } from '@/utils/change-case';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,11 +51,27 @@ const Programming = () => {
   );
 };
 
-const CategoryItem = ({ name, level, logo }) => (
+const CategoryItem = ({
+  name,
+  level,
+  logo,
+}: {
+  name: string;
+  level: Level;
+  logo: string | string[];
+}) => (
   <span className="category-item">
     <div>
-      <Image src={logo} alt={name.toLowerCase()} width={24} height={24} />
-      <span>{name.toLowerCase()}</span>
+      <div className="d-inline-block">
+        {Array.isArray(logo) ? (
+          logo.map((item) => (
+            <Image src={item} alt={name.toLowerCase()} width={24} height={24} />
+          ))
+        ) : (
+          <Image src={logo} alt={name.toLowerCase()} width={24} height={24} />
+        )}
+      </div>
+      <span>{name}</span>
     </div>
     <div>
       <span className={`badge category-item-level level-${level}`}>

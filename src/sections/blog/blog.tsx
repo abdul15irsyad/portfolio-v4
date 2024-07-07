@@ -17,7 +17,7 @@ import 'highlightjs-copy/dist/highlightjs-copy.min.css';
 import { useRouter } from 'next/navigation';
 import { queryString } from '@/utils/url.util';
 import dayjs from 'dayjs';
-import ImagePreview, { Modal } from '../../components/image-preview';
+import ImagePreview, { Modal } from '@/components/image-preview/image-preview';
 import Link from 'next/link';
 import { calculateMinutesRead } from '@/utils/string.util';
 import { useTranslation } from 'react-i18next';

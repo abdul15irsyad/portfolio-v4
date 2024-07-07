@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Typed from 'typed.js';
 import { contacts } from '@/data/contacts.data';
 import { useTranslation } from 'react-i18next';
-import { TextAnimation } from './text-animation';
+import { TextAnimation } from '@/components/text-animation/text-animation';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Hero = () => {
@@ -22,8 +22,8 @@ const Hero = () => {
 
     return () => typed.destroy();
   }, []);
-  // const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
-  //   ?.href;
+  const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
+    ?.href;
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
@@ -71,22 +71,24 @@ const Hero = () => {
             <h4 className="mb-4 typed-text">
               <span ref={typedText}></span>
             </h4>
-            {/* <Link
-              href={whatsappLink!}
-              target="_blank"
-              className="btn contact-me px-3"
-            >
-              Hubungi Saya
-              <i className="bi bi-whatsapp ms-2"></i>
-            </Link> */}
-            <Link
-              href="/resume-irsyad-abdul.pdf"
-              target="_blank"
-              className="btn btn-primary text-capitalize px-3"
-            >
-              <i className="bi bi-filetype-pdf me-2"></i>
-              {t('see-item', { item: t('resume') })}
-            </Link>
+            <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+              <Link
+                href="/resume-irsyad-abdul.pdf"
+                target="_blank"
+                className="btn btn-primary text-capitalize px-3"
+              >
+                <i className="bi bi-filetype-pdf me-2"></i>
+                {t('see-item', { item: t('resume') })}
+              </Link>
+              <Link
+                href={whatsappLink!}
+                target="_blank"
+                className="btn contact-me px-3"
+              >
+                <i className="bi bi-whatsapp me-2"></i>
+                <span>{capitalizeEachWord(t('contact-me'))}</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-6 hero-image mb-3">
             <Image
