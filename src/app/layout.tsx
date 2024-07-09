@@ -16,6 +16,12 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   fallback: ['sans-serif'],
 });
 
+// const figtree = Figtree({
+//   style: 'normal',
+//   subsets: ['latin-ext'],
+//   fallback: ['sans-serif'],
+// });
+
 export const commonMetaData = {
   title: APP_NAME,
   images: `${BASE_URL}/meta-image.jpg`,
