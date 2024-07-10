@@ -249,6 +249,10 @@ func main() {
         : new Date('2024-04-18 10:00:00+07:00'),
     createdAt: new Date('2024-04-17 21:45:46+07:00'),
     updatedAt: new Date('2024-04-17 21:45:46+07:00'),
+    referenceURLs: [
+      'https://www.instagram.com/p/C9NMPHAy7MP/?utm_source=ig_web_copy_link',
+      'https://github.com/abdul15irsyad/portfolio-v4',
+    ],
   },
   {
     id: '16571800-1536-43d7-8950-cb4dfe295325',

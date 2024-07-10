@@ -1,3 +1,5 @@
 import { BlogView } from '@/sections/blog/blog-view';
 
-export default () => <BlogView />;
+export default async () => {
+  return <BlogView />;
+};

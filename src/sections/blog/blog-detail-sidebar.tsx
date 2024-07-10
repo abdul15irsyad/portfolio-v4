@@ -17,6 +17,7 @@ export const BlogDetailSidebar = ({
   latestBlogs: Blog[];
 }) => {
   const { t } = useTranslation();
+  const url = `/blog/${blog.slug}`;
   return (
     <>
       <div className="blog-detail-share box-container mb-3">
@@ -25,11 +26,7 @@ export const BlogDetailSidebar = ({
           <span>{capitalize(t('share'))}</span>
         </h5>
         <div className="blog-detail-share-items">
-          <BlogShare
-            title={blog.title}
-            url={`/blog/${blog.slug}`}
-            tags={blog.tags}
-          />
+          <BlogShare title={blog.title} url={url} tags={blog.tags} />
         </div>
       </div>
       <div className="blog-detail-latest box-container mb-3">
