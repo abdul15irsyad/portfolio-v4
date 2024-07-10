@@ -16,6 +16,7 @@ model Blog {
   content        String    @db.Text
   publishedAt    DateTime? @map("published_at") @db.Timestamptz()
   tags           String[]
+  referenceURLs  String[]
   author         Author?   @relation(fields: [authorId], references: [id])
   authorId       String?   @map("author_id")
   createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz()

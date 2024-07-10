@@ -25,6 +25,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.11",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",

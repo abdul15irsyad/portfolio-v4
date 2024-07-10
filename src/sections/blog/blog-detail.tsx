@@ -22,6 +22,8 @@ import Link from 'next/link';
 import { calculateMinutesRead } from '@/utils/string.util';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
+import { BlogDetailReferences } from './blog-detail-reference';
+
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el: any) => {
@@ -34,7 +36,7 @@ hljs.addPlugin(
   }),
 );
 
-const Blog = ({
+export const BlogDetail = ({
   blog,
   searchParams,
 }: {
@@ -53,10 +55,10 @@ const Blog = ({
   const addQueryString = useCallback(queryString(searchParams), [searchParams]);
   useEffect(() => hljs.highlightAll());
   const [modal, setModal] = useState<Modal>({});
-  const content = useRef<HTMLDivElement>(null);
+  const blogContent = useRef<HTMLDivElement>(null);
   const body = document.querySelector('body');
   useEffect(() => {
-    const images = content.current?.querySelectorAll('img');
+    const images = blogContent.current?.querySelectorAll('img');
     images?.forEach((image) => {
       image.addEventListener('click', () => {
         setModal({
@@ -129,9 +131,8 @@ const Blog = ({
         <div
           className="blog-detail-content"
           dangerouslySetInnerHTML={{ __html: blog.content }}
-          ref={content}
+          ref={blogContent}
         />
-        <ImagePreview modal={modal} setModal={setModal} />
         <div className="blog-detail-tags">
           {blog.tags?.map((tag, index) => (
             <div
@@ -145,9 +146,11 @@ const Blog = ({
             </div>
           ))}
         </div>
+        {(blog?.referenceURLs?.length ?? 0) > 0 && (
+          <BlogDetailReferences references={blog?.references} />
+        )}
+        <ImagePreview modal={modal} setModal={setModal} />
       </div>
     </>
   );
 };
-
-export default Blog;

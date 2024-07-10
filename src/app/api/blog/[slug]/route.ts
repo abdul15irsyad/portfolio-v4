@@ -1,9 +1,9 @@
 import { cache } from '@/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
-  request: Request,
+  _: NextRequest,
   { params }: { params: { slug: string } },
 ) {
   const slug = params.slug;

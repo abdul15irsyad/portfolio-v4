@@ -11,7 +11,16 @@ export interface Blog {
   featureImage?: File | null;
   content: string;
   tags?: string[];
+  referenceURLs?: string[];
+  references?: { title?: string; desc?: string; image?: string; url: string }[];
   publishedAt?: Date | null;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface BlogReferenceInterface {
+  title?: string;
+  desc?: string;
+  image?: string;
+  url: string;
 }
