@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
+import { BlogReferenceInterface } from '@/types/blog.type';
 import { capitalizeEachWord } from '@/utils/change-case';
 
 import styles from './blog-detail-reference.module.css';
@@ -10,7 +11,7 @@ import styles from './blog-detail-reference.module.css';
 export const BlogDetailReferences = async ({
   references,
 }: {
-  references?: { title?: string; desc?: string; image?: string; url: string }[];
+  references?: BlogReferenceInterface[];
 }) => {
   const { t } = useTranslation();
 

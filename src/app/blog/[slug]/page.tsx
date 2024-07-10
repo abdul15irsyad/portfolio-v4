@@ -24,7 +24,13 @@ const BlogDetailPage = async ({ params, searchParams }) => {
     .slice(0, 2);
   const blogReferences: BlogReferenceInterface[] = await Promise.all(
     blog.referenceURLs?.map(
-      async (reference) => await extractSeoData(reference),
+      async (referenceURL) =>
+        await cache(
+          `seo-data:${referenceURL}`,
+          () => extractSeoData(referenceURL),
+          60 * 60 * 24 * 7,
+        ),
+      // await extractSeoData(referenceURL),
     ) ?? [],
   );
 
