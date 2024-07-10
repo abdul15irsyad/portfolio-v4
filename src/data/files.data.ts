@@ -1,5 +1,6 @@
-import { BASE_URL } from '../configs/app.config';
 import { File } from '@/types/file.type';
+
+import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {

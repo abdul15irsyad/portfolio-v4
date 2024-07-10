@@ -1,7 +1,8 @@
-import { capitalizeEachWord } from '@/utils/change-case';
 import React, { ChangeEventHandler } from 'react';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
+import { capitalizeEachWord } from '@/utils/change-case';
 
 interface Props {
   options: { value: string; label: string; selected: boolean }[];

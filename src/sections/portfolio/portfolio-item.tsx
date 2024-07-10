@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
-import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+
+import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
 import { Portfolio } from '@/types/portfolio.type';
 
 const PortfolioItem = ({

@@ -1,18 +1,19 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
-import { portfolios as allPortfolios } from '@/data/portfolios.data';
-import React, { useEffect, useState } from 'react';
-import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
+import { Pagination } from '@/components/pagination/pagination';
 import {
   portfolioCategories,
   portfolioYears,
 } from '@/data/portfolio-category.data';
-import { paginatedArray } from '@/utils/array.util';
-import { Pagination } from '@/components/pagination/pagination';
+import { portfolios as allPortfolios } from '@/data/portfolios.data';
+import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
 import { Portfolio } from '@/types/portfolio.type';
-import { useTranslation } from 'react-i18next';
+import { paginatedArray } from '@/utils/array.util';
 import { capitalize } from '@/utils/change-case';
 
 export const PortfolioView = () => {

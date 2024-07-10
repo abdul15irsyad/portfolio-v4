@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+
 import styles from './scroll-to-top.module.css';
 
 export const ScrollToTop = () => {

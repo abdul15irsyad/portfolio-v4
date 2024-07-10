@@ -1,13 +1,15 @@
 'use client';
 
-import { QuoteOfTheDay as QuoteOfTheDayInterface } from '@/types/quote-of-the-day.type';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import styles from './quote-of-the-day.module.css';
 import dayjs from 'dayjs';
+import React from 'react';
 // import utc from 'dayjs/plugin/utc';
 // import timezone from 'dayjs/plugin/timezone';
 import { Placeholder } from 'react-bootstrap';
+
+import { QuoteOfTheDay as QuoteOfTheDayInterface } from '@/types/quote-of-the-day.type';
+
+import styles from './quote-of-the-day.module.css';
 // dayjs.extend(utc);
 // dayjs.extend(timezone);
 

@@ -1,13 +1,14 @@
 'use client';
 
+import { Quicksand } from 'next/font/google';
+import Link from 'next/link';
 import React from 'react';
-import styles from './donate.module.css';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { capitalize } from '@/utils/change-case';
-import { Quicksand } from 'next/font/google';
 
-import Link from 'next/link';
+import { capitalize } from '@/utils/change-case';
+
+import styles from './donate.module.css';
 
 const quicksand = Quicksand({
   style: 'normal',

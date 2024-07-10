@@ -1,17 +1,18 @@
 'use client';
 
-import Blogs from '@/sections/blog/blogs';
-import Donate from '@/components/donate/donate';
-import LoadingTags from '@/sections/blog/loading-tags';
-import { SearchBar } from '@/components/search-bar/search-bar';
-import { ENV } from '@/configs/app.config';
-import { ApiResponseAll } from '@/types/api-response.type';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import Donate from '@/components/donate/donate';
+import { SearchBar } from '@/components/search-bar/search-bar';
+import { ENV } from '@/configs/app.config';
+import Blogs from '@/sections/blog/blogs';
+import LoadingTags from '@/sections/blog/loading-tags';
+import { ApiResponseAll } from '@/types/api-response.type';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const BlogView = () => {
   const { t } = useTranslation();

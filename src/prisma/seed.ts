@@ -1,13 +1,14 @@
-import { Blog } from '../types/blog.type';
+import { PrismaClient } from '@prisma/client';
+import { randomUUID } from 'crypto';
+import dayjs from 'dayjs';
+import slugify from 'slugify';
+
+import { ENV } from '../configs/app.config';
 import { authors } from '../data/authors.data';
 import { blogs } from '../data/blogs.data';
 import { files } from '../data/files.data';
-import { PrismaClient } from '@prisma/client';
-import slugify from 'slugify';
-import { randomUUID } from 'crypto';
-import dayjs from 'dayjs';
+import { Blog } from '../types/blog.type';
 import { random } from '../utils/array.util';
-import { ENV } from '../configs/app.config';
 import { randomInt } from '../utils/number.util';
 
 const prisma = new PrismaClient();

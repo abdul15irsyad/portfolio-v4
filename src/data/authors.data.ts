@@ -1,4 +1,5 @@
 import { Author } from '@/types/author.type';
+
 import { fileDatas } from './files.data';
 
 export const authors: Author[] = [

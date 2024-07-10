@@ -1,7 +1,8 @@
 import { Blog } from '@/types/blog.type';
-import { fileDatas } from './files.data';
-import { authorDatas } from './authors.data';
+
 import { ENV } from '../configs/app.config';
+import { authorDatas } from './authors.data';
+import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {

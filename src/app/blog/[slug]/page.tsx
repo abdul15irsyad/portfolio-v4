@@ -1,10 +1,11 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
-import { getBlog, getLatestBlog } from '@/services/blog.service';
+import React from 'react';
+
 import { cache } from '@/redis/redis.util';
 import { BlogDetailView } from '@/sections/blog/blog-detail-view';
-import { extractSeoData } from '@/utils/seo.util';
+import { getBlog, getLatestBlog } from '@/services/blog.service';
 import { BlogReferenceInterface } from '@/types/blog.type';
+import { extractSeoData } from '@/utils/seo.util';
 // import { blogDatas } from '@/data/blogs.data';
 
 const BlogDetailPage = async ({ params, searchParams }) => {

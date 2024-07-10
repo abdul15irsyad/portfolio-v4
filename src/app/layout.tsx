@@ -2,13 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
 import '@/components/layout/navbar.css';
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
+import 'aos/dist/aos.css';
+
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+
 import { Footer, Navbar } from '@/components/layout';
-import 'aos/dist/aos.css';
 import { ScrollToTop } from '@/components/layout/scroll-to-top';
 import { AllProvider } from '@/components/provider/all-provider';
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',

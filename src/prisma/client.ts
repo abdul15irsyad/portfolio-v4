@@ -1,5 +1,6 @@
-import { BASE_URL } from '@/configs/app.config';
 import { PrismaClient } from '@prisma/client';
+
+import { BASE_URL } from '@/configs/app.config';
 
 const prismaClientSingleton = () => {
   return new PrismaClient().$extends({

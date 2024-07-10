@@ -1,9 +1,11 @@
 'use client';
 
-import { capitalizeEachWord } from '@/utils/change-case';
-import styles from './blog-detail-reference.module.css';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+
+import { capitalizeEachWord } from '@/utils/change-case';
+
+import styles from './blog-detail-reference.module.css';
 
 export const BlogDetailReferences = async ({
   references,

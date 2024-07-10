@@ -1,5 +1,6 @@
 import React from 'react';
 import { Placeholder } from 'react-bootstrap';
+
 import LoadingTags from './loading-tags';
 
 type Prop = {

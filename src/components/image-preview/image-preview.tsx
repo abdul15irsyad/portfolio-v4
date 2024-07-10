@@ -1,4 +1,5 @@
 import React, { SetStateAction } from 'react';
+
 import styles from './image-preview.module.css';
 
 export type Modal = {

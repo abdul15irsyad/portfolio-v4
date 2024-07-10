@@ -1,6 +1,7 @@
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
 import { Metadata } from 'next';
 import React from 'react';
+
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
 
 export const metadata: Metadata = {
   title: `Blog - ${APP_NAME}`,

@@ -1,9 +1,11 @@
-import { Team } from '@/types/team.type';
-import React from 'react';
-import styles from './portfolio-team.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
+
 import { BASE_URL } from '@/configs/app.config';
+import { Team } from '@/types/team.type';
+
+import styles from './portfolio-team.module.css';
 
 const PortfolioTeam = ({ team }: { team: Team }) => {
   return team.user?.linkedin ? (

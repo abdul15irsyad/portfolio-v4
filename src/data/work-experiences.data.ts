@@ -1,5 +1,6 @@
-import { WorkExperience } from '@/types/work-experience.type';
 import dayjs from 'dayjs';
+
+import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {

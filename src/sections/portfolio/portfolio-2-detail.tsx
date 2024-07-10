@@ -1,14 +1,16 @@
 'use client';
 
-import { Portfolio } from '@/types/portfolio.type';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
-import Image from 'next/image';
+import { Portfolio } from '@/types/portfolio.type';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
+
 import styles from './portfolio-2-detail.module.css';
 import PortfolioTeam from './portfolio-team';
-import { useTranslation } from 'react-i18next';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
   const { t, i18n } = useTranslation();

@@ -1,6 +1,7 @@
+import { NextRequest, NextResponse } from 'next/server';
+
 import { cache } from '@/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
-import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   _: NextRequest,

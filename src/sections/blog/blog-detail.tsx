@@ -1,7 +1,14 @@
 'use client';
 
-import { renderTimestamp } from '@/utils/date.util';
+import 'highlight.js/styles/androidstudio.css';
+import 'highlightjs-copy/dist/highlightjs-copy.min.css';
+
+import dayjs from 'dayjs';
+import hljs from 'highlight.js';
+import CopyButtonPlugin from 'highlightjs-copy';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, {
   useCallback,
   useEffect,
@@ -9,19 +16,15 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import hljs from 'highlight.js';
-import { Blog as BlogInterface } from '@/types/blog.type';
-import CopyButtonPlugin from 'highlightjs-copy';
-import 'highlight.js/styles/androidstudio.css';
-import 'highlightjs-copy/dist/highlightjs-copy.min.css';
-import { useRouter } from 'next/navigation';
-import { queryString } from '@/utils/url.util';
-import dayjs from 'dayjs';
-import ImagePreview, { Modal } from '@/components/image-preview/image-preview';
-import Link from 'next/link';
-import { calculateMinutesRead } from '@/utils/string.util';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
+
+import ImagePreview, { Modal } from '@/components/image-preview/image-preview';
+import { Blog as BlogInterface } from '@/types/blog.type';
+import { renderTimestamp } from '@/utils/date.util';
+import { calculateMinutesRead } from '@/utils/string.util';
+import { queryString } from '@/utils/url.util';
+
 import { BlogDetailReferences } from './blog-detail-reference';
 
 hljs.addPlugin(

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { InputGroup, Form } from 'react-bootstrap';
+import { Form,InputGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 type Prop = {

@@ -1,8 +1,9 @@
-import { awards } from '@/data/awards.data';
-import { capitalizeEachWord } from '@/utils/change-case';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { awards } from '@/data/awards.data';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 const Award = () => {
   const { t } = useTranslation();

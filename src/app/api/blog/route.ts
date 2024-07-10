@@ -1,7 +1,8 @@
+import { NextResponse } from 'next/server';
+
 import { cache } from '@/redis/redis.util';
 import { getBlogWithPagination } from '@/services/blog.service';
 import { cleanNull } from '@/utils/object.util';
-import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const parseSearchParams = (key: string[] | string) =>

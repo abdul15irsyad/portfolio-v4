@@ -1,4 +1,4 @@
-import { ProgrammingSkill, Level } from '@/types/programming-skill.interface';
+import { Level,ProgrammingSkill } from '@/types/programming-skill.interface';
 
 export const programmingSkills: ProgrammingSkill[] = [
   {

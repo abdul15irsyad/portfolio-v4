@@ -1,4 +1,5 @@
 import { BASE_URL } from '@/configs/app.config';
+
 import { User } from '../types/user.type';
 import { fileDatas } from './files.data';
 
