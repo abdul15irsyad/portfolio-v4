@@ -49,6 +49,7 @@ export const Navbar = () => {
         <Link href="/">
           <BootstrapNavbar.Brand className="d-flex align-items-center">
             <Image
+              priority
               src="/favicon.jpg"
               alt="Portfolio Logo"
               width={24}

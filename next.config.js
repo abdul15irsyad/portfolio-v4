@@ -1,3 +1,5 @@
+const { withSentryConfig } = require('@sentry/nextjs');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: { appDir: true, serverActions: true },
@@ -18,6 +20,14 @@ const nextConfig = {
       },
     ],
   },
+  publicRuntimeConfig: {
+    SENTRY_DSN: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
+  },
 };
 
-module.exports = nextConfig;
+module.exports = withSentryConfig(nextConfig, {
+  org: 'freelance-abdul',
+  project: 'portfolio-v4',
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: false,
+});

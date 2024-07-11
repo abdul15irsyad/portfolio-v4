@@ -8,7 +8,7 @@ import { capitalizeEachWord } from '@/utils/change-case';
 
 import styles from './blog-detail-reference.module.css';
 
-export const BlogDetailReferences = async ({
+export const BlogDetailReferences = ({
   references,
 }: {
   references?: BlogReferenceInterface[];
@@ -18,8 +18,9 @@ export const BlogDetailReferences = async ({
   return (
     <div className={styles['blog-detail-references']}>
       <h5 className={styles.title}>{capitalizeEachWord(t('references'))}</h5>
-      {references?.map((reference) => (
+      {references?.map((reference, index) => (
         <Link
+          key={index}
           href={reference!.url}
           target="_blank"
           className={styles['blog-detail-reference']}

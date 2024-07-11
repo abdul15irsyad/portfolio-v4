@@ -18,7 +18,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'next.config.js', 'next-sitemap.config.js'],
+  ignorePatterns: ['.eslintrc.js', '*.config.js', '*.config.mjs'],
   rules: {
     // '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
