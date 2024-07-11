@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Typed from 'typed.js';
-import { contacts } from '@/data/contacts.data';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import Typed from 'typed.js';
+
 import { TextAnimation } from '@/components/text-animation/text-animation';
+import { contacts } from '@/data/contacts.data';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Hero = () => {

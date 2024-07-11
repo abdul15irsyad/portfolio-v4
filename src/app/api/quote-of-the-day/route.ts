@@ -1,6 +1,7 @@
+import { NextResponse } from 'next/server';
+
 import { cache } from '@/redis/redis.util';
 import { getQuoteOfTheDay } from '@/services/quote-of-the-day.service';
-import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

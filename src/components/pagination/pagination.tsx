@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import styles from './pagination.module.css';
 
 type Prop = {

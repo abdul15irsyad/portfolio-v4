@@ -1,12 +1,14 @@
 'use client';
 
-import { contacts } from '@/data/contacts.data';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { contacts } from '@/data/contacts.data';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
+
 import { Copyright } from './copyright';
 import { QuoteOfTheDay } from './quote-of-the-day';
-import { useTranslation } from 'react-i18next';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const Footer = () => {
   const { t } = useTranslation();

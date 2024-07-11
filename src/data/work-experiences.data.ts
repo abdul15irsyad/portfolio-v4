@@ -1,5 +1,6 @@
-import { WorkExperience } from '@/types/work-experience.type';
 import dayjs from 'dayjs';
+
+import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {
@@ -65,7 +66,7 @@ export const workExperiences: WorkExperience[] = [
     endDate: dayjs(`2020-03-01`).toDate(),
     company: {
       name: 'Lingkar 9',
-      logo: '/experience/lingkar-9.png',
+      logo: '/experience/new-lingkar-9.png',
     },
     translates: [
       {
@@ -74,7 +75,7 @@ export const workExperiences: WorkExperience[] = [
       },
       {
         lang: 'en',
-        desc: 'For get an experience I decided to do an internship at this company, I was taught various things related to the world of work and the world of programming',
+        desc: 'To get an experience I decided to do an internship at this company, I was taught various things related to the world of work and the world of programming',
       },
     ],
   },

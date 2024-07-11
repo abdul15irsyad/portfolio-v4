@@ -1,4 +1,5 @@
 import Redis, { RedisKey } from 'ioredis';
+
 import { redis } from './redis.config';
 
 export class RedisService {

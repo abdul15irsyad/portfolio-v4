@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { paginatedArray, searchInArray } from '@/utils/array.util';
 import { portfolios } from '@/data/portfolios.data';
+import { paginatedArray, searchInArray } from '@/utils/array.util';
 
 export const GET = async (req: NextRequest) => {
   let allData = portfolios;

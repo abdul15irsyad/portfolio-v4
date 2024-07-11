@@ -1,12 +1,14 @@
 'use client';
 
-import { Blog } from '@/types/blog.type';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
-import { renderTimestamp } from '@/utils/date.util';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+
+import { Blog } from '@/types/blog.type';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
+import { renderTimestamp } from '@/utils/date.util';
+
 import BlogShare from './blog-share';
 
 export const BlogDetailSidebar = ({

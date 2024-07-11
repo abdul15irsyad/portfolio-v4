@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+
 import { Portfolio } from '@/types/portfolio.type';
+
 import styles from './portfolio-item-2.module.css';
 
 const PortfolioItem2 = ({

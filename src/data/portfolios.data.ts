@@ -1,6 +1,8 @@
-import { Portfolio } from '@/types/portfolio.type';
 import dayjs from 'dayjs';
 import slugify from 'slugify';
+
+import { Portfolio } from '@/types/portfolio.type';
+
 import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [

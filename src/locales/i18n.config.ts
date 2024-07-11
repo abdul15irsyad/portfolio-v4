@@ -1,10 +1,12 @@
-import i18next from 'i18next';
+import 'dayjs/locale/id';
+
 import dayjs from 'dayjs';
+import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
+
 import translationEn from './langs/en.json';
 import translationId from './langs/id.json';
-import 'dayjs/locale/id';
 
 export const I18N_KEY = 'i18nextLng';
 export const defaultLanguage = 'en';

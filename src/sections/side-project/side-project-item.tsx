@@ -1,13 +1,14 @@
 'use client';
 
-import { SideProject } from '@/types/side-project.type';
+import AOS from 'aos';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import AOS from 'aos';
-import { aosInitConfig } from '@/configs/aos.config';
 import { useTranslation } from 'react-i18next';
+
+import { aosInitConfig } from '@/configs/aos.config';
+import { SideProject } from '@/types/side-project.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const SideProjectItem = ({

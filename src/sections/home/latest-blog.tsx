@@ -1,8 +1,5 @@
 'use client';
 
-import { Blog } from '@/types/blog.type';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
-import { renderTimestamp } from '@/utils/date.util';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import Image from 'next/image';
@@ -10,6 +7,10 @@ import Link from 'next/link';
 import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
+import { Blog } from '@/types/blog.type';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
+import { renderTimestamp } from '@/utils/date.util';
 
 export const LatestBlog = () => {
   const { t } = useTranslation();

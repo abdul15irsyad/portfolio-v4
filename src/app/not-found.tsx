@@ -1,6 +1,8 @@
 import './not-found.css';
+
 import { Metadata } from 'next';
 import React from 'react';
+
 import { NotFoundView } from '@/sections/not-found/not-found-view';
 
 export const metadata: Metadata = {

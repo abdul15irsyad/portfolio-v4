@@ -1,9 +1,10 @@
-import { workExperiences } from '@/data/work-experiences.data';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { workExperiences } from '@/data/work-experiences.data';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Experience = () => {
   const { t, i18n } = useTranslation();

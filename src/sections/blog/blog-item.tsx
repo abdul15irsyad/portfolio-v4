@@ -1,14 +1,15 @@
 'use client';
 
-import { Blog } from '@/types/blog.type';
-import { renderTimestamp } from '@/utils/date.util';
-import { defaultSanitizeOptions } from '@/utils/html.util';
-import { calculateMinutesRead } from '@/utils/string.util';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
+
+import { Blog } from '@/types/blog.type';
+import { renderTimestamp } from '@/utils/date.util';
+import { defaultSanitizeOptions } from '@/utils/html.util';
+import { calculateMinutesRead } from '@/utils/string.util';
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
   const { t } = useTranslation();

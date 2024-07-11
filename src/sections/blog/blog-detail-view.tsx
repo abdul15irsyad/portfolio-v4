@@ -1,9 +1,11 @@
 import React from 'react';
-import { BlogDetail } from './blog-detail';
-import { Blog as BlogType } from '@/types/blog.type';
-import { BlogDetailSidebar } from './blog-detail-sidebar';
-import Donate from '@/components/donate/donate';
+
 import { BackButton } from '@/components/back-button/back-button';
+import Donate from '@/components/donate/donate';
+import { Blog as BlogType } from '@/types/blog.type';
+
+import { BlogDetail } from './blog-detail';
+import { BlogDetailSidebar } from './blog-detail-sidebar';
 
 export const BlogDetailView = ({
   blog,

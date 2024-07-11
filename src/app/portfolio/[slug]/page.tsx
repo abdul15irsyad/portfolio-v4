@@ -1,12 +1,13 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import { portfolios } from '@/data/portfolios.data';
 import { Metadata } from 'next';
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
+import { notFound } from 'next/navigation';
+import React from 'react';
 import sanitize from 'sanitize-html';
-import { defaultSanitizeOptions } from '@/utils/html.util';
+
 import { commonMetaData } from '@/app/layout';
+import { APP_NAME, BASE_URL } from '@/configs/app.config';
+import { portfolios } from '@/data/portfolios.data';
 import { PortfolioDetailView } from '@/sections/portfolio/portfolio-detail-view';
+import { defaultSanitizeOptions } from '@/utils/html.util';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);

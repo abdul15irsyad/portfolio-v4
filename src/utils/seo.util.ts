@@ -8,7 +8,6 @@ export const extractSeoData = async (url: string) => {
         `error fetching url: ${url}, status code: ${response.status}`,
       );
     }
-
     const html = await response.text();
     const $ = load(html);
 

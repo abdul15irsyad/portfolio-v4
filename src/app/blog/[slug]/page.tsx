@@ -1,10 +1,11 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
-import { getBlog, getLatestBlog } from '@/services/blog.service';
+import React from 'react';
+
 import { cache } from '@/redis/redis.util';
 import { BlogDetailView } from '@/sections/blog/blog-detail-view';
-import { extractSeoData } from '@/utils/seo.util';
+import { getBlog, getLatestBlog } from '@/services/blog.service';
 import { BlogReferenceInterface } from '@/types/blog.type';
+import { extractSeoData } from '@/utils/seo.util';
 // import { blogDatas } from '@/data/blogs.data';
 
 const BlogDetailPage = async ({ params, searchParams }) => {
@@ -23,7 +24,13 @@ const BlogDetailPage = async ({ params, searchParams }) => {
     .slice(0, 2);
   const blogReferences: BlogReferenceInterface[] = await Promise.all(
     blog.referenceURLs?.map(
-      async (reference) => await extractSeoData(reference),
+      async (referenceURL) =>
+        await cache(
+          `seo-data:${referenceURL}`,
+          () => extractSeoData(referenceURL),
+          60 * 60 * 24 * 7,
+        ),
+      // await extractSeoData(referenceURL),
     ) ?? [],
   );
 

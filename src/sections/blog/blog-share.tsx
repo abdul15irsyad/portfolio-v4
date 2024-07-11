@@ -1,11 +1,12 @@
 'use client';
 
-import { BASE_URL } from '@/configs/app.config';
-import { capitalizeEachWord } from '@/utils/change-case';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
+import { BASE_URL } from '@/configs/app.config';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 const BlogShare = ({
   url,

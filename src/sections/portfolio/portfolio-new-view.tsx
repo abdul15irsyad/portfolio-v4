@@ -1,26 +1,32 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useCallback } from 'react';
+import { Placeholder } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
-import React, { useEffect, useState } from 'react';
-import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
+import { Pagination } from '@/components/pagination/pagination';
 import {
   portfolioCategories,
   portfolioYears,
 } from '@/data/portfolio-category.data';
-import { Pagination } from '@/components/pagination/pagination';
+import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
 import { Portfolio } from '@/types/portfolio.type';
-import { useTranslation } from 'react-i18next';
 import { capitalize } from '@/utils/change-case';
-import { useQuery } from '@tanstack/react-query';
+
 import { PortfolioItem2Loading } from './portfolio-item-2-loading';
-import { Placeholder } from 'react-bootstrap';
 
 export const PortfolioNewView = () => {
   const { t } = useTranslation();
-  const [page, setPage] = useState<number>(1);
-  const [year, setYear] = useState<string | number>('all');
-  const [type, setType] = useState<string>('all');
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
+  const year = searchParams.get('year') ?? 'all';
+  const type = searchParams.get('type') ?? 'all';
   const limit = 6;
   const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery<{
     msg: string;
@@ -33,15 +39,23 @@ export const PortfolioNewView = () => {
       newSearchParams.set('limit', limit.toString());
       if (page) newSearchParams.set('page', page.toString());
       if (type) newSearchParams.set('type', type);
-      if (year) newSearchParams.set('year', year.toString());
+      if (year) newSearchParams.set('year', year);
       const url = `/api/portfolios?${newSearchParams.toString()}`;
       return (await fetch(url)).json();
     },
     cacheTime: 0,
   });
 
-  // on year or type change
-  useEffect(() => setPage(1), [year, type]);
+  const queryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams as any);
+      if (name !== 'page') params.delete('page');
+      if (value === '') params.delete(name);
+      else params.set(name, value);
+      return params.toString();
+    },
+    [searchParams],
+  );
 
   return (
     <div className="portfolio section doodle-background">
@@ -53,14 +67,28 @@ export const PortfolioNewView = () => {
             <div className="filters">
               <div className="filter filter-year">
                 <FormSelect
+                  defaultValue={year}
                   options={portfolioYears}
-                  handleChange={(e) => setYear(e.target.value)}
+                  handleChange={(e) => {
+                    if (e.target?.value !== year) {
+                      router.push(
+                        `/portfolio?${queryString('year', e.target?.value?.toString())}`,
+                      );
+                    }
+                  }}
                 />
               </div>
               <div className="filter filter-type">
                 <FormSelect
+                  defaultValue={type}
                   options={portfolioCategories}
-                  handleChange={(e) => setType(e.target.value)}
+                  handleChange={(e) => {
+                    if (e.target?.value !== type) {
+                      router.push(
+                        `/portfolio?${queryString('type', e.target?.value?.toString())}`,
+                      );
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -106,8 +134,7 @@ export const PortfolioNewView = () => {
             position="center"
             activePage={page}
             setPage={({ page }) => {
-              setPage(page);
-              // window.scrollTo({ top: 0, behavior: 'smooth' });
+              router.push(`/portfolio?${queryString('page', page.toString())}`);
             }}
             totalPage={Math.ceil(
               (portfoliosResponse?.meta?.totalAllData ?? 0) / limit,

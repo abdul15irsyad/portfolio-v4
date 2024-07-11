@@ -1,9 +1,10 @@
 'use client';
 
-import { capitalize } from '@/utils/change-case';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { capitalize } from '@/utils/change-case';
 
 export const BackButton = () => {
   const { t } = useTranslation();

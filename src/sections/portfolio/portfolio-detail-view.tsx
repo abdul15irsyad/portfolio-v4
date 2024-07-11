@@ -1,7 +1,9 @@
 import React from 'react';
-import Portfolio2Detail from './portfolio-2-detail';
-import { Portfolio } from '@/types/portfolio.type';
+
 import { BackButton } from '@/components/back-button/back-button';
+import { Portfolio } from '@/types/portfolio.type';
+
+import Portfolio2Detail from './portfolio-2-detail';
 
 export const PortfolioDetailView = ({
   portfolio,

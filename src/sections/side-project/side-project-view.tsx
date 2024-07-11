@@ -1,10 +1,11 @@
 'use client';
 
-import { SideProjectItem } from '@/sections/side-project/side-project-item';
-import { sideProjects } from '@/data/side-projects.data';
-import { capitalizeEachWord } from '@/utils/change-case';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { sideProjects } from '@/data/side-projects.data';
+import { SideProjectItem } from '@/sections/side-project/side-project-item';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 export const SideProjectView = () => {
   const { t } = useTranslation();

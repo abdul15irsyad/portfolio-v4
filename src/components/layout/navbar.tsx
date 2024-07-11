@@ -1,14 +1,15 @@
 'use client';
 
-import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
+import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Nav, Navbar as BootstrapNavbar, Offcanvas } from 'react-bootstrap';
-import { usePathname } from 'next/navigation';
-import { capitalizeEachWord } from '@/utils/change-case';
 import { useTranslation } from 'react-i18next';
-import dayjs from 'dayjs';
+
+import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 export const Navbar = () => {
   const { t, i18n } = useTranslation();

@@ -1,10 +1,11 @@
 'use client';
 
-import { educations } from '@/data/educations.data';
-import { capitalizeEachWord } from '@/utils/change-case';
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { educations } from '@/data/educations.data';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 const Education = () => {
   const { t } = useTranslation();

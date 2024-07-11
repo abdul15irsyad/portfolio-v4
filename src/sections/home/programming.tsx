@@ -1,10 +1,11 @@
-import { programmingSkills } from '@/data/programming-skills.data';
-import { Level } from '@/types/programming-skill.interface';
-import { capitalizeEachWord } from '@/utils/change-case';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { programmingSkills } from '@/data/programming-skills.data';
+import { Level } from '@/types/programming-skill.interface';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 const Programming = () => {
   const { t } = useTranslation();

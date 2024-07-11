@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
 import Script from 'next/script';
+import React from 'react';
+
 import { ENV } from '@/configs/app.config';
 
 interface Props {
