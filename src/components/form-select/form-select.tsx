@@ -5,17 +5,22 @@ import { useTranslation } from 'react-i18next';
 import { capitalizeEachWord } from '@/utils/change-case';
 
 interface Props {
+  defaultValue?: string;
   options: { value: string; label: string; selected: boolean }[];
   handleChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
-export const FormSelect = ({ options, handleChange }: Props) => {
+export const FormSelect = ({
+  defaultValue = 'all',
+  options,
+  handleChange,
+}: Props) => {
   const { t } = useTranslation();
   return (
     <Form.Select
       aria-label="Default select example"
       onChange={handleChange}
-      defaultValue={'all'}
+      defaultValue={defaultValue}
     >
       {options.map(({ value, label }, index) => (
         <option key={index} value={value}>
