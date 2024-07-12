@@ -63,7 +63,11 @@ export const BlogDetail = ({
   useEffect(() => {
     const images = blogContent.current?.querySelectorAll('img');
     images?.forEach((image) => {
-      image.addEventListener('click', () => {
+      // encapsulate element
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('img-wrapper');
+      const newImage = image.cloneNode(true);
+      newImage.addEventListener('click', () => {
         setModal({
           ...modal,
           show: true,
@@ -76,6 +80,20 @@ export const BlogDetail = ({
         });
         body!.style.overflow = 'hidden';
       });
+      imageWrapper.appendChild(newImage);
+      image.parentNode?.replaceChild(imageWrapper, image);
+
+      // add caption
+      if (image.hasAttribute('title')) {
+        const imageTitle = image.getAttribute('title');
+        const caption = document.createElement('p');
+        caption.classList.add('text-muted');
+        caption.style.fontSize = '90%';
+        caption.style.marginBottom = '0';
+        caption.style.textAlign = 'center';
+        caption.textContent = imageTitle;
+        imageWrapper.appendChild(caption);
+      }
     });
   });
 
