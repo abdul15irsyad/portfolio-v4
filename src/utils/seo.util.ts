@@ -24,7 +24,7 @@ export const extractSeoData = async (url: string) => {
 
     return data;
   } catch (error: any) {
-    console.error(`error fetching SEO data: ${error?.message ?? error}`);
+    console.error(error);
     return { url };
   }
 };
