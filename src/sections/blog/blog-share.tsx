@@ -109,7 +109,7 @@ const BlogShare = ({
         className={`blog-detail-share-item ${link.icon}`}
         onClick={async () => {
           try {
-            if (navigator?.canShare({ title })) return;
+            if (!navigator?.canShare({ title })) return;
             const shareData: ShareData = {
               title,
               text,
