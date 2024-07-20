@@ -3,6 +3,8 @@ import { randomUUID } from 'crypto';
 import dayjs from 'dayjs';
 import slugify from 'slugify';
 
+import { handleError } from '@/utils/error.util';
+
 import { ENV } from '../configs/app.config';
 import { authors } from '../data/authors.data';
 import { blogs } from '../data/blogs.data';
@@ -78,7 +80,7 @@ main()
     await prisma.$disconnect();
   })
   .catch(async (error) => {
-    console.error(error);
+    handleError(error);
     await prisma.$disconnect();
     process.exit(1);
   });

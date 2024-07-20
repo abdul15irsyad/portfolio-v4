@@ -1,5 +1,7 @@
 import { load } from 'cheerio';
 
+import { handleError } from './error.util';
+
 export const extractSeoData = async (url: string) => {
   try {
     const response = await fetch(url);
@@ -24,7 +26,7 @@ export const extractSeoData = async (url: string) => {
 
     return data;
   } catch (error: any) {
-    console.error(error);
+    handleError(error);
     return { url };
   }
 };
