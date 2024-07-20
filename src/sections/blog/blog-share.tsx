@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { BASE_URL } from '@/configs/app.config';
 import { capitalizeEachWord } from '@/utils/change-case';
+import { handleError } from '@/utils/error.util';
 
 const BlogShare = ({
   url,
@@ -79,7 +80,7 @@ const BlogShare = ({
       });
     }
   } catch (error: any) {
-    console.error(error);
+    handleError(error);
   }
 
   return links.map((link, index) => {
@@ -116,7 +117,7 @@ const BlogShare = ({
             };
             await navigator?.share(shareData);
           } catch (error) {
-            console.error(error);
+            handleError(error);
           }
         }}
       >
