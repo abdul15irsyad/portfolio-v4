@@ -736,11 +736,11 @@ export const portfolios: Portfolio[] = [
         translates: [
           {
             lang: 'id',
-            desc: 'Sinkronisasi data sekolah, siswa, guru, dll. dengan data yang ada di DAPODIK <a href="https://dapo.kemdikbud.go.id/" target="_blank">https://dapo.kemdikbud.go.id</a> untuk daerah Aceh Tengah',
+            desc: 'Sinkronisasi data sekolah, siswa, guru, dll. dengan data yang ada di DAPODIK <a href="https://dapo.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer">https://dapo.kemdikbud.go.id</a> untuk daerah Aceh Tengah',
           },
           {
             lang: 'en',
-            desc: 'Synchronization of school data, students, teachers, etc. with the data in Dapodik <a href="https://dapo.kemdikbud.go.id/" target="_blank">https://dapo.kemdikbud.go.id</a> for Central Aceh region',
+            desc: 'Synchronization of school data, students, teachers, etc. with the data in Dapodik <a href="https://dapo.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer">https://dapo.kemdikbud.go.id</a> for Central Aceh region',
           },
         ],
       },

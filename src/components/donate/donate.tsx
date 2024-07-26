@@ -53,6 +53,7 @@ const Trakteer = () => (
     <Link
       href="https://trakteer.id/abdul15irsyad/tip"
       target="_blank"
+      rel="noopener noreferrer"
       className={`${styles.trakteer} ${quicksand.className}`}
     >
       <img
@@ -70,6 +71,7 @@ const NihBuatJajan = () => (
     <Link
       href="https://www.nihbuatjajan.com/abdul15irsyad"
       target="_blank"
+      rel="noopener noreferrer"
       style={{ width: '80%', maxWidth: '200px' }}
     >
       <img

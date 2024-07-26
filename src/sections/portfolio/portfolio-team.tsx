@@ -9,7 +9,11 @@ import styles from './portfolio-team.module.css';
 
 const PortfolioTeam = ({ team }: { team: Team }) => {
   return team.user?.linkedin ? (
-    <Link href={team.user?.linkedin as string} target="_blank">
+    <Link
+      href={team.user?.linkedin as string}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <TeamCard team={team} />
     </Link>
   ) : (

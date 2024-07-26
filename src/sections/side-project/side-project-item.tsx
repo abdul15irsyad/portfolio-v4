@@ -32,7 +32,12 @@ export const SideProjectItem = ({
       {href ? (
         <div className="side-project-img-wrapper">
           <div className="overlay">
-            <Link href={href} target="_blank" className="btn btn-sm btn-open">
+            <Link
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-sm btn-open"
+            >
               {capitalize(t('see'))}{' '}
               <i className="bi bi-box-arrow-up-right ms-2"></i>
             </Link>
@@ -56,7 +61,12 @@ export const SideProjectItem = ({
       )}
       <div className="side-project-text">
         {href ? (
-          <Link href={href} target="_blank" className="side-project-title">
+          <Link
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="side-project-title"
+          >
             {title}
           </Link>
         ) : (

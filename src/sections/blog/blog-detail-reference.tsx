@@ -23,6 +23,7 @@ export const BlogDetailReferences = ({
           key={index}
           href={reference!.url}
           target="_blank"
+          rel="noopener noreferrer"
           className={styles['blog-detail-reference']}
           style={{
             height: !reference?.image ? 'fit-content' : undefined,
