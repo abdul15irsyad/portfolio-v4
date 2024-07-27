@@ -3,6 +3,26 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: '/side-project/stopwatch.jpg',
+    href: 'https://abdul-stopwatch.vercel.app',
+    stacks: [
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/mantine.png', label: 'Mantine 7' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Stopwatch, Clock dan Timer',
+        desc: 'Tools waktu seperti stopwatch, jam dan timer',
+      },
+      {
+        lang: 'en',
+        title: 'Stopwatch, Clock and Timer',
+        desc: 'Timer tools like stopwatch, clock and timer',
+      },
+    ],
+  },
+  {
     img: '/side-project/acak-kata.jpeg',
     href: 'https://acak-kata-v2.vercel.app',
     stacks: [
