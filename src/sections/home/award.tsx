@@ -32,6 +32,7 @@ const Award = () => {
                         <Link
                           href={certificate.href}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="btn btn-danger"
                         >
                           <i className="bi bi-filetype-pdf me-2"></i>

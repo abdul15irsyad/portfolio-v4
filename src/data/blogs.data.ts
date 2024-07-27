@@ -587,7 +587,7 @@ $ code .</code>
     </li>
     </ol>
     <p>
-    oke akhirnya walaupun kita pakai windows, kita bisa ikut nyobain gimana make bun, apalagi sudah ada framework <code>elysia js</code> yang bisa kita kulik tanpa perlu ganti os di laptop kita, atau kalau mau running project node js kita yang sudah ada menggunakan bun juga bisa, yaaa ga terlalu keliatan beda nya si, untuk info bun lebih lanjut bisa langsung liat halaman resmi nya <a href="https://bun.sh" target="_blank">bun.sh</a>
+    oke akhirnya walaupun kita pakai windows, kita bisa ikut nyobain gimana make bun, apalagi sudah ada framework <code>elysia js</code> yang bisa kita kulik tanpa perlu ganti os di laptop kita, atau kalau mau running project node js kita yang sudah ada menggunakan bun juga bisa, yaaa ga terlalu keliatan beda nya si, untuk info bun lebih lanjut bisa langsung liat halaman resmi nya <a href="https://bun.sh" target="_blank" rel="noopener noreferrer">bun.sh</a>
     </p>
     <br>
     <br>
@@ -778,7 +778,7 @@ for (const user of users) {
     content: `
     <article>
     <p>
-    pagi, siang, malam teman-teman... dimanapun kalian berada semoga sehat selalu. saya mau share lagi mengenai nest js, untuk sekarang ini adalah fitur otentikasi (authentication) menggunakan <a href="https://www.passportjs.org/" target="_blank">Passport JS</a>, yakni kurang lebih fitur login pengguna, dan bagaimana membatasi endpoint yang hanya bisa diakses dengan jwt (json web token) yang valid sebagai tanda bahwa pengguna tersebut telah melakukan proses login yang mana ini adalah tulisan lanjutan dari tulisan <a href="/blog/nest-js-setup-database-with-typeorm" target="_blank">Nest JS Setup Database With TypeORM</a>.
+    pagi, siang, malam teman-teman... dimanapun kalian berada semoga sehat selalu. saya mau share lagi mengenai nest js, untuk sekarang ini adalah fitur otentikasi (authentication) menggunakan <a href="https://www.passportjs.org/" target="_blank" rel="noopener noreferrer">Passport JS</a>, yakni kurang lebih fitur login pengguna, dan bagaimana membatasi endpoint yang hanya bisa diakses dengan jwt (json web token) yang valid sebagai tanda bahwa pengguna tersebut telah melakukan proses login yang mana ini adalah tulisan lanjutan dari tulisan <a href="/blog/nest-js-setup-database-with-typeorm" target="_blank" rel="noopener noreferrer">Nest JS Setup Database With TypeORM</a>.
     </p>
     <p>
     kenapa aplikasi memerlukan otentikasi? jika web aplikasi yang kita bangun seperti landing page maka kita tidak memerlukan otentikasi karena semua pengguna hanya diperuntukkan untuk melihat informasi yang ditampilkan, namun jika kita memiliki suatu aplikasi yang hanya bisa diakses oleh orang tertentu atau perlu dibatasi antara masing-masing pengguna maka kita akan membatasi dengan proses otentikasi tersebut.

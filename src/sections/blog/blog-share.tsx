@@ -128,6 +128,7 @@ const BlogShare = ({
         key={index}
         href={link.href!}
         target="_blank"
+        rel="noopener noreferrer"
         className={`blog-detail-share-item ${link.icon}`}
       >
         <i className={`bi bi-${link.icon}`}></i>

@@ -30,7 +30,12 @@ const Programming = () => {
                 <ul className="category-items">
                   {list.map(({ name, logo, level, href }, index) =>
                     href ? (
-                      <Link key={index} href={href} target="_blank">
+                      <Link
+                        key={index}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <CategoryItem name={name} logo={logo} level={level} />
                       </Link>
                     ) : (

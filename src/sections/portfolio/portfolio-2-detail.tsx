@@ -102,6 +102,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
             <Link
               href={href}
               target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-md btn-primary"
             >
               <i className="bi bi-box-arrow-up-right me-2" />

@@ -107,6 +107,7 @@ export const BlogDetail = ({
               <Link
                 href={blog.author.url}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="blog-author"
               >
                 <Image

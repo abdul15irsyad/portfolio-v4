@@ -23,8 +23,9 @@ const Hero = () => {
 
     return () => typed.destroy();
   }, []);
-  const whatsappLink = contacts.find((contact) => contact.icon === 'whatsapp')
-    ?.href;
+  const whatsappLink = contacts.find(
+    (contact) => contact.icon === 'whatsapp',
+  )?.href;
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
@@ -50,6 +51,7 @@ const Hero = () => {
                       key={index}
                       href={socialMedia.href}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="social-media-item"
                     >
                       <i className={`bi bi-${socialMedia.icon}`}></i>
@@ -76,6 +78,7 @@ const Hero = () => {
               <Link
                 href="/resume-irsyad-abdul.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary text-capitalize px-3"
               >
                 <i className="bi bi-filetype-pdf me-2"></i>
@@ -84,6 +87,7 @@ const Hero = () => {
               <Link
                 href={whatsappLink!}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="btn contact-me px-3"
               >
                 <i className="bi bi-whatsapp me-2"></i>

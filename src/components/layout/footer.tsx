@@ -30,7 +30,12 @@ export const Footer = () => {
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => {
                     return href ? (
-                      <Link key={index} href={href} target="_blank">
+                      <Link
+                        key={index}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <li>
                           <i className={`bi bi-${icon}`}></i>
                           <span>{label}</span>
@@ -50,7 +55,12 @@ export const Footer = () => {
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => {
                     return href ? (
-                      <Link key={index} href={href} target="_blank">
+                      <Link
+                        key={index}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <li title={label}>
                           <i className={`bi bi-${icon}`}></i>
                         </li>
