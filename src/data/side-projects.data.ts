@@ -4,7 +4,7 @@ import { SideProject } from '@/types/side-project.type';
 export const sideProjects: SideProject[] = [
   {
     img: '/side-project/stopwatch.jpg',
-    href: 'https://abdul-stopwatch.vercel.app',
+    href: 'https://stopwatch.irsyadabdul.my.id',
     stacks: [
       { icon: '/programming/next.png', label: 'Next JS 14' },
       { icon: '/programming/mantine.png', label: 'Mantine 7' },
