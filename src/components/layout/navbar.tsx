@@ -104,43 +104,52 @@ export const Navbar = () => {
                   )}
                 </Nav.Link>
               ))}
-              <Nav.Link
-                onClick={() =>
-                  handleChangeLanguage(i18n.language === 'en' ? 'id' : 'en')
-                }
-              >
-                {i18n.language === 'en' ? 'ID' : 'EN'}
-              </Nav.Link>
             </Nav>
             <Nav className="navbar-icon-menu">
-              {navbarIconMenus.map(({ href, label, logo, newTab }, index) => (
-                <Nav.Link
-                  key={index}
-                  href={href}
-                  target={newTab ? '_blank' : '_self'}
-                  as={Link}
-                  active={rootPath === href}
-                  // as={
-                  //   !['/#programming', '/#experience'].find(
-                  //     (item) => item === href,
-                  //   )
-                  //     ? Link
-                  //     : undefined
-                  // }
-                >
-                  {logo ? (
-                    <Image
-                      src={logo}
-                      alt={label}
-                      title={label}
-                      width={24}
-                      height={24}
-                    />
-                  ) : (
-                    label
-                  )}
-                </Nav.Link>
-              ))}
+              {[
+                {
+                  label: 'Language',
+                  logo:
+                    i18n.language === 'id'
+                      ? '/country/bahasa.jpg'
+                      : '/country/english.jpg',
+                  onClick: () =>
+                    handleChangeLanguage(i18n.language === 'en' ? 'id' : 'en'),
+                },
+                ...navbarIconMenus,
+              ].map(({ href, label, logo, newTab, onClick }, index) =>
+                href ? (
+                  <Nav.Link
+                    key={index}
+                    href={href}
+                    target={newTab ? '_blank' : '_self'}
+                    as={Link}
+                    active={rootPath === href}
+                  >
+                    {logo ? (
+                      <Image
+                        src={logo}
+                        alt={label}
+                        title={label}
+                        width={24}
+                        height={24}
+                      />
+                    ) : (
+                      label
+                    )}
+                  </Nav.Link>
+                ) : (
+                  <Image
+                    className="nav-link-language"
+                    onClick={onClick}
+                    src={logo!}
+                    alt={label}
+                    title={label}
+                    width={120}
+                    height={120}
+                  />
+                ),
+              )}
             </Nav>
           </Offcanvas.Body>
         </BootstrapNavbar.Offcanvas>
