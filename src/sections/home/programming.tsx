@@ -28,25 +28,21 @@ const Programming = () => {
                   {capitalizeEachWord(t(title))}
                 </div>
                 <ul className="category-items">
-                  {list.map(({ name, logo, level, href }, index) =>
-                    href ? (
-                      <Link
-                        key={index}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                  {list.map(({ name, logo, level, href }, index) => (
+                    <li key={index}>
+                      {href ? (
+                        <Link
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <CategoryItem name={name} logo={logo} level={level} />
+                        </Link>
+                      ) : (
                         <CategoryItem name={name} logo={logo} level={level} />
-                      </Link>
-                    ) : (
-                      <CategoryItem
-                        key={index}
-                        name={name}
-                        logo={logo}
-                        level={level}
-                      />
-                    ),
-                  )}
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

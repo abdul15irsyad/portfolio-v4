@@ -23,9 +23,9 @@ const Hero = () => {
 
     return () => typed.destroy();
   }, []);
-  const whatsappLink = contacts.find(
-    (contact) => contact.icon === 'whatsapp',
-  )?.href;
+  // const whatsappLink = contacts.find(
+  //   (contact) => contact.icon === 'whatsapp',
+  // )?.href;
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
@@ -84,7 +84,7 @@ const Hero = () => {
                 <i className="bi bi-filetype-pdf me-2"></i>
                 {t('see-item', { item: t('resume') })}
               </Link>
-              <Link
+              {/* <Link
                 href={whatsappLink!}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -92,7 +92,7 @@ const Hero = () => {
               >
                 <i className="bi bi-whatsapp me-2"></i>
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">

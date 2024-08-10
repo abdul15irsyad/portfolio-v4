@@ -1,4 +1,4 @@
-import { Level,ProgrammingSkill } from '@/types/programming-skill.interface';
+import { Level, ProgrammingSkill } from '@/types/programming-skill.interface';
 
 export const programmingSkills: ProgrammingSkill[] = [
   {
@@ -82,16 +82,16 @@ export const programmingSkills: ProgrammingSkill[] = [
         href: 'https://gin-gonic.com/',
       },
       {
+        name: 'Fiber',
+        logo: '/programming/fiber.png',
+        level: Level.BASIC,
+        href: 'https://gofiber.io',
+      },
+      {
         name: 'Vue JS',
         logo: '/programming/vue.png',
         level: Level.BASIC,
         href: 'https://vuejs.org',
-      },
-      {
-        name: 'Fiber',
-        logo: '/programming/fiber.png',
-        level: Level.LEARNING,
-        href: 'https://gofiber.io',
       },
       // {
       //   name: 'Flutter',
