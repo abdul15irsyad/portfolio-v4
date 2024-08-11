@@ -35,6 +35,7 @@ export const Footer = () => {
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`go to ${icon}`}
                         >
                           <i className={`bi bi-${icon}`}></i>
                           <span>{label}</span>
@@ -52,23 +53,22 @@ export const Footer = () => {
               <div className="social-medias col-lg-4 col-md-6 col-12">
                 <h5>{capitalizeEachWord(t('follow-me'))}</h5>
                 <ul>
-                  {followMe.map(({ icon, label, href }, index) => {
-                    return href ? (
-                      <li key={index} title={label}>
+                  {followMe.map(({ icon, label, href }, index) => (
+                    <li key={index} title={label}>
+                      {href ? (
                         <Link
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`go to ${icon}`}
                         >
                           <i className={`bi bi-${icon}`}></i>
                         </Link>
-                      </li>
-                    ) : (
-                      <li title={label}>
+                      ) : (
                         <i className={`bi bi-${icon}`}></i>
-                      </li>
-                    );
-                  })}
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="address col-md-4 col-12">

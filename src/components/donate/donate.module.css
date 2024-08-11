@@ -15,6 +15,10 @@
   color: var(--bs-danger);
 }
 
+.nih-buat-jajan img {
+  width: 180px;
+}
+
 .trakteer {
   border-radius: 100rem;
   background-color: #be1e2d;
@@ -41,5 +45,9 @@
 @media (max-width: 767px) {
   .donate {
     text-align: center;
+  }
+
+  .nih-buat-jajan img {
+    width: 160px;
   }
 }

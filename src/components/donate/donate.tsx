@@ -49,35 +49,31 @@ export default () => {
 };
 
 const Trakteer = () => (
-  <div>
-    <Link
-      href="https://trakteer.id/abdul15irsyad/tip"
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${styles.trakteer} ${quicksand.className}`}
-    >
-      <img
-        src="https://trakteer.id/images/mix/coffee.png"
-        alt="Traktiran"
-        className={`${styles.icon} wiggle`}
-      />
-      <span>Trakteer Saya Kopi</span>
-    </Link>
-  </div>
+  <Link
+    href="https://trakteer.id/abdul15irsyad/tip"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`${styles.trakteer} ${quicksand.className}`}
+  >
+    <img
+      src="https://trakteer.id/images/mix/coffee.png"
+      alt="Traktiran"
+      className={`${styles.icon} wiggle`}
+    />
+    <span>Trakteer Saya Kopi</span>
+  </Link>
 );
 
 const NihBuatJajan = () => (
-  <div>
-    <Link
-      href="https://www.nihbuatjajan.com/abdul15irsyad"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ width: '80%', maxWidth: '200px' }}
-    >
-      <img
-        src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
-        alt="Nih buat jajan"
-      />
-    </Link>
-  </div>
+  <Link
+    href="https://www.nihbuatjajan.com/abdul15irsyad"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles['nih-buat-jajan']}
+  >
+    <img
+      src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
+      alt="Nih buat jajan"
+    />
+  </Link>
 );
