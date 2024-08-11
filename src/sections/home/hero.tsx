@@ -45,20 +45,22 @@ const Hero = () => {
             <div className="social-media-wrapper">
               {contacts
                 .filter(({ icon }) => ['github', 'linkedin'].includes(icon))
-                .map((socialMedia, index) => {
-                  return socialMedia.href ? (
+                .map(({ href, icon, label }, index) => {
+                  return href ? (
                     <Link
                       key={index}
-                      href={socialMedia.href}
+                      href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-media-item"
+                      aria-label={`go to ${icon}`}
+                      title={label}
                     >
-                      <i className={`bi bi-${socialMedia.icon}`}></i>
+                      <i className={`bi bi-${icon}`}></i>
                     </Link>
                   ) : (
                     <div className="social-media-item">
-                      <i className={`bi bi-${socialMedia.icon}`}></i>
+                      <i className={`bi bi-${icon}`}></i>
                     </div>
                   );
                 })}
