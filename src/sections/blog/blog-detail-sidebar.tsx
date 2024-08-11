@@ -40,13 +40,14 @@ export const BlogDetailSidebar = ({
           {latestBlogs?.map((latestBlog, index) => (
             <div key={index} className="blog-detail-latest-item">
               <Link href={`/blog/${latestBlog.slug}`}>
-                <Image
-                  src={latestBlog.featureImage?.url ?? ''}
-                  className="blog-detail-latest-item-img"
-                  alt={latestBlog.featureImage?.originalFileName ?? ''}
-                  width={500}
-                  height={300}
-                />
+                <div className="blog-detail-latest-item-img">
+                  <Image
+                    src={latestBlog.featureImage?.url ?? ''}
+                    alt={latestBlog.featureImage?.originalFileName ?? ''}
+                    width={500}
+                    height={300}
+                  />
+                </div>
               </Link>
               <div className="blog-detail-latest-item-text">
                 <Link href={`/blog/${latestBlog.slug}`}>
