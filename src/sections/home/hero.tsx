@@ -26,6 +26,11 @@ const Hero = () => {
   // const whatsappLink = contacts.find(
   //   (contact) => contact.icon === 'whatsapp',
   // )?.href;
+  const sribuLink = {
+    icon: '',
+    label: 'Hire Me on Sribu',
+    href: 'https://www.sribu.com/id/users/abdul15irsyad',
+  };
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
@@ -77,7 +82,7 @@ const Hero = () => {
               <span ref={typedText}></span>
             </h4>
             <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
-              <Link
+              {/* <Link
                 href="/resume-irsyad-abdul.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -85,16 +90,25 @@ const Hero = () => {
               >
                 <i className="bi bi-filetype-pdf me-2"></i>
                 {t('see-item', { item: t('resume') })}
-              </Link>
+              </Link> */}
               {/* <Link
                 href={whatsappLink!}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn contact-me px-3"
+                className="btn btn-primary contact-me px-3"
               >
                 <i className="bi bi-whatsapp me-2"></i>
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link> */}
+              <Link
+                href={sribuLink?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary hire-me px-3"
+              >
+                <img src="/icons/sribu.png" alt="sribu logo" />
+                <span>{sribuLink?.label}</span>
+              </Link>
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">
