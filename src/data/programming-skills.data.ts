@@ -76,6 +76,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         href: 'https://nextjs.org',
       },
       {
+        name: 'Fastify',
+        logo: '/programming/fastify.png',
+        level: Level.INTERMEDIATE,
+        href: 'https://fastify.dev/',
+      },
+      {
         name: 'Gin',
         logo: '/programming/gin.png',
         level: Level.BASIC,

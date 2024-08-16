@@ -199,14 +199,20 @@ ul li {
 
 .hero .hero-title .contact-me {
   transition: 0.3s ease-in-out;
-  background-color: #ffffff00;
-  color: rgba(var(--bs-primary-rgb), 1);
   border: 1px solid rgba(var(--bs-primary-rgb), 1);
 }
 
-.hero .hero-title .contact-me:hover {
+.hero .hero-title .hire-me {
+  display: flex !important;
+  align-items: center;
   color: #fff;
-  background-color: var(--bs-primary) !important;
+}
+
+.hero .hero-title .hire-me img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  border-radius: 100px;
 }
 
 .hero .hero-image {
