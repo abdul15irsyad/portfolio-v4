@@ -4,7 +4,7 @@ import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {
-    position: 'Backend Developer',
+    position: 'Fullstack Developer',
     startDate: dayjs(`2024-06-03`).toDate(),
     endDate: null,
     company: {
@@ -14,11 +14,11 @@ export const workExperiences: WorkExperience[] = [
     translates: [
       {
         lang: 'id',
-        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim.',
+        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim seperti Fastify, Next JS dan MySQL.',
       },
       {
         lang: 'en',
-        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager.',
+        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager like Fastify, Next JS and MySQL.',
       },
     ],
   },
