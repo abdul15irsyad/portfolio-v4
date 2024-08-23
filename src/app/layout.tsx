@@ -33,7 +33,8 @@ export const commonMetaData = {
 export const metadata: Metadata = {
   title: `${APP_NAME} - Web Portfolio`,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  themeColor: '#40b193',
+  // themeColor: '#40b193',
+  // themeColor: '#075985',
   metadataBase: new URL(BASE_URL),
   other: {
     'google-site-verification': '-204Rp6WHentTB7kMjizFhmMKYllQEah-eSEZ-SyG8A',

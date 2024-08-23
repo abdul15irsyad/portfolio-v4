@@ -8,7 +8,8 @@ export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
         <Placeholder animation="glow">
           <Placeholder
             style={{
-              height: '198px',
+              aspectRatio: '1080 / 607',
+              // height: '198px',
               borderRadius: '.75rem',
               marginBottom: '.5rem',
             }}
