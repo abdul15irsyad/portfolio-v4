@@ -29,19 +29,29 @@ export const SideProjectItem = ({
   desc = translates?.find(({ lang }) => lang === i18n.language)?.desc ?? desc!;
   return (
     <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
-      {href ? (
-        <div className="side-project-img-wrapper">
-          <div className="overlay">
-            <Link
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-sm btn-open"
-            >
-              {capitalize(t('see'))}{' '}
-              <i className="bi bi-box-arrow-up-right ms-2"></i>
-            </Link>
-          </div>
+      <div className="side-project-img-wrapper">
+        {href ? (
+          <>
+            <div className="overlay">
+              <Link
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm btn-open"
+              >
+                {capitalize(t('see'))}{' '}
+                <i className="bi bi-box-arrow-up-right ms-2"></i>
+              </Link>
+            </div>
+            <Image
+              src={img}
+              className="side-project-img"
+              alt={title}
+              width={1080}
+              height={1080}
+            />
+          </>
+        ) : (
           <Image
             src={img}
             className="side-project-img"
@@ -49,16 +59,9 @@ export const SideProjectItem = ({
             width={1080}
             height={1080}
           />
-        </div>
-      ) : (
-        <Image
-          src={img}
-          className="side-project-img"
-          alt={title}
-          width={1080}
-          height={1080}
-        />
-      )}
+        )}
+      </div>
+
       <div className="side-project-text">
         {href ? (
           <Link

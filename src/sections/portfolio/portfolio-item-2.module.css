@@ -9,7 +9,7 @@
   user-select: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   height: unset;
-  aspect-ratio: 16 / 9 !important;
+  aspect-ratio: 1080 / 607;
 }
 
 .portfolio-item-2 .image .overlay {
