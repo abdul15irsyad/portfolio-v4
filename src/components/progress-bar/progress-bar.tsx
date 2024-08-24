@@ -2,7 +2,7 @@
 import './progress-bar.css';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import nprogress from 'nprogress';
+import nProgress from 'nprogress';
 import { Suspense, useCallback, useEffect } from 'react';
 
 export const ProgressBar = () => {
@@ -14,7 +14,7 @@ export const ProgressBar = () => {
     const currentUrl = window.location.href;
 
     if (targetUrl !== currentUrl) {
-      nprogress.start();
+      nProgress.start();
     }
     console.log(ProgressBar.name, {
       targetUrl,
@@ -37,7 +37,7 @@ export const ProgressBar = () => {
   }, []);
 
   useEffect(() => {
-    nprogress.configure({
+    nProgress.configure({
       showSpinner: false,
       easing: 'ease',
       speed: 400,
@@ -54,7 +54,7 @@ export const ProgressBar = () => {
           url?: string | URL | null | undefined,
         ],
       ) => {
-        nprogress.done();
+        nProgress.done();
         return target.apply(thisArg, argArray);
       },
     });
@@ -75,7 +75,7 @@ const NProgressDone = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    nprogress.done();
+    nProgress.done();
   }, [pathname, router, searchParams]);
 
   return null;

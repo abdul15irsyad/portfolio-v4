@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
+import nProgress from 'nprogress';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { Form,InputGroup } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 type Prop = {
@@ -21,7 +22,10 @@ export const SearchBar = ({ queryString }: Prop) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (search) router.push(`/blog?${queryString('search', search)}`);
+    if (search) {
+      nProgress.start();
+      router.push(`/blog?${queryString('search', search)}`);
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>

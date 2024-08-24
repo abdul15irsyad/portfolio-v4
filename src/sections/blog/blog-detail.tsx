@@ -9,6 +9,7 @@ import CopyButtonPlugin from 'highlightjs-copy';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import nProgress from 'nprogress';
 import React, {
   useCallback,
   useEffect,
@@ -160,9 +161,10 @@ export const BlogDetail = ({
             <div
               key={index}
               className="blog-tag"
-              onClick={() =>
-                router.push(`/blog?${addQueryString('tag', tag!)}`)
-              }
+              onClick={() => {
+                nProgress.start();
+                router.push(`/blog?${addQueryString('tag', tag!)}`);
+              }}
             >
               #{tag}
             </div>

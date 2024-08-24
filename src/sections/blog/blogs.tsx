@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
+import nProgress from 'nprogress';
 import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
@@ -25,6 +26,7 @@ export default ({ limit = 5, queryString }: Prop) => {
   const tag = searchParams.get('tag');
   const search = searchParams.get('search');
   const activePage = searchParams.get('page') ? +searchParams.get('page')! : 1;
+
   const setPage = ({
     page,
     activePage,
@@ -32,8 +34,10 @@ export default ({ limit = 5, queryString }: Prop) => {
     page: number;
     activePage: number;
   }) => {
-    if (page !== activePage && queryString !== undefined)
+    if (page !== activePage && queryString !== undefined) {
+      nProgress.start();
       router.push(`/blog?${queryString('page', page.toString())}`);
+    }
   };
 
   const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
