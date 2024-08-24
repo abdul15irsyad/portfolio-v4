@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
+import nProgress from 'nprogress';
 import React, { useCallback } from 'react';
 import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -71,6 +72,7 @@ export const PortfolioNewView = () => {
                   options={portfolioYears}
                   handleChange={(e) => {
                     if (e.target?.value !== year) {
+                      nProgress.start();
                       router.push(
                         `/portfolio?${queryString('year', e.target?.value?.toString())}`,
                       );
@@ -84,6 +86,7 @@ export const PortfolioNewView = () => {
                   options={portfolioCategories}
                   handleChange={(e) => {
                     if (e.target?.value !== type) {
+                      nProgress.start();
                       router.push(
                         `/portfolio?${queryString('type', e.target?.value?.toString())}`,
                       );
@@ -134,6 +137,7 @@ export const PortfolioNewView = () => {
             position="center"
             activePage={page}
             setPage={({ page }) => {
+              nProgress.start();
               router.push(`/portfolio?${queryString('page', page.toString())}`);
             }}
             totalPage={Math.ceil(
