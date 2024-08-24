@@ -404,11 +404,11 @@ ul li {
 
 /* experience */
 .experience {
-  background-color: var(--bs-primary-light);
+  background-color: var(--bs-light);
   background-image: linear-gradient(
       to right,
-      rgba(var(--bs-primary-light-rgb), 0.85) 1%,
-      rgba(var(--bs-primary-light-rgb), 1)
+      rgba(var(--bs-light-rgb), 0.85) 1%,
+      rgba(var(--bs-light-rgb), 1)
     ),
     url('/background-experience.webp');
   /* url('/background-experience.png'); */

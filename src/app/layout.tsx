@@ -9,6 +9,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import { Footer, Navbar } from '@/components/layout';
 import { ScrollToTop } from '@/components/layout/scroll-to-top';
+import { ProgressBar } from '@/components/progress-bar/progress-bar';
 import { AllProvider } from '@/components/provider/all-provider';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 
@@ -69,6 +70,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={plusJakartaSans.className}>
         <AllProvider>
+          <ProgressBar />
           <Navbar />
           {children}
           <Footer />
