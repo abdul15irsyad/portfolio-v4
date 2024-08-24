@@ -15,6 +15,7 @@
 .scroll-to-top .button-scroll-to-top {
   font-size: 24px;
   background-color: var(--bs-primary);
+  border: 1px solid rgba(var(--bs-light-rgb), 0.25);
   color: white;
   width: 60px;
   height: 60px;
