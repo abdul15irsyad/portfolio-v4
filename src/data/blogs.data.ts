@@ -6,6 +6,276 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '9256ea62-0c70-4738-abaf-af835cac0950',
+    title: 'Faker JS Buat Bikin Data Dummy Makin Natural',
+    slug: 'faker-js-buat-bikin-data-dummy-makin-natural',
+    featureImageId: 'e8d1ce4e-47dc-484d-86fc-7812367e09cb',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    how was your life lately guys? (inspired by someone), semoga di akhir bulan agustus ini kita semua dipenuhi dengan kebaikan dan keberkahan, aamiin. kali ini saya mau bahas hal yang impact nya mungkin ga terlalu signifikan terhadap pengembangan suatu project (yang sebelumnya juga ga terlalu si), tapi bisa membuat aplikasi kita terlihat dan tervisualisasi lebih jelas saat digunakan oleh banyak user nantinya, apalagi kalo bukan <strong>faker js</strong>
+    <p>
+    <h3>apa itu faker js?</h3>
+    <p>
+    faker js merupakan sebuah library javascript yang memungkinkan kita untuk menghasilkan data palsu atau data dummy dengan cepat dan mudah. data ini bisa mencakup berbagai jenis informasi seperti nama, alamat, nomor telepon, email, dan masih banyak lagi
+    </p>
+    <h3>kenapa perlu data dummy?</h3>
+    <p>
+    saat pengembangan aplikasi, seringkali kita membutuhkan data dummy untuk berbagai keperluan seperti:
+    </p>
+    <ol>
+    <li><strong>testing fungsi</strong></li>
+    <p>
+    kita harus memastikan bahwa fitur seperti <strong>pagination</strong> perlu dicek apakah data yang tampil sudah sesuai dengan halamannya, lalu ada fitur <strong>searching</strong> atau <strong>filtering</strong> yang perlu dipastikan apakah data sudah tersaring sesuai dengan <code>query</code> searchnya dan filternya, kemudian ada fitur <strong>sorting</strong> yang juga perlu dipastikan apakah data sudah terurutkan dengan benar.
+    </p>
+    <li><strong>testing performance atau beban</strong></li>
+    <p>
+    tentunya kita tidak ingin aplikasi kita berjalan lambat dan sempurna, maka dari itu kita perlu simulasikan saat aplikasi kita menghandle data yang banyak, karena bisa saja terjadi aplikasi mengalami masalah ketika menghandle data yang banyak. biasanya perlu dicek apakah <code>query find all</code> kita mengandun <strong>N+1 problem</strong> atau tidak, karena jika iya maka performa aplikasi akan menjadi lamban.
+    </p>
+    <li><strong>pengembangan frontend</strong></li>
+    <p>
+    saat membuat user interface (UI), data dummy digunakan untuk melihat bagaimana tampilan dan fungsionalitas aplikasi bekerja dengan data nyata. ini penting untuk memastikan ui/ux yang baik dan sangat membantu frontend memastikan apakah fitur sudah sesuai seperti yang diinginkan.
+    </p>
+    </ol>
+    <h3>manfaat faker js</h3>
+    <p>
+    menggunakan <strong>faker js</strong> dalam pengembangan dan pengujian aplikasi memiliki beberapa manfaat yaitu:
+    </p>
+    <ul>
+    <li><strong>variatif dan natural</strong></li>
+    <p>
+    <strong>faker js</strong> dapat menghasilkan data yang sangat bervariasi dan realistis, yang membantu dalam menciptakan skenario pengujian yang lebih mendekati kondisi dunia nyata
+    </p>
+    <li><strong>hemat waktu dan effort</strong></li>
+    <p>
+    pastinya akan sangat melelahkan jika kita membuat data dummy secara manual, dengan <strong>faker js</strong> pembuatan data dummy semakin cepat dan mudah.
+    </p>
+    <li><strong>skalabilitas</strong></li>
+    <p>
+    kita dapat menghasilkan sejumlah besar data dengan <strong>faker js</strong>, yang sangat berguna untuk pengujian beban dan performance.
+    </p>
+    </ul>
+    <h3>penggunaan faker js untuk data pengguna</h3>
+    <p>
+    untuk menggunakan <strong>faker js</strong>, pertama-tama kita perlu menginstalnya dalam project. kita bisa gunakan <code>npm</code> (node package manager) atau <code>yarn</code>.
+    </p>
+    <pre>
+    <code class="language-bash">npm install -D @faker-js/faker
+
+yarn add -D @faker-js/faker</code>
+    </pre>
+    <p>
+    selanjutnya kita dapat meng-<code>import</code> package tersebut ke seeder kita, <strong>faker js</strong> menyediakan beberapa data <code>locale</code> atau terjemahan, agar lebih realistis kita bisa gunakan locale <code>ID</code> untuk bahasa
+    </p>
+    <pre>
+    <code class="language-typescript">import { faker } from "@faker-js/faker/locale/id_ID";
+
+const names: string[] = [];
+for (let i = 0; i < 10; i++) {
+  const name = faker.person.fullName();
+  names.push(name);
+}
+console.log(names);</code>
+    </pre>
+    <p>
+    maka akan men-generate 10 nama secara acak
+    </p>
+    <img src="/blog/10-names.jpg" class="img-md" title="10 nama">
+    <p>
+    namun kalau kita perhatikan ada sedikit anomali alias <strong style="color: red">bug</strong> yaitu nama depan yang berulang, namun dari yang saya sudah telusuri hanya terjadi kalau kita pakai <strong>faker js</strong> yang bahasa indonesia, maka dari itu kita perlu sedikit memanipulasi agar sempurna menjadi
+    </p>
+    <pre>
+    <code class="language-typescript">const names: string[] = [];
+for (let i = 0; i < 10; i++) {
+  const name = faker.person.fullName();
+  const updatedName =
+    name.split(' ')[0] === name.split(' ')[1]
+      ? name.split(' ').slice(1).join(' ')
+      : name;
+  names.push({ name, updatedName });
+}
+console.table(names);</code>
+    </pre>
+    <p>
+    akhirnya semua nama depan yang berulang sudah ditangani
+    </p>
+    <img src="/blog/10-names-fix.jpg" class="img-md" title="10 nama fix">
+    <p>
+    masih banyak lagi untuk generate data-data lainnya seperti alamat, email, nomor telepon
+    </p>
+    <pre>
+    <code class="language-typescript">const city = faker.location.city();
+const address = faker.location.streetAddress();
+const email = faker.internet.email();
+const phoneNumber = faker.phone.number();
+console.log({ city, address, email, phoneNumber });</code>
+    </pre>
+    <p>
+    output
+    </p>
+    <img src="/blog/other-function-in-user.jpg" class="img-md" title="fungsi lainnya">
+    <br>
+    <p>
+    nah dari fungsi-fungsi tersebut, kita bisa buat data-data palsu untuk data <strong>pengguna</strong> untuk keperluan development dan testing.
+    </p>
+    <pre>
+    <code class="language-typescript">const users: {
+  name: string;
+  email: string;
+  city: string;
+  phoneNumber: string;
+}[] = [];
+for (let i = 0; i < 10; i++) {
+  const name = faker.person.fullName();
+  const updatedName =
+    name.split(" ")[0] === name.split(" ")[1]
+      ? name.split(" ").slice(1).join(" ")
+      : name;
+  const email = faker.internet.email({
+    firstName: updatedName.split(" ")[0],
+    lastName: updatedName.split(" ")[1],
+  });
+  const city = faker.location.city();
+  const phoneNumber = faker.phone.number();
+  users.push({ name: updatedName, email, city, phoneNumber });
+}
+console.table(users);</code>
+    </pre>
+    <p>
+    output
+    </p>
+    <img src="/blog/10-data-users.jpg" class="img-lg" title="10 data pengguna">
+    <p>
+    oke kita berhasil ngebuat 10 data pengguna yang siap kita inject ke database <strong>DEVELOPMENT</strong> kita, inget database <strong>DEVELOPMENT</strong> yak, jangan ke database <strong style="color: red">production</strong>. Tinggal kita kombinasiin sama seeder kita dan jadilah data-data itu sudah siap kita pakai.
+    </p>
+    <h3>penggunaan untuk hal-hal lain</h3>
+    <ol>
+    <li><strong>Internet</strong></li>
+    <pre>
+    <code class="language-typescript">console.log(faker.internet.userName()); 
+// Contoh: 'Jasmin_Gleichner'
+
+console.log(faker.internet.password());
+// Contoh: '0rAefpo74OPPMcV'
+
+console.log(faker.internet.url()); 
+// Contoh: 'https://weird-boulevard.id/'</code>
+    </pre>
+    <p>
+    untuk <code>password</code> biasanya saya buat statis si, yang mudah diingat seperti <code>Qwerty123</code>, karena biasanya untuk testing fitur autentikasi juga seperti login di beberapa pengguna yang memiliki role berbeda, cukup capek untuk mengingat ketika kita buat <code>password</code> yang berbeda saat proses pengembangan
+    </p>
+    <li><strong>Perusahaan (Company)</strong></li>
+    <p>
+    <code>faker.company.name()</code> untuk menghasilkan nama perusahaan acak dan <code>faker.company.catchPhrase()</code> untuk menghasilkan slogan perusahaan acak
+    </p>
+    <pre>
+    <code class="language-typescript">console.log(faker.company.name()); 
+// Contoh: 'PT Hudson'
+
+console.log(faker.company.catchPhrase()); 
+// Contoh: 'Organic client-server intranet'</code>
+    </pre>
+    <li><strong>Tanggal</strong></li>
+    <p>
+    <code>faker.date.past()</code> untuk menghasilkan tanggal di masa lalu, <code>faker.date.future()</code> untuk menghasilkan tanggal di masa depan dan <code>faker.date.recent()</code> untuk menghasilkan tanggal baru-baru ini.
+    </p>
+    <pre>
+    <code class="language-typescript">console.log(faker.date.past()); 
+// Contoh: '2023-11-01T00:47:37.003Z'
+
+console.log(faker.date.future()); 
+// Contoh: '2025-01-06T16:30:29.760Z'
+
+console.log(faker.date.recent()); 
+// Contoh: '2024-08-24T01:15:43.313Z'</code>
+    </pre>
+    <li><strong>Finance</strong></li>
+    <p>
+    <code>faker.finance.amount()</code> untuk menghasilkan jumlah uang acak, <code>faker.finance.accountNumber()</code> untuk menghasilkan nomor akun acak dan <code>faker.finance.currencyCode()</code> untuk menghasilkan kode mata uang acak
+    </p>
+    <pre>
+    <code class="language-typescript">console.log(faker.finance.amount()); 
+// Contoh: '519.07'
+
+console.log(faker.finance.accountNumber()); 
+// Contoh: '53731418'
+
+console.log(faker.finance.currencyCode()); 
+// Contoh: 'HKD'</code>
+    </pre>
+    <li><strong>Commerce</strong></li>
+    <p>
+    <code>faker.commerce.productName()</code> untuk menghasilkan nama produk acak, <code>faker.commerce.price()</code> untuk menghasilkan harga produk acak dan <code>faker.commerce.productDescription()</code> untuk menghasilkan deskripsi produk acak
+    </p>
+    <pre>
+    <code class="language-typescript">console.log(faker.commerce.productName()); 
+// Contoh: 'Small Wooden Hat'
+
+console.log(faker.commerce.productDescription()); 
+// Contoh: 'Small Wooden Hat'
+
+console.log(faker.commerce.price()); 
+// Contoh: '99.00'</code>
+    </pre>
+    <li><strong>Image</strong></li>
+    <p>
+    <code>faker.image.url()</code> untuk menghasilkan URL gambar acak dan <code>faker.image.avatar()</code> untuk menghasilkan URL gambar avatar acak
+    </p>
+    <pre>
+    <code class="language-typescript">console.log(faker.image.url()); 
+// Contoh: 'https://picsum.photos/seed/H1Xtul/640/480'
+
+console.log(faker.image.avatar()); 
+// Contoh: 'https://avatars.githubusercontent.com/u/74441702'</code>
+    </pre>
+    <li><strong>Lorem Ipsum (Teks Acak)</strong></li>
+    <p>
+    <code>faker.lorem.word()</code> untuk menghasilkan kata acak, <code>faker.lorem.sentence()</code> untuk menghasilkan kalimat acak dan <code>faker.lorem.paragraph()</code> untuk menghasilkan paragraf acak
+    </p>
+    <pre>
+    <code class="language-typescript" style="white-space: pre-wrap">console.log(faker.lorem.word()); 
+// Contoh: 'clementia'
+
+console.log(faker.lorem.sentence()); 
+// Contoh: 'Adficio cunae ver hic tum tertius caritas quod adulatio textilis.'
+
+console.log(faker.lorem.paragraph()); 
+// Contoh: 'Cariosus supplanto desipio volaticus verbera aptus caries verbum caveo defleo. Stultus tumultus dapifer advenio. Quia patria appello bellicus reiciendis patria aperio iusto'</code>
+    </pre>
+    <li><strong>Helper Function</strong></li>
+    <p>
+    <code>faker.helpers.arrayElement()</code> untuk menghasilkan nilai acak dari array yang diberikan dan <code>faker.helpers.shuffle()</code> untuk mengacak urutan elemen dalam array
+    </p>
+    <pre>
+    <code class="language-typescript">const roles = ['Super Admin', 'User', 'Editor'];
+console.log(faker.helpers.arrayElement(roles)); 
+// Contoh: 'User'
+
+console.log(faker.helpers.shuffle(roles)); 
+// Contoh: ['User', 'Editor', 'Super Admin']</code>
+    </pre>
+    </ol>
+    <h3>kesimpulan</h3>
+    <p>
+    <strong>faker.js</strong> adalah solusi yang sangat berguna bagi kita para developer yang perlu data dummy atau palsu untuk testing atau demo. api-nya mudah digunakan dan dukungan untuk berbagai tipe data, kita bisa dengan cepet ngebuat data palsu tanpa kesulitan. perlu dipertimbangin banget si penggunaan <strong>faker.js</strong> saat ngembangin proyek kita.
+    </p>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['fakerjs', 'seeder', 'database'],
+    publishedAt:
+      ENV !== 'production'
+        ? new Date('2024-08-25 07:20:00+07:00')
+        : new Date('2024-08-26 10:00:00+07:00'),
+    createdAt: new Date('2024-08-25 07:20:00+07:00'),
+    updatedAt: new Date('2024-08-25 07:20:00+07:00'),
+    referenceURLs: ['https://github.com/faker-js/faker'],
+  },
+  {
     id: 'acb38df5-a3ac-4ff4-b06f-d6ca07287634',
     title: 'Kenalan sama Required, Partial, Pick dan Omit di typescript',
     slug: 'kenalan-sama-required-partial-pick-dan-omit-di-typescript',

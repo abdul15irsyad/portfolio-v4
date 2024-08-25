@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+// import { blogDatas } from '@/data/blogs.data';
 import { cache } from '@/redis/redis.util';
 import { BlogDetailView } from '@/sections/blog/blog-detail-view';
 import { getBlog, getLatestBlog } from '@/services/blog.service';
 import { BlogReferenceInterface } from '@/types/blog.type';
 import { extractSeoData } from '@/utils/seo.util';
-// import { blogDatas } from '@/data/blogs.data';
 
 const BlogDetailPage = async ({ params, searchParams }) => {
   const blog = await cache(`blog:${params.slug}`, () =>

@@ -4,6 +4,15 @@ import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {
+    id: 'e8d1ce4e-47dc-484d-86fc-7812367e09cb',
+    createdAt: new Date('2024-08-25 02:28:46+07:00'),
+    updatedAt: new Date('2024-08-25 02:28:46+07:00'),
+    path: 'blog',
+    fileName: 'faker-js-buat-bikin-data-dummy-makin-natural.jpg',
+    originalFileName: 'faker-js-buat-bikin-data-dummy-makin-natural.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '799ee782-faef-4ac4-a4af-2d2a0870b98e',
     createdAt: new Date('2024-06-18 21:38:46+07:00'),
     updatedAt: new Date('2024-06-18 21:38:46+07:00'),
