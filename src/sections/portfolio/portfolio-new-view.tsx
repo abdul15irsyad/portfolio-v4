@@ -44,6 +44,7 @@ export const PortfolioNewView = () => {
       const url = `/api/portfolios?${newSearchParams.toString()}`;
       return (await fetch(url)).json();
     },
+    staleTime: 0,
     cacheTime: 0,
   });
 

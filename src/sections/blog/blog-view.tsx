@@ -26,6 +26,7 @@ export const BlogView = () => {
   >({
     queryKey: ['allTags'],
     queryFn: async () => (await fetch('/api/blog/tag')).json(),
+    staleTime: 0,
     cacheTime: 0,
   });
 

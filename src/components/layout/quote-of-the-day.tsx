@@ -28,6 +28,7 @@ export const QuoteOfTheDay = () => {
       const data = await fetch(`/api/quote-of-the-day?date=${date}`);
       return data.json();
     },
+    staleTime: 0,
     cacheTime: 0,
   });
   const quote = response?.data?.quote;
