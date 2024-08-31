@@ -53,5 +53,21 @@
   "empty-data-message": "maaf, data tidak ditemukan",
   "link-copied": "tautan tersalin",
   "minutes-read": "menit baca",
-  "references": "referensi"
+  "references": "referensi",
+  "say-anything-to-me": "kirim pesan apapun",
+  "say-anything-to-me-desc": "senang mendengar sesuatu dari anda",
+  "optional": "opsional",
+  "name": "nama",
+  "name-placeholder": "nama, contoh: john doe",
+  "anonymous": "anonim",
+  "address-placeholder": "alamat, contoh: jakarta",
+  "message": "pesan",
+  "message-placeholder": "tulis pesan di sini...",
+  "submit-message": "kirim pesan",
+  "submitted-alert-message": "terima kasih untuk pesannya",
+  "validation": {
+    "required": "harus diisi",
+    "min": "minimal {{min}} karakter",
+    "max": "minimal {{max}} karakter"
+  }
 }

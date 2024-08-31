@@ -2,6 +2,7 @@ import { Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 
 import { prisma } from '@/prisma/client';
+import { PaginationParam } from '@/types/pagination.type';
 
 export const getBlogWithPagination = async ({
   page,
@@ -10,12 +11,7 @@ export const getBlogWithPagination = async ({
   orderBy,
   orderDir,
   tag,
-}: {
-  page?: number;
-  limit?: number;
-  search?: string;
-  orderBy?: string;
-  orderDir?: 'asc' | 'desc';
+}: PaginationParam & {
   tag?: string;
 } = {}) => {
   page = page ?? 1;
@@ -47,8 +43,8 @@ export const getBlogWithPagination = async ({
   const totalPage = limit
     ? Math.ceil(totalAllData / limit)
     : data.length > 0
-    ? 1
-    : null;
+      ? 1
+      : null;
   return {
     totalPage,
     totalAllData,

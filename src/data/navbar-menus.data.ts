@@ -5,6 +5,7 @@ export const navbarMenus: NavbarMenu[] = [
   { label: 'portfolio', href: '/portfolio' },
   { label: 'side-project', href: '/side-project' },
   { label: 'blog', href: '/blog' },
+  { label: 'contact-me', href: '/contact-me' },
 ];
 
 export const navbarIconMenus: NavbarMenu[] = [

@@ -25,7 +25,7 @@ export async function GET(request: Request) {
   return NextResponse.json({
     message: 'get blogs',
     meta: {
-      currentPage: totalAllData > 0 ? 1 ?? 1 : null,
+      currentPage: page,
       totalPage,
       totalData: data.length,
       totalAllData,

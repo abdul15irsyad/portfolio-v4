@@ -4,7 +4,7 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["relationJoins"]
 }
 
@@ -51,6 +51,19 @@ model File {
   blogs            Blog[]
 
   @@map("files")
+}
+
+model ContactMe {
+  id          String    @id @default(uuid())
+  name        String    @db.VarChar(255)
+  address     String?   @db.Text
+  message     String?   @db.Text
+  approvedAt  DateTime? @map("approved_at") @db.Timestamptz()
+  isAnonymous Boolean?  @default(false) @map("is_anonymous") @db.Boolean
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt   DateTime  @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("contact_mes")
 }
 
 // model QuoteOfTheDay {

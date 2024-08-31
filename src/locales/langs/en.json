@@ -53,5 +53,21 @@
   "empty-data-message": "sorry, there is no data found",
   "link-copied": "link copied",
   "minutes-read": "min read",
-  "references": "references"
+  "references": "references",
+  "say-anything-to-me": "say anything to me",
+  "say-anything-to-me-desc": "glad to hear something from you",
+  "optional": "optional",
+  "name": "name",
+  "name-placeholder": "name, example: john doe",
+  "anonymous": "anonymous",
+  "address-placeholder": "address, example: new york",
+  "message": "message",
+  "message-placeholder": "write message here...",
+  "submit-message": "submit message",
+  "submitted-alert-message": "thank you for the message",
+  "validation": {
+    "required": "required",
+    "min": "at least {{min}} characters",
+    "max": "at least {{max}} characters"
+  }
 }

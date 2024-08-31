@@ -30,7 +30,7 @@ export const PortfolioNewView = () => {
   const type = searchParams.get('type') ?? 'all';
   const limit = 6;
   const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery<{
-    msg: string;
+    message: string;
     data: Portfolio[];
     meta: { totalAllData: number; totalData: number };
   }>({

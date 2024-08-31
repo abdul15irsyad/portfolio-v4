@@ -37,4 +37,22 @@ export class RedisService {
       return null;
     }
   }
+
+  async keys(pattern: string) {
+    try {
+      return await this.client.keys(pattern);
+    } catch (error) {
+      handleError(error);
+      return null;
+    }
+  }
+
+  async del(...args: [...keys: RedisKey[]]) {
+    try {
+      return await this.client.del(...args);
+    } catch (error) {
+      handleError(error);
+      return null;
+    }
+  }
 }
