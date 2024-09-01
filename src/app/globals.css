@@ -34,6 +34,9 @@
   background-color: var(--bs-primary);
   color: #fff;
 }
+::placeholder {
+  color: rgba(var(--bs-secondary-rgb), 0.5) !important;
+}
 
 html {
   scroll-behavior: smooth;

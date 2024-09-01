@@ -140,6 +140,7 @@ export const Navbar = () => {
                   </Nav.Link>
                 ) : (
                   <Image
+                    key={index}
                     className="nav-link-language"
                     onClick={onClick}
                     src={logo!}

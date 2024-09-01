@@ -8,3 +8,22 @@ export interface ApiResponseAll<T> {
     totalAllData: number;
   };
 }
+
+export interface ApiResponse<T> {
+  message: string;
+  data: T;
+}
+
+export interface ApiResponseError {
+  status: string;
+  body: {
+    message: string;
+    code?: string;
+    error?: any;
+    errors?: {
+      field: string;
+      code: string;
+      message: string;
+    }[];
+  };
+}

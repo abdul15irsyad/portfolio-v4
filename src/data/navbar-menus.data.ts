@@ -1,3 +1,4 @@
+import { EXPERIMENTAL } from '@/configs/app.config';
 import { NavbarMenu } from '@/types/navbar-menu.type';
 
 export const navbarMenus: NavbarMenu[] = [
@@ -6,6 +7,10 @@ export const navbarMenus: NavbarMenu[] = [
   { label: 'side-project', href: '/side-project' },
   { label: 'blog', href: '/blog' },
 ];
+
+if (EXPERIMENTAL) {
+  navbarMenus.push({ label: 'contact', href: '/contact-me' });
+}
 
 export const navbarIconMenus: NavbarMenu[] = [
   {

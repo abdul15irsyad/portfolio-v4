@@ -5,3 +5,6 @@ type Environment = 'local' | 'development' | 'staging' | 'production';
 export const ENV: Environment = process.env.NEXT_PUBLIC_ENV
   ? (process.env.NEXT_PUBLIC_ENV as Environment)
   : 'local';
+export const EXPERIMENTAL = Boolean(
+  JSON.parse(process.env.NEXT_PUBLIC_EXPERIMENTAL ?? 'false'),
+);

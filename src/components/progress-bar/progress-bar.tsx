@@ -16,11 +16,6 @@ export const ProgressBar = () => {
     if (targetUrl !== currentUrl) {
       nProgress.start();
     }
-    console.log(ProgressBar.name, {
-      targetUrl,
-      currentUrl,
-      condition: targetUrl !== currentUrl,
-    });
   }, []);
 
   const handleMutation = useCallback(() => {

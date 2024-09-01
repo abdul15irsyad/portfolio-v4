@@ -1,7 +1,10 @@
+import { faker } from '@faker-js/faker/locale/id_ID';
 import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'crypto';
 import dayjs from 'dayjs';
 import slugify from 'slugify';
+
+import { ContactMe } from '@/types/contact-me.type';
 
 import { ENV } from '../configs/app.config';
 import { authors } from '../data/authors.data';
@@ -14,8 +17,13 @@ import { randomInt } from '../utils/number.util';
 
 const prisma = new PrismaClient();
 async function main() {
+  // files
   await prisma.file.createMany({ data: files, skipDuplicates: true });
+
+  // authors
   await prisma.author.createMany({ data: authors, skipDuplicates: true });
+
+  // blogs
   await prisma.blog.createMany({ data: blogs, skipDuplicates: true });
   if (ENV !== 'production') {
     const dummyBlogs: Blog[] = [];
@@ -39,6 +47,36 @@ async function main() {
     }
     await prisma.blog.createMany({
       data: dummyBlogs,
+      skipDuplicates: true,
+    });
+  }
+
+  // contact mes
+  if (ENV !== 'production') {
+    const dummyContactMes: ContactMe[] = [];
+    for (let i = 0; i < randomInt(10, 20); i++) {
+      const name = faker.person.fullName();
+      const updatedName =
+        name.split(' ')[0] === name.split(' ')[1]
+          ? name.split(' ').slice(1).join(' ')
+          : name;
+      const createdAt = faker.date.past({ years: 2 });
+      const approvedAt = random([
+        null,
+        faker.date.future({ years: 1, refDate: createdAt }),
+      ]);
+      dummyContactMes.push({
+        id: randomUUID(),
+        name: updatedName,
+        address: faker.location.city(),
+        message: faker.lorem.paragraphs({ min: 1, max: 2 }),
+        approvedAt,
+        createdAt: createdAt,
+        updatedAt: approvedAt ?? createdAt,
+      });
+    }
+    await prisma.contactMe.createMany({
+      data: dummyContactMes,
       skipDuplicates: true,
     });
   }

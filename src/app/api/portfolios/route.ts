@@ -28,7 +28,7 @@ export const GET = async (req: NextRequest) => {
   });
 
   return NextResponse.json({
-    msg: 'get portfolios',
+    message: 'get portfolios',
     meta: {
       totalData: paginatedData.length,
       totalAllData,
