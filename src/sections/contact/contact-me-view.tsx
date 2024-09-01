@@ -161,6 +161,7 @@ export const ContactMeView = () => {
                         ? alert?.message
                         : alert?.message?.()
                     }
+                    onClose={() => setAlert({ active: false })}
                   />
                 ) : (
                   <Alert
