@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+import { EXPERIMENTAL } from '@/configs/app.config';
 import { cache } from '@/redis/redis.util';
 import {
   createContactMe,
@@ -9,8 +10,13 @@ import { handleError } from '@/utils/error.util';
 import { cleanNull } from '@/utils/object.util';
 import { isNotEmpty } from '@/utils/validation.util';
 
+import { notfound } from '../notfound.util';
+
 export const GET = async (req: NextRequest) => {
   try {
+    if (!EXPERIMENTAL) {
+      return notfound();
+    }
     const { searchParams } = new URL(req.url);
     const search = searchParams.get('search');
     const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
@@ -57,6 +63,9 @@ export const GET = async (req: NextRequest) => {
 
 export const POST = async (req: NextRequest) => {
   try {
+    if (!EXPERIMENTAL) {
+      return NextResponse.json(null, { status: 404 });
+    }
     const data = await req.json();
 
     const validationErrors: {
