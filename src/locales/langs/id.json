@@ -64,10 +64,10 @@
   "message": "pesan",
   "message-placeholder": "tulis pesan di sini...",
   "submit-message": "kirim pesan",
-  "submitted-alert-message": "terima kasih untuk pesannya",
+  "submitted-alert-message": "terima kasih untuk pesannya, akan saya tanggapi segera bila memungkinkan",
   "validation": {
     "required": "harus diisi",
     "min": "minimal {{min}} karakter",
-    "max": "minimal {{max}} karakter"
+    "max": "maximal {{max}} karakter"
   }
 }

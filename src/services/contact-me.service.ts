@@ -10,6 +10,12 @@ export const createContactMe = async (data: {
   message: string;
 }) => {
   return await prisma.contactMe.create({
+    select: {
+      id: true,
+      name: true,
+      address: true,
+      message: true,
+    },
     data: {
       id: uuidv4(),
       ...data,

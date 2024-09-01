@@ -15,6 +15,15 @@ export interface ApiResponse<T> {
 }
 
 export interface ApiResponseError {
-  message: string;
-  error: any;
+  status: string;
+  body: {
+    message: string;
+    code?: string;
+    error?: any;
+    errors?: {
+      field: string;
+      code: string;
+      message: string;
+    }[];
+  };
 }

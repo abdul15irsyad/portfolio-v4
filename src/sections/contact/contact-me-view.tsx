@@ -14,6 +14,8 @@ import { ApiResponse, ApiResponseError } from '@/types/api-response.type';
 import { ContactMe } from '@/types/contact-me.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
+import { SuccessNotification } from './success-notification';
+
 export const ContactMeView = () => {
   const { t } = useTranslation();
   const [alert, setAlert] = useState<{
@@ -22,8 +24,13 @@ export const ContactMeView = () => {
     message?: string | (() => string);
   }>({ active: false });
 
-  const schema = z.object({
-    name: z.string().min(1, t('validation.required')).trim(),
+  const createContactMeSchema = z.object({
+    name: z
+      .string()
+      .min(1, t('validation.required'))
+      .min(3, t('validation.min', { min: 3 }))
+      .max(255, t('validation.max', { max: 255 }))
+      .trim(),
     address: z
       .string()
       .max(255, t('validation.max', { max: 255 }))
@@ -36,7 +43,7 @@ export const ContactMeView = () => {
   });
 
   const methods = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(createContactMeSchema),
     defaultValues: {
       name: '',
       isAnonymous: false,
@@ -46,6 +53,7 @@ export const ContactMeView = () => {
     mode: 'all',
   });
   const {
+    setError,
     handleSubmit,
     register,
     reset,
@@ -61,23 +69,32 @@ export const ContactMeView = () => {
     Pick<ContactMe, 'name' | 'address' | 'message'>
   >({
     mutationKey: ['createContactMe'],
-    mutationFn: async (data) =>
-      (
-        await fetch('/api/contact-mes', {
-          method: 'post',
-          body: JSON.stringify(data),
-        })
-      ).json(),
+    mutationFn: async (data) => {
+      const response = await fetch('/api/contact-mes', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response?.ok)
+        throw {
+          status: response?.status,
+          body: await response?.json(),
+        };
+      return await response.json();
+    },
   });
 
   const onSubmit = handleSubmit(async (data) => {
     nProgress.start();
     const response = await mutateCreateContactMe(data);
-    if (response) nProgress.done();
+    nProgress.done();
     setAlert({
       type: 'success',
       active: true,
-      message: () => t('submitted-alert-message'),
+      message: () =>
+        t('submitted-alert-message', { name: response?.data?.name }),
     });
     reset();
   });
@@ -86,19 +103,38 @@ export const ContactMeView = () => {
     const error = mutateCreateContactMeError;
     if (!error) return;
 
-    setAlert({ type: 'danger', active: true, message: error.message });
-  }, []);
+    if (error?.body?.code === 'VALIDATION_ERROR') {
+      error.body.errors?.forEach((error) => {
+        setError(error.field as any, {
+          type: 'required',
+          message:
+            error.code === 'REQUIRED'
+              ? t('validation.required')
+              : error.code === 'MAX'
+                ? t('validation.max', { max: 255 })
+                : error.message,
+        });
+      });
+    } else {
+      setAlert({
+        type: 'danger',
+        active: true,
+        message: error.body.message,
+      });
+    }
+    nProgress.done();
+  }, [mutateCreateContactMeError]);
 
   return (
     <div className="contact section doodle-background">
       <div className="container">
         <h1 className="title text-center">
-          {capitalizeEachWord(t('contact-me'))}
+          {capitalizeEachWord(t('contact'))}
         </h1>
         <hr />
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 col-12 d-lg-flex d-none">
-            <div style={{ padding: '8rem' }}>
+            <div style={{ padding: '0 8rem' }}>
               <Image
                 src={'/ask.png'}
                 alt="ask"
@@ -117,26 +153,35 @@ export const ContactMeView = () => {
                 {capitalize(t('say-anything-to-me'))}
               </h2>
               <p className="text-muted fs-6">{t('say-anything-to-me-desc')}</p>
-              {alert.active && (
-                <Alert
-                  variant={alert.type}
-                  onClose={() => setAlert({ active: false })}
-                  dismissible
-                  transition={true}
-                >
-                  <div className="d-flex">
-                    <i className="bi bi-check-circle me-2"></i>
-                    <p className="mb-0">
-                      {typeof alert.message === 'string'
+              {alert.active &&
+                (alert.type === 'success' ? (
+                  <SuccessNotification
+                    message={
+                      typeof alert.message === 'string'
                         ? alert?.message
-                        : alert?.message?.()}
-                    </p>
-                  </div>
-                </Alert>
-              )}
+                        : alert?.message?.()
+                    }
+                  />
+                ) : (
+                  <Alert
+                    variant={'warning'}
+                    onClose={() => setAlert({ active: false })}
+                    dismissible
+                    transition={true}
+                  >
+                    <div className="d-flex">
+                      <i className={`bi bi-exclamation-circle me-2`}></i>
+                      <p className="mb-0">
+                        {typeof alert.message === 'string'
+                          ? alert?.message
+                          : alert?.message?.()}
+                      </p>
+                    </div>
+                  </Alert>
+                ))}
               {!(alert.active && alert.type === 'success') && (
                 <FormProvider {...methods}>
-                  <Form onSubmit={onSubmit}>
+                  <Form onSubmit={!isSubmitting ? onSubmit : undefined}>
                     <Form.Group className="mb-3" controlId="formName">
                       <Form.Label className="fw-bold small">
                         {capitalize(t('name'))}
@@ -147,7 +192,6 @@ export const ContactMeView = () => {
                         placeholder={t('name-placeholder')}
                         isInvalid={!!errors.name?.message}
                       />
-
                       {/* <Form.Check
                       name="isAnonymous"
                       className="small text-secondary"
@@ -178,7 +222,7 @@ export const ContactMeView = () => {
                       <Form.Control
                         {...register('message')}
                         as="textarea"
-                        rows={4}
+                        rows={6}
                         placeholder={t('message-placeholder')}
                         isInvalid={!!errors.message?.message}
                       />

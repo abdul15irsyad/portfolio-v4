@@ -1,4 +1,3 @@
-import * as Sentry from '@sentry/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { cache } from '@/redis/redis.util';
@@ -6,6 +5,7 @@ import {
   createContactMe,
   getContactMeWithPagination,
 } from '@/services/contact-me.service';
+import { handleError } from '@/utils/error.util';
 import { cleanNull } from '@/utils/object.util';
 import { isNotEmpty } from '@/utils/validation.util';
 
@@ -45,8 +45,7 @@ export const GET = async (req: NextRequest) => {
       data,
     });
   } catch (error) {
-    Sentry.captureException(error);
-    console.error(error);
+    handleError(error);
     return NextResponse.json(
       {
         message: 'internal server error',
@@ -60,9 +59,41 @@ export const POST = async (req: NextRequest) => {
   try {
     const data = await req.json();
 
+    const validationErrors: {
+      field: string;
+      code: string;
+      message: string;
+    }[] = [];
+    for (const item of Object.entries(data)) {
+      if (['name', 'message'].includes(item[0]) && !isNotEmpty(item[1])) {
+        validationErrors.push({
+          field: item[0],
+          code: 'REQUIRED',
+          message: 'field is required',
+        });
+      } else if ((item[1] as string)?.length > 255) {
+        validationErrors.push({
+          field: item[0],
+          code: 'MAX',
+          message: 'no more than 255 characters',
+        });
+      }
+    }
+    if (validationErrors.length > 0) {
+      return NextResponse.json(
+        {
+          message: 'bad request',
+          code: 'VALIDATION_ERROR',
+          errors: validationErrors,
+        },
+        { status: 400 },
+      );
+    }
+
     const newContactMe = await createContactMe({
-      ...data,
+      name: data?.name,
       address: isNotEmpty(data?.address) ? data.address : null,
+      message: data?.message,
     });
 
     // const keys = await redisService.keys('contact-mes');
@@ -73,8 +104,7 @@ export const POST = async (req: NextRequest) => {
       data: newContactMe,
     });
   } catch (error) {
-    Sentry.captureException(error);
-    console.error(error);
+    handleError(error);
     return NextResponse.json(
       {
         message: 'internal server error',

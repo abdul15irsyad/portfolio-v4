@@ -64,10 +64,10 @@
   "message": "message",
   "message-placeholder": "write message here...",
   "submit-message": "submit message",
-  "submitted-alert-message": "thank you for the message",
+  "submitted-alert-message": "thank you for the message, i will respond immediately if possible",
   "validation": {
-    "required": "required",
+    "required": "field is required",
     "min": "at least {{min}} characters",
-    "max": "at least {{max}} characters"
+    "max": "no more than {{max}} characters"
   }
 }
