@@ -63,6 +63,7 @@
   "address-placeholder": "alamat, contoh: jakarta",
   "message": "pesan",
   "message-placeholder": "tulis pesan di sini...",
+  "submit": "kirim",
   "submit-message": "kirim pesan",
   "submitted-alert-message": "terima kasih untuk pesannya, akan saya tanggapi segera bila memungkinkan",
   "validation": {

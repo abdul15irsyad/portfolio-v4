@@ -1,0 +1,38 @@
+.success-notification {
+  background-color: #fafafa;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.success-notification .success-notification-img {
+  width: 100px;
+}
+
+.success-notification .btn-close-wrapper {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.success-notification .btn-close-wrapper .btn-close {
+  background: #f4f4f4 var(--bs-btn-close-bg) center/.75rem auto no-repeat;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .success-notification {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .success-notification img {
+    width: 80px;
+  }
+
+  .success-notification .btn-close-wrapper .btn-close {
+    background: #f4f4f4 var(--bs-btn-close-bg) center/1rem auto no-repeat;
+  }
+}
