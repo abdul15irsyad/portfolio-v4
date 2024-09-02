@@ -63,6 +63,7 @@
   "address-placeholder": "address, example: new york",
   "message": "message",
   "message-placeholder": "write message here...",
+  "submit": "submit",
   "submit-message": "submit message",
   "submitted-alert-message": "thank you for the message, i will respond immediately if possible",
   "validation": {

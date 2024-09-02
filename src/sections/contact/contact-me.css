@@ -1,0 +1,14 @@
+.contact-me .contact-form-image {
+  padding: 0 8rem;
+}
+
+.contact-me .contact-form-wrapper {
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .contact-me .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+}

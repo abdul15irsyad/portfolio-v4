@@ -1,4 +1,5 @@
 'use client';
+import './contact-me.css';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -126,7 +127,7 @@ export const ContactMeView = () => {
   }, [mutateCreateContactMeError]);
 
   return (
-    <div className="contact section doodle-background">
+    <div className="contact-me section doodle-background">
       <div className="container">
         <h1 className="title text-center">
           {capitalizeEachWord(t('contact'))}
@@ -134,7 +135,7 @@ export const ContactMeView = () => {
         <hr />
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 col-12 d-lg-flex d-none">
-            <div style={{ padding: '0 8rem' }}>
+            <div className="contact-form-image">
               <Image
                 src={'/ask.png'}
                 alt="ask"
@@ -145,10 +146,7 @@ export const ContactMeView = () => {
             </div>
           </div>
           <div className="col-lg-6 col-md-9 col-12" data-aos="fade-up">
-            <Card
-              className="mx-3"
-              style={{ borderRadius: '1rem', padding: '2rem' }}
-            >
+            <Card className="contact-form-wrapper">
               <h2 className="fw-bold fs-4 text-primary">
                 {capitalize(t('say-anything-to-me'))}
               </h2>
@@ -238,7 +236,7 @@ export const ContactMeView = () => {
                         disabled={isSubmitting}
                       >
                         <i className="bi bi-send me-2" />
-                        {capitalize(t('submit-message'))}
+                        {capitalize(t('submit'))}
                       </Button>
                     </div>
                   </Form>

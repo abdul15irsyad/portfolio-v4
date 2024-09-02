@@ -17,6 +17,7 @@
     "start": "next start",
     "lint": "next lint",
     "migrate": "npx prisma migrate dev",
+    "push": "npx prisma db push",
     "seed": "npx prisma db seed"
   },
   "dependencies": {
