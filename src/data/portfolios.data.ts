@@ -7,6 +7,42 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'JARVIS (Just Advanced HR System)',
+    href: null,
+    publishedAt: '2024-09-09',
+    type: 'Fullstack',
+    challenges: [],
+    stacks: [
+      { icon: '/programming/fastify.png', label: 'Fastify JS' },
+      { icon: '/programming/prisma.png', label: 'Prisma' },
+      { icon: '/programming/mysql.png', label: 'MySQL' },
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+    ],
+    images: [...Array(7).keys()].map((index) => ({
+      src: `/portfolio/jarvis-${index}.jpg`,
+      alt: `Jarvis ${index + 1}`,
+    })),
+    teams: [],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          JARVIS (Just Advanced HR System) adalah aplikasi untuk monitoring dan pengelolaan sumber daya manusia serta menatakerjakan data pegawai di Divisi APP.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Jarvis (Just Advanced HR System) is an application for monitoring and managing human resources and employee data in the APP division.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'Optimining',
     href: null,
     publishedAt: '2024-05-22',

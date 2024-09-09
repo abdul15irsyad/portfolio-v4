@@ -13,8 +13,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) return commonMetaData;
   const title = `${portfolio?.title} (${portfolio.year}) - ${APP_NAME}`;
-  const porfolioDesc = portfolio.translates?.find(({ lang }) => lang === 'id')
-    ?.desc;
+  const porfolioDesc = portfolio.translates?.find(
+    ({ lang }) => lang === 'id',
+  )?.desc;
   const description = porfolioDesc
     ? `${sanitize(porfolioDesc ?? '', {
         ...defaultSanitizeOptions,
