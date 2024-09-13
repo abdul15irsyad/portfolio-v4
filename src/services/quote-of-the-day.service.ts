@@ -1,3 +1,6 @@
+import axios from 'axios';
+import https from 'https';
+
 import { redisService } from '@/redis/redis.util';
 import { QuoteOfTheDay } from '@/types/quote-of-the-day.type';
 import { shuffle } from '@/utils/array.util';
@@ -17,10 +20,13 @@ export const getQuoteOfTheDay = async () => {
     const url = `https://api.quotable.io/random?maxLength=${maxLength}&tags="${randomTags.join(
       '|',
     )}"`;
-    // console.log(`fetching ${url}`);
-    const res = await (await fetch(url)).json();
-    // console.log(`get quote with id ${res._id}`);
-    return res;
+    const agent = new https.Agent({
+      rejectUnauthorized: false, // Set to 'false' to allow self-signed certificates (not recommended for production)
+    });
+    const res = await axios.get<QuoteOfTheDay>(url, {
+      httpsAgent: agent,
+    });
+    return res.data;
   };
 
   let quote: QuoteOfTheDay, quoteIds: string[];
