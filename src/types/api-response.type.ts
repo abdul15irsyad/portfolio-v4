@@ -1,3 +1,5 @@
+import { AxiosHeaders } from 'axios';
+
 export interface ApiResponseAll<T> {
   message: string;
   data: T[];
@@ -15,7 +17,8 @@ export interface ApiResponse<T> {
 }
 
 export interface ApiResponseError {
-  status: string;
+  status: number;
+  headers: AxiosHeaders;
   body: {
     message: string;
     code?: string;

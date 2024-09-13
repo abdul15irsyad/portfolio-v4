@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { EXPERIMENTAL } from '@/configs/app.config';
+import { rateLimit } from '@/middlewares/rate-limit.middleware';
 import { cache } from '@/redis/redis.util';
 import {
   createContactMe,
@@ -63,9 +64,8 @@ export const GET = async (req: NextRequest) => {
 
 export const POST = async (req: NextRequest) => {
   try {
-    if (!EXPERIMENTAL) {
-      return NextResponse.json(null, { status: 404 });
-    }
+    if (!EXPERIMENTAL) return notfound();
+
     const data = await req.json();
 
     const validationErrors: {
@@ -99,6 +99,25 @@ export const POST = async (req: NextRequest) => {
       );
     }
 
+    const ip = req.headers.get('x-forwarded-for') ?? 'localhost';
+    const { ok, options } = await rateLimit({
+      ip,
+      feature: 'create-contact-me',
+      ttl: 10 * 60,
+      limit: 1,
+    });
+
+    if (!ok) {
+      const response = NextResponse.json(
+        { message: 'too many request' },
+        { status: 429 },
+      );
+      for (const [key, value] of Object.entries(options)) {
+        response.headers.set(key, value);
+      }
+      return response;
+    }
+
     const newContactMe = await createContactMe({
       name: data?.name,
       address: isNotEmpty(data?.address) ? data.address : null,
@@ -108,10 +127,14 @@ export const POST = async (req: NextRequest) => {
     // const keys = await redisService.keys('contact-mes');
     // await redisService.del(...(keys as RedisKey[]));
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       message: 'create contact me',
       data: newContactMe,
     });
+    for (const [key, value] of Object.entries(options)) {
+      response.headers.set(key, value);
+    }
+    return response;
   } catch (error) {
     handleError(error);
     return NextResponse.json(
