@@ -17,12 +17,24 @@ export const portfolios: Portfolio[] = [
       { icon: '/programming/prisma.png', label: 'Prisma' },
       { icon: '/programming/mysql.png', label: 'MySQL' },
       { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/material-ui.png', label: 'Material UI' },
     ],
     images: [...Array(7).keys()].map((index) => ({
       src: `/portfolio/jarvis-${index}.jpg`,
       alt: `Jarvis ${index + 1}`,
     })),
-    teams: [],
+    teams: [
+      {
+        // isye
+        userId: '779ca0ac-1493-4300-9f41-598f9e690f16',
+        role: 'Project Manager',
+      },
+      {
+        // om hendri
+        userId: '11174d11-6715-42eb-a91b-d929d7c993b3',
+        role: 'Previous Backend Developer',
+      },
+    ],
     translates: [
       {
         lang: 'id',

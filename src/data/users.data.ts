@@ -206,6 +206,22 @@ export const users: User[] = [
     },
     linkedin: 'https://www.linkedin.com/in/adhyaksa-herdhianto/',
   },
+  {
+    id: '779ca0ac-1493-4300-9f41-598f9e690f16',
+    name: 'Isye Putri Roselin',
+    photo: {
+      id: '8e4e01bc-1565-416e-9ecc-190f34738cc6',
+      path: 'user',
+      fileName: 'isye-putri-roselin.jpg',
+      originalFileName: 'isye-putri-roselin.jpg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/isyeroselin/',
+  },
+  {
+    id: '11174d11-6715-42eb-a91b-d929d7c993b3',
+    name: 'Hendri Purnianto',
+  },
 ].map((user) => ({
   ...user,
   photo: user.photo
