@@ -66,6 +66,7 @@
   "submit": "submit",
   "submit-message": "submit message",
   "submitted-alert-message": "thank you for the message, i will respond immediately if possible",
+  "too-many-request-message": "oops, you can try again after {{seconds}} seconds",
   "validation": {
     "required": "field is required",
     "min": "at least {{min}} characters",

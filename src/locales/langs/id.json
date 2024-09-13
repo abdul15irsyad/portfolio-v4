@@ -66,6 +66,7 @@
   "submit": "kirim",
   "submit-message": "kirim pesan",
   "submitted-alert-message": "terima kasih untuk pesannya, akan saya tanggapi segera bila memungkinkan",
+  "too-many-request-message": "oops, kamu bisa coba lagi setelah {{seconds}} detik",
   "validation": {
     "required": "harus diisi",
     "min": "minimal {{min}} karakter",

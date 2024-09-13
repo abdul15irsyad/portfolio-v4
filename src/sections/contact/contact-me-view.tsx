@@ -3,6 +3,7 @@ import './contact-me.css';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
+import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import nProgress from 'nprogress';
 import { useEffect, useState } from 'react';
@@ -71,19 +72,23 @@ export const ContactMeView = () => {
   >({
     mutationKey: ['createContactMe'],
     mutationFn: async (data) => {
-      const response = await fetch('/api/contact-mes', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      if (!response?.ok)
-        throw {
-          status: response?.status,
-          body: await response?.json(),
-        };
-      return await response.json();
+      try {
+        const response = await axios.post('/api/contact-mes', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        return response.data;
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          throw {
+            status: error?.response?.status,
+            headers: error?.response?.headers,
+            body: error.response?.data,
+          };
+        }
+        throw error;
+      }
     },
   });
 
@@ -116,12 +121,22 @@ export const ContactMeView = () => {
                 : error.message,
         });
       });
+    } else if (error.status === 429) {
+      setAlert({
+        type: 'danger',
+        active: true,
+        message: t('too-many-request-message', {
+          seconds: error.headers.get('X-RateLimit-Reset') ?? 'some',
+        }),
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setAlert({
         type: 'danger',
         active: true,
         message: error.body.message,
       });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     nProgress.done();
   }, [mutateCreateContactMeError]);

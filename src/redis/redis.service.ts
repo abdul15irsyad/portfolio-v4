@@ -55,4 +55,13 @@ export class RedisService {
       return null;
     }
   }
+
+  async ttl(key: RedisKey) {
+    try {
+      return await this.client.ttl(key);
+    } catch (error) {
+      handleError(error);
+      return null;
+    }
+  }
 }

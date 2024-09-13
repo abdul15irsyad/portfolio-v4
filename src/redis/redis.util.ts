@@ -5,13 +5,15 @@ export const redisService = new RedisService();
 
 export const cache = async <T extends object | null>(
   key: string,
-  getData: () => Promise<T>,
+  getData: () => Promise<T> | T,
   ttlInSeconds?: number,
 ) => {
   const cachedData = await redisService.get(key);
   const data = cachedData
     ? (JSON.parse(cachedData, cacheRevive) as T)
-    : await getData();
+    : getData instanceof Promise
+      ? await getData()
+      : getData();
   if (!cachedData && data && (Array.isArray(data) ? data.length > 0 : true)) {
     await redisService.setex(
       key,
