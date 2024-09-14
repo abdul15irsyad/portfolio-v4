@@ -9,8 +9,8 @@ import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
 import { Portfolio } from '@/types/portfolio.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
+import PortfolioTeam from '../portfolio-team';
 import styles from './portfolio-2-detail.module.css';
-import PortfolioTeam from './portfolio-team';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
   const { t, i18n } = useTranslation();

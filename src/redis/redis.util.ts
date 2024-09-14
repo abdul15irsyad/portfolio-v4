@@ -11,9 +11,7 @@ export const cache = async <T extends object | null>(
   const cachedData = await redisService.get(key);
   const data = cachedData
     ? (JSON.parse(cachedData, cacheRevive) as T)
-    : getData instanceof Promise
-      ? await getData()
-      : getData();
+    : await getData();
   if (!cachedData && data && (Array.isArray(data) ? data.length > 0 : true)) {
     await redisService.setex(
       key,

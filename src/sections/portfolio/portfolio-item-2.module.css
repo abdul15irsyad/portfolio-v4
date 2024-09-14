@@ -77,7 +77,13 @@
 }
 
 .portfolio-item-2 .detail .desc {
-  margin-bottom: 1rem;
+  font-size: 90%;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .portfolio-item-2 .stacks {
