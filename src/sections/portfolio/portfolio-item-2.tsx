@@ -4,8 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import sanitize from 'sanitize-html';
 
 import { Portfolio } from '@/types/portfolio.type';
+import { defaultSanitizeOptions } from '@/utils/html.util';
 
 import styles from './portfolio-item-2.module.css';
 
@@ -16,7 +19,13 @@ const PortfolioItem2 = ({
   year,
   type,
   stacks,
+  translates,
+  desc,
 }: Portfolio) => {
+  const { i18n } = useTranslation();
+  const translatedDesc = translates?.find(
+    ({ lang }) => lang === i18n.language,
+  )?.desc;
   return (
     <div className={`${styles['portfolio-item-2']} align-items-center`}>
       <Link href={`/portfolio/${slug}`} prefetch={false}>
@@ -55,6 +64,12 @@ const PortfolioItem2 = ({
             {title}
           </Link>
         </h3>
+        <p
+          className={styles.desc}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(translatedDesc ?? desc!, defaultSanitizeOptions),
+          }}
+        />
       </div>
     </div>
   );

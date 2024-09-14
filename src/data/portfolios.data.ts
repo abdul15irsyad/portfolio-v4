@@ -831,11 +831,24 @@ export const portfolios: Portfolio[] = [
     href: 'https://sopbuntutibusamino.com/',
     publishedAt: '2022-07-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah.
-      </p>
-    `,
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Company profile rumah makan <b>"Sop Buntut Ibu Samino"</b> yang berisi menu-menu makanan dan minuman yang ada beserta lokasi cabang di beberapa daerah.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Company profile restaurant <b>"Sop Buntut Ibu Samino"</b> which contains food and beverage menus along with branch locations in several areas.
+          </p>
+        `,
+      },
+    ],
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
@@ -854,11 +867,24 @@ export const portfolios: Portfolio[] = [
     href: 'https://safarikonveksi.com',
     publishedAt: '2022-04-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra.
-      </p>
-    `,
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Landing page vendor konveksi <b>"Safari Konveksi"</b> yang berisi detail layanan yang dimiliki dan beberapa contoh produk yang dibuat untuk mitra.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Landing Page Vendor Convection <b>"Safari Convection"</b> which contains details of the services owned and some examples of products made for partners.
+          </p>
+        `,
+      },
+    ],
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
@@ -877,11 +903,24 @@ export const portfolios: Portfolio[] = [
     href: 'https://betonanalytica.com/',
     publishedAt: '2022-04-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris.
-      </p>
-    `,
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Company profile <b>"Beton Analytica"</b> yang berisi detail produk dan keunggulan-keunggulannya, lalu terdapat fitur dengan 2 bahasa yakni bahasa indonesia dan bahasa inggris.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Company profile <b>"Beton Analytica"</b> which contains product details and its advantages, then there are features with 2 languages Indonesian and English.
+          </p>
+        `,
+      },
+    ],
     challenges: [
       {
         translates: [
@@ -917,11 +956,24 @@ export const portfolios: Portfolio[] = [
     href: 'https://www.padiresort.co.id',
     publishedAt: '2021-08-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        Company profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia.
-      </p>
-    `,
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            Company Profile <b>"Padi Resort"</b> yang berisi tipe-tipe kamar yang ada di resort tersebut beserta paket-paket yang tersedia.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            Company Profile <b>"Padi Resort"</b> which contains the types of rooms in the resort along with the packages available.
+          </p>
+        `,
+      },
+    ],
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [
@@ -940,11 +992,24 @@ export const portfolios: Portfolio[] = [
     href: 'https://galaxypartanimas.com',
     publishedAt: '2021-05-15',
     type: 'Wordpress',
-    desc: `
-      <p>
-        <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya.
-      </p>
-    `,
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+            <b>"Galaxy Partani Mas"</b> merupakan perusahaan importir dan distributor dalam bidang mekanisasi pertanian, dalam company profile ini berisi katalog seluruh produk beserta detail nya.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+            <b>"Galaxy Partani Mas"</b> is an importer and distributor company in the field of agricultural mechanization, in this company profile contains a catalog of all products and its details.
+          </p>
+        `,
+      },
+    ],
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [

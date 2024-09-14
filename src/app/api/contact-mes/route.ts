@@ -68,6 +68,7 @@ export const POST = async (req: NextRequest) => {
 
     const data = await req.json();
 
+    // validate input
     const validationErrors: {
       field: string;
       code: string;
@@ -99,6 +100,7 @@ export const POST = async (req: NextRequest) => {
       );
     }
 
+    // rate limit
     const ip = req.headers.get('x-forwarded-for') ?? 'localhost';
     const { ok, options } = await rateLimit({
       ip,
