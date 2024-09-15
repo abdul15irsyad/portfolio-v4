@@ -6,6 +6,345 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '6f41a0f6-d239-44f7-85d6-3fc28976d5e6',
+    title: 'SQL Aggregations',
+    slug: 'sql-aggregations',
+    featureImageId: '53a3d049-2147-41c2-8f3c-2329c9aff761',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <br>
+    <p>
+    abis libur panjang biar refresh pikirannya kita bahas sedikit mengenai sql database (no-sql minggir dulu, canda), harusnya ini udah jadi makanan sehari-hari buat backend dev apalagi data engineer/analis si, tapi gapapa kalo udah ngerasa khatam sql boleh di-skip aja kalo mau lanjut juga boleh, siapa tau dapet insight baru ya kan. 
+    </p>
+    <p>
+    saya juga mungkin terkadang masih ada sedikit error ketika nulis query sql (udah nyaman pake orm hehe), entah apapun itu, tapi yaa harusnya tetep bisa disolve dari informasi error execution databasenya.
+    </p>
+    <h3>definisi</h3>
+    <p>
+    buat yang bingung, sql (structured query language) itu kurang lebih bahasa yang dipake untuk ngelola dan manipulasi data di dalam database relational (mysql, postgresql, mssql, oracle, dkk). nah salah satu fitur yang ada di sql itu ada <b>sql aggregations</b>, dimana kita bisa ngelakuin aggregasi pada beberapa data yang ada, seperti menghitung total nilai, rata-rata, dll. ini jadi penting dalam konteks data ketika kita butuh analisis terhadap data yang kita punya, atau pembuatan laporan dalam periode tertentu, kurang lebih seperti ringkasan informasi dari seluruh data secara efisien dan akurat.
+    </p>
+    <p>
+    nah di kesempatan kali ini, saya mau bahas 5 fungsi yang menurut saya sering digunakan di <b>sql aggregations</b> yaitu <code>count()</code>, <code>sum()</code>, <code>avg()</code>, <code>max()</code> dan <code>min()</code>, yang mana masing-masing fungsi punya peran penting dalam ngerangkum dan nganalisis data di banyak case.
+    </p>
+    <p>
+    jadi walaupun sekarang orm (object relational mapping) udah bertebaran dimana-mana dan sangat memudahkan kita dalam mengakses data dari database, tapi biasanya ada hal-hal tertentu yang rumit pastinya namun orm tersebut belum provide secara fitur, makanya disediakan fungsi <b>raw query</b> buat nulis query sql nya sendiri. cuma yaa pas mapping hasil query nya ke aplikasi backend nya agak repot si, karna kudu dimapping satu-satu, belum lagi kalau nama field kita di database pake snake_case tapi nama variable/property di backend kita pake camelCase.
+    </p>
+    <h3>implementasi</h3>
+    <p>
+    oke sebelum kita bahas, enaknya kita siapin dulu data dummy yang bisa kita pake buat dieksekusi sama query-query nya, kita buat aja misal table product yang punya 50 data dan order_detail yang punya 20 data.
+    </p>
+    <h6 style="text-align: center">table product (<a href="/codes/product.sql" target="_blank">product.sql</a>)</h6>
+    <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>price</th>
+      <th>category</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>Pulpen</td>
+      <td>3000</td>
+      <td>Alat Tulis</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Buku Tulis</td>
+      <td>15000</td>
+      <td>Alat Tulis</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Penggaris</td>
+      <td>7000</td>
+      <td>Alat Tulis</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Kopi Susu</td>
+      <td>20000</td>
+      <td>Minuman</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Celana Pendek</td>
+      <td>30000</td>
+      <td><code>NULL</code></td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Celana Panjang</td>
+      <td>90000</td>
+      <td><code>NULL</code></td>
+    </tr>
+    </tbody>
+    </table>
+    <h6 style="text-align: center">table order_detail (<a href="/codes/order_detail.sql" target="_blank">order_detail.sql</a>)</h6>
+    <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>order_id</th>
+      <th>product_id</th>
+      <th>quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1</td>
+      <td>10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>9</td>
+      <td>21</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>9</td>
+      <td>25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>10</td>
+      <td>33</td>
+      <td>2</td>
+    </tr>
+    </tbody>
+    </table>
+    <ol>
+    <li><code>count()</code></li>
+    <p>
+    gunanya buat ngitung jumlah baris/record selain <code>NULL</code> yang ada di dalam table atau dari hasil query yang kita jalankan, misal jika kita tulis query seperti di bawah ini
+    </p>
+    <pre>
+    <code class="language-sql">SELECT count(*) FROM product;</code>
+    </pre>
+    <p>
+    maka hasil query tersebut adalah 1 baris record dengan nama field "count(*)” dengan nilai jumlah baris di table product, untuk case kita kali ini nilai nya 50.
+    </p>
+    <p>
+    di dalem tanda kurung ada tanda <code>*</code> maksudnya apa tu? itu maksudnya adalah data yang dihitung adalah data seluruh field/kolom yang ada di table product, apa bedanya sama <code>count(product.id)</code>, outputnya sama tapi dalam eksekusinya yang dihitung hanya kolom <code>id</code> saja, saya lebih prefer yang pakai <code>product.id</code>, karena id tidak mungkin <code>NULL</code> jadi bisa mewakili keseluruhan baris saat proses menghitung jumlah baris dan jadi lebih efisien.
+    </p>
+    <p>
+    sekarang kita coba <code>count(product.category)</code>
+    </p>
+    <pre>
+    <code class="language-sql">SELECT count(product.category) FROM product</code>
+    </pre>
+    <p>
+    outputnya sekarang berbeda, sekarang hasil perhitungannya adalah <code>48</code>, kenapa bisa hasilnya bukan <code>50</code>, karena di data kita ada 2 data yang kolom <code>category</code> nya bernilai <code>NULL</code> yakni di data dengan id 49 dan 50, jika nilai dari kolomnya adalah <code>NULL</code>, maka data tersebut tidak diikutsertakan dalam penghitungan.
+    </p>
+    <li><code>sum()</code></li>
+    <p>
+    gunanya buat ngejumlahin nilai dari kolom yang tipe nya <code>number</code>, pada contoh table product, ada 1 kolom yang tipe nya <code>int</code> (bagian dari number) yaitu kolom <code>price</code> atau harga barang.
+    </p>
+    <pre>
+    <code class="language-sql">SELECT sum(product.price) FROM product</code>
+    </pre>
+    <p>
+    maka hasilnya adalah <code>983000</code>, tapi kayaknya query itu bakal jarang diexecute karena ngapain juga ya kan ngambil total harga seluruh produk
+    </p>
+    <p>
+    kita coba kombinasiin sama table order_detail biar lebih menarik, misal kita perlu informasi <b>"total harga dari setiap order yang ada"</b>, jika kita perhatiin di table order_detail ada kolom <code>order_id</code>, <code>product_id</code>, dan <code>quantity</code>, flow nya adalah 
+    </p>
+    <ul>
+    <li>kita cari tau dulu harga akhir di tiap produk nya yaitu kalikan harga produk dengan quantity</li>
+    <li>kita gunakan sum dengan parameter hasil dari perhitungan sebelumnya</li>
+    <li>lalu kita group dengan <code>order_id</code></li>
+    </ul>
+    <p>
+    maka query yang perlu kita jalankan adalah
+    </p>
+    <pre>
+    <code class="language-sql">SELECT 
+  order_detail.order_id,
+  sum(product.price * order_detail.quantity) AS amount
+FROM order_detail
+INNER JOIN product
+ON order_detail.product_id = product.id
+GROUP BY order_detail.order_id</code>
+    </pre>
+    <p>
+    outputnya sebagai berikut
+    </p>
+    <table>
+    <thead>
+    <tr>
+      <th>order_id</th>
+      <th>amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>278000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>20000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>55000</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>60000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>57000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>130000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>122000</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>20000</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>105000</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>120000</td>
+    </tr>
+    </tbody>
+    </table>
+    <li><code>avg()</code></li>
+    <p>
+    oke selanjutnya fungsi <code>avg()</code>, sesuai namanya ini gunanya buat ngitung average atau rata-rata dari data dengan tipe data <code>number</code> juga. misalkan dari table product kita mau dapet informasi rata-rata harga seluruh barang, maka query yang perlu kita tulis adalah:
+    </p>
+    <pre>
+    <code class="language-sql">SELECT avg(product.price) FROM product </code>
+    </pre>
+    <p>
+    maka kita dapet rata-rata harga dari seluruh produk yang ada adalah <code>19660</code>
+    </p>
+    <li><code>max()</code> dan <code>min()</code></li>
+    <p>
+    terakhir ini saya gabungin, karena fungsi nya berkebalikan satu sama lain, misal kita perlu mengambil harga produk termahal dan termurah maka kita bisa pake fungsi ini
+    </p>
+    <pre>
+    <code class="language-sql">SELECT max(product.price), min(product.price) FROM product</code>
+    </pre>
+    <p>
+    outputnya adalah
+    </p>
+    <table>
+    <thead>
+    <tr>
+      <th>max(product.price)</th>
+      <th>min(product.price)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>90000</td>
+      <td>2000</td>
+    </tr>
+    </tbody>
+    </table>
+    </ol>
+    <h3>condition</h3>
+    <p>
+    oke kalu kita pake aggregations dan mau perlu ada condition nya di hasil aggregasi nya, kita gabisa pake keyword <code>WHERE</code> ni, tapi kita pake keyword <code>HAVING</code>. misalkan dari contoh query sum yang kedua kita mau tambahin kondisi yang <code>amount</code> nya di atas <code>100000</code> maka kita bisa pakai <code>HAVING</code>
+    </p>
+    <pre>
+    <code class="language-sql">SELECT 
+  order_detail.order_id,
+  sum(product.price * order_detail.quantity) AS amount
+FROM order_detail
+INNER JOIN product
+ON order_detail.product_id = product.id
+GROUP BY order_detail.order_id
+HAVING amount > 100000</code>
+    </pre>
+    <table>
+    <thead>
+    <tr>
+      <th>order_id</th>
+      <th>amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>278000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>130000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>122000</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>105000</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>120000</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3>penutup</h3>
+    <p>
+    itu dia 5 tungsi yang sering digunain, sangat ngebantu pas butuh informasi ringkasan apalagi biasanya kalau aplikasinya ada dashboard pasti gunain fungsi aggregasi ini. perlu diinget kalau ada kebutuhan terkait aggregasi sebisa mungkin hindari aggregasi di aplikasi backend selama masih bisa dihandle di query sql biar lebih efisien.
+    </p>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['sql', 'database'],
+    publishedAt: new Date('2024-09-15 09:00:00+07:00'),
+    createdAt: new Date('2024-09-15 09:00:00+07:00'),
+    updatedAt: new Date('2024-09-15 09:00:00+07:00'),
+    referenceURLs: [],
+  },
+  {
     id: '9256ea62-0c70-4738-abaf-af835cac0950',
     title: 'Faker JS Buat Bikin Data Dummy Makin Natural',
     slug: 'faker-js-buat-bikin-data-dummy-makin-natural',
