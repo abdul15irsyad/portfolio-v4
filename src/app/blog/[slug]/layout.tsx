@@ -4,9 +4,9 @@ import React from 'react';
 import sanitize from 'sanitize-html';
 
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
+// import { blogDatas } from '@/data/blogs.data';
 import { cache } from '@/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
-// import { blogDatas } from '@/data/blogs.data';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
