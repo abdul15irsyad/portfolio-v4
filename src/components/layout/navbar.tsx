@@ -52,8 +52,8 @@ export const Navbar = () => {
               priority
               src="/favicon.jpg"
               alt="Portfolio Logo"
-              width={24}
-              height={24}
+              width={720}
+              height={720}
               className="me-2"
             />
             <strong className="text-primary">IRSYAD</strong>&nbsp;ABDUL
