@@ -4,7 +4,7 @@
   "problem-solve": "problem solve",
   "see-item": "see {{item}}",
   "resume": "resume",
-  "personal-info": "I am a <strong>Web Developer</strong> with a 3+ year experience, where I have the principle of <strong>\"keep improving\"</strong> because I feel that in the world of web/application development we need to continue to learn new relevant things.",
+  "personal-info": "I am a <strong>Web Developer</strong> with a {{year}}+ year experience, where I have the principle of <strong>\"keep improving\"</strong> because I feel that in the world of web/application development we need to continue to learn new relevant things.",
   "education": "education",
   "s1": "bachelor",
   "informatics-engineering": "informatics engineering",

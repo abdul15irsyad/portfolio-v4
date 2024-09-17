@@ -4,7 +4,7 @@
   "problem-solve": "pemecahan masalah",
   "see-item": "lihat {{item}}",
   "resume": "resume",
-  "personal-info": "Saya seorang <strong>Web Developer</strong> dengan pengalaman 3+ tahun, dimana saya memiliki prinsip <strong>\"keep improving\"</strong> karena saya merasa dalam dunia pengembangan website/aplikasi kita perlu terus menerus mempelajari hal-hal baru yang relevan.",
+  "personal-info": "Saya seorang <strong>Web Developer</strong> dengan pengalaman {{year}}+ tahun, dimana saya memiliki prinsip <strong>\"keep improving\"</strong> karena saya merasa dalam dunia pengembangan website/aplikasi kita perlu terus menerus mempelajari hal-hal baru yang relevan.",
   "education": "pendidikan",
   "s1": "s1",
   "informatics-engineering": "teknik informatika",
