@@ -1,5 +1,7 @@
 import { Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 
 import { prisma } from '@/prisma/client';
 import { PaginationParam } from '@/types/pagination.type';
@@ -79,7 +81,7 @@ export const getLatestBlog = async (
       publishedAt: true,
     },
     where: {
-      publishedAt: { not: null, lte: dayjs().toDate() },
+      publishedAt: { not: null, lte: dayjs().utc().toDate() },
     },
     orderBy: {
       publishedAt: 'desc',
