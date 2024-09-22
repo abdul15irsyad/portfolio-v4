@@ -11,7 +11,32 @@ export const portfolios: Portfolio[] = [
     href: null,
     publishedAt: '2024-09-09',
     type: 'Fullstack',
-    challenges: [],
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Kustomisasi template, menyesuaikan dengan requirement yang ada',
+          },
+          {
+            lang: 'en',
+            desc: 'Template customization, adjusting to existing requirements',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi "best practice" saat mengembangkan frontend next js',
+          },
+          {
+            lang: 'en',
+            desc: 'Implement "best practice" while develop frontend with next js',
+          },
+        ],
+      },
+    ],
     stacks: [
       { icon: '/programming/fastify.png', label: 'Fastify JS' },
       { icon: '/programming/prisma.png', label: 'Prisma' },
