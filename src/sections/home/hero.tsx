@@ -69,7 +69,7 @@ const Hero = () => {
                       <i className={`bi bi-${icon}`}></i>
                     </Link>
                   ) : (
-                    <div className="social-media-item">
+                    <div className="social-media-item" key={index}>
                       <i className={`bi bi-${icon}`}></i>
                     </div>
                   );
@@ -105,8 +105,9 @@ const Hero = () => {
                 <i className="bi bi-whatsapp me-2"></i>
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link> */}
-              {[fiverrLink, sribuLink].map(({ href, icon, label }) => (
+              {[fiverrLink, sribuLink].map(({ href, icon, label }, index) => (
                 <Link
+                  key={index}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"

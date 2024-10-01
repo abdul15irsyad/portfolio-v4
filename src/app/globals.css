@@ -337,6 +337,7 @@ ul li {
   background: #fff;
 }
 .personal-info img {
+  width: auto;
   filter: var(--bs-primary-filter);
 }
 
