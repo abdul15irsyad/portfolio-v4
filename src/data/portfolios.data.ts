@@ -7,6 +7,40 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Landing Page Nawa Jelly',
+    href: 'https://abdul15irsyad.github.io/nawajelly',
+    publishedAt: '2019-06-09',
+    type: 'Basic',
+    challenges: [],
+    stacks: [
+      { icon: '/programming/html-5.png', label: 'HTML 5' },
+      { icon: '/programming/css-3.png', label: 'CSS 3' },
+    ],
+    images: [...Array(2).keys()].map((index) => ({
+      src: `/portfolio/nawajelly-${index + 1}.jpg`,
+      alt: `Nawa Jelly ${index + 1}`,
+    })),
+    teams: [],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Landing Page untuk produk Nawa Jelly.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Landing Page for Nawa Jelly product.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'JARVIS (Just Advanced HR System)',
     href: null,
     publishedAt: '2024-09-09',
