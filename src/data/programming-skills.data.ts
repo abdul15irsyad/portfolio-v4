@@ -147,6 +147,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.BASIC,
       },
       {
+        name: 'Rabbit MQ',
+        logo: '/programming/rabbitmq.png',
+        level: Level.INTERMEDIATE,
+        // href: 'https://www.rabbitmq.com/',
+      },
+      {
         name: 'Docker',
         logo: '/programming/docker.png',
         level: Level.BASIC,
