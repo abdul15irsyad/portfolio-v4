@@ -3,6 +3,29 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: [1, 2, 3, 4].map(
+      (num: number) => `/side-project/yuk-ngobrol-${num}.jpg`,
+    ),
+    href: 'https://yuk-ngobrol.vercel.app/',
+    stacks: [
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/prisma.png', label: 'Prisma' },
+      { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Yuk Ngobrol',
+        desc: 'Kartu yg berisi pertanyaan² tentang Masa Lalu, Kehidupan, Hubungan, dan Diri Sendiri ini bisa bikin kalian makin mengenal doi',
+      },
+      {
+        lang: 'en',
+        title: 'Yuk Ngobrol',
+        desc: 'Cards that contain questions about the past, life, relationships, and yourself can make you more familiar with doi',
+      },
+    ],
+  },
+  {
     img: '/side-project/stopwatch.jpg',
     href: 'https://stopwatch.irsyadabdul.my.id',
     stacks: [

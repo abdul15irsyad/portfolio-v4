@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 import { aosInitConfig } from '@/configs/aos.config';
 import { SideProject } from '@/types/side-project.type';
+import { random } from '@/utils/array.util';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const SideProjectItem = ({
@@ -44,7 +45,7 @@ export const SideProjectItem = ({
               </Link>
             </div>
             <Image
-              src={img}
+              src={typeof img === 'string' ? img : random(img)}
               className="side-project-img"
               alt={title}
               width={1080}
@@ -53,7 +54,7 @@ export const SideProjectItem = ({
           </>
         ) : (
           <Image
-            src={img}
+            src={typeof img === 'string' ? img : random(img)}
             className="side-project-img"
             alt={title}
             width={1080}

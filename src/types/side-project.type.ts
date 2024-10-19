@@ -1,5 +1,5 @@
 export interface SideProject {
-  img: string;
+  img: string | string[];
   title?: string;
   desc?: string;
   href?: string;
