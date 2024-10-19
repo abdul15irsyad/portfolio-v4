@@ -215,6 +215,14 @@ ul li {
 .hero .hero-title .hire-me {
   display: flex !important;
   align-items: center;
+  border: 2px solid var(--bs-primary);
+  color: var(--bs-primary);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+.hero .hero-title .hire-me:hover {
+  background-color: var(--bs-primary);
   color: #fff;
 }
 
@@ -329,6 +337,7 @@ ul li {
   background: #fff;
 }
 .personal-info img {
+  width: auto;
   filter: var(--bs-primary-filter);
 }
 

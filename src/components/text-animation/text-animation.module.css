@@ -27,3 +27,4 @@
 .text-animation .split-char:has(+ .split-char + .split-char:hover) {
   font-weight: 400;
 }
+

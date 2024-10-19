@@ -16,7 +16,7 @@ const Hero = () => {
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
-      strings: ['Web Developer', 'Bugbender', 'Freelancer'],
+      strings: ['Fullstack Dev', 'Bugbender', 'Freelancer'],
       typeSpeed: 100,
       loop: true,
     });
@@ -27,9 +27,14 @@ const Hero = () => {
   //   (contact) => contact.icon === 'whatsapp',
   // )?.href;
   const sribuLink = {
-    icon: '',
+    icon: '/icons/sribu.png',
     label: 'Hire Me on Sribu',
     href: 'https://www.sribu.com/id/users/abdul15irsyad',
+  };
+  const fiverrLink = {
+    icon: '/icons/fiverr.png',
+    label: 'Hire Me on Fiverr',
+    href: 'https://www.fiverr.com/irsyadabdul?public_mode=true',
   };
   const features = [
     { icon: '/icons/api.png', title: 'API' },
@@ -64,7 +69,7 @@ const Hero = () => {
                       <i className={`bi bi-${icon}`}></i>
                     </Link>
                   ) : (
-                    <div className="social-media-item">
+                    <div className="social-media-item" key={index}>
                       <i className={`bi bi-${icon}`}></i>
                     </div>
                   );
@@ -100,15 +105,18 @@ const Hero = () => {
                 <i className="bi bi-whatsapp me-2"></i>
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link> */}
-              <Link
-                href={sribuLink?.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary hire-me px-3"
-              >
-                <img src="/icons/sribu.png" alt="sribu logo" />
-                <span>{sribuLink?.label}</span>
-              </Link>
+              {[fiverrLink, sribuLink].map(({ href, icon, label }, index) => (
+                <Link
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-primary hire-me"
+                >
+                  <img src={icon} alt="hire me logo" />
+                  <span>{label}</span>
+                </Link>
+              ))}
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">

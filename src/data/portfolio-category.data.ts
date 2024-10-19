@@ -12,6 +12,11 @@ export const portfolioCategories = [
     label: 'Wordpress',
     selected: false,
   },
+  {
+    value: 'basic',
+    label: 'Basic',
+    selected: false,
+  },
 ];
 
 export const portfolioYears = [
