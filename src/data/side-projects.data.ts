@@ -16,12 +16,12 @@ export const sideProjects: SideProject[] = [
       {
         lang: 'id',
         title: 'Yuk Ngobrol',
-        desc: 'Kartu yg berisi pertanyaan² tentang Masa Lalu, Kehidupan, Hubungan, dan Diri Sendiri ini bisa bikin kalian makin mengenal doi',
+        desc: 'Kartu yg berisi pertanyaan² tentang masa lalu, kehidupan, hubungan, dan diri sendiri ini bisa bikin kalian makin mengenal doi',
       },
       {
         lang: 'en',
         title: 'Yuk Ngobrol',
-        desc: 'Cards that contain questions about the past, life, relationships, and yourself can make you more familiar with doi',
+        desc: 'Cards that contain questions about the past, life, relationships, and yourself can make you more familiar with your bf/gf',
       },
     ],
   },
