@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "next dev -p 4000",
-    "build": "npx prisma generate && next build",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "postinstall": "npx prisma generate",
     "start": "next start",

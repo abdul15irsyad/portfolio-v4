@@ -1,0 +1,51 @@
+name: portfolio
+
+services:
+  app:
+    container_name: portfolio-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '4002:3000'
+    environment:
+      - NEXT_PUBLIC_ENV=local
+      - NEXT_PUBLIC_BASE_URL="http://localhost:4002"
+      - NEXT_PUBLIC_GA_MEASUREMENT_ID=GA_MEASUREMENT_ID
+      - NEXT_PUBLIC_EXPERIMENTAL=true
+      - DATABASE_URL=postgres://postgres:Qwerty123@database:5432/portfolio
+      - REDIS_URL=redis://cache:6379/1
+      - SENTRY_DSN=https://d16140d5bf02f802b5d2134985cf176c@o4506720354304000.ingest.us.sentry.io/4507581075619840
+    depends_on:
+      - database
+      - cache
+    networks:
+      - portfolio-network
+
+  database:
+    container_name: portfolio-db
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Qwerty123
+      POSTGRES_DB: portfolio
+    networks:
+      - portfolio-network
+    volumes:
+      - portfolio-postgres:/var/lib/postgresql/data
+
+  cache:
+    container_name: portfolio-redis
+    image: redis:latest
+    restart: unless-stopped
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+
+volumes:
+  portfolio-postgres:
+    driver: local
