@@ -3,6 +3,26 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/node-rabbitmq-1.jpg`,
+    href: 'https://github.com/abdul15irsyad/node-rabbitmq',
+    stacks: [
+      { icon: '/programming/typescript.png', label: 'Typescript' },
+      { icon: '/programming/rabbitmq.png', label: 'RabbitMQ' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Node RabbitMQ',
+        desc: 'contoh node rabbitmq dengan mekanisme coba lagi dan penundaan',
+      },
+      {
+        lang: 'en',
+        title: 'Node RabbitMQ',
+        desc: 'node rabbitmq example with retry mechanism and delay',
+      },
+    ],
+  },
+  {
     img: [1, 2, 3, 4].map(
       (num: number) => `/side-project/yuk-ngobrol-${num}.jpg`,
     ),
