@@ -3,6 +3,26 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/go-rabbitmq.jpg`,
+    href: 'https://github.com/abdul15irsyad/go-rabbitmq',
+    stacks: [
+      { icon: '/programming/golang.png', label: 'Golang' },
+      { icon: '/programming/rabbitmq.png', label: 'RabbitMQ' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Golang RabbitMQ',
+        desc: 'contoh golang rabbitmq dengan mekanisme coba lagi dan penundaan',
+      },
+      {
+        lang: 'en',
+        title: 'Golang RabbitMQ',
+        desc: 'golang rabbitmq example with retry mechanism and delay',
+      },
+    ],
+  },
+  {
     img: `/side-project/node-rabbitmq-1.jpg`,
     href: 'https://github.com/abdul15irsyad/node-rabbitmq',
     stacks: [
