@@ -205,3 +205,14 @@ export const sideProjects: SideProject[] = [
     ],
   },
 ];
+
+export const allStacks = sideProjects
+  .reduce((prev: SideProject['stacks'], curr) => {
+    return [
+      ...prev,
+      ...curr.stacks?.filter(
+        (stack) => !prev.find(({ icon }) => icon === stack.icon),
+      ),
+    ];
+  }, [])
+  .sort((a, b) => (a.label < b.label ? -1 : 1));
