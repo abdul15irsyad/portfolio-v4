@@ -42,7 +42,7 @@ export default () => {
       </h5>
       <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
         <Trakteer />
-        <NihBuatJajan />
+        {/* <NihBuatJajan /> */}
       </div>
     </div>
   );
@@ -64,16 +64,16 @@ const Trakteer = () => (
   </Link>
 );
 
-const NihBuatJajan = () => (
-  <Link
-    href="https://www.nihbuatjajan.com/abdul15irsyad"
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles['nih-buat-jajan']}
-  >
-    <img
-      src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
-      alt="Nih buat jajan"
-    />
-  </Link>
-);
+// const NihBuatJajan = () => (
+//   <Link
+//     href="https://www.nihbuatjajan.com/abdul15irsyad"
+//     target="_blank"
+//     rel="noopener noreferrer"
+//     className={styles['nih-buat-jajan']}
+//   >
+//     <img
+//       src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png"
+//       alt="Nih buat jajan"
+//     />
+//   </Link>
+// );
