@@ -904,6 +904,45 @@ ul li {
   font-size: 48px;
 }
 
+.side-project .stacks {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.side-project .stacks .stack {
+  display: flex;
+  border: 1px solid rgba(var(--bs-secondary-rgb), 0.5);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  padding: 0.5rem;
+  height: 40px;
+  min-width: 40px;
+  transition: 0.3s;
+}
+.side-project .stacks .stack img {
+  height: 18px;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: 0.3s;
+}
+.side-project .stacks .stack:hover {
+  background-color: #fff;
+}
+.side-project .stacks .stack.active {
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  border-color: rgba(var(--bs-primary-rgb), 1);
+}
+.side-project .stacks .stack:hover img,
+.side-project .stacks .stack.active img {
+  opacity: 1;
+  filter: none;
+}
+
 .side-project .side-project-item {
   display: block;
   padding: 1rem;
@@ -994,6 +1033,13 @@ ul li {
 @media (max-width: 767px) {
   .side-project {
     padding-top: 8rem !important;
+  }
+  .side-project .stacks .stack {
+    height: 32px;
+    min-width: 32px;
+  }
+  .side-project .stacks .stack img {
+    height: 16px;
   }
 }
 
