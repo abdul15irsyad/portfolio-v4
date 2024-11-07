@@ -21,8 +21,6 @@ export const LatestBlog = () => {
   } = useQuery<{ data: Blog }>({
     queryKey: ['latestBlog'],
     queryFn: async () => (await fetch('/api/blog/latest')).json(),
-    staleTime: 0,
-    cacheTime: 0,
     networkMode: 'always',
   });
   return (
