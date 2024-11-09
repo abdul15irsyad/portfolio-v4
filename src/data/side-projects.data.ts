@@ -3,6 +3,23 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/tic-tac-toe.jpg`,
+    href: 'https://tic-tac-toe.irsyadabdul.my.id/',
+    stacks: [{ icon: '/programming/next.png', label: 'Next JS 14' }],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Tic Tac Toe',
+        desc: 'game menjadi satu baris pertama',
+      },
+      {
+        lang: 'en',
+        title: 'Tic Tac Toe',
+        desc: 'game to be first one line',
+      },
+    ],
+  },
+  {
     img: `/side-project/go-rabbitmq.jpg`,
     href: 'https://github.com/abdul15irsyad/go-rabbitmq',
     stacks: [
