@@ -69,8 +69,6 @@ export default ({ limit = 5, queryString }: Prop) => {
       }`;
       return (await fetch(url)).json();
     },
-    staleTime: 0,
-    cacheTime: 0,
   });
 
   if (isLoadingBlogs) return <LoadingBlogs count={3} />;
