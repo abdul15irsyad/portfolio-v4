@@ -3,7 +3,7 @@ import { Placeholder } from 'react-bootstrap';
 
 export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
   return [...Array(count)].map((_, index) => (
-    <div key={index} className={`col-xl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
+    <div key={index} className={`col-xxl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
       <div className="align-items-center">
         <Placeholder animation="glow">
           <Placeholder

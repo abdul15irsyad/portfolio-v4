@@ -119,7 +119,7 @@ export const PortfolioNewView = () => {
               portfoliosResponse?.data?.map((portfolio, index) => (
                 <div
                   key={index}
-                  className={`col-xl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}
+                  className={`col-xxl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}
                 >
                   <PortfolioItem2 {...portfolio} />
                 </div>

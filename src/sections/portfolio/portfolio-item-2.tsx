@@ -34,8 +34,8 @@ const PortfolioItem2 = ({
           <Image
             src={images[0].src}
             alt={images[0].alt}
-            width={480}
-            height={480}
+            width={1080}
+            height={1080}
           />
         </div>
       </Link>
