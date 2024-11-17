@@ -4,6 +4,7 @@ import './globals.css';
 import '@/components/layout/navbar.css';
 import 'aos/dist/aos.css';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
@@ -73,6 +74,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <ProgressBar />
           <Navbar />
           {children}
+          <SpeedInsights />
           <Footer />
         </AllProvider>
         <ScrollToTop />
