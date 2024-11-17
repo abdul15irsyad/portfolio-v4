@@ -60,22 +60,6 @@
   /* font-size: 14px; */
 }
 
-.portfolio-item-2 .detail .metas span {
-  display: inline-block;
-  margin: 0 0.5rem 0.5rem;
-}
-
-.portfolio-item-2 .detail .metas .meta {
-  display: inline-block;
-  background-color: rgba(var(--bs-primary-rgb), 0.1);
-  color: rgba(var(--bs-primary-rgb), 1);
-  /* border: 1px solid rgba(var(--bs-primary-rgb), 1); */
-  padding: 0.125rem 0.5rem;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 0.4rem;
-}
-
 .portfolio-item-2 .detail .desc {
   font-size: 90%;
   width: 100%;

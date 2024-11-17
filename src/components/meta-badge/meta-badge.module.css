@@ -1,0 +1,11 @@
+.meta-badge {
+  display: inline-flex;
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  color: rgba(var(--bs-primary-rgb), 1);
+  padding: 0.125rem 0.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  gap: 0.25rem;
+  align-items: center;
+}

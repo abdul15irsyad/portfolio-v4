@@ -3,6 +3,26 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/go-grpc.jpg`,
+    href: 'https://github.com/abdul15irsyad/go-grpc',
+    stacks: [
+      { icon: '/programming/golang.png', label: 'Golang' },
+      { icon: '/programming/grpc.png', label: 'gRPC' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Golang gRPC',
+        desc: 'contoh golang gRPC (google remote procedure call)',
+      },
+      {
+        lang: 'en',
+        title: 'Golang gRPC',
+        desc: 'golang gRPC (google remote procedure call) example',
+      },
+    ],
+  },
+  {
     img: `/side-project/tic-tac-toe.jpg`,
     href: 'https://tic-tac-toe.irsyadabdul.my.id/',
     stacks: [{ icon: '/programming/next.png', label: 'Next JS 14' }],

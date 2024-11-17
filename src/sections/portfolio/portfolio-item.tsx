@@ -26,7 +26,7 @@ const PortfolioItem = ({
         <h3 className="portfolio-item-title">{title}</h3>
         <div className="portfolio-item-metas">
           <div className="portfolio-item-meta">{year}</div>
-          <div className="portfolio-item-meta">{type.toLowerCase()}</div>
+          <div className="portfolio-item-meta">{type.label.toLowerCase()}</div>
         </div>
         <div
           className="portfolio-item-desc"

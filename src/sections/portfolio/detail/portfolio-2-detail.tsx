@@ -6,11 +6,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
+import { MetaBadge } from '@/components/meta-badge/meta-badge.component';
 import { Portfolio } from '@/types/portfolio.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
-import PortfolioTeam from '../portfolio-team';
 import styles from './portfolio-2-detail.module.css';
+import { PortfolioTeam } from './portfolio-team';
 
 const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
   const { t, i18n } = useTranslation();
@@ -28,19 +29,20 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
   const desc =
     translates?.find(({ lang }) => lang === i18n.language)?.desc ??
     portfolio.desc!;
+
   return (
     <div className={`${styles.portfolio} row`}>
-      <div className={`${styles.images} col-md-5 col-12`}>
-        <CustomCarousel images={images} />
+      <div className={`${styles.images} col-md-6 col-12`}>
+        <CustomCarousel images={images} loading="eager" />
       </div>
-      <div className={`${styles.detail} col-md-7 col-12`}>
+      <div className={`${styles.detail} col-md-6 col-12`}>
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.metas}>
-          {[year, type.toLowerCase()].map((item, index) => (
-            <div key={index} className={styles.meta}>
-              {item}
-            </div>
-          ))}
+          <MetaBadge text={year} />
+          <MetaBadge
+            text={type.label.toLowerCase()}
+            icon={type.icon && <i className={`bi bi-${type.icon}`} />}
+          />
         </div>
         <div className={`${styles.section} ${styles['desc-section']}`}>
           <h5 className={styles['section-title']}>
