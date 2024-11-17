@@ -7,6 +7,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
+import { MetaBadge } from '@/components/meta-badge/meta-badge.component';
 import { Portfolio } from '@/types/portfolio.type';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 
@@ -42,8 +43,11 @@ const PortfolioItem2 = ({
       <div className={`${styles.detail}`}>
         <div className="d-flex justify-content-between align-items-center mb-2">
           <div className={`${styles.metas}`}>
-            <div className={`${styles.meta}`}>{year}</div>
-            <div className={`${styles.meta}`}>{type.toLowerCase()}</div>
+            <MetaBadge text={year} />
+            <MetaBadge
+              text={type.label.toLowerCase()}
+              icon={type.icon && <i className={`bi bi-${type.icon}`} />}
+            />
           </div>
           <div className={`${styles.stacks}`}>
             {stacks.map(({ icon, label }, index) => (

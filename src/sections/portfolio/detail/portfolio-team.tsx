@@ -7,7 +7,7 @@ import { Team } from '@/types/team.type';
 
 import styles from './portfolio-team.module.css';
 
-const PortfolioTeam = ({ team }: { team: Team }) => {
+export const PortfolioTeam = ({ team }: { team: Team }) => {
   return team.user?.linkedin ? (
     <Link
       href={team.user?.linkedin as string}
@@ -37,5 +37,3 @@ const TeamCard = ({ team }: { team: Team }) => (
     </div>
   </div>
 );
-
-export default PortfolioTeam;

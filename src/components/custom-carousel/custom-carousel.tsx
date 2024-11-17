@@ -9,9 +9,10 @@ interface Props {
     src: string;
     alt: string;
   }[];
+  loading?: 'lazy' | 'eager';
 }
 
-export const CustomCarousel = ({ images }: Props) => {
+export const CustomCarousel = ({ images, loading }: Props) => {
   return (
     <Carousel
       prevIcon={<i className="bi bi-chevron-left"></i>}
@@ -22,7 +23,13 @@ export const CustomCarousel = ({ images }: Props) => {
         <Carousel.Item key={index}>
           <div className="img-wrapper">
             {/* <div className="overlay"></div> */}
-            <Image src={src} alt={alt} width={480} height={480} />
+            <Image
+              src={src}
+              alt={alt}
+              width={1080}
+              height={1080}
+              loading={loading}
+            />
           </div>
         </Carousel.Item>
       ))}

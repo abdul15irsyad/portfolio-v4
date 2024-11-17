@@ -6,7 +6,10 @@ export interface Portfolio {
   href?: string | null;
   year: number;
   publishedAt: string;
-  type: string;
+  type: {
+    icon?: string;
+    label: string;
+  };
   desc?: string;
   stacks: { icon: string; label: string }[];
   images: {

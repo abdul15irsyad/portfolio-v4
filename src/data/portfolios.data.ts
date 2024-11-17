@@ -10,7 +10,10 @@ export const portfolios: Portfolio[] = [
     title: 'Landing Page Nawa Jelly',
     href: 'https://abdul15irsyad.github.io/nawajelly',
     publishedAt: '2019-06-09',
-    type: 'Basic',
+    type: {
+      icon: 'code-slash',
+      label: 'Basic',
+    },
     challenges: [],
     stacks: [
       { icon: '/programming/html-5.png', label: 'HTML 5' },
@@ -44,7 +47,10 @@ export const portfolios: Portfolio[] = [
     title: 'JARVIS (Just Advanced HR System)',
     href: null,
     publishedAt: '2024-09-09',
-    type: 'Fullstack',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
     challenges: [
       {
         translates: [
@@ -91,7 +97,7 @@ export const portfolios: Portfolio[] = [
       {
         // om hendri
         userId: '11174d11-6715-42eb-a91b-d929d7c993b3',
-        role: 'Previous Backend Developer',
+        role: 'Previous Backend Dev',
       },
     ],
     translates: [
@@ -117,7 +123,10 @@ export const portfolios: Portfolio[] = [
     title: 'Optimining',
     href: null,
     publishedAt: '2024-05-22',
-    type: 'Backend',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
     challenges: [
       {
         translates: [
@@ -257,7 +266,10 @@ export const portfolios: Portfolio[] = [
     title: 'Fasel Base',
     href: 'https://faselbase.com/',
     publishedAt: '2024-02-10',
-    type: 'Fullstack',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
     challenges: [
       {
         translates: [
@@ -329,7 +341,10 @@ export const portfolios: Portfolio[] = [
     title: 'Gerakan Seniman Masuk Sekolah 2023',
     href: 'https://gsmsppk.kemdikbud.go.id',
     publishedAt: '2023-08-10',
-    type: 'Backend',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
     challenges: [
       {
         translates: [
@@ -419,7 +434,10 @@ export const portfolios: Portfolio[] = [
     title: 'Optimap Landing Page',
     href: null,
     publishedAt: '2023-07-12',
-    type: 'Backend',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
     challenges: [],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
@@ -471,7 +489,10 @@ export const portfolios: Portfolio[] = [
     title: 'Indeks Pembangunan Kebudayaan',
     href: 'https://ipk.kemdikbud.go.id',
     publishedAt: '2023-06-10',
-    type: 'Fullstack',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
     challenges: [
       {
         translates: [
@@ -530,7 +551,10 @@ export const portfolios: Portfolio[] = [
     title: 'PPKD Pemantaun & Evaluasi',
     href: 'https://monevppkd.kemdikbud.go.id',
     publishedAt: '2023-06-10',
-    type: 'Backend',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
     challenges: [
       {
         translates: [
@@ -619,7 +643,10 @@ export const portfolios: Portfolio[] = [
     title: 'PPKD Dokumen',
     href: 'https://ppkd.kemdikbud.go.id',
     publishedAt: '2023-03-10',
-    type: 'Backend',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
     challenges: [
       {
         translates: [
@@ -730,7 +757,10 @@ export const portfolios: Portfolio[] = [
     title: 'PUSDIKLAT Tenaga Teknis Pendidikan Dan Keagamaan',
     href: 'https://pusdiklatteknis.kemenag.go.id',
     publishedAt: '2022-10-10',
-    type: 'Frontend',
+    type: {
+      icon: 'laptop',
+      label: 'Frontend',
+    },
     challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel' },
@@ -790,7 +820,10 @@ export const portfolios: Portfolio[] = [
     title: 'Admin Panel Digital Andaf',
     href: null,
     publishedAt: '2022-01-10',
-    type: 'Fullstack',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
     challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel 7' },
@@ -837,7 +870,10 @@ export const portfolios: Portfolio[] = [
     title: 'Admin Panel SIPERDIK Aceh Tengah',
     href: null,
     publishedAt: '2021-08-10',
-    type: 'Fullstack',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
     challenges: [
       {
         translates: [
@@ -889,7 +925,10 @@ export const portfolios: Portfolio[] = [
     title: 'Sop Buntut Ibu Samino',
     href: 'https://sopbuntutibusamino.com/',
     publishedAt: '2022-07-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     translates: [
       {
         lang: 'id',
@@ -925,7 +964,10 @@ export const portfolios: Portfolio[] = [
     title: 'Safari Konveksi',
     href: 'https://safarikonveksi.com',
     publishedAt: '2022-04-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     translates: [
       {
         lang: 'id',
@@ -961,7 +1003,10 @@ export const portfolios: Portfolio[] = [
     title: 'Beton Analytica',
     href: 'https://betonanalytica.com/',
     publishedAt: '2022-04-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     translates: [
       {
         lang: 'id',
@@ -1014,7 +1059,10 @@ export const portfolios: Portfolio[] = [
     title: 'Padi Resort',
     href: 'https://www.padiresort.co.id',
     publishedAt: '2021-08-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     translates: [
       {
         lang: 'id',
@@ -1050,7 +1098,10 @@ export const portfolios: Portfolio[] = [
     title: 'Galaxy Partani Mas',
     href: 'https://galaxypartanimas.com',
     publishedAt: '2021-05-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     translates: [
       {
         lang: 'id',
@@ -1090,7 +1141,10 @@ export const portfolios: Portfolio[] = [
     title: 'Prima Citra Inovindo',
     href: 'https://pci-tech.co.id',
     publishedAt: '2022-09-15',
-    type: 'Wordpress',
+    type: {
+      icon: 'wordpress',
+      label: 'Wordpress',
+    },
     challenges: [],
     stacks: [{ icon: '/programming/wordpress.png', label: 'Wordpress' }],
     images: [

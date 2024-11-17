@@ -32,7 +32,7 @@ export const PortfolioView = () => {
     portfolios.filter((portfolio) => {
       return (
         (year !== 'all' ? portfolio.year === +year : true) &&
-        (type !== 'all' ? portfolio.type.toLowerCase() === type : true)
+        (type !== 'all' ? portfolio.type?.label?.toLowerCase() === type : true)
       );
     });
 

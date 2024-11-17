@@ -19,7 +19,7 @@ export const GET = async (req: NextRequest) => {
       allData = allData.filter(
         (data) =>
           (year !== 'all' ? data.year === +year : true) &&
-          (type !== 'all' ? data.type.toLowerCase() === type : true),
+          (type !== 'all' ? data.type.label?.toLowerCase() === type : true),
       );
     }
 
