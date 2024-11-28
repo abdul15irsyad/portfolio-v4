@@ -14,20 +14,36 @@ import { capitalizeEachWord } from '@/utils/change-case';
 export const Navbar = () => {
   const { t, i18n } = useTranslation();
   const rootPath = `/${usePathname().split('/')[1]}`;
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isShrunk, setIsShrunk] = useState<boolean>(false);
   const [show, setShow] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const checkShrunk = useCallback(() => {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop > 50) setIsShrunk(true);
+    else if (scrollTop <= 0) setIsShrunk(false);
+  }, []);
+  useEffect(() => checkShrunk(), []);
+
+  const checkVisible = useCallback(() => {
+    // visible
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY) setIsVisible(false);
+    else setIsVisible(true);
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY]);
+
+  const handleScroll = () => {
+    checkShrunk();
+    checkVisible();
+  };
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      if (scrollTop > 50) setIsScrolled(true);
-      else if (scrollTop <= 0) setIsScrolled(false);
-    };
-    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   const handleChangeLanguage = useCallback(
     (newLanguage: string) => {
@@ -43,7 +59,7 @@ export const Navbar = () => {
       expand="lg"
       sticky="top"
       collapseOnSelect={true}
-      className={isScrolled ? 'shrunk' : ''}
+      className={`${isShrunk ? 'shrunk' : ''} ${isVisible ? 'visible' : ''}`}
     >
       <div className="container-md">
         <Link href="/">

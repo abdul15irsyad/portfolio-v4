@@ -14,6 +14,12 @@
   box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
 }
+.navbar.visible {
+  transform: translateY(0%);
+}
+.navbar:not(.visible) {
+  transform: translateY(-100%);
+}
 
 .navbar .navbar-brand {
   color: var(--bs-dark);
