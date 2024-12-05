@@ -3,6 +3,28 @@ import { SideProject } from '@/types/side-project.type';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/live-chat-min.jpg`,
+    href: 'https://live-chat.irsyadabdul.my.id',
+    stacks: [
+      { icon: '/programming/golang.png', label: 'Golang' },
+      { icon: '/programming/websocket.png', label: 'WebSocket' },
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/tailwind.png', label: 'Tailwind CSS' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Room Chat',
+        desc: 'Room Chat App dengan Websocket',
+      },
+      {
+        lang: 'en',
+        title: 'Room Chat',
+        desc: 'Room Chat App with websocket',
+      },
+    ],
+  },
+  {
     img: `/side-project/go-grpc.jpg`,
     href: 'https://github.com/abdul15irsyad/go-grpc',
     stacks: [
