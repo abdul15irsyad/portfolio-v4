@@ -186,7 +186,7 @@ export const sideProjects: SideProject[] = [
   },
   {
     title: 'Web Portfolio',
-    img: '/side-project/portfolio.jpg',
+    img: '/side-project/new-portfolio.jpg',
     desc: 'Web portfolio saya beserta blog untuk sharing hal-hal mengenai coding & pemrograman',
     href: BASE_URL,
     stacks: [

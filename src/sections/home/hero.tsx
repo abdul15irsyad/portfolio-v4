@@ -26,16 +26,16 @@ const Hero = () => {
   // const whatsappLink = contacts.find(
   //   (contact) => contact.icon === 'whatsapp',
   // )?.href;
-  const sribuLink = {
-    icon: '/icons/sribu.png',
-    label: 'Hire Me on Sribu',
-    href: 'https://www.sribu.com/id/users/abdul15irsyad',
-  };
-  const fiverrLink = {
-    icon: '/icons/fiverr.png',
-    label: 'Hire Me on Fiverr',
-    href: 'https://www.fiverr.com/irsyadabdul?public_mode=true',
-  };
+  // const sribuLink = {
+  //   icon: '/icons/sribu.png',
+  //   label: 'Hire Me on Sribu',
+  //   href: 'https://www.sribu.com/id/users/abdul15irsyad',
+  // };
+  // const fiverrLink = {
+  //   icon: '/icons/fiverr.png',
+  //   label: 'Hire Me on Fiverr',
+  //   href: 'https://www.fiverr.com/irsyadabdul?public_mode=true',
+  // };
   const features = [
     { icon: '/icons/api.png', title: 'API' },
     { icon: '/icons/web-design.png', title: 'Web Design' },
@@ -88,15 +88,15 @@ const Hero = () => {
               <span ref={typedText}></span>
             </h4>
             <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
-              {/* <Link
+              <Link
                 href="/CV Irsyad Abdul Hamid Darussalam.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary text-capitalize px-3"
+                className="btn btn-outline-primary text-capitalize px-3 hire-me"
               >
                 <i className="bi bi-filetype-pdf me-2"></i>
                 {t('see-item', { item: t('resume') })}
-              </Link> */}
+              </Link>
               {/* <Link
                 href={whatsappLink!}
                 target="_blank"
@@ -106,7 +106,7 @@ const Hero = () => {
                 <i className="bi bi-whatsapp me-2"></i>
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link> */}
-              {[fiverrLink, sribuLink].map(({ href, icon, label }, index) => (
+              {/* {[fiverrLink, sribuLink].map(({ href, icon, label }, index) => (
                 <Link
                   key={index}
                   href={href}
@@ -117,7 +117,7 @@ const Hero = () => {
                   <img src={icon} alt="hire me logo" />
                   <span>{label}</span>
                 </Link>
-              ))}
+              ))} */}
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">
