@@ -2,7 +2,7 @@ import { Level, ProgrammingSkill } from '@/types/programming-skill.interface';
 
 export const programmingSkills: ProgrammingSkill[] = [
   {
-    title: 'language',
+    title: 'programming-language',
     list: [
       // {
       //   name: 'Javascript',
@@ -25,7 +25,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Golang',
         logo: '/programming/golang.png',
-        level: Level.BASIC,
+        level: Level.INTERMEDIATE,
         // href: 'https://go.dev',
       },
       {
@@ -84,7 +84,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Gin',
         logo: '/programming/gin.png',
-        level: Level.BASIC,
+        level: Level.INTERMEDIATE,
         href: 'https://gin-gonic.com/',
       },
       {

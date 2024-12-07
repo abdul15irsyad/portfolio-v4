@@ -105,12 +105,11 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-md btn-primary"
+              style={{ borderRadius: '0.5rem' }}
+              className="btn btn-md btn-primary d-inline-flex gap-2 p-2 px-3"
             >
-              <i className="bi bi-box-arrow-up-right me-2" />
-              <span>
-                {capitalizeEachWord(t('see-item', { item: 'Website' }))}
-              </span>
+              <span>{capitalizeEachWord(t('visit-website'))}</span>
+              <i className="bi bi-box-arrow-up-right" />
             </Link>
           )}
         </div>

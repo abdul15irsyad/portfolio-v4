@@ -7,43 +7,6 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
-    title: 'Landing Page Nawa Jelly',
-    href: 'https://abdul15irsyad.github.io/nawajelly',
-    publishedAt: '2019-06-09',
-    type: {
-      icon: 'code-slash',
-      label: 'Basic',
-    },
-    challenges: [],
-    stacks: [
-      { icon: '/programming/html-5.png', label: 'HTML 5' },
-      { icon: '/programming/css-3.png', label: 'CSS 3' },
-    ],
-    images: [...Array(2).keys()].map((index) => ({
-      src: `/portfolio/nawajelly-${index + 1}.jpg`,
-      alt: `Nawa Jelly ${index + 1}`,
-    })),
-    teams: [],
-    translates: [
-      {
-        lang: 'id',
-        desc: `
-          <p>
-          Landing Page untuk produk Nawa Jelly.
-          </p>
-        `,
-      },
-      {
-        lang: 'en',
-        desc: `
-          <p>
-          Landing Page for Nawa Jelly product.
-          </p>
-        `,
-      },
-    ],
-  },
-  {
     title: 'JARVIS (Just Advanced HR System)',
     href: null,
     publishedAt: '2024-09-09',
@@ -73,6 +36,18 @@ export const portfolios: Portfolio[] = [
           {
             lang: 'en',
             desc: 'Implement "best practice" while develop frontend with next js',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Memahami source code existing yang dikerjakan developer sebelumnya',
+          },
+          {
+            lang: 'en',
+            desc: 'Understand the existing source code that the previous developer was working on',
           },
         ],
       },
@@ -1171,6 +1146,43 @@ export const portfolios: Portfolio[] = [
         desc: `
           <p>
             <b>"PT. Prima Citra Inovindo"</b> Domestic Medical Device Distributor Company (AKD) Products produced by the manufacturer.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    title: 'Landing Page Nawa Jelly',
+    href: 'https://abdul15irsyad.github.io/nawajelly',
+    publishedAt: '2019-06-09',
+    type: {
+      icon: 'code-slash',
+      label: 'Basic',
+    },
+    challenges: [],
+    stacks: [
+      { icon: '/programming/html-5.png', label: 'HTML 5' },
+      { icon: '/programming/css-3.png', label: 'CSS 3' },
+    ],
+    images: [...Array(2).keys()].map((index) => ({
+      src: `/portfolio/nawajelly-${index + 1}.jpg`,
+      alt: `Nawa Jelly ${index + 1}`,
+    })),
+    teams: [],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Landing Page untuk produk Nawa Jelly.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Landing Page for Nawa Jelly product.
           </p>
         `,
       },
