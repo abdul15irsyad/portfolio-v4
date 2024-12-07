@@ -12,6 +12,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
+import { SectionTitle } from '@/components/section-title/section-title.component';
 import { ApiResponse, ApiResponseError } from '@/types/api-response.type';
 import { ContactMe } from '@/types/contact-me.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
@@ -144,10 +145,7 @@ export const ContactMeView = () => {
   return (
     <div className="contact-me section doodle-background">
       <div className="container">
-        <h1 className="title text-center">
-          {capitalizeEachWord(t('contact'))}
-        </h1>
-        <hr />
+        <SectionTitle title={capitalizeEachWord(t('contact'))} />
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 col-12 d-lg-flex d-none">
             <div className="contact-form-image">

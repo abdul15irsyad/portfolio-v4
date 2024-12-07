@@ -47,7 +47,6 @@
 .portfolio-item-2 .detail .title {
   font-size: 20px;
   font-weight: 800;
-  transition: 0.3s;
 }
 .portfolio-item-2 .detail .title:hover {
   text-decoration: underline;
@@ -97,4 +96,10 @@
   width: 16px;
   height: 16px;
   object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-item-2 .detail .title {
+    font-size: 16px;
+  }
 }

@@ -1,0 +1,17 @@
+.title {
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--bs-primary);
+}
+
+.sub-title {
+  text-align: center;
+  margin: 0 auto;
+  color: var(--bs-secondary);
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 24px;
+  }
+}

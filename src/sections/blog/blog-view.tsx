@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import Donate from '@/components/donate/donate';
 import { SearchBar } from '@/components/search-bar/search-bar';
+import { SectionTitle } from '@/components/section-title/section-title.component';
 import { ENV } from '@/configs/app.config';
 import Blogs from '@/sections/blog/blogs';
 import LoadingTags from '@/sections/blog/loading-tags';
@@ -45,9 +46,10 @@ export const BlogView = () => {
         <div className="container">
           <div className="row header">
             <div className="col">
-              <h1 className="title">{capitalize(t('blog'))}</h1>
-              <p className="sub-title">{t('blog-desc')}</p>
-              <hr />
+              <SectionTitle
+                title={capitalizeEachWord(t('blog'))}
+                subTitle={t('blog-desc')}
+              />
               <SearchBar queryString={queryString} />
             </div>
           </div>

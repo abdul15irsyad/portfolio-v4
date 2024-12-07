@@ -65,16 +65,11 @@ export const SideProjectItem = ({
 
       <div className="side-project-text">
         {href ? (
-          <Link
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="side-project-title"
-          >
-            {title}
+          <Link href={href} target="_blank" rel="noopener noreferrer">
+            <h5 className="side-project-title">{title}</h5>
           </Link>
         ) : (
-          <h3 className="side-project-title">{title}</h3>
+          <h5 className="side-project-title">{title}</h5>
         )}
         <p>{desc}</p>
         <div className="side-project-stacks">

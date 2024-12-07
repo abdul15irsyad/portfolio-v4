@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
+import { SectionTitle } from '@/components/section-title/section-title.component';
 import {
   allStacks,
   sideProjects as allSideProjects,
@@ -60,10 +61,7 @@ export const SideProjectView = () => {
   return (
     <div className="side-project section doodle-background">
       <div className="container">
-        <h1 className="title text-center">
-          {capitalizeEachWord(t('side-project'))}
-        </h1>
-        <hr />
+        <SectionTitle title={capitalizeEachWord(t('side-project'))} />
         <div className="row justify-content-center">
           <div className="col-auto stacks">
             {stacks?.map(({ label, icon, isActive }, index) => (

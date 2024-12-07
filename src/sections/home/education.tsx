@@ -12,9 +12,9 @@ const Education = () => {
   return (
     <div className="education section">
       <div className="container">
-        <h2 className="title text-center">
+        <h3 className="title text-center">
           <strong>{capitalizeEachWord(t('education'))}</strong>
-        </h2>
+        </h3>
         <hr />
         <div className="education-items">
           {educations.map(

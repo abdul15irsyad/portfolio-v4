@@ -68,11 +68,14 @@ export const Navbar = () => {
               priority
               src="/favicon.jpg"
               alt="Portfolio Logo"
-              width={720}
-              height={720}
+              width={1080}
+              height={1080}
               className="me-2"
             />
-            <strong className="text-primary">IRSYAD</strong>&nbsp;ABDUL
+            <span>
+              <strong className="text-primary">IRSYAD</strong>
+              <span>&nbsp;ABDUL</span>
+            </span>
           </BootstrapNavbar.Brand>
         </Link>
         <BootstrapNavbar.Toggle
@@ -90,7 +93,7 @@ export const Navbar = () => {
             <Offcanvas.Title></Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="ms-auto">
+            <Nav className="mx-auto">
               {navbarMenus.map(({ href, label, logo, newTab }, index) => (
                 <Nav.Link
                   key={index}
