@@ -7,6 +7,7 @@
   right: 0;
   color: var(--bs-dark);
   background-color: transparent;
+  font-size: 90%;
 }
 .navbar.shrunk {
   backdrop-filter: blur(20px);
@@ -29,10 +30,11 @@
 .navbar.shrunk .navbar-brand {
   /* color: white; */
   gap: 0rem;
+  font-size: 95%;
 }
 .navbar .navbar-brand img {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   border-radius: 10px;
   transition: 0.3s;
 }

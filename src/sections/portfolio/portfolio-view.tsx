@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
 import { Pagination } from '@/components/pagination/pagination';
+import { SectionTitle } from '@/components/section-title/section-title.component';
 import {
   portfolioCategories,
   portfolioYears,
@@ -54,8 +55,7 @@ export const PortfolioView = () => {
       <div className="container">
         <div className="row header">
           <div className="col">
-            <h1 className="title">{capitalize(t('portfolio'))}</h1>
-            <hr />
+            <SectionTitle title={capitalize(t('portfolio'))} />
             <div className="filters">
               <div className="filter filter-year">
                 <FormSelect

@@ -8,7 +8,7 @@ import Typed from 'typed.js';
 
 import { TextAnimation } from '@/components/text-animation/text-animation';
 import { contacts } from '@/data/contacts.data';
-import { capitalize, capitalizeEachWord } from '@/utils/change-case';
+import { capitalize } from '@/utils/change-case';
 
 const Hero = () => {
   const typedText = useRef(null);
@@ -38,11 +38,12 @@ const Hero = () => {
   };
   const features = [
     { icon: '/icons/api.png', title: 'API' },
+    { icon: '/icons/web-design.png', title: 'Web Design' },
     { icon: '/icons/servers.png', title: 'ERD Database' },
-    {
-      icon: '/icons/puzzle.png',
-      title: capitalizeEachWord(t('problem-solve')),
-    },
+    // {
+    //   icon: '/icons/puzzle.png',
+    //   title: capitalizeEachWord(t('problem-solve')),
+    // },
   ];
   return (
     <div className="hero section mb-0 doodle-background" id="hero">
