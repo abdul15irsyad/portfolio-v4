@@ -31,6 +31,18 @@ export const portfolios: Portfolio[] = [
         translates: [
           {
             lang: 'id',
+            desc: 'Implementasi antrian saat pengecekan quota promo/cashback',
+          },
+          {
+            lang: 'en',
+            desc: 'Queue implementation when checking promo/cashback quota',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
             desc: 'Implementasi mekanisme retry apabila terjadi error yang dikecualikan',
           },
           {
