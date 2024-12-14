@@ -7,7 +7,7 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
-    title: 'Procash Loyalty',
+    title: 'Procash (Loyalty)',
     href: null,
     publishedAt: '2024-11-05',
     type: {
@@ -103,7 +103,7 @@ export const portfolios: Portfolio[] = [
         lang: 'id',
         desc: `
           <p>
-          Procash Merupakan aplikasi yang menangani promo/cashback untuk nasabah di BRIMo, terdapat beberapa modul promo/cashback seperti QRIS, Merchant, Loyalty. Dimana kontribusi saya di bagian modul Loyalty tipe <b>Transfer Ke Bank Lain</b> saja. Di bagian backend aplikasi ini mengimplementasikan micro-service dengan RabbitMQ sebagai message broker.
+          Procash Merupakan aplikasi yang menangani promo/cashback untuk nasabah di BRIMo, terdapat beberapa modul promo/cashback seperti QRIS, Merchant, Loyalty, dll. Dimana kontribusi saya di bagian modul Loyalty tipe <b>Transfer Ke Bank Lain</b> saja. Di bagian backend aplikasi ini mengimplementasikan micro-service dengan RabbitMQ sebagai message broker.
           </p>
         `,
       },
@@ -111,7 +111,7 @@ export const portfolios: Portfolio[] = [
         lang: 'en',
         desc: `
           <p>
-          Procash is an application that handles promo/cashback for customers in BRIMo, there are several promo/cashback modules such as QRIS, Merchants, Loyalty. My contribution in the Loyalty module type <b>Transfer to Another Bank</b> only. In the backend section this application implements micro-service with RabbitMQ as a Message Broker.
+          Procash is an application that handles promo/cashback for customers in BRIMo, there are several promo/cashback modules such as QRIS, Merchants, Loyalty, etc. My contribution in the Loyalty module type <b>Transfer to Another Bank</b> only. In the backend section this application implements micro-service with RabbitMQ as a Message Broker.
           </p>
         `,
       },
@@ -191,7 +191,7 @@ export const portfolios: Portfolio[] = [
         lang: 'id',
         desc: `
           <p>
-          JARVIS (Just Advanced HR System) adalah aplikasi untuk monitoring dan pengelolaan sumber daya manusia serta menatakerjakan data pegawai di Divisi APP.
+          JARVIS (Just Advanced HR System) adalah aplikasi untuk monitoring dan pengelolaan sumber daya manusia serta menatakerjakan data pegawai di Divisi APP BRI.
           </p>
         `,
       },
@@ -199,7 +199,7 @@ export const portfolios: Portfolio[] = [
         lang: 'en',
         desc: `
           <p>
-          Jarvis (Just Advanced HR System) is an application for monitoring and managing human resources and employee data in the APP division.
+          Jarvis (Just Advanced HR System) is an application for monitoring and managing human resources and employee data in the BRI APP division.
           </p>
         `,
       },
