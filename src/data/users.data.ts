@@ -219,6 +219,35 @@ export const users: User[] = [
     linkedin: 'https://www.linkedin.com/in/isyeroselin/',
   },
   {
+    id: '7cdc018e-1af2-4a93-a744-5989997b603e',
+    name: 'Andra Manday',
+    linkedin: 'https://www.linkedin.com/in/andramanday/',
+  },
+  {
+    id: 'c2257f64-3f74-48f1-a9f5-63c0523a4247',
+    name: 'Winny Ardhian',
+    photo: {
+      id: '1781d50a-ab6e-4a6c-8a7c-43fff01e6afa',
+      path: 'user',
+      fileName: 'winny-ardhian.jpeg',
+      originalFileName: 'winny-ardhian.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/winny-ardhian-bb8b40141/',
+  },
+  {
+    id: '0f2c62d8-5c30-41fb-bf44-d7bed37b3323',
+    name: 'M. Fata Nuryanto',
+    photo: {
+      id: '8e224128-db95-4dba-9775-d2a0f6c73da0',
+      path: 'user',
+      fileName: 'fata-nuryanto.jpeg',
+      originalFileName: 'fata-nuryanto.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/muhammad-fata/',
+  },
+  {
     id: '11174d11-6715-42eb-a91b-d929d7c993b3',
     name: 'Hendri Purnianto',
   },
