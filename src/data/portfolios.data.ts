@@ -7,6 +7,105 @@ import { users } from './users.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Procash Loyalty',
+    href: null,
+    publishedAt: '2024-11-05',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Menghandle request transfer yang cukup banyak dalam 1 waktu',
+          },
+          {
+            lang: 'en',
+            desc: 'Handle quiet a lot of request transfer at a time',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi mekanisme retry apabila terjadi error yang dikecualikan',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of a retry mechanism in the event of an excluded error',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi caching untuk data yang jarang berubah',
+          },
+          {
+            lang: 'en',
+            desc: 'Caching implementation for rarely changed data',
+          },
+        ],
+      },
+    ],
+    stacks: [
+      { icon: '/programming/nestjs.png', label: 'Nest JS' },
+      { icon: '/programming/typeorm.png', label: 'TypeORM' },
+      { icon: '/programming/mysql.png', label: 'MySQL' },
+      { icon: '/programming/laravel.png', label: 'Laravel' },
+      { icon: '/programming/rabbitmq.png', label: 'RabbitMQ' },
+      { icon: '/programming/redis.png', label: 'Redis' },
+    ],
+    images: [...Array(2).keys()].map((index) => ({
+      src: `/portfolio/procash-loyalty-${index + 1}.jpg`,
+      alt: `Procash Loyalty Transfer ${index + 1}`,
+    })),
+    teams: [
+      {
+        // mas winny
+        userId: 'c2257f64-3f74-48f1-a9f5-63c0523a4247',
+        role: 'Project Manager',
+      },
+      {
+        // isye
+        userId: '779ca0ac-1493-4300-9f41-598f9e690f16',
+        role: 'Project Manager',
+      },
+      {
+        // mas andra
+        userId: '7cdc018e-1af2-4a93-a744-5989997b603e',
+        role: 'Fullstack Dev',
+      },
+      {
+        // fata
+        userId: '0f2c62d8-5c30-41fb-bf44-d7bed37b3323',
+        role: 'Fullstack Dev',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Procash Merupakan aplikasi yang menangani promo/cashback untuk nasabah di BRIMo, terdapat beberapa modul promo/cashback seperti QRIS, Merchant, Loyalty. Dimana kontribusi saya di bagian modul Loyalty tipe <b>Transfer Ke Bank Lain</b> saja. Di bagian backend aplikasi ini mengimplementasikan micro-service dengan RabbitMQ sebagai message broker.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Procash is an application that handles promo/cashback for customers in BRIMo, there are several promo/cashback modules such as QRIS, Merchants, Loyalty. My contribution in the Loyalty module type <b>Transfer to Another Bank</b> only. In the backend section this application implements micro-service with RabbitMQ as a Message Broker.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'JARVIS (Just Advanced HR System)',
     href: null,
     publishedAt: '2024-09-09',
