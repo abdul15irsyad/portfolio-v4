@@ -1,0 +1,8 @@
+.avatars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.avatars > :not(:first-child) {
+  margin-left: -0.5rem;
+}

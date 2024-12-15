@@ -7,12 +7,12 @@ import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
 import { Pagination } from '@/components/pagination/pagination';
 import { SectionTitle } from '@/components/section-title/section-title.component';
+import PortfolioItem2 from '@/content/portfolio/portfolio-item-2';
 import {
   portfolioCategories,
   portfolioYears,
 } from '@/data/portfolio-category.data';
 import { portfolios as allPortfolios } from '@/data/portfolios.data';
-import PortfolioItem2 from '@/sections/portfolio/portfolio-item-2';
 import { Portfolio } from '@/types/portfolio.type';
 import { paginatedArray } from '@/utils/array.util';
 import { capitalize } from '@/utils/change-case';

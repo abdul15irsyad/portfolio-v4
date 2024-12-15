@@ -1,4 +1,4 @@
-import { BlogView } from '@/sections/blog/blog-view';
+import { BlogView } from '@/content/blog/blog-view';
 
 export default async () => {
   return <BlogView />;

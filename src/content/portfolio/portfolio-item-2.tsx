@@ -7,6 +7,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
+import { Avatars } from '@/components/avatars/avatars.component';
 import { MetaBadge } from '@/components/meta-badge/meta-badge.component';
 import { Portfolio } from '@/types/portfolio.type';
 import { defaultSanitizeOptions } from '@/utils/html.util';
@@ -22,6 +23,7 @@ const PortfolioItem2 = ({
   stacks,
   translates,
   desc,
+  teams,
 }: Portfolio) => {
   const { i18n } = useTranslation();
   const translatedDesc = translates?.find(
@@ -75,6 +77,14 @@ const PortfolioItem2 = ({
           }}
         />
       </div>
+      {teams && teams?.length > 0 && (
+        <Avatars
+          users={teams?.map(({ user }) => ({
+            alt: user!.name!,
+            imageUrl: user?.photo?.url,
+          }))}
+        />
+      )}
     </div>
   );
 };
