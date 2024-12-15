@@ -41,6 +41,7 @@
 /* Style for WebKit browsers */
 ::-webkit-scrollbar {
   width: 0.6rem;
+  height: 0.6rem;
 }
 
 ::-webkit-scrollbar-thumb {
