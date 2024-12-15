@@ -5,8 +5,8 @@ import sanitize from 'sanitize-html';
 
 import { commonMetaData } from '@/app/layout';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
+import { PortfolioDetailView } from '@/content/portfolio/detail/portfolio-detail-view';
 import { portfolios } from '@/data/portfolios.data';
-import { PortfolioDetailView } from '@/sections/portfolio/detail/portfolio-detail-view';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 
 export async function generateMetadata({ params }): Promise<Metadata> {

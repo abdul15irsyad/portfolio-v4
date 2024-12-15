@@ -10,8 +10,8 @@ import Donate from '@/components/donate/donate';
 import { SearchBar } from '@/components/search-bar/search-bar';
 import { SectionTitle } from '@/components/section-title/section-title.component';
 import { ENV } from '@/configs/app.config';
-import Blogs from '@/sections/blog/blogs';
-import LoadingTags from '@/sections/blog/loading-tags';
+import Blogs from '@/content/blog/blogs';
+import LoadingTags from '@/content/blog/loading-tags';
 import { ApiResponseAll } from '@/types/api-response.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 

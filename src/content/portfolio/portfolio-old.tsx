@@ -6,8 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
 import { aosInitConfig } from '@/configs/aos.config';
+import PortfolioItem from '@/content/portfolio/portfolio-item';
 import { portfolios } from '@/data/portfolios.data';
-import PortfolioItem from '@/sections/portfolio/portfolio-item';
 
 export const PortfolioOld = () => {
   const [year, setYear] = useState<string | number>('all');

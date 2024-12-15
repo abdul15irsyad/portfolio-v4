@@ -7,11 +7,11 @@ import { useTranslation } from 'react-i18next';
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
 import { SectionTitle } from '@/components/section-title/section-title.component';
+import { SideProjectItem } from '@/content/side-project/side-project-item';
 import {
   allStacks,
   sideProjects as allSideProjects,
 } from '@/data/side-projects.data';
-import { SideProjectItem } from '@/sections/side-project/side-project-item';
 import { SideProject } from '@/types/side-project.type';
 import { paginatedArray } from '@/utils/array.util';
 import { capitalizeEachWord } from '@/utils/change-case';

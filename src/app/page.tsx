@@ -1,3 +1,3 @@
-import { HomeView } from '@/sections/home/home-view';
+import { HomeView } from '@/content/home/home-view';
 
 export default () => <HomeView />;
