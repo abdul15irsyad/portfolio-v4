@@ -16,7 +16,7 @@ const Hero = () => {
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
-      strings: ['Fullstack Dev', 'Bugbender', 'Freelancer'],
+      strings: ['Fullstack Dev', 'Web Dev', 'Bugbender', 'Freelancer'],
       typeSpeed: 100,
       loop: true,
     });
