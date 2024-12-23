@@ -1,6 +1,8 @@
 'use client';
 
 import { Quicksand } from 'next/font/google';
+import { Bree_Serif } from 'next/font/google';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
@@ -14,6 +16,13 @@ const quicksand = Quicksand({
   style: 'normal',
   subsets: ['latin-ext'],
   fallback: ['sans-serif'],
+});
+
+const breeSarif = Bree_Serif({
+  style: 'normal',
+  subsets: ['latin-ext'],
+  fallback: ['sans-serif'],
+  weight: ['400'],
 });
 
 export default () => {
@@ -43,10 +52,29 @@ export default () => {
       <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
         <Trakteer />
         {/* <NihBuatJajan /> */}
+        <BuyMeACoffe />
       </div>
     </div>
   );
 };
+
+const BuyMeACoffe = () => (
+  <Link
+    href="https://buymeacoffee.com/abdul15irsyad"
+    target="_blank"
+    className={`${styles['buy-me-a-coffe']}`}
+  >
+    <span className="btn-icon">
+      <Image
+        src={'/icons/buy-me-a-coffee.svg'}
+        alt="buy-me-a-coffe"
+        width={20}
+        height={20}
+      />
+    </span>
+    <span className={breeSarif.className}>Buy me a coffee</span>
+  </Link>
+);
 
 const Trakteer = () => (
   <Link

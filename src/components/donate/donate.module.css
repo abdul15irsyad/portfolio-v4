@@ -23,9 +23,8 @@
   border-radius: 100rem;
   background-color: #be1e2d;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.5rem 1.25rem;
-  /* line-height: 36px; */
   font-weight: 700;
   transition: 0.3s;
   text-wrap: nowrap;
@@ -40,6 +39,23 @@
   height: 22px;
   width: auto;
   margin-right: 10px;
+}
+
+.buy-me-a-coffe {
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: #fd0;
+  color: #000;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s;
+}
+
+.buy-me-a-coffe:hover {
+  border-radius: 1rem;
+  background-color: rgb(233, 202, 0);
 }
 
 @media (max-width: 767px) {
