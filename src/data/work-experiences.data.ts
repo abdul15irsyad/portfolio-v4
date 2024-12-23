@@ -14,11 +14,11 @@ export const workExperiences: WorkExperience[] = [
     translates: [
       {
         lang: 'id',
-        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim seperti Fastify, Next JS dan MySQL.',
+        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim seperti Nest JS (Typescript), Fastify JS, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
       },
       {
         lang: 'en',
-        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager like Fastify, Next JS and MySQL.',
+        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager like Nest JS (Typescript), Fastify JS, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
       },
     ],
   },
@@ -33,11 +33,11 @@ export const workExperiences: WorkExperience[] = [
     translates: [
       {
         lang: 'id',
-        desc: 'Berposisi sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
+        desc: 'Sebagai Backend Developer, saya bertanggung jawab membuat API (menggunakan REST & GraphQL) menggunakan bahasa pemrograman TypeScript dengan framework NestJS dan database yang digunakan adalah PostgreSQL serta membuat Entity Relationship diagram (ERD) di dalam suatu project',
       },
       {
         lang: 'en',
-        desc: 'Positioned as a Backend Developer, my responsibility is making an API (using REST & GraphQL) using the Typescript programming language with NestJS framework and the database that we used is PostgreSQL and creating an entity relationships diagram (ERD) in a project',
+        desc: 'As a Backend Developer, my responsibility is making an API (using REST & GraphQL) using the Typescript programming language with NestJS framework and the database that we used is PostgreSQL and creating an entity relationships diagram (ERD) in a project',
       },
     ],
   },
@@ -52,11 +52,11 @@ export const workExperiences: WorkExperience[] = [
     translates: [
       {
         lang: 'id',
-        desc: 'Berposisi sebagai Web Developer, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
+        desc: 'Sebagai Web Developer, saya mengerjakan website untuk klien baik menggunakan Wordpress (CMS) maupun menggunakan framework seperti Laravel, CodeIgniter, dll.',
       },
       {
         lang: 'en',
-        desc: 'Positioned as a Web Developer, I work on a website for clients both using WordPress (CMS) or using frameworks such as Laravel, Codeigniter, etc.',
+        desc: 'As a Web Developer, I work on a website for clients both using WordPress (CMS) or using frameworks such as Laravel, Codeigniter, etc.',
       },
     ],
   },
