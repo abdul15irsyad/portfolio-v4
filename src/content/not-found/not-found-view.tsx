@@ -3,7 +3,7 @@ import React from 'react';
 
 export const NotFoundView = () => {
   return (
-    <div className="not-found section">
+    <div className="not-found section doodle-background">
       <div className="container">
         <div className="row">
           <div className="col-md-6">

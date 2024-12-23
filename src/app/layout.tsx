@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={plusJakartaSans.className}>
+      <body className={`${plusJakartaSans.className} dark`}>
         <AllProvider>
           <ProgressBar />
           <Navbar />
