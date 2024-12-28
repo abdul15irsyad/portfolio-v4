@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { workExperiences } from '@/data/work-experiences.data';
@@ -61,7 +62,16 @@ const Experience = () => {
                       <div className="timespan-n-company justify-content-lg-end">
                         {/* <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span> */}
                         <span className="timespan">{`${start.short} - ${end.short}`}</span>
-                        <span className="company">{company.name}</span>
+                        {company.fullname ? (
+                          <OverlayTrigger
+                            overlay={<Tooltip>{company.fullname}</Tooltip>}
+                            placement="top"
+                          >
+                            <span className="company">{company.name}</span>
+                          </OverlayTrigger>
+                        ) : (
+                          <span className="company">{company.name}</span>
+                        )}
                       </div>
                       {monthDiff > 0 && (
                         <div className="d-inline-block work-duration mt-1">

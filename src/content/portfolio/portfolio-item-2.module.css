@@ -2,8 +2,26 @@
   margin-bottom: 8rem;
 }
 
-.portfolio-item-2 .image {
+.portfolio-item-2 .image-container {
   position: relative;
+}
+
+.portfolio-item-2 .image-container .company {
+  position: absolute;
+  background-color: #fff;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(var(--bs-dark-rgb), 0.15);
+  padding: 0.25rem;
+}
+.portfolio-item-2 .image-container .company img {
+  width: 24px;
+  height: 24px;
+}
+
+.portfolio-item-2 .image {
   overflow: hidden;
   border-radius: 0.75rem;
   user-select: none;

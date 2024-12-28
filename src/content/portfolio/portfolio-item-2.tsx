@@ -24,6 +24,7 @@ const PortfolioItem2 = ({
   translates,
   desc,
   teams,
+  workExperience,
 }: Portfolio) => {
   const { i18n } = useTranslation();
   const translatedDesc = translates?.find(
@@ -31,17 +32,29 @@ const PortfolioItem2 = ({
   )?.desc;
   return (
     <div className={`${styles['portfolio-item-2']} align-items-center`}>
-      <Link href={`/portfolio/${slug}`} prefetch={false}>
-        <div className={`${styles.image}`}>
-          {/* <div className={`${styles.overlay}`}></div> */}
-          <Image
-            src={images[0].src}
-            alt={images[0].alt}
-            width={1080}
-            height={1080}
-          />
-        </div>
-      </Link>
+      <div className={styles['image-container']}>
+        <Link href={`/portfolio/${slug}`} prefetch={false}>
+          <div className={`${styles.image}`}>
+            {/* <div className={`${styles.overlay}`}></div> */}
+            <Image
+              src={images[0].src}
+              alt={images[0].alt}
+              width={1080}
+              height={1080}
+            />
+          </div>
+        </Link>
+        {workExperience && (
+          <div className={styles.company}>
+            <Image
+              src={workExperience?.company?.logo}
+              alt={workExperience?.company?.name}
+              width={32}
+              height={32}
+            />
+          </div>
+        )}
+      </div>
       <div className={`${styles.detail}`}>
         <div className="d-flex justify-content-between align-items-center mb-2">
           <div className={`${styles.metas}`}>
