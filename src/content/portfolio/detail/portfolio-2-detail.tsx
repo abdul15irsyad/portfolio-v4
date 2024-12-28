@@ -25,6 +25,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
     challenges,
     teams,
     translates,
+    workExperience,
   } = portfolio;
   const desc =
     translates?.find(({ lang }) => lang === i18n.language)?.desc ??
@@ -44,6 +45,17 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
             icon={type.icon && <i className={`bi bi-${type.icon}`} />}
           />
         </div>
+        {workExperience && (
+          <div className={styles.company}>
+            <Image
+              src={workExperience?.company?.logo}
+              alt={workExperience?.company?.name}
+              width={480}
+              height={480}
+            />
+            {workExperience?.company?.fullname ?? workExperience?.company?.name}
+          </div>
+        )}
         <div className={`${styles.section} ${styles['desc-section']}`}>
           <h5 className={styles['section-title']}>
             {capitalize(t('description'))}

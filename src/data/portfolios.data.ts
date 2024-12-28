@@ -4,6 +4,7 @@ import slugify from 'slugify';
 import { Portfolio } from '@/types/portfolio.type';
 
 import { users } from './users.data';
+import { workExperiences } from './work-experiences.data';
 
 export const portfolios: Portfolio[] = [
   {
@@ -14,6 +15,7 @@ export const portfolios: Portfolio[] = [
       icon: 'code-square',
       label: 'Fullstack',
     },
+    workExperienceId: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
     challenges: [
       {
         translates: [
@@ -125,6 +127,7 @@ export const portfolios: Portfolio[] = [
       icon: 'code-square',
       label: 'Fullstack',
     },
+    workExperienceId: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
     challenges: [
       {
         translates: [
@@ -213,6 +216,7 @@ export const portfolios: Portfolio[] = [
       icon: 'database',
       label: 'Backend',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [
       {
         translates: [
@@ -431,6 +435,7 @@ export const portfolios: Portfolio[] = [
       icon: 'database',
       label: 'Backend',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [
       {
         translates: [
@@ -524,6 +529,7 @@ export const portfolios: Portfolio[] = [
       icon: 'database',
       label: 'Backend',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [],
     stacks: [
       { icon: '/programming/nestjs.png', label: 'Nest JS' },
@@ -579,6 +585,7 @@ export const portfolios: Portfolio[] = [
       icon: 'code-square',
       label: 'Fullstack',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [
       {
         translates: [
@@ -641,6 +648,7 @@ export const portfolios: Portfolio[] = [
       icon: 'database',
       label: 'Backend',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [
       {
         translates: [
@@ -733,6 +741,7 @@ export const portfolios: Portfolio[] = [
       icon: 'database',
       label: 'Backend',
     },
+    workExperienceId: '15cf4050-4887-4143-8287-555da8e55312',
     challenges: [
       {
         translates: [
@@ -910,6 +919,7 @@ export const portfolios: Portfolio[] = [
       icon: 'code-square',
       label: 'Fullstack',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     challenges: [],
     stacks: [
       { icon: '/programming/laravel.png', label: 'Laravel 7' },
@@ -1015,6 +1025,7 @@ export const portfolios: Portfolio[] = [
       icon: 'wordpress',
       label: 'Wordpress',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     translates: [
       {
         lang: 'id',
@@ -1054,6 +1065,7 @@ export const portfolios: Portfolio[] = [
       icon: 'wordpress',
       label: 'Wordpress',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     translates: [
       {
         lang: 'id',
@@ -1093,6 +1105,7 @@ export const portfolios: Portfolio[] = [
       icon: 'wordpress',
       label: 'Wordpress',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     translates: [
       {
         lang: 'id',
@@ -1149,6 +1162,7 @@ export const portfolios: Portfolio[] = [
       icon: 'wordpress',
       label: 'Wordpress',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     translates: [
       {
         lang: 'id',
@@ -1188,6 +1202,7 @@ export const portfolios: Portfolio[] = [
       icon: 'wordpress',
       label: 'Wordpress',
     },
+    workExperienceId: '311be326-dab7-4b23-87fe-f3240c90adb1',
     translates: [
       {
         lang: 'id',
@@ -1300,15 +1315,20 @@ export const portfolios: Portfolio[] = [
     ],
   },
 ]
-  .map((portfolio) => ({
-    ...portfolio,
-    year: dayjs(portfolio.publishedAt).year(),
-    slug: slugify(portfolio.title, { strict: true, lower: true }),
-    teams: portfolio.teams
-      ?.map((team) => ({
-        ...team,
-        user: users.find((user) => team.userId === user.id),
-      }))
-      .sort((a, b) => (a.user!.name < b.user!.name ? -1 : 1)),
-  }))
+  .map(
+    (portfolio: Omit<Portfolio, 'year'>): Portfolio => ({
+      ...portfolio,
+      year: dayjs(portfolio.publishedAt).year(),
+      slug: slugify(portfolio.title, { strict: true, lower: true }),
+      workExperience: portfolio.workExperienceId
+        ? workExperiences.find(({ id }) => id === portfolio.workExperienceId)
+        : undefined,
+      teams: portfolio.teams
+        ?.map((team) => ({
+          ...team,
+          user: users.find((user) => team.userId === user.id),
+        }))
+        .sort((a, b) => (a.user!.name < b.user!.name ? -1 : 1)),
+    }),
+  )
   .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));

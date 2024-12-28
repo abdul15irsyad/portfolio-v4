@@ -4,11 +4,13 @@ import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {
+    id: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
     position: 'Fullstack Developer',
     startDate: dayjs(`2024-06-03`).toDate(),
     endDate: null,
     company: {
       name: 'BRI',
+      fullname: 'Bank Rakyat Indonesia',
       logo: '/experience/bri.jpeg',
     },
     translates: [
@@ -32,11 +34,13 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
+    id: '15cf4050-4887-4143-8287-555da8e55312',
     position: 'Backend Developer',
     startDate: dayjs(`2022-08-01`).toDate(),
     endDate: dayjs(`2024-05-22`).toDate(),
     company: {
       name: 'Optimap',
+      fullname: 'Optima Media Teknologi',
       logo: '/experience/optimap.png',
     },
     translates: [
@@ -62,11 +66,13 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
+    id: '311be326-dab7-4b23-87fe-f3240c90adb1',
     position: 'Web Developer',
     startDate: dayjs(`2020-08-01`).toDate(),
     endDate: dayjs(`2022-08-01`).toDate(),
     company: {
       name: 'Andaf Corp',
+      fullname: 'Andaf Corporation',
       logo: '/experience/andaf.png',
     },
     translates: [
@@ -82,6 +88,7 @@ export const workExperiences: WorkExperience[] = [
     techStacks: ['Wordpress', 'Laravel', 'PHP', 'MySQL', 'Git', 'Bootstrap'],
   },
   {
+    id: '81594155-f568-4f57-943d-0c4635f6023c',
     position: 'Internship - Web Developer',
     startDate: dayjs(`2020-02-01`).toDate(),
     endDate: dayjs(`2020-03-01`).toDate(),

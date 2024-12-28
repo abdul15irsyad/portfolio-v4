@@ -1,4 +1,5 @@
 import { Team } from './team.type';
+import { WorkExperience } from './work-experience.type';
 
 export interface Portfolio {
   title: string;
@@ -19,6 +20,8 @@ export interface Portfolio {
   challenges?: Challenge[];
   teams?: Team[];
   translates?: { lang: string; desc?: string }[];
+  workExperienceId?: string;
+  workExperience?: WorkExperience;
 }
 
 export interface Challenge {
