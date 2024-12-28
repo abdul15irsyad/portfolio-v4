@@ -17,7 +17,15 @@ const Experience = () => {
         <hr />
         {workExperiences.map(
           (
-            { position, startDate, endDate, company, desc, translates },
+            {
+              position,
+              startDate,
+              endDate,
+              company,
+              desc,
+              translates,
+              techStacks,
+            },
             index,
           ) => {
             const start = {
@@ -77,6 +85,11 @@ const Experience = () => {
                     {translates?.find(({ lang }) => lang === i18n.language)
                       ?.desc ?? desc}
                   </p>
+                  {techStacks?.map((techStack, index) => (
+                    <span key={index} className="blog-tag">
+                      {techStack}
+                    </span>
+                  ))}
                 </div>
               </div>
             );

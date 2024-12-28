@@ -21,6 +21,15 @@ export const workExperiences: WorkExperience[] = [
         desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager like Nest JS (Typescript), Fastify JS, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
       },
     ],
+    techStacks: [
+      'Node JS',
+      'Fastify JS',
+      'Next JS',
+      'MySQL',
+      'RabbitMQ',
+      'Redis',
+      'Material UI',
+    ],
   },
   {
     position: 'Backend Developer',
@@ -39,6 +48,17 @@ export const workExperiences: WorkExperience[] = [
         lang: 'en',
         desc: 'As a Backend Developer, my responsibility is making an API (using REST & GraphQL) using the Typescript programming language with NestJS framework and the database that we used is PostgreSQL and creating an entity relationships diagram (ERD) in a project',
       },
+    ],
+    techStacks: [
+      'Node JS',
+      'Typescript',
+      'Laravel',
+      'PHP',
+      'GraphQL',
+      'PostgreSQL',
+      'Redis',
+      'Nest JS',
+      'Gitlab CI/CD',
     ],
   },
   {
@@ -59,6 +79,7 @@ export const workExperiences: WorkExperience[] = [
         desc: 'As a Web Developer, I work on a website for clients both using WordPress (CMS) or using frameworks such as Laravel, Codeigniter, etc.',
       },
     ],
+    techStacks: ['Wordpress', 'Laravel', 'PHP', 'MySQL', 'Git', 'Bootstrap'],
   },
   {
     position: 'Internship - Web Developer',
@@ -78,5 +99,6 @@ export const workExperiences: WorkExperience[] = [
         desc: 'To get an experience I decided to do an internship at this company, I was taught various things related to the world of work and the world of programming',
       },
     ],
+    techStacks: ['Laravel', 'PHP', 'MySQL'],
   },
 ];
