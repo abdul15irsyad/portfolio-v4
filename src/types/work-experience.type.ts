@@ -7,6 +7,7 @@ export interface WorkExperience {
     name: string;
     logo: string;
   };
+  techStacks?: string[];
   desc?: string;
   translates?: { lang: string; desc: string }[];
 }
