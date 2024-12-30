@@ -88,7 +88,7 @@ const Trakteer = () => (
       alt="Traktiran"
       className={`${styles.icon} wiggle`}
     />
-    <span>Trakteer Saya Kopi</span>
+    <span>Trakteer</span>
   </Link>
 );
 
