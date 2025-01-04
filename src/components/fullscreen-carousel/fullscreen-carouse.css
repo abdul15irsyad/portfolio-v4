@@ -1,0 +1,83 @@
+.fullscreen-carousel {
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-carousel .container {
+  width: 90%;
+}
+
+.fullscreen-carousel .carousel-item {
+  padding: 0 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.fullscreen-carousel .img-wrapper {
+  height: 80vh !important;
+  margin: 0 auto;
+}
+
+.fullscreen-carousel .img-wrapper img {
+  height: 100% !important;
+  object-fit: contain !important;
+  aspect-ratio: unset !important;
+}
+
+.fullscreen-carousel .carousel-indicators {
+  margin: 0 0 -2.5rem 0;
+}
+
+.fullscreen-carousel .carousel-indicators button {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.fullscreen-carousel .carousel-control-prev {
+  left: -1rem;
+}
+.fullscreen-carousel .carousel-control-next {
+  right: -1rem;
+}
+.fullscreen-carousel .carousel-control-prev,
+.fullscreen-carousel .carousel-control-next {
+  width: 0.5rem;
+}
+
+.fullscreen-carousel .carousel-control-prev i,
+.fullscreen-carousel .carousel-control-next i {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.fullscreen-carousel .btn-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .fullscreen-carousel .container {
+    width: 90%;
+  }
+}

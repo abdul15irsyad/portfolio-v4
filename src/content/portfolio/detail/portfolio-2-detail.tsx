@@ -2,10 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
+import { FullscreenCarousel } from '@/components/fullscreen-carousel/fullscreen-carousel.component';
 import { MetaBadge } from '@/components/meta-badge/meta-badge.component';
 import { Portfolio } from '@/types/portfolio.type';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
@@ -27,14 +28,41 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
     translates,
     workExperience,
   } = portfolio;
-  const desc =
-    translates?.find(({ lang }) => lang === i18n.language)?.desc ??
-    portfolio.desc!;
+  const desc = useMemo(
+    () =>
+      translates?.find(({ lang }) => lang === i18n.language)?.desc ??
+      portfolio.desc!,
+    [i18n.language],
+  );
+  const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
+
+  const [showFullscreenCarousel, setShowFullscreenCarousel] = useState(false);
 
   return (
     <div className={`${styles.portfolio} row`}>
       <div className={`${styles.images} col-md-6 col-12`}>
-        <CustomCarousel images={images} loading="eager" />
+        <CustomCarousel
+          images={images}
+          loading="eager"
+          activeIndex={carouselActiveIndex}
+          setActiveIndex={setCarouselActiveIndex}
+          action={
+            <div
+              className={`${styles['btn-fullscreen']} d-flex gap-1`}
+              onClick={() => setShowFullscreenCarousel(true)}
+            >
+              <i className="bi bi-fullscreen"></i>
+              <span>show</span>
+            </div>
+          }
+        />
+        {showFullscreenCarousel && (
+          <FullscreenCarousel
+            images={images}
+            defaultActiveIndex={carouselActiveIndex}
+            onClose={() => setShowFullscreenCarousel(false)}
+          />
+        )}
       </div>
       <div className={`${styles.detail} col-md-6 col-12`}>
         <h3 className={styles.title}>{title}</h3>
