@@ -31,7 +31,7 @@ export const FullscreenCarousel = ({
           prevIcon={<i className="bi bi-chevron-left"></i>}
           nextIcon={<i className="bi bi-chevron-right"></i>}
           interval={null}
-          indicators={false}
+          // indicators={false}
           defaultActiveIndex={defaultActiveIndex}
         >
           {images.map(({ src, alt }, index) => (
