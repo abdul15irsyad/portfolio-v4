@@ -173,7 +173,7 @@ export const portfolios: Portfolio[] = [
       { icon: '/programming/next.png', label: 'Next JS 14' },
       { icon: '/programming/material-ui.png', label: 'Material UI' },
     ],
-    images: [...Array(7).keys()].map((index) => ({
+    images: [...Array(8).keys()].map((index) => ({
       src: `/portfolio/jarvis-${index}.jpg`,
       alt: `Jarvis ${index + 1}`,
     })),

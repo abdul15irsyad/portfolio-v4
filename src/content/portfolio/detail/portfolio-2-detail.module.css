@@ -11,8 +11,26 @@
 }
 .portfolio .images img {
   object-fit: cover;
-  height: unset !important;
-  aspect-ratio: 16 / 9 !important;
+  height: unset;
+  aspect-ratio: 16 / 9;
+}
+
+.portfolio .btn-fullscreen {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  color: white;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portfolio .btn-fullscreen:hover {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .portfolio .detail .top {

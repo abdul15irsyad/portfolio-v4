@@ -61,7 +61,10 @@ export const SideProjectView = () => {
   return (
     <div className="side-project section doodle-background">
       <div className="container">
-        <SectionTitle title={capitalizeEachWord(t('side-project'))} />
+        <SectionTitle
+          title={capitalizeEachWord(t('side-project'))}
+          subTitle={t('side-project-desc')}
+        />
         <div className="row justify-content-center">
           <div className="col-auto stacks">
             {stacks?.map(({ label, icon, isActive }, index) => (
