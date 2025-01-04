@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';
@@ -17,10 +17,15 @@ const PortfolioItem = ({
   desc,
   stacks,
 }: Portfolio) => {
+  const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
   return (
     <div className="row portfolio-item align-items-center" data-aos="fade-up">
       <div className="col-md-5 col-12 portfolio-item-images">
-        <CustomCarousel images={images} />
+        <CustomCarousel
+          images={images}
+          activeIndex={carouselActiveIndex}
+          setActiveIndex={setCarouselActiveIndex}
+        />
       </div>
       <div className="col-md-7 col-12 portfolio-item-detail">
         <h3 className="portfolio-item-title">{title}</h3>
