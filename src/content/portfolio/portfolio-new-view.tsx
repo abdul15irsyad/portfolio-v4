@@ -10,13 +10,14 @@ import { useTranslation } from 'react-i18next';
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';
 import { Pagination } from '@/components/pagination/pagination';
+import { SectionTitle } from '@/components/section-title/section-title.component';
 import PortfolioItem2 from '@/content/portfolio/portfolio-item-2';
 import {
   portfolioCategories,
   portfolioYears,
 } from '@/data/portfolio-category.data';
 import { Portfolio } from '@/types/portfolio.type';
-import { capitalize } from '@/utils/change-case';
+import { capitalizeEachWord } from '@/utils/change-case';
 
 import { PortfolioItem2Loading } from './portfolio-item-2-loading';
 
@@ -62,8 +63,10 @@ export const PortfolioNewView = () => {
       <div className="container">
         <div className="row header">
           <div className="col">
-            <h1 className="title">{capitalize(t('portfolio'))}</h1>
-            <hr />
+            <SectionTitle
+              title={capitalizeEachWord(t('portfolio'))}
+              subTitle={t('portfolio-desc')}
+            />
             <div className="filters">
               <div className="filter filter-year">
                 <FormSelect
