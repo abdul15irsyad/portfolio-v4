@@ -133,6 +133,18 @@ export const portfolios: Portfolio[] = [
         translates: [
           {
             lang: 'id',
+            desc: 'Implementasi rate limit di fitur login',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of Rate Limit in the Login Feature',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
             desc: 'Kustomisasi template, menyesuaikan dengan requirement yang ada',
           },
           {
