@@ -6,6 +6,7 @@ import { PaginationParam } from '@/types/pagination.type';
 
 export const createContactMe = async (data: {
   name: string;
+  email: string;
   address?: string;
   message: string;
 }) => {
@@ -13,6 +14,7 @@ export const createContactMe = async (data: {
     select: {
       id: true,
       name: true,
+      email: true,
       address: true,
       message: true,
     },

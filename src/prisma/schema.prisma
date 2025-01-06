@@ -56,6 +56,7 @@ model File {
 model ContactMe {
   id          String    @id @default(uuid())
   name        String    @db.VarChar(255)
+  email       String?   @db.VarChar
   address     String?   @db.Text
   message     String?   @db.Text
   approvedAt  DateTime? @map("approved_at") @db.Timestamptz()

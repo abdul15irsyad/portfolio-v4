@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import Mail from 'nodemailer/lib/mailer';
 
 import { EXPERIMENTAL } from '@/configs/app.config';
 import { rateLimit } from '@/middlewares/rate-limit.middleware';
@@ -7,6 +8,7 @@ import {
   createContactMe,
   getContactMeWithPagination,
 } from '@/services/contact-me.service';
+import { transport } from '@/utils/email.util';
 import { handleError } from '@/utils/error.util';
 import { cleanNull } from '@/utils/object.util';
 import { isNotEmpty } from '@/utils/validation.util';
@@ -75,7 +77,10 @@ export const POST = async (req: NextRequest) => {
       message: string;
     }[] = [];
     for (const item of Object.entries(data)) {
-      if (['name', 'message'].includes(item[0]) && !isNotEmpty(item[1])) {
+      if (
+        ['name', 'email', 'message'].includes(item[0]) &&
+        !isNotEmpty(item[1])
+      ) {
         validationErrors.push({
           field: item[0],
           code: 'REQUIRED',
@@ -109,7 +114,7 @@ export const POST = async (req: NextRequest) => {
       limit: 1,
     });
 
-    if (!ok) {
+    if (!ok && process.env.NODE_ENV !== 'development') {
       const response = NextResponse.json(
         { message: 'too many request' },
         { status: 429 },
@@ -122,12 +127,24 @@ export const POST = async (req: NextRequest) => {
 
     const newContactMe = await createContactMe({
       name: data?.name,
+      email: data?.email,
       address: isNotEmpty(data?.address) ? data.address : null,
       message: data?.message,
     });
 
     // const keys = await redisService.keys('contact-mes');
     // await redisService.del(...(keys as RedisKey[]));
+
+    transport.sendMail({
+      to: newContactMe.email!,
+      subject: 'Thanks for sent a message - Irsyad Abdul Web Portfolio',
+      cc: 'abdulirsyad15@gmail.com',
+      from: 'no-reply@irsyadabdul.my.id',
+      template: 'contact-me',
+      context: {
+        name: newContactMe.name,
+      },
+    } as Mail.Options);
 
     const response = NextResponse.json({
       message: 'create contact me',
