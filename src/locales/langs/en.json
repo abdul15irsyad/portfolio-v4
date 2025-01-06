@@ -36,6 +36,7 @@
   "blog": "blog",
   "all-year": "all year",
   "all-type": "all tipe",
+  "show": "show",
   "showing-result": "Showing <strong>{{totalData}}</strong> of <strong>{{totalAllData}}</strong> data",
   "see": "see",
   "back": "back",

@@ -36,6 +36,7 @@
   "blog": "blog",
   "all-year": "semua tahun",
   "all-type": "semua tipe",
+  "show": "lihat",
   "showing-result": "Menampilkan <strong>{{totalData}}</strong> dari <strong>{{totalAllData}}</strong> data",
   "see": "lihat",
   "back": "kembali",
