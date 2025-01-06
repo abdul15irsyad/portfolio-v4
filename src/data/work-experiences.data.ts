@@ -30,6 +30,7 @@ export const workExperiences: WorkExperience[] = [
       'MySQL',
       'RabbitMQ',
       'Redis',
+      'Nest JS',
       'Material UI',
     ],
   },
