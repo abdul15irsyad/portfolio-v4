@@ -133,6 +133,18 @@ export const portfolios: Portfolio[] = [
         translates: [
           {
             lang: 'id',
+            desc: 'Implementasi pencegahan IDOR (Insecure Direct Object Reference)',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of IDOR (Insecure Direct Object Reference) Prevention',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
             desc: 'Implementasi rate limit di fitur login',
           },
           {
