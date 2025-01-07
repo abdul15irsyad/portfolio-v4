@@ -34,6 +34,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         level: Level.BASIC,
         // href: 'https://www.python.org',
       },
+      {
+        name: 'Rust',
+        logo: '/programming/rust.png',
+        level: Level.LEARNING,
+        // href: 'https://www.python.org',
+      },
     ],
   },
   {
@@ -98,6 +104,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/vue.png',
         level: Level.BASIC,
         href: 'https://vuejs.org',
+      },
+      {
+        name: 'Rocket',
+        logo: '/programming/rocket.png',
+        level: Level.LEARNING,
+        href: 'https://rocket.rs',
       },
       // {
       //   name: 'Flutter',
