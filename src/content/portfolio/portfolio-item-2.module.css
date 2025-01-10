@@ -117,10 +117,17 @@
   object-fit: contain;
 }
 
+@media screen and (max-width: 1200px) {
+  .portfolio-item-2 .stacks .stack:nth-child(n + 7) {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .portfolio-item-2 {
     margin-bottom: 1.5rem;
   }
+
   .portfolio-item-2 .detail .title {
     font-size: 16px;
   }
