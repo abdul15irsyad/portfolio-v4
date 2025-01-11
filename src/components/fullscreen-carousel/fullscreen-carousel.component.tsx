@@ -10,10 +10,16 @@ interface Props {
     alt: string;
   }[];
   title?: string;
+  defaultActiveIndex?: number;
   onClose: () => void;
 }
 
-export const FullscreenCarousel = ({ images, title, onClose }: Props) => {
+export const FullscreenCarousel = ({
+  images,
+  title,
+  defaultActiveIndex,
+  onClose,
+}: Props) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -30,6 +36,7 @@ export const FullscreenCarousel = ({ images, title, onClose }: Props) => {
           nextIcon={<i className="bi bi-chevron-right"></i>}
           interval={null}
           // indicators={true}
+          defaultActiveIndex={defaultActiveIndex}
         >
           {images.map(({ src, alt }, index) => (
             <Carousel.Item key={index}>
