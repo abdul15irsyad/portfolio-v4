@@ -58,6 +58,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
         />
         {showFullscreenCarousel && (
           <FullscreenCarousel
+            title={title}
             images={images}
             defaultActiveIndex={carouselActiveIndex}
             onClose={() => setShowFullscreenCarousel(false)}
