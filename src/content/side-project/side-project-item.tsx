@@ -50,6 +50,7 @@ export const SideProjectItem = ({
               alt={title}
               width={1080}
               height={1080}
+              loading="eager"
             />
           </>
         ) : (

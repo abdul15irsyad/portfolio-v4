@@ -81,7 +81,13 @@ export const SideProjectView = () => {
                   )
                 }
               >
-                <Image src={icon} alt={label} width={100} height={100} />
+                <Image
+                  src={icon}
+                  alt={label}
+                  width={100}
+                  height={100}
+                  loading="eager"
+                />
               </div>
             ))}
           </div>
