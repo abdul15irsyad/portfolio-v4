@@ -18,6 +18,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   style: 'normal',
   subsets: ['latin-ext'],
   fallback: ['sans-serif'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
 });
 
 // const figtree = Figtree({

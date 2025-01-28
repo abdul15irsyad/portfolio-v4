@@ -1,6 +1,8 @@
 import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 
+import { randomInt } from '@/utils/number.util';
+
 export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
   return [...Array(count)].map((_, index) => (
     <div key={index} className={`col-xxl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
@@ -31,7 +33,7 @@ export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
                 ))}
               </div>
               <div className="d-flex gap-2">
-                {[...Array(3)].map((_, index) => (
+                {[...Array(randomInt(3, 5))].map((_, index) => (
                   <Placeholder
                     key={index}
                     style={{

@@ -251,6 +251,18 @@ export const users: User[] = [
     id: '11174d11-6715-42eb-a91b-d929d7c993b3',
     name: 'Hendri Purnianto',
   },
+  {
+    id: '9bc945ca-fc75-46e7-9e71-fe28ab972e28',
+    name: 'Fernando Julian',
+    photo: {
+      id: '62601c3e-54ef-4b0c-b795-3eb3fbd189db',
+      path: 'user',
+      fileName: 'nando.jpeg',
+      originalFileName: 'nando.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/fernando-julian/',
+  },
 ].map((user) => ({
   ...user,
   photo: user.photo

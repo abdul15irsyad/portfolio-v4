@@ -9,12 +9,14 @@ interface Props {
     src: string;
     alt: string;
   }[];
-  onClose: () => void;
+  title?: string;
   defaultActiveIndex?: number;
+  onClose: () => void;
 }
 
 export const FullscreenCarousel = ({
   images,
+  title,
   defaultActiveIndex,
   onClose,
 }: Props) => {
@@ -24,14 +26,16 @@ export const FullscreenCarousel = ({
       document.body.style.overflow = 'unset';
     };
   }, []);
+
   return (
-    <div className={'fullscreen-carousel'}>
-      <div className={'container'}>
+    <div className="fullscreen-carousel">
+      <div className="container text-center">
+        {title && <h2 className="title">{title}</h2>}
         <Carousel
           prevIcon={<i className="bi bi-chevron-left"></i>}
           nextIcon={<i className="bi bi-chevron-right"></i>}
           interval={null}
-          // indicators={false}
+          // indicators={true}
           defaultActiveIndex={defaultActiveIndex}
         >
           {images.map(({ src, alt }, index) => (

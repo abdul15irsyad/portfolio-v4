@@ -52,12 +52,13 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
               onClick={() => setShowFullscreenCarousel(true)}
             >
               <i className="bi bi-fullscreen"></i>
-              <span>show</span>
+              <span>{t('show')}</span>
             </div>
           }
         />
         {showFullscreenCarousel && (
           <FullscreenCarousel
+            title={title}
             images={images}
             defaultActiveIndex={carouselActiveIndex}
             onClose={() => setShowFullscreenCarousel(false)}

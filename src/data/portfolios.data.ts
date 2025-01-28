@@ -8,6 +8,109 @@ import { workExperiences } from './work-experiences.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Tunggalisasi CIF',
+    href: null,
+    publishedAt: '2024-12-22',
+    type: {
+      icon: 'code-square',
+      label: 'Fullstack',
+    },
+    workExperienceId: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Memahami source code existing yang dikerjakan developer sebelumnya',
+          },
+          {
+            lang: 'en',
+            desc: 'Understand the existing source code that the previous developer was working on',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi background task menggunakan redis',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of background task using redis',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi cron job untuk integrasi ke aplikasi lain',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of cron job for integration to other applications',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Insert data secara bulk dengan upload file',
+          },
+          {
+            lang: 'en',
+            desc: 'Bulk insert data by uploading files',
+          },
+        ],
+      },
+    ],
+    stacks: [
+      { icon: '/programming/fastify.png', label: 'Fastify JS' },
+      { icon: '/programming/prisma.png', label: 'Prisma' },
+      { icon: '/programming/redis.png', label: 'Redis' },
+      { icon: '/programming/mysql.png', label: 'MySQL' },
+      { icon: '/programming/next.png', label: 'Next JS 12' },
+      { icon: '/programming/material-ui.png', label: 'Material UI' },
+      { icon: '/programming/minio.png', label: 'MinIO' },
+    ],
+    images: [...Array(9).keys()].map((index) => ({
+      src: `/portfolio/tunggalisasi-${index}.jpg`,
+      alt: `Tunggalisasi CIF ${index}`,
+    })),
+    teams: [
+      {
+        // isye
+        userId: '779ca0ac-1493-4300-9f41-598f9e690f16',
+        role: 'Project Manager',
+      },
+      {
+        // nando
+        userId: '9bc945ca-fc75-46e7-9e71-fe28ab972e28',
+        role: 'Previous Fullstack Dev',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Sesuai namanya, aplikasi Tunggalisasi CIF merupakan aplikasi yang menggabungkan beberapa CIF (Customer Information File) dengan memilih salah 1 dikarenakan memang seharusnya setiap nasabah walaupun memiliki banyak rekening tetapi tetap dengan CIF yang sama, adapun saya di project ini melanjutkan pengembangan di fase 2 dimana menyelesaikan fitur-fitur akhir seperti upload data bulk dengan file, interasi sistem lain, dll.
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          Just like the name, Tunggalisasi CIF is an application that combines several CIFs (Customer Information Files) by selecting 1 because every customer even has many accounts but the CIF still the same, while in this project I continue the development in phase 2 where completing final features such as uploading bulk data with files, interaction with other systems, etc.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'Procash (Loyalty)',
     href: null,
     publishedAt: '2024-11-05',
@@ -133,6 +236,30 @@ export const portfolios: Portfolio[] = [
         translates: [
           {
             lang: 'id',
+            desc: 'Implementasi pencegahan IDOR (Insecure Direct Object Reference)',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of IDOR (Insecure Direct Object Reference) Prevention',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasi rate limit di fitur login',
+          },
+          {
+            lang: 'en',
+            desc: 'Implementation of Rate Limit in the Login Feature',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
             desc: 'Kustomisasi template, menyesuaikan dengan requirement yang ada',
           },
           {
@@ -172,6 +299,7 @@ export const portfolios: Portfolio[] = [
       { icon: '/programming/mysql.png', label: 'MySQL' },
       { icon: '/programming/next.png', label: 'Next JS 14' },
       { icon: '/programming/material-ui.png', label: 'Material UI' },
+      { icon: '/programming/minio.png', label: 'MinIO' },
     ],
     images: [...Array(8).keys()].map((index) => ({
       src: `/portfolio/jarvis-${index}.jpg`,
