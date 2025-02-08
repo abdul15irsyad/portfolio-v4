@@ -16,22 +16,25 @@ export const workExperiences: WorkExperience[] = [
     translates: [
       {
         lang: 'id',
-        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer tim seperti Nest JS (Typescript), Fastify JS, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
+        desc: 'Mengembangkan aplikasi proyek atau web yang mendukung operasional perusahaan dengan teknologi terbaru yang diinstruksikan oleh pengembang senior/manajer di dalam tim Corporate Core Platform (CCP)seperti Nest JS (Typescript), Fastify JS, Golang, Gin, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
       },
       {
         lang: 'en',
-        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager like Nest JS (Typescript), Fastify JS, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
+        desc: 'Develop project or web application that support corporate operational with latest technologies that instructed by senior developer/team manager in Corporate Core Platform (CCP) team like Nest JS (Typescript), Fastify JS, Golang, Gin, Next JS, RabbitMQ, MinIO, Redis, dan MySQL.',
       },
     ],
     techStacks: [
       'Node JS',
       'Fastify JS',
+      'Golang',
+      'Gin',
       'Next JS',
       'MySQL',
       'RabbitMQ',
       'Redis',
       'Nest JS',
       'Material UI',
+      'MinIO',
     ],
   },
   {
