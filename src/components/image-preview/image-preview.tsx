@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import React, { SetStateAction } from 'react';
 
 import styles from './image-preview.module.css';
@@ -30,7 +30,7 @@ const ImagePreview = ({ modal, setModal }: Prop) => {
       onClick={handleClick}
     >
       <i className={`${styles.close} bi bi-x`}></i>
-      <Image
+      <img
         src={modal.image!}
         className={styles[modal.size ?? 'lg']}
         alt={modal.caption!}

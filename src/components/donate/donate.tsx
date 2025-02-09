@@ -87,6 +87,8 @@ const Trakteer = () => (
       src="https://trakteer.id/images/mix/coffee.png"
       alt="Traktiran"
       className={`${styles.icon} wiggle`}
+      width={20}
+      height={20}
     />
     <span>Trakteer</span>
   </Link>

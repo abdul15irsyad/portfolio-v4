@@ -1,4 +1,4 @@
-.image-preview{
+.image-preview {
   cursor: pointer;
   display: none;
   position: fixed;
@@ -11,44 +11,44 @@
   z-index: 99999;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,.9);
+  background-color: rgba(0, 0, 0, 0.9);
   flex-direction: column;
 }
 
-.image-preview img{
+.image-preview img {
   cursor: default;
   object-fit: contain;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   user-select: none;
-  width: 80%;
+  width: 80% !important;
 }
 
-.image-preview img.lg{
-  width: 80%;
+.image-preview img.lg {
+  width: 80% !important;
 }
 
-.image-preview img.md{
+.image-preview img.md {
   width: 60%;
 }
 
-.image-preview img.sm{
+.image-preview img.sm {
   width: 40%;
 }
 
-.image-preview img.xs{
+.image-preview img.xs {
   width: 35%;
 }
 
-.image-preview h6{
+.image-preview h6 {
   cursor: default;
   margin: 1rem 0 0 0;
   color: white !important;
   text-align: center;
 }
 
-.image-preview .close{
+.image-preview .close {
   color: #fff;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -56,16 +56,16 @@
   font-size: 48px;
 }
 
-.image-preview .close:hover{
-  background-color: rgba(255,255,255,.1);
+.image-preview .close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 991px){
-  .image-preview img{
+@media (max-width: 991px) {
+  .image-preview img {
     width: 95% !important;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
-  .image-preview h6{
+  .image-preview h6 {
     font-size: 16px;
     margin: 1rem 2rem 0 2rem;
   }
