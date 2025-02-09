@@ -6,6 +6,197 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '5826cad7-ed5c-4dcb-baa9-3d9b7675f9fb',
+    title: 'Optimasi React/Next JS pakai useMemo dan useCallback',
+    slug: 'optimasi-react-next-js-pakai-use-memo-dan-use-callback',
+    featureImageId: '4d4a2fd2-7fb0-4d1f-b59e-4e2fdf5ba518',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    yoo, long time no see, nyoba bahas sesuatu tentang frontend kali yak, yang ringan-ringan aja. pas kita bikin web pake react/next js, selain bikin tampilannya sesama mungkin dengan design ui/ux (kalo ada), hal yang juga perlu kita perhatiin itu adalah <b>optimasi life cycle komponen-komponennya</b>, seperti yang kita tau tiap ada perubahan state di suatu komponen pasti akan dilakukan re-render komponen tersebut dengan state-state terbarunya, nah kalo kita kebanyakan re-render yang ga perlu bisa aja nurunin performa aplikasi yang kita bangun.
+    </p>
+    <p>
+    buat ngatasin masalah itu, react nyediain 2 hook yang menurut saya sangat berguna yang bisa kita pake, yaitu <code>useMemo</code> dan <code>useCallback</code>, mungkin sekilas ga keliatan perbedaannya, kita coba bahas tipis-tipis dah, gass.
+    </p>
+    <h3>problem performa di react/next js</h3>
+    <p>
+    re-rendering bisa jadi tantangan dalam pengembangan aplikasi react based, beberapa masalah yang bisa muncul
+    </p>
+    <ul>
+    <li>penggunaan memori yang ga efisien</li>
+    <p>
+    kalo kita tidak memperhatikan re-render di aplikasi, memori client atau browser pengguna bisa naik tinggi, trus untuk pengguna yang device nya cukup kentang jadi berasa banget tuh
+    </p>
+    <li>waktu rendering bertambah</li>
+    <p>
+    yaa nambah lama dikit aja mungkin, tapi tetep aja ngaruh, kalo bisa lebih kenceng kenapa engga kaaann
+    </p>
+    </ul>
+    <h3>perbedaan keduanya</h3>
+    <p>
+    definisinya sendiri ini lumayan mirip-mirip si, based on dokumentasi nya <code>useMemo</code> merupakan hooks yang bisa kita pake untuk cache suatu <b>value</b> hasil dari perhitungan/fungsi sedangkan <code>useCallback</code> bisa kita pake untuk cache <b>deklarasi</b> fungsi saat re-render.
+    </p>
+    <h3>apatu useMemo?</h3>
+    <p>
+    <code>useMemo</code> kurang lebih hook yang dipake buat memoisasi hasil perhitungan yang cukup berat, bakal ada dependensi state yang bisa diatur, jadi perhitungannya bakal dilakukan ulang kalo salah satu state yang ada di dependensi berubah.
+    </p>
+    <pre>
+    <code class="language-typescript">const memoizedValue = useMemo(() => {
+  return calculation(a, b);
+}, [a, b]);</code>
+    </pre>
+    <h3>kapan make useMemo?</h3>
+    <p>
+    saat kita punya suatu perhitungan yang berat, agar tidak selalu melakukan perhitungan saat re-render component. pada contoh di atas, fungsi <code>calculation</code> hanya akan dieksekusi ketika ada salah satu antara state a atau b yang berubah.
+    </p>
+    <h3>contoh implementasi useMemo</h3>
+    <h5>ga pake useMemo</h5>
+    <pre>
+    <code class="language-typescript">'use client'
+import { useState } from "react";
+
+export const WithoutUseMemo = ({ 
+  users
+} : {
+  users: {
+    name: string,
+    isActive: boolean,
+  }[]
+}) => {
+  const [activeStatus] = useState(true);
+
+  const filteredUsers = users.reduce<string[]>((prev, curr) => {
+    if (curr.isActive === activeStatus) return [...prev, curr.name];
+    return prev;
+  }, []); // akan selalu dieksekusi saat re-render
+
+  return <div>{filteredUsers.join(', ')}</div>;
+}</code>
+    </pre>
+    <p>
+    kalau kita liat, state <code>filteredUsers</code> tersebut akan selalu dieksekusi saat re-render dilakukan, padahal setelah itu value dari state <code>filteredUsers</code> tetep sama karena memang tidak ada perubahan value di dalam fungsi filternya namun secara state berubah (kondisi ini yang ingin kita hindari).
+    </p>
+    <h5>pake useMemo</h5>
+    <pre>
+    <code>'use client';
+
+import { useMemo, useState } from 'react';
+
+export const WithUseMemo = ({
+  users,
+}: {
+  users: {
+    name: string;
+    isActive: boolean;
+  }[];
+}) => {
+  const [activeStatus] = useState(true);
+
+  const filteredUsers = useMemo(
+    () =>
+      users.reduce<string[]>((prev, curr) => {
+        if (curr.isActive === activeStatus) return [...prev, curr.name];
+        return prev;
+      }, []),
+    [users, activeStatus]
+  );
+
+  return <div>{filteredUsers.join(', ')}</div>;
+}</code>
+    </pre>
+    <p>
+    nah kalo kita implement <code>useMemo</code>, filter nya akan dieksekusi kalau ada perubahan dari state dependensi nya, yaitu state <code>users</code> dan <code>activeStatus</code>
+    </p>
+    <h3>apatu useCallback?</h3>
+    <p>
+    <code>useCallback</code> mirip seperti <code>useMemo</code>, tapi ini kali ini yang dimemoisasi adalah deklarasi fungsinya. sama kayak hook sebelumnya bakal ada dependensi state yang bisa diatur, jadi deklarasi fungsinya cuma dilakukan ulang kalo salah satu state yang ada di dependensi berubah
+    </p>
+    <pre>
+    <code class="language-typescript">const memoizedCallback = useCallback(() => {
+  console.log({ a, b });
+}, [a, b]);</code>
+    </pre>
+    <h3>kapan make useCallback</h3>
+    <p>
+    secara sederhana kita perlu pakai <code>useCallback</code> kalau kita deklarasi suatu fungsi di dalam client component agar deklarasi fungsi tidak dilakukan berulang kali
+    </p>
+    <h3>contoh implementasi useCallback</h3>
+    <h5>ga pake useCallback</h5>
+    <pre>
+    <code class="language-typescript">'use client';
+
+import { useState } from 'react';
+
+export const WithoutUseCallback = () => {
+  const [activeStatus, setActiveStatus] = useState(true);
+
+  const handleToggle = () => {
+    setActiveStatus((value) => !value);
+  }; // akan selalu dideklarasi saat re-render
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;{activeStatus}&lt;/div&gt;
+      &lt;button onClick={handleToggle}&gt;Toggle Active Status&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code>
+    </pre>
+    <p>
+    kalo kita liat, fungsi <code>handleToggle</code> akan selalu dideklarasi ulang ketika re-render
+    </p>
+    <h5>pake useCallback</h5>
+    <pre>
+    <code class="language-typescript">'use client';
+
+import { useCallback, useState } from 'react';
+
+export const WithUseCallback = () => {
+  const [activeStatus, setActiveStatus] = useState(true);
+
+  const handleToggle = useCallback(() => {
+    setActiveStatus((value) => !value);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;{activeStatus}&lt;/div&gt;
+      &lt;button onClick={handleToggle}&gt;Toggle Active Status&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code>
+    </pre>
+    <p>
+    nah kalo kita implement <code>useCallback</code>, fungsinya akan dideklarasi ulang kalau ada perubahan dari state dependensi nya, kebetulan karena dependensinya kosong berarti artinya fungsi tersebut gaakan dideklarasi ulang kecuali ada refresh aplikasi
+    </p>
+    <h3>eslint 'react-hooks/exhaustive-deps'</h3>
+    <p>
+    oke setelah kita tau apa itu <code>useMemo</code> dan <code>useCallback</code>, ini ada config eslint yang sekiranya bisa ngebantu kita saat nentuin dependensi di kedua hooks tersebut, yaitu config <code>react-hooks/exahustive-deps</code>.
+    </p>
+    <p>
+    config ini termasuk di dalam package <code>eslint-plugin-react-hooks</code>, sangat direkomendasikan pakai plugin eslint ini guna mempermudah proses development aplikasi react/next js kita.
+    </p>
+    <h3>kesimpulan</h3>
+    <p>
+    udah si gitu aja sebenernya penggunaan <code>useMemo</code> dan <code>useCallback</code>, sekilas kalo hanya ada 1 case di aplikasi kita yang tidak optimize mungkin engga terlalu berasa, tapi kalo di semua komponen jadi cukup mengganggu performa aplikasi.
+    </p>
+    <br>
+    <p>
+    kalo berhasil sampai di sini, thanks sudah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat :-)
+    </p>
+    </article>
+    `,
+    tags: ['reactjs', 'nextjs', 'optimize'],
+    publishedAt: new Date('2025-02-10 08:30:00+07:00'),
+    createdAt: new Date('2025-02-10 08:30:00+07:00'),
+    updatedAt: new Date('2025-02-10 08:30:00+07:00'),
+    referenceURLs: [
+      'https://react.dev/reference/react/useMemo',
+      'https://react.dev/reference/react/useCallback',
+    ],
+  },
+  {
     id: '6f41a0f6-d239-44f7-85d6-3fc28976d5e6',
     title: 'SQL Aggregations',
     slug: 'sql-aggregations',

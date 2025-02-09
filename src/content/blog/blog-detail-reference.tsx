@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
@@ -31,7 +30,8 @@ export const BlogDetailReferences = ({
           }}
         >
           {reference?.image && (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               className={styles.image}
               src={reference?.image}
               alt={reference.title!}
