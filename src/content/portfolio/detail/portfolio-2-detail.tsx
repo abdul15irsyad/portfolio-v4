@@ -32,7 +32,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
     () =>
       translates?.find(({ lang }) => lang === i18n.language)?.desc ??
       portfolio.desc!,
-    [i18n.language],
+    [i18n.language, portfolio.desc, translates],
   );
   const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
 

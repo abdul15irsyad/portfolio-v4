@@ -66,8 +66,14 @@ const CategoryItem = ({
     <div>
       <div className="d-inline-block">
         {Array.isArray(logo) ? (
-          logo.map((item) => (
-            <Image src={item} alt={name.toLowerCase()} width={24} height={24} />
+          logo.map((item, index) => (
+            <Image
+              key={index}
+              src={item}
+              alt={name.toLowerCase()}
+              width={24}
+              height={24}
+            />
           ))
         ) : (
           <Image src={logo} alt={name.toLowerCase()} width={24} height={24} />

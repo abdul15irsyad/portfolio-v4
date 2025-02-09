@@ -83,7 +83,7 @@ const Trakteer = () => (
     rel="noopener noreferrer"
     className={`${styles.trakteer} ${quicksand.className}`}
   >
-    <img
+    <Image
       src="https://trakteer.id/images/mix/coffee.png"
       alt="Traktiran"
       className={`${styles.icon} wiggle`}

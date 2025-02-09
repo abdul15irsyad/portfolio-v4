@@ -51,12 +51,12 @@ export const SideProjectView = () => {
     setPage(1);
     setSideProjects(paginatedArray(filteredSideProjects, { page, limit }));
     setTotalAllData(filteredSideProjects.length);
-  }, [stacks]);
+  }, [filterSideProjects, page, stacks]);
 
   useEffect(() => {
     const filteredPortfolios = filterSideProjects(allSideProjects);
     setSideProjects(paginatedArray(filteredPortfolios, { page, limit }));
-  }, [page]);
+  }, [filterSideProjects, page]);
 
   return (
     <div className="side-project section doodle-background">

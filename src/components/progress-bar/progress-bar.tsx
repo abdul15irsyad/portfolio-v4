@@ -29,7 +29,7 @@ export const ProgressBar = () => {
     filteredAnchors.forEach((anchor) =>
       anchor.addEventListener('click', handleAnchorClick),
     );
-  }, []);
+  }, [handleAnchorClick]);
 
   useEffect(() => {
     nProgress.configure({
@@ -53,7 +53,7 @@ export const ProgressBar = () => {
         return target.apply(thisArg, argArray);
       },
     });
-  }, []);
+  }, [handleMutation]);
 
   return (
     <>

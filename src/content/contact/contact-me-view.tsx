@@ -140,7 +140,7 @@ export const ContactMeView = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     nProgress.done();
-  }, [mutateCreateContactMeError]);
+  }, [mutateCreateContactMeError, setError, t]);
 
   return (
     <div className="contact-me section doodle-background">

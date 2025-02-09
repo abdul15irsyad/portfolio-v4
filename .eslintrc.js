@@ -13,7 +13,11 @@ module.exports = {
     'simple-import-sort',
     'prettier',
   ],
-  extends: ['plugin:@typescript-eslint/recommended'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'next/core-web-vitals',
+    'next/typescript',
+  ],
   root: true,
   env: {
     node: true,
@@ -29,5 +33,8 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'prettier/prettier': 'warn',
+    'import/no-anonymous-default-export': 'off',
+    'react/display-name': 'off',
+    'react-hooks/rules-of-hooks': 'off',
   },
 };
