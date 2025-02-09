@@ -19,8 +19,8 @@ export const Avatars = ({ users }: { users: AvatarProps[] }) => {
         .sort((a) => (a.imageUrl! ? -1 : 1))
         .slice(0, MAX_AVATARS)
         .reverse()
-        .map((user) => (
-          <Avatar user={user} />
+        .map((user, index) => (
+          <Avatar key={index} user={user} />
         ))}
     </div>
   );

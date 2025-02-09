@@ -69,10 +69,10 @@ export const QuoteOfTheDay = () => {
             ) : (
               <>
                 <div className={styles.quote}>
-                  "
+                  &quot;
                   {quote?.content ??
                     'Aim for the moon. If you miss, you may hit a star.'}
-                  "
+                  &quot;
                 </div>
                 <div className={styles.author}>
                   - {quote?.author ?? 'W. Clement Stone'}

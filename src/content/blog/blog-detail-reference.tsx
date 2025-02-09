@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
@@ -30,7 +31,11 @@ export const BlogDetailReferences = ({
           }}
         >
           {reference?.image && (
-            <img className={styles.image} src={reference?.image} />
+            <Image
+              className={styles.image}
+              src={reference?.image}
+              alt={reference.title!}
+            />
           )}
           <div className={styles.text}>
             <h6>{reference?.title}</h6>

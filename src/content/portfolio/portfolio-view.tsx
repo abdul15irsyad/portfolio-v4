@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
@@ -29,13 +29,18 @@ export const PortfolioView = () => {
   const [totalAllData, setTotalAllData] = useState<number>(
     allPortfolios.length,
   );
-  const filterPortfolios = (portfolios: Portfolio[]) =>
-    portfolios.filter((portfolio) => {
-      return (
-        (year !== 'all' ? portfolio.year === +year : true) &&
-        (type !== 'all' ? portfolio.type?.label?.toLowerCase() === type : true)
-      );
-    });
+  const filterPortfolios = useCallback(
+    (portfolios: Portfolio[]) =>
+      portfolios.filter((portfolio) => {
+        return (
+          (year !== 'all' ? portfolio.year === +year : true) &&
+          (type !== 'all'
+            ? portfolio.type?.label?.toLowerCase() === type
+            : true)
+        );
+      }),
+    [type, year],
+  );
 
   // on year or type change
   useEffect(() => {
@@ -43,13 +48,13 @@ export const PortfolioView = () => {
     setPage(1);
     setPortofolios(paginatedArray(filteredPortfolios, { page, limit }));
     setTotalAllData(filteredPortfolios.length);
-  }, [year, type]);
+  }, [year, type, filterPortfolios, page]);
 
   // on page change
   useEffect(() => {
     const filteredPortfolios = filterPortfolios(allPortfolios);
     setPortofolios(paginatedArray(filteredPortfolios, { page, limit }));
-  }, [page]);
+  }, [filterPortfolios, page]);
   return (
     <div className="portfolio section doodle-background">
       <div className="container">

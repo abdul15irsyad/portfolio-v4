@@ -24,7 +24,7 @@ export const Navbar = () => {
     if (scrollTop > 50) setIsShrunk(true);
     else if (scrollTop <= 0) setIsShrunk(false);
   }, []);
-  useEffect(() => checkShrunk(), []);
+  useEffect(() => checkShrunk(), [checkShrunk]);
 
   const checkVisible = useCallback(() => {
     // visible
@@ -34,16 +34,16 @@ export const Navbar = () => {
     setLastScrollY(currentScrollY);
   }, [lastScrollY]);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     checkShrunk();
     checkVisible();
-  };
+  }, [checkShrunk, checkVisible]);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [handleScroll, lastScrollY]);
 
   const handleChangeLanguage = useCallback(
     (newLanguage: string) => {
@@ -51,7 +51,7 @@ export const Navbar = () => {
       dayjs.locale(newLanguage);
       setShow(false);
     },
-    [i18n.language],
+    [i18n],
   );
 
   return (

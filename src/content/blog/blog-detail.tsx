@@ -10,13 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import nProgress from 'nprogress';
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
@@ -56,7 +50,8 @@ export const BlogDetail = ({
       }),
     [blog.content],
   );
-  const addQueryString = useCallback(queryString(searchParams), [searchParams]);
+  const addQueryString = queryString(searchParams);
+
   useEffect(() => hljs.highlightAll());
   const [modal, setModal] = useState<Modal>({});
   const blogContent = useRef<HTMLDivElement>(null);

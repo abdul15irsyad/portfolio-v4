@@ -60,7 +60,7 @@ export const BlogView = () => {
                   <div className="blog-filter-text">
                     <h4 className="blog-filter-heading">
                       {capitalize(t('result-for'))}{' '}
-                      {search && <span>"{search}"</span>}{' '}
+                      {search && <span>&quot;{search}&quot;</span>}{' '}
                       {search && tag && t('and')} {tag && <span>#{tag}</span>}
                     </h4>
                   </div>
