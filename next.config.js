@@ -18,6 +18,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'irsyadabdul.my.id',
       },
+      {
+        protocol: 'https',
+        hostname: 'trakteer.id',
+      },
     ],
   },
   publicRuntimeConfig: {
