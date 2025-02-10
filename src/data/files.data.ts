@@ -4,6 +4,16 @@ import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {
+    id: '4d4a2fd2-7fb0-4d1f-b59e-4e2fdf5ba518',
+    createdAt: new Date('2025-02-09 10:14:46+07:00'),
+    updatedAt: new Date('2025-02-09 10:14:46+07:00'),
+    path: 'blog',
+    fileName: 'optimasi-react-next-js-pakai-use-memo-dan-use-callback.jpg',
+    originalFileName:
+      'optimasi-react-next-js-pakai-use-memo-dan-use-callback.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '53a3d049-2147-41c2-8f3c-2329c9aff761',
     createdAt: new Date('2024-09-15 02:28:46+07:00'),
     updatedAt: new Date('2024-09-15 02:28:46+07:00'),

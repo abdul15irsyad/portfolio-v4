@@ -7,12 +7,12 @@ import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
+// import { blogDatas } from '@/data/blogs.data';
 import { ApiResponseAll } from '@/types/api-response.type';
 import { Blog } from '@/types/blog.type';
 
 import BlogItem from './blog-item';
 import LoadingBlogs from './loading-blogs';
-// import { blogDatas } from '@/data/blogs.data';
 
 type Prop = {
   limit?: number;
@@ -58,8 +58,8 @@ export default ({ limit = 5, queryString }: Prop) => {
       //     totalPage: limit
       //       ? Math.ceil(blogDatas.length / limit)
       //       : blogDatas.slice((activePage - 1) * limit, limit).length > 0
-      //       ? 1
-      //       : null,
+      //         ? 1
+      //         : null,
       //     totalData: blogDatas.slice((activePage - 1) * limit, limit).length,
       //     totalAllData: blogDatas.length,
       //   },
