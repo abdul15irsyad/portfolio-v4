@@ -49,9 +49,9 @@ export const SideProjectView = () => {
   useEffect(() => {
     const filteredSideProjects = filterSideProjects(allSideProjects);
     setPage(1);
-    setSideProjects(paginatedArray(filteredSideProjects, { page, limit }));
+    setSideProjects(paginatedArray(filteredSideProjects, { page: 1, limit }));
     setTotalAllData(filteredSideProjects.length);
-  }, [filterSideProjects, page, stacks]);
+  }, [filterSideProjects, stacks]);
 
   useEffect(() => {
     const filteredPortfolios = filterSideProjects(allSideProjects);
