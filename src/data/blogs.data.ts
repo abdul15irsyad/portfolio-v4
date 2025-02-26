@@ -79,7 +79,7 @@ export const WithoutUseMemo = ({
     </p>
     <h5>pake useMemo</h5>
     <pre>
-    <code>'use client';
+    <code class="language-typescript">'use client';
 
 import { useMemo, useState } from 'react';
 
