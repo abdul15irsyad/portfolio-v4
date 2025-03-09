@@ -1709,6 +1709,7 @@ ul li {
 
 .blog-detail article pre code {
   line-height: 24px;
+  font-size: 14px;
   border-radius: 0.5rem;
   padding: 2rem 4rem 2rem 2rem;
   overflow: auto;
