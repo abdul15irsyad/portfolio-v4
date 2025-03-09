@@ -6,6 +6,221 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '55ab0cad-81aa-4a21-9b52-d6b44dc94fa1',
+    title: 'Generic di Golang',
+    slug: 'generic-di-golang',
+    featureImageId: '178cab2c-9a50-40b6-9f62-5fbda0e89071',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    selamat berpuasa buat yang ngejalanin… puasa-puasa gini kita kudu tetep produktif, kali ini kita mau bahas sesuatu mengenai dunia per-type-safety-an, yaitu konsep generic di bahasa pemrogramman, kita ambil contohnya di bahasa pemrogramman golang aja (di bahasa lain seperti java, c++, typescript juga ada sebenernya). 
+    </p>
+    <p>
+    awalnya saya mau bahas pakai typescript, tapi coba sesekali lah pake golang, secara konsep mirip-mirip hanya ada perbedaan sedikit saja menyesuaikan bahasanya.
+    </p>
+    <h3>sekilas tentang generic</h3>
+    <p>
+    generic tu kurang lebih fitur suatu bahasa pemrogramman yang memungkinkan kita ngebuat suatu tipe data yang dinamis atau dapat berubah menyesuaikan kebutuhan tipe data nya saat digunakan, ini bisa <b>ngurangin penggunaan <code>interface{}</code> atau <code>any</code></b> dalam kode golang kita. generic sendiri di golang seringkali dipake saat mendefinisikan fungsi ataupun struct (class).
+    </p>
+    <blockquote>
+    Generic Programming adalah salah satu metode dalam penulisan kode program, di mana tipe data dalam kode didefinisikan menggunakan suatu tipe yang tipe pastinya ditulis belakangan saat kode tersebut di-call atau dieksekusi
+    </blockquote>
+    <h3>kenapa perlu generic?</h3>
+    <p>
+    ketika kita ga pake generic, kita akan ngadepin keadaan dimana sebuah kode sudah kita tulis sebelumnya namun ada kebutuhan untuk mengolah variable dengan tipe data yang berbeda dan <b>kode itu masih berfungsi walaupun menggunakan tipe data yang berbeda</b>. 
+    </p>
+    <p>
+    dengan pake generic kita ga perlu nulis ulang sebuah kode yang mirip untuk tipe data baru itu, cukup ngebuat dinamis tipe data nya dan akan didefinisiin tipe data nya saat digunain kode tersebut akhirnya kode kita makin lebih bersih dan reusable
+    </p>
+    <h3>cara kerja generic</h3>
+    <p>
+    kita bisa pake generic melalui type parameter, biasanya ditandain sama huruf <code>T</code> (bebas aja sebenernya), kalau <code>T</code> sudah digunakan, kita bisa pake <code>U</code> atau <code>K</code> atau apapun selama type tersebut belum digunakan. contoh sederhana generic:
+    </p>
+    <pre>
+    <code class="language-golang">func PrintSlice[T any](slice []T) {
+    for _, value := range slice {
+        fmt.Println(v)
+    }
+}</code>
+    </pre>
+    <p>
+    <code>T</code> di atas adalah type parameter dan <code>any</code> adalah constraints atau batasan dari tipe <code>T</code> tersebut, jika constraints nya adalah <code>any</code> maka <code>T</code> bisa berupa tipe data apa aja.
+    </p>
+    <h3>type constraints</h3>
+    <p>
+    beberapa built-in yang bisa kita pake seperti <code>any</code> (buat tipe apapun) dan <code>comparable</code> (buat tipe yang bisa dibandingkan) atau kita bisa buat type constraints sendiri pakai <code>interface</code>.
+    </p>
+    <pre>
+    <code class="language-golang">type Number interface {
+    int | float64
+}
+
+func Add[T Number](a, b T) T {
+    return a + b
+}</code>
+    </pre>
+    <p>
+    tipe data <code>T</code> di parameter fungsi <code>Add</code> dibatasi dengan interface <code>Number</code>, dimana cuma bisa <code>int</code> dan <code>float64</code> aja.
+    </p>
+    <h3>contoh penggunaan generic</h3>
+    <ol>
+    <li><b>generic di fungsi</b></li>
+    <p>
+    kita bisa membuat tipe data generic di parameter suatu fungsi agar fungsi tersebut bisa menerima berbagai macam tipe data
+    <p>
+    <pre>
+    <code class="language-golang">func IndexOfSlice[T comparable](slice *[]T, value T) int {
+    for i, item := range *slice {
+        if value == item {
+            return i
+        }
+    }
+    return -1
+}</code>
+    </pre>
+    <p>
+    fungsi <code>IndexOfSlice</code> bisa digunakan untuk slice <code>int</code>, <code>string</code> atau tipe lain yang bisa dibandingkan, pada contoh di atas tipe yang digunakan adalah <code>string</code> (bisa dibandingkan), jika fungsinya kita panggil maka akan seperti ini:
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+func main() {
+    fruits := []string{"apple", "banana", "mango"}
+    fmt.Println(IndexOfSlice[string](&fruits, "banana"))
+}</code>
+    </pre>
+    <p>
+    variable <code>fruits</code> merupakan slice dari string, jadi tipe data <code>string</code> masih masuk ke type constraints <code>comparable</code>. output dari kode di atas adalah <code>1</code> karena nilai index dari string <code>"banana"</code> adalah <code>1</code>.
+    </p>
+    <li><b>generic di struct</b></li>
+    <p>
+    kita bisa bikin tipe data generic di struct seperti berikut:
+    </p>
+    <pre>
+    <code class="language-golang">type Queue[T any] struct {
+    items []T
+}
+
+func (q *Queue[T]) Push(item T) {
+    q.items = append(q.items, item)
+}
+
+func (q *Queue[T]) Pop() T {
+    item := q.items[0]
+    q.items = q.items[1:]
+}</code>
+    </pre>
+    <p>
+    struct <code>Queue</code> bisa menampung tipe data apapun, misalkan kita panggil dengan tipe <code>string</code>.
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+func main() {
+    queue := Queue[string]{}
+
+    queue.Push("luffy")
+    fmt.Println(queue.items)
+
+    queue.Push("zoro")
+    fmt.Println(queue.items)
+
+    queue.Pop()
+    fmt.Println(queue.items)
+
+    queue.Push("sanji")
+    fmt.Println(queue.items)
+    
+    queue.Pop()
+    fmt.Println(queue.items)
+}</code>
+    </pre>
+    <li><b>penggunaan tipe data generic lebih dari 1</b></li>
+    <p>
+    jika tipe generic lebih dari 1, maka tipe generic tersebut bisa kita namai <code>U</code> atau apapun selama belum digunakan, misalkan kita ingin membuat sebuah fungsi reduce seperti yang ada di javascript
+    </p>
+    <pre>
+    <code class="language-golang">func ReduceSlice[T any, U any](
+    slice *[]T,
+    reducer func(prev U, curr T) U,
+    initial U,
+) U {
+    accumulator := initial
+    for _, v := range *slice {
+        accumulator = reducer(accumulator, v)
+    }
+    return accumulator
+}</code>
+    </pre>
+    <p>
+    fungsi tersebut memiliki 2 tipe data generic yaitu <code>T</code> dan <code>U</code>, jika kita panggil fungsi tersebut maka seperti ini:
+    </p>
+    <pre>
+    <code class="language-golang">package main
+
+import "fmt"
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func main() {
+    people := []Person{
+        {"curry", 36},
+        {"lebron", 34},
+        {"doncic", 26},
+        {"antetokounmpo", 30},
+        {"durant", 36},
+        {"wembanyama", 21},
+    }
+    sumAge := ReduceSlice[Person, int](&people, func(prev int, curr Person) int {
+        return prev + curr.Age
+    }, 0)
+    fmt.Println(sumAge)
+}</code>
+    </pre>
+    <p>
+    maka kedua tipe generic tersebut bisa kita didefinisikan
+    </p>
+    </ol>
+    <h3>keuntungan dan tantangan penggunaan generic</h3>
+    <h5>keuntungan</h5>
+    <ul>
+    <li><b>kode lebih bersih :</b> ga perlu nulis fungsi yang sama untuk tipe yang berbeda</li>
+    <li><b>reusable code :</b> 1 fungsi atau struct bisa dipake untuk berbagai tipe data</li>
+    <li><b>type safety :</b> tetap mengimplementasikan type safety walaupun kode yang ditulis dinamis</li>
+    </ul>
+    <h5>tantangan</h5>
+    <ul>
+    <li><b>kompleksitas :</b> tingkat kompleksitas meningkat, sehingga membuat kita perlu effort lebih untuk memahami kode</li>
+    <li><b>tidak selalu diperlukan :</b> ga semua case perlu generic, jika kode yang ditulis memang sederhana mungkin belum diperlukan penggunaannya</li>
+    </ul>
+    <h3>kesimpulan</h3>
+    <p>
+    generic merupakan fitur yang cukup powerful jika kita menggunakannya di situasi yang tepat, membuat kode yang kita tulis lebih fleksible dan reusable. dengan memahami cara kerja dan best practice nya kita bisa meningkatkan kualitas kode kita, recommended banget si penggunaanya biar tetep type safety.
+    </p>
+    <br>
+    <p>
+    kalo berhasil sampe sini, thanks banget udah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat
+    </p>
+    </article>
+    `,
+    tags: ['golang', 'generic'],
+    publishedAt: new Date('2025-03-09 08:30:00+07:00'),
+    createdAt: new Date('2025-03-09 19:20:46+07:00'),
+    updatedAt: new Date('2025-03-09 19:20:46+07:00'),
+    referenceURLs: [
+      'https://go.dev/doc/tutorial/generics',
+      'https://dasarpemrogramangolang.novalagung.com/A-golang-generics.html',
+    ],
+  },
+  {
     id: '5826cad7-ed5c-4dcb-baa9-3d9b7675f9fb',
     title: 'Optimasi React/Next JS pakai useMemo dan useCallback',
     slug: 'optimasi-react-next-js-pakai-use-memo-dan-use-callback',
