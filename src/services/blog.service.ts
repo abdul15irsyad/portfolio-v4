@@ -81,7 +81,7 @@ export const getLatestBlog = async (
       publishedAt: true,
     },
     where: {
-      publishedAt: { not: null, lte: dayjs().utc().toDate() },
+      publishedAt: { not: null, lte: dayjs().toDate() },
     },
     orderBy: {
       publishedAt: 'desc',
