@@ -4,6 +4,15 @@ import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {
+    id: '178cab2c-9a50-40b6-9f62-5fbda0e89071',
+    createdAt: new Date('2025-03-09 19:20:46+07:00'),
+    updatedAt: new Date('2025-03-09 19:20:46+07:00'),
+    path: 'blog',
+    fileName: 'generic-di-golang.jpg',
+    originalFileName: 'generic-di-golang.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '4d4a2fd2-7fb0-4d1f-b59e-4e2fdf5ba518',
     createdAt: new Date('2025-02-09 10:14:46+07:00'),
     updatedAt: new Date('2025-02-09 10:14:46+07:00'),
