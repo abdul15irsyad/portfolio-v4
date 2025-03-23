@@ -66,7 +66,7 @@ export const Navbar = () => {
           <BootstrapNavbar.Brand className="d-flex align-items-center">
             <Image
               priority
-              src="/favicon.jpg"
+              src="/me2.jpg"
               alt="Portfolio Logo"
               width={1080}
               height={1080}

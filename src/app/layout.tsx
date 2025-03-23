@@ -29,7 +29,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const commonMetaData = {
   title: APP_NAME,
-  images: `${BASE_URL}/meta-image.jpg`,
+  // images: `${BASE_URL}/meta-image.jpg`,
+  images: `${BASE_URL}/me2.jpg`,
   description: `Hello, I'm Irsyad Abdul, I have experience in PHP, Node JS, Golang and also several frameworks such as Laravel, Express JS, Nest JS and Gin`,
 };
 
