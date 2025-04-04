@@ -68,8 +68,24 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   object-fit: fill;
-  width: 36px;
-  height: 24px;
+  width: 34px;
+  height: 22px;
+  filter: grayscale(100%);
+  transition: 0.3s;
+  user-select: none;
+}
+.navbar .navbar-icon-menu .nav-link-language:not(.active),
+.navbar-icon-menu .nav-link-language:not(.active) {
+  opacity: 0.25;
+}
+.navbar .navbar-icon-menu .nav-link-language:not(.active):hover,
+.navbar-icon-menu .nav-link-language:not(.active):hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+.navbar .navbar-icon-menu .nav-link-language.active,
+.navbar-icon-menu .nav-link-language.active {
+  filter: grayscale(0%);
 }
 
 .navbar .nav-link {
