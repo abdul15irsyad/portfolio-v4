@@ -5,7 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Nav, Navbar as BootstrapNavbar, Offcanvas } from 'react-bootstrap';
+import {
+  Nav,
+  Navbar as BootstrapNavbar,
+  Offcanvas,
+  OverlayTrigger,
+  Stack,
+  Tooltip,
+} from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { navbarIconMenus, navbarMenus } from '@/data/navbar-menus.data';
@@ -125,50 +132,61 @@ export const Navbar = () => {
               ))}
             </Nav>
             <Nav className="navbar-icon-menu">
-              {[
-                {
-                  label: 'Language',
-                  logo:
-                    i18n.language === 'id'
-                      ? '/country/bahasa.jpg'
-                      : '/country/english.jpg',
-                  onClick: () =>
-                    handleChangeLanguage(i18n.language === 'en' ? 'id' : 'en'),
-                },
-                ...navbarIconMenus,
-              ].map(({ href, label, logo, newTab, onClick }, index) =>
-                href ? (
-                  <Nav.Link
+              <Stack direction="horizontal">
+                {[
+                  { image: 'bahasa.jpg', lang: 'id', label: 'Bahasa' },
+                  { image: 'english.jpg', lang: 'en', label: 'English' },
+                ].map(({ image, lang, label }, index) => (
+                  <OverlayTrigger
                     key={index}
-                    href={href}
-                    target={newTab ? '_blank' : '_self'}
-                    as={Link}
-                    active={rootPath === href}
+                    overlay={<Tooltip>{label}</Tooltip>}
+                    placement="bottom"
                   >
-                    {logo ? (
-                      <Image
-                        src={logo}
-                        alt={label}
-                        title={label}
-                        width={24}
-                        height={24}
-                      />
-                    ) : (
-                      label
-                    )}
-                  </Nav.Link>
-                ) : (
-                  <Image
-                    key={index}
-                    className="nav-link-language"
-                    onClick={onClick}
-                    src={logo!}
-                    alt={label}
-                    title={label}
-                    width={120}
-                    height={120}
-                  />
-                ),
+                    <Image
+                      className={`nav-link-language ${i18n.language === lang ? 'active' : ''}`}
+                      onClick={() => handleChangeLanguage(lang)}
+                      src={`/country/${image}`}
+                      alt={label}
+                      width={120}
+                      height={120}
+                    />
+                  </OverlayTrigger>
+                ))}
+              </Stack>
+              {navbarIconMenus.map(
+                ({ href, label, logo, newTab, onClick }, index) =>
+                  href ? (
+                    <Nav.Link
+                      key={index}
+                      href={href}
+                      target={newTab ? '_blank' : '_self'}
+                      as={Link}
+                      active={rootPath === href}
+                    >
+                      {logo ? (
+                        <Image
+                          src={logo}
+                          alt={label}
+                          title={label}
+                          width={24}
+                          height={24}
+                        />
+                      ) : (
+                        label
+                      )}
+                    </Nav.Link>
+                  ) : (
+                    <Image
+                      key={index}
+                      className="nav-link-language"
+                      onClick={onClick}
+                      src={logo!}
+                      alt={label}
+                      title={label}
+                      width={120}
+                      height={120}
+                    />
+                  ),
               )}
             </Nav>
           </Offcanvas.Body>
