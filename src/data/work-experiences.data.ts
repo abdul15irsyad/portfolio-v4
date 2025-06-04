@@ -4,10 +4,38 @@ import { WorkExperience } from '@/types/work-experience.type';
 
 export const workExperiences: WorkExperience[] = [
   {
+    id: '6a2301b4-e69c-4d91-acf8-e5642a8480e5',
+    position: 'Fullstack Engineer',
+    startDate: dayjs(`2025-06-03`).toDate(),
+    endDate: null,
+    company: {
+      name: 'Krom',
+      fullname: 'Krom Bank',
+      logo: '/experience/krom.png',
+    },
+    translates: [
+      {
+        lang: 'id',
+        desc: 'Bergabung dengan tim Internal Tools.',
+      },
+      {
+        lang: 'en',
+        desc: 'Join Internal Tools team.',
+      },
+    ],
+    techStacks: [
+      'Typescript',
+      'Express JS',
+      'React JS',
+      'PostgreSQL',
+      'Mantine UI',
+    ],
+  },
+  {
     id: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
     position: 'Fullstack Developer',
     startDate: dayjs(`2024-06-03`).toDate(),
-    endDate: null,
+    endDate: dayjs(`2025-06-03`).toDate(),
     company: {
       name: 'BRI',
       fullname: 'Bank Rakyat Indonesia',

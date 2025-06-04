@@ -46,7 +46,7 @@ const Experience = () => {
             endDate = endDate ?? new Date();
             const monthDiff = dayjs(endDate).diff(startDate, 'months');
             const workDuration =
-              monthDiff / 12 > 1
+              monthDiff / 12 >= 1
                 ? `${Math.floor(monthDiff / 12)} ${t('year')}${
                     Math.floor(monthDiff % 12) > 0
                       ? ` ${Math.floor(monthDiff % 12)} ${t('month')}`
