@@ -18,7 +18,6 @@ import ImagePreview, { Modal } from '@/components/image-preview/image-preview';
 import { Blog as BlogInterface } from '@/types/blog.type';
 import { renderTimestamp } from '@/utils/date.util';
 import { calculateMinutesRead } from '@/utils/string.util';
-import { queryString } from '@/utils/url.util';
 
 import { BlogDetailReferences } from './blog-detail-reference';
 
@@ -34,13 +33,7 @@ hljs.addPlugin(
   }),
 );
 
-export const BlogDetail = ({
-  blog,
-  searchParams,
-}: {
-  blog: BlogInterface;
-  searchParams: any;
-}) => {
+export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
   const router = useRouter();
   const { t } = useTranslation();
   const minutesRead = useMemo(
@@ -50,8 +43,6 @@ export const BlogDetail = ({
       }),
     [blog.content],
   );
-  const addQueryString = queryString(searchParams);
-
   useEffect(() => hljs.highlightAll());
   const [modal, setModal] = useState<Modal>({});
   const blogContent = useRef<HTMLDivElement>(null);
@@ -158,7 +149,7 @@ export const BlogDetail = ({
               className="blog-tag"
               onClick={() => {
                 nProgress.start();
-                router.push(`/blog?${addQueryString('tag', tag!)}`);
+                router.push(`/blog?tag=${tag}`);
               }}
             >
               #{tag}

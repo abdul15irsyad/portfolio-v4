@@ -1,9 +1,9 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { useRouter, useSearchParams } from 'next/navigation';
+import axios from 'axios';
 import nProgress from 'nprogress';
-import React, { useCallback } from 'react';
+import { parseAsInteger, useQueryState } from 'nuqs';
 import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -23,40 +23,30 @@ import { PortfolioItem2Loading } from './portfolio-item-2-loading';
 
 export const PortfolioNewView = () => {
   const { t } = useTranslation();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
-  const year = searchParams.get('year') ?? 'all';
-  const type = searchParams.get('type') ?? 'all';
+  const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
+  const [year, setYear] = useQueryState('year', { defaultValue: 'all' });
+  const [type, setType] = useQueryState('type', { defaultValue: 'all' });
   const limit = 6;
-  const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery<{
-    message: string;
-    data: Portfolio[];
-    meta: { totalAllData: number; totalData: number };
-  }>({
+
+  const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery({
     queryKey: ['portfolios', { page, limit, type, year }],
     queryFn: async () => {
-      const newSearchParams = new URLSearchParams();
-      newSearchParams.set('limit', limit.toString());
-      if (page) newSearchParams.set('page', page.toString());
-      if (type) newSearchParams.set('type', type);
-      if (year) newSearchParams.set('year', year);
-      const url = `/api/portfolios?${newSearchParams.toString()}`;
-      return (await fetch(url)).json();
+      nProgress.start();
+      const response = await axios.get<{
+        message: string;
+        data: Portfolio[];
+        meta: { totalAllData: number; totalData: number };
+      }>('/api/portfolios', {
+        params: {
+          page,
+          limit,
+          type,
+          year,
+        },
+      });
+      return response.data;
     },
   });
-
-  const queryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams as any);
-      if (name !== 'page') params.delete('page');
-      if (value === '') params.delete(name);
-      else params.set(name, value);
-      return params.toString();
-    },
-    [searchParams],
-  );
 
   return (
     <div className="portfolio section doodle-background">
@@ -72,28 +62,14 @@ export const PortfolioNewView = () => {
                 <FormSelect
                   defaultValue={year}
                   options={portfolioYears}
-                  handleChange={(e) => {
-                    if (e.target?.value !== year) {
-                      nProgress.start();
-                      router.push(
-                        `/portfolio?${queryString('year', e.target?.value?.toString())}`,
-                      );
-                    }
-                  }}
+                  handleChange={(e) => setYear(e.target?.value)}
                 />
               </div>
               <div className="filter filter-type">
                 <FormSelect
                   defaultValue={type}
                   options={portfolioCategories}
-                  handleChange={(e) => {
-                    if (e.target?.value !== type) {
-                      nProgress.start();
-                      router.push(
-                        `/portfolio?${queryString('type', e.target?.value?.toString())}`,
-                      );
-                    }
-                  }}
+                  handleChange={(e) => setType(e.target?.value)}
                 />
               </div>
             </div>
@@ -137,11 +113,8 @@ export const PortfolioNewView = () => {
         {(portfoliosResponse?.meta?.totalAllData ?? 0) > 0 && (
           <Pagination
             position="center"
-            activePage={page}
-            setPage={({ page }) => {
-              nProgress.start();
-              router.push(`/portfolio?${queryString('page', page.toString())}`);
-            }}
+            currentPage={page}
+            setCurrentPage={setPage}
             totalPage={Math.ceil(
               (portfoliosResponse?.meta?.totalAllData ?? 0) / limit,
             )}

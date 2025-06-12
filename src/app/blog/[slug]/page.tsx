@@ -8,7 +8,7 @@ import { getBlog, getLatestBlog } from '@/services/blog.service';
 import { BlogReferenceInterface } from '@/types/blog.type';
 import { extractSeoData } from '@/utils/seo.util';
 
-const BlogDetailPage = async ({ params, searchParams }) => {
+const BlogDetailPage = async ({ params }) => {
   const blog = await cache(`blog:${params.slug}`, () =>
     getBlog({ slug: params.slug }),
   );
@@ -37,7 +37,6 @@ const BlogDetailPage = async ({ params, searchParams }) => {
   return (
     <BlogDetailView
       blog={{ ...blog, references: blogReferences! }}
-      searchParams={searchParams}
       latestBlogs={latestBlogs}
     />
   );

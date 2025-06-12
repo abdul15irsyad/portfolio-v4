@@ -1,35 +1,18 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import nProgress from 'nprogress';
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-type Prop = {
-  queryString: (name: string, value: string) => string;
-};
+import { isNotEmpty } from '@/utils/validation.util';
 
-export const SearchBar = ({ queryString }: Prop) => {
+export const SearchBar = ({ search, setSearch, setQuerySearch }) => {
   const { t } = useTranslation();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get('search'));
-
-  useEffect(() => {
-    setSearch(searchParams.get('search'));
-  }, [searchParams]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (search) {
-      nProgress.start();
-      router.push(`/blog?${queryString('search', search)}`);
-    }
+    if (isNotEmpty(search)) setQuerySearch(search);
   };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setSearch(e.target.value);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -41,7 +24,7 @@ export const SearchBar = ({ queryString }: Prop) => {
           name="search"
           placeholder={`${t('search-blog-title')}...`}
           value={search ?? ''}
-          onChange={handleChange}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </InputGroup>
     </Form>

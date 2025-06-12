@@ -36,5 +36,6 @@ module.exports = {
     'import/no-anonymous-default-export': 'off',
     'react/display-name': 'off',
     'react-hooks/rules-of-hooks': 'off',
+    'no-console': 'warn',
   },
 };

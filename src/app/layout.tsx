@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { Footer, Navbar } from '@/components/layout';
 import { ScrollToTop } from '@/components/layout/scroll-to-top';
@@ -73,11 +74,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={plusJakartaSans.className}>
         <AllProvider>
-          <ProgressBar />
-          <Navbar />
-          {children}
-          <SpeedInsights />
-          <Footer />
+          <NuqsAdapter>
+            <ProgressBar />
+            <Navbar />
+            {children}
+            <SpeedInsights />
+            <Footer />
+          </NuqsAdapter>
         </AllProvider>
         <ScrollToTop />
       </body>
