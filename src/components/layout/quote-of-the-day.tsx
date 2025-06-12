@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import dayjs from 'dayjs';
 import React from 'react';
 // import utc from 'dayjs/plugin/utc';
@@ -14,19 +15,19 @@ import styles from './quote-of-the-day.module.css';
 // dayjs.extend(timezone);
 
 export const QuoteOfTheDay = () => {
-  const { data: response, isLoading } = useQuery<{
-    message: string;
-    data: {
-      date: string;
-      quote: PickQuoteOfTheDay;
-    };
-  }>({
+  const { data: response, isLoading } = useQuery({
     queryKey: ['quoteOfTheDay'],
     queryFn: async () => {
       // const date = dayjs().utc().format('YYYY-MM-DD');
       const date = dayjs().format('YYYY-MM-DD');
-      const data = await fetch(`/api/quote-of-the-day?date=${date}`);
-      return data.json();
+      const response = await axios.get<{
+        message: string;
+        data: {
+          date: string;
+          quote: PickQuoteOfTheDay;
+        };
+      }>(`/api/quote-of-the-day?date=${date}`);
+      return response.data;
     },
   });
   const quote = response?.data?.quote;

@@ -1,8 +1,9 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { useRouter, useSearchParams } from 'next/navigation';
-import nProgress from 'nprogress';
+import axios from 'axios';
+import { parseAsInteger, useQueryState } from 'nuqs';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
@@ -14,60 +15,23 @@ import { Blog } from '@/types/blog.type';
 import BlogItem from './blog-item';
 import LoadingBlogs from './loading-blogs';
 
-type Prop = {
-  limit?: number;
-  queryString: (name: string, value: string) => string;
-};
-
-export default ({ limit = 5, queryString }: Prop) => {
+export default () => {
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const tag = searchParams.get('tag');
-  const search = searchParams.get('search');
-  const activePage = searchParams.get('page') ? +searchParams.get('page')! : 1;
+  const [tag] = useQueryState('tag');
+  const [search] = useQueryState('q');
+  const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
 
-  const setPage = ({
-    page,
-    activePage,
-  }: {
-    page: number;
-    activePage: number;
-  }) => {
-    if (page !== activePage && queryString !== undefined) {
-      nProgress.start();
-      router.push(`/blog?${queryString('page', page.toString())}`);
-    }
-  };
+  useEffect(() => {
+    setPage(1);
+  }, [tag, search, setPage]);
 
-  const { data: blogs, isLoading: isLoadingBlogs } = useQuery<
-    ApiResponseAll<Blog>
-  >({
-    queryKey: ['blogs', { page: activePage, tag, search }],
+  const { data: blogs, isLoading: isLoadingBlogs } = useQuery({
+    queryKey: ['blogs', { page, tag, search }],
     queryFn: async () => {
-      const newSearchParams = new URLSearchParams();
-      newSearchParams.set('limit', limit.toString());
-      if (activePage) newSearchParams.set('page', activePage.toString());
-      if (tag) newSearchParams.set('tag', tag);
-      if (search) newSearchParams.set('search', search);
-      // return {
-      //   data: blogDatas.slice((activePage - 1) * limit, limit),
-      //   message: 'test',
-      //   meta: {
-      //     currentPage: activePage,
-      //     totalPage: limit
-      //       ? Math.ceil(blogDatas.length / limit)
-      //       : blogDatas.slice((activePage - 1) * limit, limit).length > 0
-      //         ? 1
-      //         : null,
-      //     totalData: blogDatas.slice((activePage - 1) * limit, limit).length,
-      //     totalAllData: blogDatas.length,
-      //   },
-      // } as any;
-      const url = `/api/blog${
-        newSearchParams.size > 0 ? `?${newSearchParams.toString()}` : ''
-      }`;
-      return (await fetch(url)).json();
+      const response = await axios.get<ApiResponseAll<Blog>>('/api/blog', {
+        params: { page, tag, search, limit: 5 },
+      });
+      return response.data;
     },
   });
 
@@ -89,8 +53,8 @@ export default ({ limit = 5, queryString }: Prop) => {
           }}
         ></div>
         <Pagination
-          setPage={setPage}
-          activePage={activePage}
+          setCurrentPage={setPage}
+          currentPage={page}
           totalPage={blogs?.meta.totalPage}
           sibling={2}
         />

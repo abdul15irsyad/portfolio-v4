@@ -1,15 +1,14 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import axios from 'axios';
+import { useQueryState } from 'nuqs';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Donate from '@/components/donate/donate';
 import { SearchBar } from '@/components/search-bar/search-bar';
 import { SectionTitle } from '@/components/section-title/section-title.component';
-import { ENV } from '@/configs/app.config';
 import Blogs from '@/content/blog/blogs';
 import LoadingTags from '@/content/blog/loading-tags';
 import { ApiResponseAll } from '@/types/api-response.type';
@@ -17,28 +16,24 @@ import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const BlogView = () => {
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
-  const tag = searchParams.get('tag');
-  const search = searchParams.get('search');
+  const [tag, setTag] = useQueryState('tag');
+  const [querySearch, setQuerySearch] = useQueryState('q');
+  const [search, setSearch] = useState('');
   const [isTagsExpand, setIsTagsExpand] = useState<boolean>(false);
 
-  const { data: allTags, isLoading: isLoadingAllTags } = useQuery<
-    ApiResponseAll<string>
-  >({
+  const { data: allTags, isLoading: isLoadingAllTags } = useQuery({
     queryKey: ['allTags'],
-    queryFn: async () => (await fetch('/api/blog/tag')).json(),
+    queryFn: async () => {
+      const response = await axios.get<ApiResponseAll<string>>('/api/blog/tag');
+      return response.data;
+    },
   });
 
-  const queryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams as any);
-      if (name !== 'page') params.delete('page');
-      if (value === '') params.delete(name);
-      else params.set(name, value);
-      return params.toString();
-    },
-    [searchParams],
-  );
+  const handleClearFilter = useCallback(() => {
+    setTag(null);
+    setQuerySearch(null);
+    setSearch('');
+  }, [setTag, setQuerySearch]);
 
   return (
     <>
@@ -50,37 +45,38 @@ export const BlogView = () => {
                 title={capitalizeEachWord(t('blog'))}
                 subTitle={t('blog-desc')}
               />
-              <SearchBar queryString={queryString} />
+              <SearchBar
+                search={search}
+                setSearch={setSearch}
+                setQuerySearch={setQuerySearch}
+              />
             </div>
           </div>
           <div className="row">
             <div className="col-xl-9 col-12">
-              {(search || tag) && (
+              {(querySearch || tag) && (
                 <div className="blog-filter">
                   <div className="blog-filter-text">
                     <h4 className="blog-filter-heading">
                       {capitalize(t('result-for'))}{' '}
-                      {search && <span>&quot;{search}&quot;</span>}{' '}
-                      {search && tag && t('and')} {tag && <span>#{tag}</span>}
+                      {querySearch && <span>&quot;{querySearch}&quot;</span>}{' '}
+                      {querySearch && tag && t('and')}{' '}
+                      {tag && <span>#{tag}</span>}
                     </h4>
                   </div>
                   <div className="blog-filter-reset">
-                    <Link
-                      href="/blog"
-                      type="button"
+                    <div
+                      onClick={handleClearFilter}
                       className="btn btn-sm btn-outline-danger mt-3"
                       title="clear filter"
                     >
                       <i className="bi bi-trash me-1"></i>
                       <span>{capitalizeEachWord(t('clear-filter'))}</span>
-                    </Link>
+                    </div>
                   </div>
                 </div>
               )}
-              <Blogs
-                limit={ENV === 'production' ? 5 : 5}
-                queryString={queryString}
-              />
+              <Blogs />
             </div>
             <div className="col-xl-3 col-12 blog-sidebar">
               <div
@@ -105,14 +101,14 @@ export const BlogView = () => {
                   <>
                     <div className="blog-tags">
                       {allTags?.data.map((tag, index) => (
-                        <Link
-                          href={`/blog?${queryString('tag', tag)}`}
+                        <div
                           key={index}
+                          onClick={() => setTag(tag)}
                           className="blog-tag"
                           title={tag}
                         >
                           #{tag}
-                        </Link>
+                        </div>
                       ))}
                     </div>
                   </>

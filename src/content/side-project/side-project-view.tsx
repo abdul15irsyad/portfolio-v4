@@ -19,7 +19,9 @@ import { capitalizeEachWord } from '@/utils/change-case';
 export const SideProjectView = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
-  const currentPage = page;
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
   const limit = 6;
   const [sideProjects, setSideProjects] = useState(
     paginatedArray(allSideProjects, { page, limit }),
@@ -106,13 +108,8 @@ export const SideProjectView = () => {
         {totalAllData > 0 && (
           <Pagination
             position="center"
-            activePage={page}
-            setPage={({ page }) => {
-              if (currentPage !== page) {
-                setPage(page);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
+            currentPage={page}
+            setCurrentPage={setPage}
             totalPage={Math.ceil(totalAllData / limit)}
           />
         )}

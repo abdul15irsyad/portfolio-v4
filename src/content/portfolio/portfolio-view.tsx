@@ -20,6 +20,9 @@ import { capitalize } from '@/utils/change-case';
 export const PortfolioView = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
   const [year, setYear] = useState<string | number>('all');
   const [type, setType] = useState<string>('all');
   const limit = 6;
@@ -105,11 +108,8 @@ export const PortfolioView = () => {
         {totalAllData > 0 && (
           <Pagination
             position="center"
-            activePage={page}
-            setPage={({ page }) => {
-              setPage(page);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            currentPage={page}
+            setCurrentPage={setPage}
             totalPage={Math.ceil(totalAllData / limit)}
           />
         )}
