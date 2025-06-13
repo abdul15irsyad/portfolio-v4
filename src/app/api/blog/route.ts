@@ -1,15 +1,17 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { cache } from '@/redis/redis.util';
 import { getBlogWithPagination } from '@/services/blog.service';
 import { handleError } from '@/utils/error.util';
 import { cleanNull } from '@/utils/object.util';
 
-export async function GET(request: Request) {
+export const dynamic = 'force-dynamic';
+
+export async function GET(request: NextRequest) {
   try {
     const parseSearchParams = (key: string[] | string) =>
       Array.isArray(key) ? key[key.length - 1] : key;
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
     const tag = parseSearchParams(searchParams.get('tag')!);
     const search = parseSearchParams(searchParams.get('search')!);
     const page = parseSearchParams(searchParams.get('page')!);
