@@ -44,6 +44,7 @@ export const PortfolioNewView = () => {
           year,
         },
       });
+      nProgress.done();
       return response.data;
     },
   });
