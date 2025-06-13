@@ -1,5 +1,11 @@
+import { Suspense } from 'react';
+
 import { BlogView } from '@/content/blog/blog-view';
 
 export default async () => {
-  return <BlogView />;
+  return (
+    <Suspense>
+      <BlogView />
+    </Suspense>
+  );
 };

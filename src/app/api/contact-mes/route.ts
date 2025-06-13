@@ -13,12 +13,14 @@ import { isNotEmpty } from '@/utils/validation.util';
 
 import { notfound } from '../notfound.util';
 
-export const GET = async (req: NextRequest) => {
+export const dynamic = 'force-dynamic';
+
+export const GET = async (request: NextRequest) => {
   try {
     if (!EXPERIMENTAL) {
       return notfound();
     }
-    const { searchParams } = new URL(req.url);
+    const searchParams = request.nextUrl.searchParams;
     const search = searchParams.get('search');
     const page = searchParams.get('page') ? +searchParams.get('page')! : 1;
     const limit = searchParams.get('limit') ? +searchParams.get('limit')! : 10;
