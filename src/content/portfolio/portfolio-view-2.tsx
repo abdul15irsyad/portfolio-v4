@@ -33,7 +33,7 @@ export const PortfolioView2 = () => {
   }, [page]);
   useEffect(() => {
     setPage(1);
-  }, [page, year, setPage]);
+  }, [type, year, setPage]);
 
   const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery({
     queryKey: ['portfolios', { page, limit, type, year }],
