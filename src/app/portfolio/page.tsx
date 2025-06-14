@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 
-import { PortfolioNewView } from '@/content/portfolio/portfolio-new-view';
+import { PortfolioView2 } from '@/content/portfolio/portfolio-view-2';
 
 export default () => {
   return (
     <Suspense>
-      <PortfolioNewView />
+      <PortfolioView2 />
     </Suspense>
   );
 };

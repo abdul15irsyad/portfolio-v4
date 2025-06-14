@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { Footer, Navbar } from '@/components/layout';
@@ -15,18 +15,20 @@ import { ProgressBar } from '@/components/progress-bar/progress-bar';
 import { AllProvider } from '@/components/provider/all-provider';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  style: 'normal',
-  subsets: ['latin-ext'],
-  fallback: ['sans-serif'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
-});
-
-// const figtree = Figtree({
+// const plusJakartaSans = Plus_Jakarta_Sans({
 //   style: 'normal',
 //   subsets: ['latin-ext'],
 //   fallback: ['sans-serif'],
+//   weight: ['200', '300', '400', '500', '600', '700', '800'],
 // });
+
+export const outfit = Outfit({
+  subsets: ['latin'],
+  fallback: ['sans-serif'],
+  weight: ['300', '400', '500', '600', '700'],
+  // variable: '--font-outfit',
+  // display: 'swap',
+});
 
 export const commonMetaData = {
   title: APP_NAME,
@@ -72,7 +74,8 @@ export const metadata: Metadata = {
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={plusJakartaSans.className}>
+      {/* <body className={plusJakartaSans.className}> */}
+      <body className={outfit.className}>
         <AllProvider>
           <NuqsAdapter>
             <ProgressBar />

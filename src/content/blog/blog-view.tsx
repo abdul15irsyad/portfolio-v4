@@ -27,6 +27,7 @@ export const BlogView = () => {
       const response = await axios.get<ApiResponseAll<string>>('/api/blog/tag');
       return response.data;
     },
+    staleTime: 1000 * 60 * 60 * 2,
   });
 
   const handleClearFilter = useCallback(() => {
