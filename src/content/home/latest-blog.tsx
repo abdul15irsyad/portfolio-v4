@@ -65,7 +65,7 @@ export const LatestBlog = () => {
                 </>
               ) : (
                 <>
-                  <Link href={`/blog/${latestBlog?.data.slug}`}>
+                  <Link href={`/blog/${latestBlog?.data?.slug}`}>
                     <div className="latest-blog-item-image">
                       <Image
                         src={latestBlog?.data.featureImage?.url as string}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CSSProperties } from 'react';
 
 import { BASE_URL } from '@/configs/app.config';
 
@@ -9,9 +10,15 @@ export interface AvatarProps {
   imageUrl?: string | null;
 }
 
-export const Avatar = ({ user }: { user: AvatarProps }) => {
+export const Avatar = ({
+  user,
+  style,
+}: {
+  user: AvatarProps;
+  style?: CSSProperties;
+}) => {
   return (
-    <div className={styles.avatar}>
+    <div className={styles.avatar} style={style}>
       <Image
         src={user!.imageUrl ?? `${BASE_URL}/blog/default-profile.png`}
         alt={user.alt!}

@@ -22,6 +22,10 @@ export default () => {
   const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+
+  useEffect(() => {
     setPage(1);
   }, [tag, search, setPage]);
 

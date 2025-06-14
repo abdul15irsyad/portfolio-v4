@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import nProgress from 'nprogress';
 import { parseAsInteger, useQueryState } from 'nuqs';
+import { useEffect } from 'react';
 import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -21,12 +22,18 @@ import { capitalizeEachWord } from '@/utils/change-case';
 
 import { PortfolioItem2Loading } from './portfolio-item-2-loading';
 
-export const PortfolioNewView = () => {
+export const PortfolioView2 = () => {
   const { t } = useTranslation();
   const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
   const [year, setYear] = useQueryState('year', { defaultValue: 'all' });
   const [type, setType] = useQueryState('type', { defaultValue: 'all' });
   const limit = 6;
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+  useEffect(() => {
+    setPage(1);
+  }, [page, year, setPage]);
 
   const { data: portfoliosResponse, isLoading: portfoliosLoading } = useQuery({
     queryKey: ['portfolios', { page, limit, type, year }],
