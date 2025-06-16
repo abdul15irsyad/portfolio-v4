@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { parseAsInteger, useQueryState } from 'nuqs';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
@@ -20,12 +20,17 @@ export default () => {
   const [tag] = useQueryState('tag');
   const [search] = useQueryState('q');
   const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);
-
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     setPage(1);
   }, [tag, search, setPage]);
 
