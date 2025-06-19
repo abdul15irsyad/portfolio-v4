@@ -3,7 +3,7 @@
 import AOS from 'aos';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -28,6 +28,10 @@ export const SideProjectItem = ({
     translates?.find(({ lang }) => lang === i18n.language)?.title ?? title!,
   );
   desc = translates?.find(({ lang }) => lang === i18n.language)?.desc ?? desc!;
+  const imgSrc = useMemo(
+    () => (typeof img === 'string' ? img : random(img)),
+    [img],
+  );
   return (
     <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
       <div className="side-project-img-wrapper">
@@ -45,7 +49,7 @@ export const SideProjectItem = ({
               </Link>
             </div>
             <Image
-              src={typeof img === 'string' ? img : random(img)}
+              src={imgSrc}
               className="side-project-img"
               alt={title}
               width={1080}
@@ -55,7 +59,7 @@ export const SideProjectItem = ({
           </>
         ) : (
           <Image
-            src={typeof img === 'string' ? img : random(img)}
+            src={imgSrc}
             className="side-project-img"
             alt={title}
             width={1080}
