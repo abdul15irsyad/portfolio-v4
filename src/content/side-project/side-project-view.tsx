@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import { parseAsInteger, useQueryState } from 'nuqs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import { ClearButton } from '@/components/clear-button';
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
 import { SectionTitle } from '@/components/section-title/section-title.component';
@@ -28,13 +28,7 @@ export const SideProjectView = () => {
   const [totalAllData, setTotalAllData] = useState<number>(
     allSideProjects.length,
   );
-  const [activeStacks, setActiveStacks] = useQueryState('active-stacks', {
-    parse: (value: string | null) =>
-      value?.split(',').filter((item) => !!item.trim()) ?? [],
-    serialize: (value: string[]) =>
-      value.filter((item) => !!item.trim()).join(','),
-    defaultValue: [],
-  });
+  const [activeStacks, setActiveStacks] = useState<string[]>([]);
   const [stacks, setStacks] = useState(
     allStacks.map((stack) => ({
       ...stack,
@@ -132,14 +126,7 @@ export const SideProjectView = () => {
                 (activeStacks ?? []).length > 0 ? 'visible' : 'hidden',
             }}
           >
-            <Button
-              variant="outline-danger"
-              size="sm"
-              onClick={() => setActiveStacks([])}
-            >
-              <i className="bi bi-trash me-1"></i>
-              <span>{capitalizeEachWord(t('clear-filter'))}</span>
-            </Button>
+            <ClearButton onClick={() => setActiveStacks([])} />
           </div>
         </div>
         <div className="row">
