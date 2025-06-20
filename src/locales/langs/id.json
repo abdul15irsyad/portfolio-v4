@@ -4,7 +4,7 @@
   "problem-solve": "pemecahan masalah",
   "see-item": "lihat {{item}}",
   "resume": "resume",
-  "personal-info": "Saya seorang <strong>Web Developer</strong> dengan pengalaman {{year}}+ tahun, dimana saya memiliki prinsip <strong>\"keep improving\"</strong> karena saya merasa dalam dunia pengembangan website/aplikasi kita perlu terus menerus mempelajari hal-hal baru yang relevan.",
+  "personal-info": "<p>Full Stack Developer kreatif dan berorientasi pada detail dengan pengalaman lebih dari <strong>{{year}}+ tahun</strong> dalam membangun aplikasi web dan sistem backend yang skalabel menggunakan stack JavaScript/TypeScript modern. Spesialis dalam <strong>Node.js, Golang</strong>, serta pengembangan REST API dan WebSocket dengan fokus kuat pada <strong>performa, maintainability, dan pengalaman pengguna yang baik</strong>.</p><p>Memiliki mampu berkolaborasi dengan tim lintas fungsi, menerjemahkan kebutuhan kompleks menjadi kode yang bersih, dan menghadirkan solusi yang seimbang antara tujuan bisnis dan kebutuhan pengguna. Memiliki semangat tinggi dalam menciptakan produk digital yang intuitif dan terus berkembang mengikuti teknologi terbaru.</p>",
   "education": "pendidikan",
   "s1": "s1",
   "informatics-engineering": "teknik informatika",
