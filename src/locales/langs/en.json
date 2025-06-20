@@ -4,7 +4,7 @@
   "problem-solve": "problem solve",
   "see-item": "see {{item}}",
   "resume": "resume",
-  "personal-info": "I am a <strong>Web Developer</strong> with a {{year}}+ year experience, where I have the principle of <strong>\"keep improving\"</strong> because I feel that in the world of web/application development we need to continue to learn new relevant things.",
+  "personal-info": "<p>Creative and detail-oriented Full Stack Developer with over <strong>{{year}}+ years</strong> of experience building scalable web applications and backend systems using modern JavaScript/TypeScript stacks. Specializing in <strong>Node.js, Golang</strong>, and REST API and WebSocket, with strong focus on <strong>performance, maintainability, and elegant user experiences</strong>.</p><p>Have the ability to collaborate with cross-functional teams, translate complex requirements into clean code, and deliver solutions that balance business goals with user needs. Passionate about crafting intuitive digital products and continuously evolving with emerging technologies.</p>",
   "education": "education",
   "s1": "bachelor",
   "informatics-engineering": "informatics engineering",

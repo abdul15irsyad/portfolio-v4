@@ -6,6 +6,7 @@ export const educations: Education<{ major: string }>[] = [
     institution: 'UIN Syarif Hidayatullah Jakarta',
     level: 's1',
     major: 'informatics-engineering',
+    gpa: 3.52,
     startYear: 2016,
     endYear: 2022,
   },

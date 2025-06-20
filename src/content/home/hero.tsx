@@ -16,7 +16,13 @@ const Hero = () => {
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
-      strings: ['Fullstack Dev', 'Web Dev', 'Bugbender', 'Freelancer'],
+      strings: [
+        'Fullstack Dev',
+        'Web Dev',
+        'Bugbender',
+        'Freelancer',
+        'Software Engineer',
+      ],
       typeSpeed: 100,
       loop: true,
     });
@@ -37,9 +43,10 @@ const Hero = () => {
   //   href: 'https://www.fiverr.com/irsyadabdul?public_mode=true',
   // };
   const features = [
-    { icon: '/icons/api.png', title: 'API' },
+    { icon: '/icons/system-design.png', title: 'System Design' },
+    { icon: '/icons/api.png', title: 'Backend' },
+    { icon: '/icons/servers.png', title: 'Database' },
     { icon: '/icons/web-design.png', title: 'Web Design' },
-    { icon: '/icons/servers.png', title: 'ERD Database' },
     // {
     //   icon: '/icons/puzzle.png',
     //   title: capitalizeEachWord(t('problem-solve')),
@@ -89,7 +96,7 @@ const Hero = () => {
             </h4>
             <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
               <Link
-                href="/CV Irsyad Abdul Hamid Darussalam.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline-primary text-capitalize px-3 hire-me"
