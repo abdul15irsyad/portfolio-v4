@@ -53,7 +53,7 @@ export const programmingSkills: ProgrammingSkill[] = [
       },
       {
         name: 'Express JS',
-        logo: '/programming/express.png',
+        logo: '/programming/express-js.png',
         level: Level.GOOD,
         href: 'https://expressjs.com',
       },
