@@ -4,6 +4,15 @@ import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {
+    id: '318626e4-a35d-4fbc-ae04-640201b87a18',
+    createdAt: new Date('2025-06-23 08:20:46+07:00'),
+    updatedAt: new Date('2025-06-23 08:20:46+07:00'),
+    path: 'blog',
+    fileName: 'pros-n-cons-foreign-key.jpg',
+    originalFileName: 'pros-n-cons-foreign-key.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '178cab2c-9a50-40b6-9f62-5fbda0e89071',
     createdAt: new Date('2025-03-09 19:20:46+07:00'),
     updatedAt: new Date('2025-03-09 19:20:46+07:00'),
