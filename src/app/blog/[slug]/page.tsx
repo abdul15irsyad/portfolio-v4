@@ -25,7 +25,7 @@ const BlogDetailPage = async ({ params }) => {
       getLatestBlog({ limit }),
     )) as any[]
   )
-    .filter((latestBlog) => latestBlog.id !== blog.id)
+    .filter((latestBlog) => latestBlog.id !== blog?.id)
     .slice(0, 2);
   const blogReferences: BlogReferenceInterface[] = await Promise.all(
     blog.referenceURLs?.map(
