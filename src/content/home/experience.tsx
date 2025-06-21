@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -58,6 +59,16 @@ export const ExperienceSection = () => {
                           : ''
                       }`
                     : `${monthDiff} ${t('month')}`;
+                const weekDiff = dayjs(endDate).diff(startDate, 'weeks');
+
+                const companyName = company.url ? (
+                  <Link href={company.url} className="company" target="_blank">
+                    {company.name}
+                  </Link>
+                ) : (
+                  <span className="company">{company.name}</span>
+                );
+
                 return (
                   <motion.div
                     key={index}
@@ -79,17 +90,15 @@ export const ExperienceSection = () => {
                                 overlay={<Tooltip>{company.fullname}</Tooltip>}
                                 placement="top"
                               >
-                                <span className="company">{company.name}</span>
+                                {companyName}
                               </OverlayTrigger>
                             ) : (
-                              <span className="company">{company.name}</span>
+                              companyName
                             )}
                           </div>
-                          {monthDiff > 0 && (
-                            <div className="d-inline-block work-duration mt-1">
-                              {workDuration}
-                            </div>
-                          )}
+                          <div className="d-inline-block work-duration mt-1">
+                            {monthDiff > 0 ? workDuration : `${weekDiff} week`}
+                          </div>
                         </div>
                         <div className="right align-self-center">
                           <Image

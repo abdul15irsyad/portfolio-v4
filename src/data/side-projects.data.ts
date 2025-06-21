@@ -1,5 +1,8 @@
+import slugify from 'slugify';
+
 import { BASE_URL } from '@/configs/app.config';
 import { SideProject } from '@/types/side-project.type';
+import { random } from '@/utils/array.util';
 
 export const sideProjects: SideProject[] = [
   {
@@ -263,7 +266,10 @@ export const sideProjects: SideProject[] = [
       },
     ],
   },
-];
+].map(({ img, ...sideProject }) => ({
+  ...sideProject,
+  img: Array.isArray(img) ? random(img) : img,
+}));
 
 export const allStacks = sideProjects
   .reduce((prev: SideProject['stacks'], curr) => {
@@ -274,4 +280,8 @@ export const allStacks = sideProjects
       ),
     ];
   }, [])
-  .sort((a, b) => (a.label < b.label ? -1 : 1));
+  .map((stack) => ({
+    ...stack,
+    slug: slugify(stack.icon.split('/').pop()!.split('.')[0]!),
+  }))
+  .sort((a, b) => (a.slug < b.slug ? -1 : 1));

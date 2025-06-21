@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback, useEffect, useState } from 'react';
+import { parseAsInteger, useQueryState } from 'nuqs';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ClearButton } from '@/components/clear-button';
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
 import { SectionTitle } from '@/components/section-title/section-title.component';
@@ -18,10 +20,7 @@ import { capitalizeEachWord } from '@/utils/change-case';
 
 export const SideProjectView = () => {
   const { t } = useTranslation();
-  const [page, setPage] = useState<number>(1);
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [page]);
+  const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1));
   const limit = 6;
   const [sideProjects, setSideProjects] = useState(
     paginatedArray(allSideProjects, { page, limit }),
@@ -29,10 +28,22 @@ export const SideProjectView = () => {
   const [totalAllData, setTotalAllData] = useState<number>(
     allSideProjects.length,
   );
+  const [activeStacks, setActiveStacks] = useState<string[]>([]);
   const [stacks, setStacks] = useState(
-    allStacks.map((stack) => ({ ...stack, isActive: false })),
+    allStacks.map((stack) => ({
+      ...stack,
+      isActive: activeStacks?.includes(stack.label),
+    })),
   );
-
+  useEffect(() => {
+    setStacks((stacks) =>
+      stacks.map((stack) =>
+        activeStacks?.includes(stack.slug)
+          ? { ...stack, isActive: true }
+          : { ...stack, isActive: false },
+      ),
+    );
+  }, [activeStacks]);
   const filterSideProjects = useCallback(
     (sideProjects: SideProject[]) => {
       const activeStacks = stacks.filter(({ isActive }) => isActive);
@@ -47,13 +58,23 @@ export const SideProjectView = () => {
     [stacks],
   );
 
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+
   // on stack change
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     const filteredSideProjects = filterSideProjects(allSideProjects);
     setPage(1);
     setSideProjects(paginatedArray(filteredSideProjects, { page: 1, limit }));
     setTotalAllData(filteredSideProjects.length);
-  }, [filterSideProjects, stacks]);
+  }, [filterSideProjects, stacks, setPage]);
 
   useEffect(() => {
     const filteredPortfolios = filterSideProjects(allSideProjects);
@@ -68,19 +89,24 @@ export const SideProjectView = () => {
           subTitle={t('side-project-desc')}
         />
         <div className="row justify-content-center">
-          <div className="col-auto stacks">
-            {stacks?.map(({ label, icon, isActive }, index) => (
+          <div className="col-auto stacks user-select-none">
+            {stacks?.map(({ label, icon, slug, isActive }, index) => (
               <div
                 key={index}
                 className={`stack ${isActive ? 'active' : ''}`}
                 onClick={() =>
-                  setStacks(
-                    stacks.map((stack) =>
-                      stack.icon === icon
-                        ? { ...stack, isActive: !stack.isActive }
-                        : stack,
-                    ),
-                  )
+                  // setStacks(
+                  //   stacks.map((stack) =>
+                  //     stack.icon === icon
+                  //       ? { ...stack, isActive: !stack.isActive }
+                  //       : stack,
+                  //   ),
+                  // )
+                  setActiveStacks((value) => {
+                    return value?.includes(slug)
+                      ? value?.filter((t) => t !== slug)
+                      : [...(value ?? []), slug];
+                  })
                 }
               >
                 <Image
@@ -92,6 +118,15 @@ export const SideProjectView = () => {
                 />
               </div>
             ))}
+          </div>
+          <div
+            className="col-12 text-center"
+            style={{
+              visibility:
+                (activeStacks ?? []).length > 0 ? 'visible' : 'hidden',
+            }}
+          >
+            <ClearButton onClick={() => setActiveStacks([])} />
           </div>
         </div>
         <div className="row">

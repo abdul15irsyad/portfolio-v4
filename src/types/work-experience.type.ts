@@ -8,6 +8,7 @@ export interface WorkExperience {
     name: string;
     fullname?: string;
     logo: string;
+    url?: string;
   };
   techStacks?: string[];
   desc?: string;

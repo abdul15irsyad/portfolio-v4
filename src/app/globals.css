@@ -375,10 +375,6 @@ ul li {
     height: 60px;
     margin-bottom: 2rem;
   }
-
-  .personal-info .row > :last-child {
-    text-align: center;
-  }
 }
 
 /* education */
@@ -416,6 +412,21 @@ ul li {
   padding: 1rem;
   height: 70px;
   width: 70px;
+}
+
+.education .education-item .gpa {
+  display: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: x-small;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  transition: 0.3s;
+}
+.education .education-item:hover .gpa {
+  display: block;
 }
 
 @media (max-width: 991px) {
@@ -614,10 +625,14 @@ ul li {
   color: rgba(var(--bs-primary-rgb), 1);
 }
 
-.programming .category .category-items .level-basic,
-.programming .category .category-items .level-learning {
+.programming .category .category-items .level-basic {
   background-color: rgba(var(--bs-secondary-rgb), 0.1);
   color: rgba(var(--bs-secondary-rgb), 1);
+}
+
+.programming .category .category-items .level-learning {
+  background-color: rgba(var(--bs-success-rgb), 0.1);
+  color: rgba(var(--bs-success-rgb), 1);
 }
 
 @media (min-width: 992px) {

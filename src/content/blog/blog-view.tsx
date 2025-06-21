@@ -6,6 +6,7 @@ import { useQueryState } from 'nuqs';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ClearButton } from '@/components/clear-button';
 import Donate from '@/components/donate/donate';
 import { SearchBar } from '@/components/search-bar/search-bar';
 import { SectionTitle } from '@/components/section-title/section-title.component';
@@ -66,14 +67,7 @@ export const BlogView = () => {
                     </h4>
                   </div>
                   <div className="blog-filter-reset">
-                    <div
-                      onClick={handleClearFilter}
-                      className="btn btn-sm btn-outline-danger mt-3"
-                      title="clear filter"
-                    >
-                      <i className="bi bi-trash me-1"></i>
-                      <span>{capitalizeEachWord(t('clear-filter'))}</span>
-                    </div>
+                    <ClearButton onClick={handleClearFilter} />
                   </div>
                 </div>
               )}

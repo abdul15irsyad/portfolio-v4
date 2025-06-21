@@ -10,8 +10,9 @@ export const workExperiences: WorkExperience[] = [
     endDate: null,
     company: {
       name: 'Krom',
-      fullname: 'Krom Bank',
+      fullname: 'Krom Bank Indonesia',
       logo: '/experience/krom.png',
+      url: 'https://krom.id',
     },
     translates: [
       {
@@ -24,10 +25,13 @@ export const workExperiences: WorkExperience[] = [
       },
     ],
     techStacks: [
+      'Node JS',
       'Typescript',
       'Express JS',
       'React JS',
+      'Next JS',
       'PostgreSQL',
+      'Websocket',
       'Mantine UI',
     ],
   },
@@ -40,6 +44,7 @@ export const workExperiences: WorkExperience[] = [
       name: 'BRI',
       fullname: 'Bank Rakyat Indonesia',
       logo: '/experience/bri.jpeg',
+      url: 'https://bri.co.id',
     },
     translates: [
       {
@@ -106,6 +111,7 @@ export const workExperiences: WorkExperience[] = [
       name: 'Andaf Corp',
       fullname: 'Andaf Corporation',
       logo: '/experience/andaf.png',
+      url: 'https://andaf.co.id',
     },
     translates: [
       {
@@ -127,6 +133,7 @@ export const workExperiences: WorkExperience[] = [
     company: {
       name: 'Lingkar 9',
       logo: '/experience/new-lingkar-9.png',
+      url: 'https://lingkar9.com/',
     },
     translates: [
       {

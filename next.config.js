@@ -1,7 +1,8 @@
 const { withSentryConfig } = require('@sentry/nextjs');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: process.env.NEXT_PUBLIC_ENV ?? 'development',
+  reactStrictMode: process.env.NEXT_PUBLIC_ENV !== 'production',
   images: {
     remotePatterns: [
       {

@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 
 import { aosInitConfig } from '@/configs/aos.config';
 import { SideProject } from '@/types/side-project.type';
-import { random } from '@/utils/array.util';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 export const SideProjectItem = ({
@@ -28,6 +27,7 @@ export const SideProjectItem = ({
     translates?.find(({ lang }) => lang === i18n.language)?.title ?? title!,
   );
   desc = translates?.find(({ lang }) => lang === i18n.language)?.desc ?? desc!;
+
   return (
     <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
       <div className="side-project-img-wrapper">
@@ -45,7 +45,7 @@ export const SideProjectItem = ({
               </Link>
             </div>
             <Image
-              src={typeof img === 'string' ? img : random(img)}
+              src={img}
               className="side-project-img"
               alt={title}
               width={1080}
@@ -55,7 +55,7 @@ export const SideProjectItem = ({
           </>
         ) : (
           <Image
-            src={typeof img === 'string' ? img : random(img)}
+            src={img}
             className="side-project-img"
             alt={title}
             width={1080}

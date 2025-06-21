@@ -19,7 +19,7 @@ const Education = () => {
         <div className="education-items">
           {educations.map(
             (
-              { icon, institution, level, major, startYear, endYear },
+              { icon, institution, level, major, startYear, endYear, gpa },
               index,
             ) => {
               const meta: string[] = [capitalizeEachWord(t(level))];
@@ -38,6 +38,7 @@ const Education = () => {
                       </span>
                     </div>
                   </div>
+                  {gpa && <div className="gpa">GPA {gpa}</div>}
                 </div>
               );
             },
