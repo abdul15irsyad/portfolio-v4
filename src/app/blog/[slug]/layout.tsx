@@ -4,16 +4,22 @@ import React from 'react';
 import sanitize from 'sanitize-html';
 
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
-// import { blogDatas } from '@/data/blogs.data';
+import { blogDatas } from '@/data/blogs.data';
 import { cache } from '@/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
+import { Blog } from '@/types/blog.type';
 import { defaultSanitizeOptions } from '@/utils/html.util';
+import { parseBooleanString } from '@/utils/string.util';
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const blog = await cache(`blog:${params.slug}`, () =>
-    getBlog({ slug: params.slug }),
-  );
-  // const blog = blogDatas.find(({ slug }) => slug === params.slug);
+  let blog: Blog | null;
+  if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
+    blog = blogDatas.find(({ slug }) => slug === params.slug) ?? null;
+  } else {
+    blog = await cache(`blog:${params.slug}`, () =>
+      getBlog({ slug: params.slug }),
+    );
+  }
   if (!blog) notFound();
   const title = `${blog.title} - ${APP_NAME}`;
   const description = `${sanitize(blog.content, {
@@ -26,7 +32,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
   const commonMetaData = {
     title: title,
-    images: [blog?.featureImage!.url],
+    images: blog?.featureImage!.url ? [blog?.featureImage!.url] : undefined,
     description,
   };
 

@@ -6,6 +6,184 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '6ef606ee-2fa9-4f22-b2c9-cd63828486e2',
+    title: 'Pros & Cons Foreign Key',
+    slug: 'pros-and-cons-foreign-key',
+    featureImageId: '318626e4-a35d-4fbc-ae04-640201b87a18',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    bae bae kan kabarnya cuy, kali ini gw mau bahas dikit seputar <b>foreign key</b> dari sepengalaman gw aja selama ngerancang database buat suatu aplikasi khususnya database relational. buat yang berkecimpung di dunia backend atau database pasti tau, banyak dilema yang ditemuin buat ambil keputusan dari yang gampang ampe yang masing-masing keputusan ada plus minus nya termasuk penggunaan foreign key ini, kadang juga gw masih banyak salah pas ngerancang nya. 
+    </p>
+    <p>
+    menurut gw pas di tengah pengembangan kalo kesalahan yang kita buat ada di struktur database itu bete banget, pilihannya antara ngerombak database atau ngakalin query kita supaya tetep bisa ngehasilin data yang kita mau. tapi untuk case foreign key ini sebenernya ga ke arah query, palingan yang mau gw garis bawahi itu di <u>performa</u> nya, yaa walaupun gw gaada benchmark juga hehe, cuma bisa dibayangin aja, jadi langsung aja kita bahas.
+    </p>
+    <h3>pengenalan foreign key</h3>
+    <p>
+    secara definisi kurang lebih foreign key itu kolom atau field di table yang ngereferensi-in ke kolom di table yang lain, misal kita punya table <code>users</code> dan table <code>roles</code>, anggap lah case nya 1 user cuma bisa punya 1 role dan 1 role bisa punya banyak user, nah di table <code>users</code> kita akan menambahkan kolom dengan nama <code>role_id</code> misal, kolom <code>role_id</code> tersebut lah yang namanya foreign key, karna isinya nanti adalah <code>id</code> yang ngereferensiin suatu role.
+    </p>
+    <pre>
+    <code class="language-sql">create table roles (
+  id int primary key,
+  name varchar(100)
+);
+  
+create table users (
+  id int primary key,
+  name varchar(100),
+  role_id int,
+  foreign key (role_id) references roles(id)
+);</code>
+    </pre>
+    <p>
+    kira-kira dari sql di atas bakal ngehasilin gambaran database seperti di bawah ini, jadi ada kayak benang yang ngehubungin (relation) antara 2 table, dimana data yang ada di table <code>users</code> kolom <code>role_id</code> harus ada di table <code>roles</code> kolom <code>id</code> (kalau gaada akan error saat <code>insert</code> atau <code>update</code>), nah saling terhubung tu tablenya, yak itulah alasan kenapa dinamain <b>database relational</b>.
+    </p>
+    <img src="/blog/table-result.png" class="img-sm" title="table result">
+    <p>
+    oke saat ngerancang hal-hal kek gitu sampe semua fitur yang akan ada di aplikasi udah dibuat wadah datanya bakal semakin banyak juga benang yang kebikin. gw ga pernah ngebenchmark secara jelas performanya, tapi gw coba banyangin aja benangnya banyak, semua benangnya harus jelas, pasti ada cost yang dikorbanin, nah itu pros and cons nya.
+    </p>
+    <h3>pros</h3>
+    <ol>
+    <li><b>integritas data</b></li>
+    <p>
+    ketika kita implementasi foreign key, data kita dipastikan pasti konsisten, dan secara diagram bisa kita liat keterkaitan table satu sama lain. seperti ini contohnya
+    </p>
+    <img src="/blog/database-relation.png" class="img-md" title="database relation">
+    <li><b>menghindari data “orphan”</b></li>
+    <p>
+    ga bakal ada data yang referensinya ga ketemu, kan pas <code>insert</code> atau <code>update</code> table children nya akan error duluan kalo gaada referensinya
+    </p>
+    <img src="/blog/error-sql-1.png" class="img-sm" title="error sql insert atau update">
+    <p>
+    dan kalau hapus data parentnya juga akan error misalkan data tersebut masih memiliki children.
+    </p>
+    <img src="/blog/error-sql-2.png" class="img-sm" title="error sql delete">
+    <li><b>gampang pas mau buat query <code>join</code></b></li>
+    <p>
+    sebenernya kita bisa terapin aturan kalau nama kolom foreign key itu <code>{tableName}_id</code>, tapi kalo udah pake foreign key, biarpun namanya random, orang lain atau diri kita di masa yang akan datang gaakan bingung pas liat struktur database nya.
+    </p>
+    <img src="/blog/random-foreign-key-name.png" class="img-md" title="random foreign key name">
+    <li><b>gampangin pas mau ngehapus yang berantai</b></li>
+    <p>
+    nah saat deklarasi foreign key, kita bisa set untuk <code>on delete</code> (jika data dihapus) dan </code>on update</code> (jika id referensi diubah), opsinya ada 5 opsinya
+    </p>
+    <table>
+    <tbody>
+    <tr>
+    <td>restrict</td>
+    <td>penghapusan akan gagal kalau data masih memiliki children, ini default nya kalau ga kita kasih</td>
+    </tr>
+    <tr>
+    <td>cascade</td>
+    <td>data di children dengan referensi id ikut kehapus</td>
+    </tr>
+    <tr>
+    <td>no action</td>
+    <td>mirip seperti restrict tapi pengecekan foreign key ada di akhir eksekusi</td>
+    </tr>
+    <tr>
+    <td>set null</td>
+    <td>data di children akan diset null (ini berlaku jika kolom foreign key nullable</td>
+    </tr>
+    <tr>
+    <td>set default</td>
+    <td>data di children akan diset ke default nya. (ini berlaku jika kolom foreign key punya nilai default)</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>
+    kadang kita buat table mendukung table lain, dimana isinya biasanya data-data yang kalau data utamanya dihapus yaa ikut hapus aja, untuk case ini kita bisa set ke <code>on delete cascade</code>, jadi pas ngehapus suatu data utama data-data childrennya ikut dihapus aja sekalian ga perlu ngehapus lagi.
+    </p>
+    </ol>
+    <p>
+    Itu dia pros nya, sebelum kita bahas cons kita perlu tau juga keterkaitan foreign key dan <b>indexing</b> di database
+    </p>
+    <h3>foreign key dan indexing</h3>
+    <p>
+    pas kita buat table dengan foreign key, beberapa database ga sekaligus bikin indexing untuk kolom tersebut, contohnya di postgresql, kita perlu define sendiri indexing buat kolom foreign key nya. akibatnya, kalau ga pake indexing, query yang ngelakuin <code>join</code> atau pencarian berdasarkan foreign key bisa bikin lemot, begitu juga fitur <code>on delete cascade</code> atau <code>on update cascade</code>.
+    </p>
+    <p>
+    solusinya kita bisa define dulu indexing buat kolom foreign key nya, singkatnya indexing bisa ngebantu mempercepat pencarian data, ningkatin performa pas ngecek relasi, ngurangin beban pas cascading.
+    </p>
+    <p>
+    baru dah kita masuk ke cons nya.
+    </p>
+    <h3>cons</h3>
+    <ol>
+    <li><b>performance bisa kehambat</b></li>
+    <p>
+    ini nyambung ke indexing si, pas <code>insert</code>, <code>update</code> dan <code>delete</code> tu sebenernya akan selalu ngelakuin indexing ulang, nah karna kita implement foreign key + indexing nya, ini perlu kita pertimbangin.
+    </p>
+    <li><b>kurang cocok kalau misal datanya nyebar</b></li>
+    <p>
+    pas udah implementasi micro-service, biasanya kita perlu misahin data ke beberapa service/server juga, nah gabisa tu kita pake fitur foreign key nya.
+    </p>
+    <li><b>perlu fokus ekstra saat migrasi data</b></li>
+    <p>
+    pas migrasi data, kita perlu faham urutan create table nya, urutan insert data nya. ini bisa kita akalin dengan matiin pengecekan foreign key sementara saat migrasi, setelah selesai bisa dinyalain lagi.
+    </p>
+    <pre>
+    <code class="language-sql">set foreign_key_checks = 0;
+-- execute query
+set foreign_key_checks = 1;</code>
+    </pre>
+    <li><b>lemot pas data nya udah membludak</b></li>
+    <p>
+    kalo query-query yang bakal kita eksekusi bakal ngolah data yang banyak, better buat pertimbangin gausa pake foreign key buat ngejar performa nya.
+    </p>
+    </ol>
+    <p>
+    nah kurang lebih kondisi-kondisi yang perlu kita perhatiin pake foreign key atau engga
+    <p>
+    <table>
+    <tbody>
+    <tr>
+    <td>✅</td>
+    <td>aplikasi masih monolitik karna datanya masih nyatu</td>
+    </tr>
+    <tr>
+    <td>✅</td>
+    <td>kita perlu banget data integrity</td>
+    </tr>
+    <tr>
+    <td>✅</td>
+    <td>aturan penamaan join table tidak beraturan</td>
+    </tr>
+    <tr>
+    <td>✅</td>
+    <td>database masih oke secara performanya</td>
+    </tr>
+    <tr>
+    <td>❌</td>
+    <td>aplikasi microservices</td>
+    </tr>
+    <tr>
+    <td>❌</td>
+    <td>validasi udah dilakuin di service/backend layer, jadi sebelum ke database udah pure bersih dari kesalahan</td>
+    </tr>
+    <tr>
+    <td>❌</td>
+    <td>butuh banget query dengan performa tinggi</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3>penutup</h3>
+    <p>
+    penggunaan foreign key ini emang biasanya diwajibin pas kita lagi belajar buat fundamental database, gw pun berpikir gitu awalnya, tapi pas makin kesini ternyata kita perlu nyesuain sama keadan data di aplikasi kita, bisa perlu bisa engga, jadi gabisa kita pukul rata dan disesuain case nya. sekarang mindsetnya tiap ada feature pasti ada cost nya, so pilih aja konsekuensinya.
+    </p>
+    <br>
+    <p>
+    kalo berhasil sampe sini, thanks udah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat
+    </p>
+    </article>`,
+    tags: ['database', 'foreign key'],
+    publishedAt: new Date('2025-06-22 01:30:00+07:00'),
+    createdAt: new Date('2025-06-23 19:20:46+07:00'),
+    updatedAt: new Date('2025-06-23 19:20:46+07:00'),
+    referenceURLs: ['https://www.w3schools.com/sql/sql_foreignkey.asp'],
+  },
+  {
     id: '55ab0cad-81aa-4a21-9b52-d6b44dc94fa1',
     title: 'Generic di Golang',
     slug: 'generic-di-golang',

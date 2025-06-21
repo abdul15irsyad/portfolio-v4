@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { Blog, Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
@@ -54,7 +54,11 @@ export const getBlogWithPagination = async ({
   };
 };
 
-export const getBlog = async ({ slug }: { slug: string }) => {
+export const getBlog = async ({
+  slug,
+}: {
+  slug: string;
+}): Promise<Blog | null> => {
   return await prisma.blog.findUnique({
     where: {
       slug,

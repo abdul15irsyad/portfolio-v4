@@ -13,10 +13,10 @@ import { QuoteOfTheDay } from './quote-of-the-day';
 export const Footer = () => {
   const { t } = useTranslation();
   const footerContacts = contacts.filter(({ icon }) =>
-    ['whatsapp', 'telegram', 'envelope'].includes(icon),
+    ['whatsapp', 'envelope'].includes(icon),
   );
   const followMe = contacts.filter(
-    ({ icon }) => !['whatsapp', 'envelope', 'telegram'].includes(icon),
+    ({ icon }) => !['whatsapp', 'envelope'].includes(icon),
   );
   return (
     <>
@@ -73,7 +73,13 @@ export const Footer = () => {
               </div>
               <div className="address col-md-4 col-12">
                 <h5>{capitalize(t('address'))}</h5>
-                <p>{t('my-address')}</p>
+                <Link
+                  href="https://maps.app.goo.gl/XnjKvJvMHUTCN8TQ9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('my-address')}
+                </Link>
               </div>
             </div>
           </div>

@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/components/empty/empty';
 import { Pagination } from '@/components/pagination/pagination';
-// import { blogDatas } from '@/data/blogs.data';
 import { ApiResponseAll } from '@/types/api-response.type';
 import { Blog } from '@/types/blog.type';
 
