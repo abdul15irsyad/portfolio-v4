@@ -21,7 +21,7 @@ export const Avatar = ({
     <div className={styles.avatar} style={style}>
       <Image
         src={user!.imageUrl ?? `${BASE_URL}/blog/default-profile.png`}
-        alt={user.alt!}
+        alt={user.alt ?? ''}
         height={400}
         width={400}
       />
