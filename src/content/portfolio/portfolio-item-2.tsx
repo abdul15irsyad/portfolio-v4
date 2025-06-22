@@ -26,7 +26,7 @@ const PortfolioItem2 = ({
   teams,
   workExperience,
 }: Portfolio) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const translatedDesc = translates?.find(
     ({ lang }) => lang === i18n.language,
   )?.desc;
@@ -91,12 +91,24 @@ const PortfolioItem2 = ({
         />
       </div>
       {teams && teams?.length > 0 && (
-        <Avatars
-          users={teams?.map(({ user }) => ({
-            alt: user!.name!,
-            imageUrl: user?.photo?.url,
-          }))}
-        />
+        <OverlayTrigger
+          placement="top"
+          trigger={['focus', 'hover']}
+          overlay={
+            <Tooltip>
+              {teams?.length} {t('other-contributor')}
+            </Tooltip>
+          }
+        >
+          <div className="d-inline-block">
+            <Avatars
+              users={teams?.map(({ user }) => ({
+                alt: user!.name!,
+                imageUrl: user?.photo?.url,
+              }))}
+            />
+          </div>
+        </OverlayTrigger>
       )}
     </div>
   );

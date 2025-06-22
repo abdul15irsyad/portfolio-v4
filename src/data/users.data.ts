@@ -73,7 +73,13 @@ export const users: User[] = [
   {
     id: '16beb85b-6a1a-48a5-bd6e-a5297ac11959',
     name: 'Adam Brilian',
-    photo: null,
+    photo: {
+      id: '64d89811-97d6-4f5c-8a71-fcc487f2860b',
+      path: 'user',
+      fileName: 'adam-brilian.jpeg',
+      originalFileName: 'adam-brilian.jpeg',
+      mime: 'image/jpeg',
+    },
     linkedin: 'https://www.linkedin.com/in/adam-brilian-633012223/',
   },
   {
