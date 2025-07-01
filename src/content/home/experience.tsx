@@ -78,7 +78,7 @@ export const ExperienceSection = () => {
                     transition={{ duration: 0.3 }}
                     className="row"
                   >
-                    <div className="col-lg-5 col-12">
+                    <div className="col-lg-4 col-12">
                       <div className="d-flex justify-content-lg-end">
                         <div className="left">
                           <div className="position">{position}</div>
@@ -111,11 +111,29 @@ export const ExperienceSection = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-7 col-12">
-                      <p>
-                        {translates?.find(({ lang }) => lang === i18n.language)
-                          ?.desc ?? desc}
-                      </p>
+                    <div className="col-lg-8 col-12">
+                      <div className="mb-3">
+                        <div
+                          className="default-text"
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              translates?.find(
+                                ({ lang }) => lang === i18n.language,
+                              )?.desc ??
+                              desc ??
+                              '',
+                          }}
+                        />
+                        {/* <ReadMoreHtmlContent
+                          fullHtml={
+                            translates?.find(
+                              ({ lang }) => lang === i18n.language,
+                            )?.desc ??
+                            desc ??
+                            ''
+                          }
+                        /> */}
+                      </div>
                       {techStacks?.map((techStack, index) => (
                         <span key={index} className="blog-tag">
                           {techStack}

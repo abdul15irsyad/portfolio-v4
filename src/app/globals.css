@@ -474,8 +474,8 @@ ul li {
 }
 
 .experience .row > :last-child {
-  padding: 0 4rem 0 2rem;
-  border-left: 2px dashed var(--bs-primary);
+  padding: 0 2rem 0 2rem;
+  border-left: 2px dashed rgba(var(--bs-primary-rgb), 0.75);
 }
 
 .experience .row > :first-child .d-flex .right img {
@@ -486,16 +486,18 @@ ul li {
 
 .experience .row .position {
   font-weight: 800;
-  font-size: 130%;
+  font-size: 110%;
 }
 
 .experience .row .timespan-n-company {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 0 0.5rem;
 }
 .experience .row .timespan {
   font-weight: 800;
+  font-size: 14px;
   color: var(--bs-primary);
 }
 
@@ -504,7 +506,7 @@ ul li {
   /* color: rgba(var(--bs-primary-rgb), 1); */
   /* background-color: var(--bs-light); */
   color: rgba(var(--bs-dark-rgb), 0.75);
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 0.25rem;
   border-radius: 0.25rem;
   font-size: 12px;
   user-select: none;
@@ -537,7 +539,8 @@ ul li {
 
   .experience .row .timespan-n-company {
     display: flex;
-    flex-direction: column;
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
   }
 
   .experience .row .timespan {
@@ -1913,6 +1916,20 @@ ul li {
 .coming-soon .coming-soon-text .coming-soon-title {
   font-weight: 800;
   font-size: 3rem;
+}
+
+/* default text */
+.default-text p {
+  margin-bottom: 0;
+}
+.default-text ul {
+  display: block;
+  list-style-type: disc;
+  margin-left: 0;
+  padding-left: 1em;
+}
+.default-text ul li {
+  list-style-type: disc !important;
 }
 
 @media (max-width: 992px) {
