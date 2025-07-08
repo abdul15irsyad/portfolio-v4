@@ -6,6 +6,234 @@ import { fileDatas } from './files.data';
 
 export const blogs: Blog[] = [
   {
+    id: '620240b7-b046-4c4d-aaf8-bacbcd39b11e',
+    title: 'Namain Variable',
+    slug: 'namain-variable',
+    featureImageId: 'd51c4402-323f-4201-9172-7507cc1e3fa8',
+    authorId: '7ed2fcd9-78e2-426b-84e0-527f80c654b5',
+    content: `
+    <article>
+    <p>
+    oi, sehat-sehat semuaaa… kali ini gw mo bahas sesuatu yang paling paling sulit pas lagi ngoding, ini udeh tier tersulit pokoknya dah, terkesan simple tapi gw pribadi pernah bengang bengong cuma mikir <b>"enaknya gw kasih nama ape ni variable?"</b>, lumayan lama lagi mikirnya. yaaa sedikit-sedikit lu yang developer pernah ngerasain pastinya. <b>"yailah tinggal namain doang"</b> nah itu dia, gw juga maunya begitu, tapi ternyata ga sesederhana itu.
+    </p>
+    <h3>pendahulaun</h3>
+    <p>
+    oke pertama-tama kita coba simulasikan yak kenapa <b>namain variable</b> jadi concern yang cukup penting bagi gw pribadi pas ngoding, sebenernya ga cuma variable si, namain function, parameter, class, dll. juga termasuk.
+    </p>
+    <p>
+    bayangin misalkan lu lagi kedapetan <b>"rejeki"</b> buat ngelanjutin/nambahin fitur di project lama, kita kesampingkan dulu problem terkait tech stack yang udeh jauh dari versi terbarunya. nah pas lu lagi udeh clone tu reponya, lu mulai menelusuri fitur-fitur yang ada, trus nemuin code kayak gini
+    </p>
+    <pre>
+    <code class="language-javascript">let u;</code>
+    </pre>
+    <p>
+    sekejap lu mulai berasumsi dan menyimpulkan kayaknya variable <code>u</code> ini buat user ni maksdunya, lu lanjut lagi lah tu buat liat-liat yang laen, trus ketemu lah ama code berikut
+    </p>
+    <pre>
+    <code class="language-javascript">let usr = await getUser();</code>
+    </pre>
+    <p>
+    reaksi lu <b>"lah ini variable user, trus tadi buat apaan?"</b>, lu cari-cari tau dulu tu dah tu buat apaan, iya kalo cuma 1 case, kalo banyak case kek gitu, yang seharusnya waktunya bisa lu pake buat mahamin flow yang lain, malah abis buat nyari tau itu variable buat nyimpen apaan, bete si lama-lama. 
+    </p>
+    <p>
+    nah biar ga kejadian sebenernya kita tau lah bisa pake comment, tapi kalo nama variable lu aja udah menggambarkan itu buat apaan dan orang juga ga bingung pas bacanya itu menurut gw lebih bagus si.
+    </p>
+    <h3>tips namain variable/function menurut gw</h3>
+    <p>
+    oke kalo gitu, biar hal-hal sebelumnya atau yang lainnya ga perlu terjadi, ini beberapa concern dari gw pribadi pas namain variable atau function di project, disclaimer semuanya berupa opini yee
+    </p>
+    <ol>
+    <li><b>kudu sesuai ama isinya dan tepat</b></li>
+    <p>
+    bukan cuma sesuai tapi bener-bener tepat, gw ga ngomongin yang nama variable nya <code>age</code> tapi diisi alamat yak, udeh kebangetan itu. tapi yang bisa menimbulkan kebingungan lebih baik dihindari
+    misal
+    </p>
+    <pre>
+    <code class="language-javascript">let price = 100_000;
+let tax = 0.12;
+let newPrice = price - (price * tax);
+console.log(newPrice);</code>
+    </pre>
+    <p>
+    sekilas oke oke aja, tapi variable <code>newPrice</code> ini ga jelas maksudnya apa, mending kita buat jadi lebih clear seperti
+    </p>
+    <pre>
+    <code class="language-javascript">let priceAfterTax = price - (price * tax); // lebih clear
+console.log(priceAfterTax);</code>
+    </pre>
+    <li><b>hindarin singkatan yang ga umum</b></li>
+    <p>
+    kadang-kadang kalo mo pake singkatan buat nama variable oke oke aja malah recommended, tapi kudu singkatan yang emang orang-orang juga tau itu maksudnya apa, yang umum lah pokoknya.
+    </p>
+    <pre>
+    <code class="language-javascript">let cu; // ini kurang jelas, cu itu singkatan apaan
+let currentUser; // mending dipanjangin aja kek begini</code>
+    </pre>
+    <li><b>nama function kudu kata kerja</b></li>
+    <p>
+    karna function tu bakal dieksekusi, nah enaknya pake kata kerja (verb) bukan pake kata benda (noun), sekalian nandain kalo itu tu function gitu, walaupun di text editor kek vscode warnanya jadi beda si.
+    </p>
+    <pre>
+    <code class="language-javascript">// not recommended ❌
+function user() {
+  ...
+}
+user(); // kurang jelas aja pas dipanggil, apani user() maksudnya
+
+// recommended ✅
+function approveUser() {
+  ...
+}
+approveUser(); // nah better kan, oh ini eksekusi buat approve user</code>
+    </pre>
+    <li><b>konsisten case dan usahain ngikut komunitas bahasa pemrogrammannya</b></li>
+    <p>
+    banyak jenis naming convention (camelCase, snake_case, kebab-case, etc) dan codingan sebenernya jalan-jalan aja mo kita mix penggunaannya, cuma kalo dimix gitu entah kenapa kurang resep aja pas baca code nya.
+    </p>
+    <p>
+    misal di javascript
+    </p>
+    <pre>
+    <code class="language-javascript">let userName = ... ; // camelCase (recommended di js/ts)
+let active_menus = ... ; // snake_case</code>
+    </pre>
+    <p>
+    atau misal di php
+    </p>
+    <pre>
+    <code class="language-php">$user_name = ... ; // snake_case (recommended di php)
+$activeMenus = ... ; // camelCase</code>
+    </pre>
+    <p>
+    gregetan aja gitu, kenapa kudu mix gitu gaya namain variablenyaaa atau kalo mo beda dari yang banyak dipake komunitas minimal samain aja semua sekalian gapapa dah (menurut gw gapapa). 
+    </p>
+    <p>
+    kira-kira berikut yang banyak komunitas pakai dari berbagai bahasa pemrograman
+    </p>
+    <table>
+    <thead>
+    <tr>
+    <th>bahasa</th>
+    <th>variable/function</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>javascript / typescript</td>
+    <td>camelCase</td>
+    </tr>
+    <tr>
+    <td>python</td>
+    <td>snake_case</td>
+    </tr>
+    <tr>
+    <td>java</td>
+    <td>camelCase</td>
+    </tr>
+    <tr>
+    <td>go</td>
+    <td>camelCase (private)<br>PascalCase (public)</td>
+    </tr>
+    <tr>
+    <td>c#</td>
+    <td>camelCase (private)<br>PascalCase (public)</td>
+    </tr>
+    <tr>
+    <td>php</td>
+    <td>snake_case / camelCase</td>
+    </tr>
+    <tr>
+    <td>rust</td>
+    <td>snake_case</td>
+    </tr>
+    <tr>
+    <td>swift</td>
+    <td>camelCase</td>
+    </tr>
+    <tr>
+    <td>kotlin</td>
+    <td>camelCase</td>
+    </tr>
+    </tbody>
+    </table>
+    <li><b>array pake s di belakangnya</b></li>
+    <p>
+    kalo variablenya buat tipe data <code>array</code>, pake s di belakangnya, sekalian nandain kalo itu <code>array</code> (bisa di-looping), kecuali itu dynamic type, bisa <code>array</code> bisa <code>object</code> misal, nah gapapa dah gapake s
+    </p>
+    <pre>
+    <code class="language-javascript">const activeMenu = ['home', 'products', ... ]; // not recommended ❌
+const activeMenus = ['home', 'products', ... ]; // recommended ✅</code>
+    </pre>
+    <p>
+    kan enak pas mau looping, baru tu pake yang singular buat penamaan element nya
+    </p>
+    <pre>
+    <code class="language-javascript">for (const activeMenu of activeMenus){
+  ... // statement
+}
+// atau di method map
+activeMenus.map((activeMenu) => {
+  ... // statement
+});</code>
+    </pre>
+    <li><b>in english</b></li>
+    <p>
+    gw recommend banget semua nama variable pake english, agak repot dikit buat nyari translate/istilahnya dalam english, tapi biar lebih clear aja cuy, yaaa gw kadang masih ada bahasa indonesianya si. ini terkait juga sama nomor sebelumnya, misal kalo pake bahasa trus buat <code>array</code>nya jadi agak aneh aja.
+    </p>
+    <pre>
+    <code class="language-javascript">// not recommended ❌
+let siswa = ... ;
+let siswas = [...]; // apaan siswas? wkwk
+
+// recommended ✅
+let student = ... ;
+let students = [...]; // clear kan hehe</code>
+    </pre>
+    <li><b>konsisten terhadap nama variable yang punya sinonim</b></li>
+    <p>
+    beberapa kata contohnya di action, ada yang memiliki sinonim seperti create/add, read/get, update/edit, dan delete/remove. nah ketika udah mutusin pake create misalkan, nah kita tetep konsisten gunain create terus gitu.
+    </p>
+    <pre>
+    <code class="language-typescript">// di user service
+function deleteUser (id: string) {
+  ... // statement
+}
+
+// not recommended ❌
+// di product service 
+function removeProduct (id: string) { // kenapa di sini pake kata 'remove'?
+... // statement
+}
+
+// recommended ✅
+// di product service
+function deleteProduct (id: string) { // nah sama kan lebih enak
+  ... // statement
+}</code>
+    </pre>
+    <p>
+    intinya konsisten aja, mo pake delete ya delete semua gitu, atau kalo mo pake remove ya remove semua.
+    </p>
+    </ol>
+    <h3>penutup</h3>
+    <p>
+    oke kira-kira itu aja sih yang biasanya gw perhatiin pas buat nama variable, keknya masih ada tapi ga keinget pas nulis jadi yaudah lah yaaa segitu aja. keknya gw udah sering ngomong juga intinya namain variable jadi penting biar orang lain atau kita di masa depan bisa lebih ngebaca kode nya dan kalo lu udah biasa namainnya lebih clear, pasti jadi lebih aware pas baca variable di code project lain, di dalam kepala <b>"ini cuma itu aja atau sampe detailnya ya?"</b>, nah gitu dah pokoknya.
+    </p>
+    <img src="/blog/naming-variable-meme.jpg" class="img-xs" title="you laugh to this meme until you are in the same situation">
+    <br>
+    <p>
+    kalo berhasil sampe sini, thanks banget udah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat
+    </p>
+    </article>`,
+    tags: ['variable'],
+    publishedAt: new Date('2025-07-10 00:30:00+07:00'),
+    createdAt: new Date('2025-07-10 19:20:46+07:00'),
+    updatedAt: new Date('2025-07-10 19:20:46+07:00'),
+    referenceURLs: [
+      'https://bennettgarner.medium.com/developers-your-poorly-named-variables-are-hurting-your-team-a8ec31e3cbd5',
+    ],
+  },
+  {
     id: '6ef606ee-2fa9-4f22-b2c9-cd63828486e2',
     title: 'Pros & Cons Foreign Key',
     slug: 'pros-and-cons-foreign-key',

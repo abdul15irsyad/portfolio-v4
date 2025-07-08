@@ -20,11 +20,11 @@
   object-fit: contain;
   border-radius: 0.5rem;
   user-select: none;
-  width: 80% !important;
+  width: 80%;
 }
 
 .image-preview img.lg {
-  width: 80% !important;
+  width: 80%;
 }
 
 .image-preview img.md {
@@ -36,7 +36,7 @@
 }
 
 .image-preview img.xs {
-  width: 35%;
+  width: 30%;
 }
 
 .image-preview h6 {
