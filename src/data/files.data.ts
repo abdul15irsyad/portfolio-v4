@@ -4,6 +4,15 @@ import { BASE_URL } from '../configs/app.config';
 
 export const files: File[] = [
   {
+    id: 'd51c4402-323f-4201-9172-7507cc1e3fa8',
+    createdAt: new Date('2025-07-10 08:20:46+07:00'),
+    updatedAt: new Date('2025-07-10 08:20:46+07:00'),
+    path: 'blog',
+    fileName: 'namain-variable.jpg',
+    originalFileName: 'namain-variable.jpg',
+    mime: 'image/jpg',
+  },
+  {
     id: '318626e4-a35d-4fbc-ae04-640201b87a18',
     createdAt: new Date('2025-06-23 08:20:46+07:00'),
     updatedAt: new Date('2025-06-23 08:20:46+07:00'),

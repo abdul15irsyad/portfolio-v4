@@ -1714,6 +1714,12 @@ ul li {
 .blog-detail article pre code.language-typescript::after {
   background-image: url('/programming/typescript.png');
 }
+.blog-detail article pre code.language-php::after {
+  top: 0.1rem;
+  width: 40px;
+  height: 40px;
+  background-image: url('/programming/php.png');
+}
 .blog-detail article pre code.language-golang::after {
   background-image: url('/programming/golang.png');
 }
