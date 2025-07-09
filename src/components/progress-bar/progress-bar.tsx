@@ -1,34 +1,43 @@
 'use client';
+
 import './progress-bar.css';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import nProgress from 'nprogress';
-import { Suspense, useCallback, useEffect } from 'react';
+import { Suspense, useCallback, useEffect, useRef } from 'react';
 
 export const ProgressBar = () => {
-  const handleAnchorClick = useCallback((event) => {
-    if (event.currentTarget.target === '_blank') return;
+  const observerRef = useRef<MutationObserver | null>(null);
 
-    const targetUrl = event.currentTarget.href;
+  const handleAnchorClick = useCallback((event: Event) => {
+    const anchor = event.currentTarget as HTMLAnchorElement;
+
+    // Don't trigger for new tab / middle-click
+    if (
+      anchor.target === '_blank' ||
+      (event as MouseEvent).metaKey ||
+      (event as MouseEvent).ctrlKey ||
+      (event as MouseEvent).shiftKey ||
+      (event as MouseEvent).button === 1
+    )
+      return;
 
     const currentUrl = window.location.href;
+    const targetUrl = anchor.href;
 
     if (targetUrl !== currentUrl) {
       nProgress.start();
     }
   }, []);
 
-  const handleMutation = useCallback(() => {
-    const anchorElements = document.querySelectorAll('a[href]');
-
-    const filteredAnchors = Array.from(anchorElements).filter((element) => {
-      const href = element.getAttribute('href');
-      return href && href.startsWith('/');
-    });
-
-    filteredAnchors.forEach((anchor) =>
-      anchor.addEventListener('click', handleAnchorClick),
+  const attachClickListeners = useCallback(() => {
+    const anchors = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="/"]'),
     );
+    anchors.forEach((anchor) => {
+      anchor.removeEventListener('click', handleAnchorClick);
+      anchor.addEventListener('click', handleAnchorClick);
+    });
   }, [handleAnchorClick]);
 
   useEffect(() => {
@@ -37,41 +46,44 @@ export const ProgressBar = () => {
       easing: 'ease',
       speed: 400,
     });
-    const mutationObserver = new MutationObserver(handleMutation);
-    mutationObserver.observe(document, { childList: true, subtree: true });
-    window.history.pushState = new Proxy(window.history.pushState, {
-      apply: (
-        target,
-        thisArg,
-        argArray: [
-          data: any,
-          unused: string,
-          url?: string | URL | null | undefined,
-        ],
-      ) => {
-        nProgress.done();
-        return target.apply(thisArg, argArray);
-      },
+
+    attachClickListeners();
+
+    const observer = new MutationObserver(attachClickListeners);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
-  }, [handleMutation]);
+
+    observerRef.current = observer;
+
+    // Patch pushState to trigger nProgress.done()
+    const originalPushState = history.pushState;
+    history.pushState = function (...args) {
+      nProgress.done();
+      return originalPushState.apply(this, args as any);
+    };
+
+    return () => {
+      observer.disconnect();
+      observerRef.current = null;
+    };
+  }, [attachClickListeners]);
 
   return (
-    <>
-      <Suspense fallback={null}>
-        <NProgressDone />
-      </Suspense>
-    </>
+    <Suspense fallback={null}>
+      <NProgressDone />
+    </Suspense>
   );
 };
 
 const NProgressDone = () => {
   const pathname = usePathname();
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     nProgress.done();
-  }, [pathname, router, searchParams]);
+  }, [pathname, searchParams]);
 
   return null;
 };

@@ -20,7 +20,7 @@
   object-fit: contain;
   border-radius: 0.5rem;
   user-select: none;
-  width: 80%;
+  width: 75%;
 }
 
 .image-preview img.lg {

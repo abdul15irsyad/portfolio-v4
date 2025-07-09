@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import dayjs from 'dayjs';
+import { NextResponse } from 'next/server';
 
 import { cache } from '@/redis/redis.util';
 import { getQuoteOfTheDay } from '@/services/quote-of-the-day.service';
@@ -6,10 +7,9 @@ import { handleError } from '@/utils/error.util';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const searchParams = request.nextUrl.searchParams;
-    const date = searchParams.get('date');
+    const date = dayjs().format('YYYY-MM-DD');
     const quoteOfTheDay = await cache(
       `quoteOfTheDay:${date}`,
       () => getQuoteOfTheDay(),
