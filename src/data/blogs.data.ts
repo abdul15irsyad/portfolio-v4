@@ -189,7 +189,7 @@ let siswas = [...]; // apaan siswas? wkwk
 let student = ... ;
 let students = [...]; // clear kan hehe</code>
     </pre>
-    <li><b>konsisten terhadap nama variable yang punya sinonim</b></li>
+    <li><b>konsisten terhadap istilah yang punya sinonim</b></li>
     <p>
     beberapa kata contohnya di action, ada yang memiliki sinonim seperti create/add, read/get, update/edit, dan delete/remove. nah ketika udah mutusin pake create misalkan, nah kita tetep konsisten gunain create terus gitu.
     </p>
@@ -212,14 +212,14 @@ function deleteProduct (id: string) { // nah sama kan lebih enak
 }</code>
     </pre>
     <p>
-    intinya konsisten aja, mo pake delete ya delete semua gitu, atau kalo mo pake remove ya remove semua.
+    intinya konsisten aja, mo pake delete ya delete semua gitu, atau kalo mo pake remove ya remove semua. begitu juga dengan sinonim-sinonim lainnya.
     </p>
     </ol>
+    <img src="/blog/naming-variable-meme.jpg" class="img-xs" title="you laugh to this meme until you are in the same situation">
     <h3>penutup</h3>
     <p>
-    oke kira-kira itu aja sih yang biasanya gw perhatiin pas buat nama variable, keknya masih ada tapi ga keinget pas nulis jadi yaudah lah yaaa segitu aja. keknya gw udah sering ngomong juga intinya namain variable jadi penting biar orang lain atau kita di masa depan bisa lebih ngebaca kode nya dan kalo lu udah biasa namainnya lebih clear, pasti jadi lebih aware pas baca variable di code project lain, di dalam kepala <b>"ini cuma itu aja atau sampe detailnya ya?"</b>, nah gitu dah pokoknya.
+    oke kira-kira itu aja sih yang biasanya gw perhatiin pas buat nama variable, keknya masih ada tapi ga keinget pas nulis jadi yaudah lah yaaa segitu aja. keknya gw udah sering ngomong juga intinya namain variable jadi penting biar orang lain atau kita di masa depan bisa lebih ngebaca kode nya dan kalo lu udah biasa namainnya lebih clear, pasti jadi lebih aware pas baca variable di code project lain.
     </p>
-    <img src="/blog/naming-variable-meme.jpg" class="img-xs" title="you laugh to this meme until you are in the same situation">
     <br>
     <p>
     kalo berhasil sampe sini, thanks banget udah baca blog ini 🙏🏽🙏🏽🙏🏽, semoga bermanfaat
