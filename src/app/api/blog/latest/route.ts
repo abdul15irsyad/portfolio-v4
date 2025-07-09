@@ -4,6 +4,8 @@ import { cache } from '@/redis/redis.util';
 import { getLatestBlog } from '@/services/blog.service';
 import { handleError } from '@/utils/error.util';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const blog = await cache(`blog:latest`, () => getLatestBlog());
