@@ -48,7 +48,9 @@ export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
   const blogContent = useRef<HTMLDivElement>(null);
   const body = document.querySelector('body');
   useEffect(() => {
-    const images = blogContent.current?.querySelectorAll('img');
+    const images = blogContent.current?.querySelectorAll<HTMLImageElement>(
+      ':not(.img-wrapper) > img',
+    );
     images?.forEach((image) => {
       // encapsulate element
       const imageWrapper = document.createElement('div');
