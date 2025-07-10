@@ -55,23 +55,25 @@ export const QuoteOfTheDay = () => {
 
   return (
     <div className={styles.wrapper}>
-      <OverlayTrigger
-        overlay={<Tooltip>{t('share-quote')}</Tooltip>}
-        placement="top"
-      >
-        <button
-          className={`btn btn-light ${styles['btn-share']}`}
-          onClick={handleShare}
+      {!isLoading && navigator?.canShare({ title: '' }) && (
+        <OverlayTrigger
+          overlay={<Tooltip>{t('share-quote')}</Tooltip>}
+          placement="top"
         >
-          {isCaptureLoading ? (
-            <i className="bi bi-arrow-repeat spinner" />
-          ) : (
-            <i className="bi bi-share" />
-          )}
-        </button>
-      </OverlayTrigger>
+          <button
+            className={`btn btn-light ${styles['btn-share']}`}
+            onClick={handleShare}
+          >
+            {isCaptureLoading ? (
+              <i className="bi bi-arrow-repeat spinner" />
+            ) : (
+              <i className="bi bi-share" />
+            )}
+          </button>
+        </OverlayTrigger>
+      )}
       <div className={styles.content} ref={ref}>
-        <div className={styles.text}>
+        <div className={'w-100'}>
           <Placeholder animation="glow">
             {isLoading ? (
               [
