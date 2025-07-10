@@ -2090,3 +2090,14 @@ footer .copyright br {
     transform: rotate(0) scale(1);
   }
 }
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
