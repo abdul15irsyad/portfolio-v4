@@ -21,6 +21,9 @@ import { calculateMinutesRead } from '@/utils/string.util';
 
 import { BlogDetailReferences } from './blog-detail-reference';
 
+hljs.configure({
+  ignoreUnescapedHTML: true,
+});
 hljs.addPlugin(
   new CopyButtonPlugin({
     hook: (text: string, el: any) => {
@@ -43,7 +46,12 @@ export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
       }),
     [blog.content],
   );
-  useEffect(() => hljs.highlightAll());
+  useEffect(() => {
+    document.querySelectorAll('[data-highlighted="yes"]').forEach((block) => {
+      block.removeAttribute('data-highlighted');
+    });
+    hljs.highlightAll();
+  });
   const [modal, setModal] = useState<Modal>({});
   const blogContent = useRef<HTMLDivElement>(null);
   const body = document.querySelector('body');
