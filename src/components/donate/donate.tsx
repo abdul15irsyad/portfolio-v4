@@ -84,7 +84,8 @@ const Trakteer = () => (
     className={`${styles.trakteer} ${quicksand.className}`}
   >
     <Image
-      src="https://trakteer.id/images/mix/coffee.png"
+      // src="https://trakteer.id/images/mix/coffee.png"
+      src="/coffee.png"
       alt="Traktiran"
       className={`${styles.icon} wiggle`}
       width={20}

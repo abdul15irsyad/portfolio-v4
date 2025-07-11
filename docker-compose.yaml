@@ -9,7 +9,7 @@ services:
     ports:
       - '4002:3000'
     environment:
-      - NEXT_PUBLIC_ENV=local
+      - APP_ENV=local
       - NEXT_PUBLIC_BASE_URL="http://localhost:4002"
       - NEXT_PUBLIC_GA_MEASUREMENT_ID=GA_MEASUREMENT_ID
       - NEXT_PUBLIC_EXPERIMENTAL=true
