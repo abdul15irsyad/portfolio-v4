@@ -5,11 +5,7 @@ import { useEffect } from 'react';
 
 import { handleError } from '@/utils/error.util';
 
-export default function GlobalError({
-  error,
-}: {
-  error: Error & { digest?: string };
-}) {
+export default ({ error }: { error: Error }) => {
   useEffect(() => {
     handleError(error);
   }, [error]);
@@ -25,4 +21,4 @@ export default function GlobalError({
       </body>
     </html>
   );
-}
+};
