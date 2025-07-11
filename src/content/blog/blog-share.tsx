@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 import { BASE_URL } from '@/configs/app.config';
 import { capitalizeEachWord } from '@/utils/change-case';
-import { handleError } from '@/utils/error.util';
 
 const BlogShare = ({
   url,
@@ -71,16 +70,12 @@ const BlogShare = ({
     },
   ];
 
-  try {
-    if (navigator?.canShare({ title })) {
-      links.push({
-        type: 'share',
-        href: '',
-        icon: 'share',
-      });
-    }
-  } catch (error: any) {
-    handleError(error);
+  if (navigator?.canShare?.({ title })) {
+    links.push({
+      type: 'share',
+      href: '',
+      icon: 'share',
+    });
   }
 
   return links.map((link, index) => {
@@ -108,17 +103,13 @@ const BlogShare = ({
         type="button"
         className={`blog-detail-share-item ${link.icon}`}
         onClick={async () => {
-          try {
-            if (!navigator?.canShare({ title })) return;
-            const shareData: ShareData = {
-              title,
-              text,
-              url,
-            };
-            await navigator?.share(shareData);
-          } catch (error) {
-            handleError(error);
-          }
+          if (!navigator?.canShare?.({ title })) return;
+          const shareData: ShareData = {
+            title,
+            text,
+            url,
+          };
+          await navigator?.share?.(shareData);
         }}
       >
         <i className={`bi bi-${link.icon}`}></i>
