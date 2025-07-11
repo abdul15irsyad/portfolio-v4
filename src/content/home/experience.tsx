@@ -107,6 +107,7 @@ export const ExperienceSection = () => {
                             width={48}
                             height={48}
                             className="ms-lg-3 me-lg-0 me-3"
+                            loading="eager"
                           />
                         </div>
                       </div>

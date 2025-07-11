@@ -135,6 +135,7 @@ const Hero = () => {
               width={400}
               height={400}
               data-aos="fade-left"
+              priority
             />
           </div>
         </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import * as Sentry from '@sentry/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -14,6 +15,7 @@ import styles from './quote-of-the-day.module.css';
 
 export const QuoteOfTheDay = () => {
   const { t } = useTranslation();
+  const title = t('share-quote');
   const ref = useRef<HTMLDivElement>(null);
   const { data: response, isLoading } = useQuery({
     queryKey: ['quoteOfTheDay'],
@@ -36,12 +38,11 @@ export const QuoteOfTheDay = () => {
 
   const handleShare = useCallback(async () => {
     try {
-      const title = t('share-quote');
-      if (!navigator?.canShare({ title }) || !ref?.current) return;
+      if (!navigator?.canShare?.({ title }) || !ref?.current) return;
 
       const { file } = await captureElement(
         ref.current,
-        `quote of the day:${dayjs().format('YYYY-MM-DD')}.png`,
+        `quote of the day ${dayjs().format('YYYY-MM-DD')}.png`,
       );
 
       const shareData: ShareData = {
@@ -49,9 +50,11 @@ export const QuoteOfTheDay = () => {
         files: [file],
       };
 
-      await navigator.share(shareData);
-    } catch {}
-  }, [captureElement, t]);
+      await navigator?.share(shareData);
+    } catch (error) {
+      Sentry.captureException(error);
+    }
+  }, [captureElement, title]);
 
   return (
     <div className={styles.wrapper}>
