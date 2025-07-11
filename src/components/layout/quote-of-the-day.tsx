@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -36,9 +36,17 @@ export const QuoteOfTheDay = () => {
 
   const { captureElement, isLoading: isCaptureLoading } = useCapture();
 
+  const canShare = useMemo(() => {
+    try {
+      return navigator?.canShare?.({ title: '' });
+    } catch (error) {
+      return false;
+    }
+  }, []);
+
   const handleShare = useCallback(async () => {
     try {
-      if (!navigator?.canShare?.({ title }) || !ref?.current) return;
+      if (!canShare || !ref?.current) return;
 
       const { file } = await captureElement(
         ref.current,
@@ -50,15 +58,15 @@ export const QuoteOfTheDay = () => {
         files: [file],
       };
 
-      await navigator?.share(shareData);
+      await navigator?.share?.(shareData);
     } catch (error) {
       Sentry.captureException(error);
     }
-  }, [captureElement, title]);
+  }, [canShare, captureElement, title]);
 
   return (
     <div className={styles.wrapper}>
-      {!isLoading && navigator?.canShare({ title: '' }) && (
+      {!isLoading && canShare && (
         <OverlayTrigger
           overlay={<Tooltip>{t('share-quote')}</Tooltip>}
           placement="top"
