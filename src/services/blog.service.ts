@@ -1,10 +1,21 @@
 import { Blog, Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-dayjs.extend(utc);
 
 import { prisma } from '@/prisma/client';
 import { PaginationParam } from '@/types/pagination.type';
+dayjs.extend(utc);
+
+export const getBlogs = async () => {
+  const where: Prisma.BlogWhereInput = {
+    publishedAt: { not: null, lte: dayjs().toDate() },
+  };
+
+  return await prisma.blog.findMany({
+    where,
+    include: { featureImage: true, author: { include: { photo: true } } },
+  });
+};
 
 export const getBlogWithPagination = async ({
   page,

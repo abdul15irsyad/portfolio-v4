@@ -9,6 +9,17 @@ import { Blog, BlogReferenceInterface } from '@/types/blog.type';
 import { extractSeoData } from '@/utils/seo.util';
 import { parseBooleanString } from '@/utils/string.util';
 
+// export async function generateStaticParams() {
+//   let blogs: Blog[] | null;
+//   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
+//     blogs = blogDatas;
+//   } else {
+//     blogs = await getBlogs();
+//   }
+
+//   return blogs.map((blog) => blog.slug);
+// }
+
 const BlogDetailPage = async ({ params }) => {
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
