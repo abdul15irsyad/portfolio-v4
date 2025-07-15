@@ -1,11 +1,6 @@
 'use client';
 
-import 'highlight.js/styles/androidstudio.css';
-import 'highlightjs-copy/dist/highlightjs-copy.min.css';
-
 import dayjs from 'dayjs';
-import hljs from 'highlight.js';
-import CopyButtonPlugin from 'highlightjs-copy';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -14,6 +9,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
+import { useHighlight } from '@/app/(hooks)/use-highlight';
 import ImagePreview, { Modal } from '@/components/image-preview/image-preview';
 import { Blog as BlogInterface } from '@/types/blog.type';
 import { renderTimestamp } from '@/utils/date.util';
@@ -21,24 +17,7 @@ import { calculateMinutesRead } from '@/utils/string.util';
 
 import { BlogDetailReferences } from './blog-detail-reference';
 
-hljs.configure({
-  ignoreUnescapedHTML: true,
-});
-hljs.addPlugin(
-  new CopyButtonPlugin({
-    hook: (text: string, el: any) => {
-      if (el.result.language === 'bash') {
-        text = text.replace('$ ', '');
-        text = text.replace(/\n\$\ /g, '\n');
-      }
-      return text;
-    },
-  }),
-);
-
 export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
-  const router = useRouter();
-  const { t } = useTranslation();
   const minutesRead = useMemo(
     () =>
       calculateMinutesRead({
@@ -46,16 +25,13 @@ export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
       }),
     [blog.content],
   );
-  useEffect(() => {
-    document.querySelectorAll('[data-highlighted="yes"]').forEach((block) => {
-      block.removeAttribute('data-highlighted');
-    });
-    hljs.highlightAll();
-  });
+  const router = useRouter();
+  const { t } = useTranslation();
   const [modal, setModal] = useState<Modal>({});
   const blogContent = useRef<HTMLDivElement>(null);
-  const body = document.querySelector('body');
+  useHighlight();
   useEffect(() => {
+    const body = document.querySelector('body');
     const images = blogContent.current?.querySelectorAll<HTMLImageElement>(
       ':not(.img-wrapper) > img',
     );
