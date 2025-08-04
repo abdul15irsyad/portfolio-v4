@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import Typed from 'typed.js';
 
 import { TextAnimation } from '@/components/text-animation/text-animation';
+import { isIndependeceDay } from '@/constants/data.contant';
 import { contacts } from '@/data/contacts.data';
 import { capitalize } from '@/utils/change-case';
 
@@ -129,13 +130,20 @@ const Hero = () => {
           </div>
           <div className="col-md-6 hero-image mb-3">
             <Image
-              // src="/hero2.png"
-              src="/hero3.png"
+              // src="/indonesia-flag-hero.png"
+              src={isIndependeceDay ? '/indonesia-flag-hero.png' : '/hero3.png'}
               alt="hero"
               width={400}
               height={400}
               data-aos="fade-left"
               priority
+              style={
+                isIndependeceDay
+                  ? {
+                      transform: 'rotate(8deg)',
+                    }
+                  : undefined
+              }
             />
           </div>
         </div>
