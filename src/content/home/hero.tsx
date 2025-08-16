@@ -3,7 +3,7 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Typed from 'typed.js';
 
@@ -14,15 +14,10 @@ import { capitalize } from '@/utils/change-case';
 const Hero = () => {
   const typedText = useRef(null);
   const { t } = useTranslation();
-  const isIndependenceDay = useMemo(
-    () => dayjs().date() === 17 && dayjs().month() === 7,
-    [],
-  );
-  console.log('isIndependenceDay', isIndependenceDay);
-  console.log('dayjs().date()', dayjs().date());
-  console.log('dayjs().date() === 17', dayjs().date() === 17);
-  console.log('dayjs().month()', dayjs().month());
-  console.log('dayjs().month() === 7', dayjs().month() === 7);
+  const [isIndependenceDay, setIsIndependenceDay] = useState(false);
+  useEffect(() => {
+    setIsIndependenceDay(dayjs().month() === 7 && dayjs().date() === 17);
+  }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
@@ -141,7 +136,7 @@ const Hero = () => {
             {isIndependenceDay ? (
               <Image
                 src={'/indonesia-flag-hero.png'}
-                alt="hero"
+                alt="indonesia flag"
                 width={400}
                 height={400}
                 data-aos="fade-left"
