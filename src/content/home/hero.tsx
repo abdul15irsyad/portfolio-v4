@@ -133,22 +133,28 @@ const Hero = () => {
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">
-            <Image
-              // src="/indonesia-flag-hero.png"
-              src={isIndependeceDay ? '/indonesia-flag-hero.png' : '/hero3.png'}
-              alt="hero"
-              width={400}
-              height={400}
-              data-aos="fade-left"
-              priority
-              style={
-                isIndependeceDay
-                  ? {
-                      transform: 'rotate(8deg)',
-                    }
-                  : undefined
-              }
-            />
+            {isIndependeceDay ? (
+              <Image
+                src={'/indonesia-flag-hero.png'}
+                alt="hero"
+                width={400}
+                height={400}
+                data-aos="fade-left"
+                priority
+                style={{
+                  transform: 'rotate(8deg)',
+                }}
+              />
+            ) : (
+              <Image
+                src={'/hero3.png'}
+                alt="hero"
+                width={400}
+                height={400}
+                data-aos="fade-left"
+                priority
+              />
+            )}
           </div>
         </div>
         <div className="features" data-aos="fade-up">
