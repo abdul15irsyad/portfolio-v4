@@ -1,19 +1,23 @@
 'use client';
 
+import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Typed from 'typed.js';
 
 import { TextAnimation } from '@/components/text-animation/text-animation';
-import { isIndependeceDay } from '@/constants/data.contant';
 import { contacts } from '@/data/contacts.data';
 import { capitalize } from '@/utils/change-case';
 
 const Hero = () => {
   const typedText = useRef(null);
   const { t } = useTranslation();
+  const isIndependeceDay = useMemo(
+    () => dayjs().date() === 17 && dayjs().month() === 7,
+    [],
+  );
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
