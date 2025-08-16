@@ -14,10 +14,15 @@ import { capitalize } from '@/utils/change-case';
 const Hero = () => {
   const typedText = useRef(null);
   const { t } = useTranslation();
-  const isIndependeceDay = useMemo(
+  const isIndependenceDay = useMemo(
     () => dayjs().date() === 17 && dayjs().month() === 7,
     [],
   );
+  console.log('isIndependenceDay', isIndependenceDay);
+  console.log('dayjs().date()', dayjs().date());
+  console.log('dayjs().date() === 17', dayjs().date() === 17);
+  console.log('dayjs().month()', dayjs().month());
+  console.log('dayjs().month() === 7', dayjs().month() === 7);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
       // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
@@ -133,7 +138,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="col-md-6 hero-image mb-3">
-            {isIndependeceDay ? (
+            {isIndependenceDay ? (
               <Image
                 src={'/indonesia-flag-hero.png'}
                 alt="hero"
