@@ -8,6 +8,113 @@ import { workExperiences } from './work-experiences.data';
 
 export const portfolios: Portfolio[] = [
   {
+    title: 'Dashboard CHM (Bricare Support)',
+    href: null,
+    publishedAt: '2025-02-22',
+    type: {
+      icon: 'database',
+      label: 'Backend',
+    },
+    workExperienceId: 'c4e2cedc-3eb4-43c6-b575-bc887b405335',
+    challenges: [
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Buat API yang kuat dengan data besar dan mengimplementasikan caching menggunakan Redis',
+          },
+          {
+            lang: 'en',
+            desc: 'Create robust API with huge data and implement caching using Redis',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Buat proses job untuk mengekstrak dan mengubah data',
+          },
+          {
+            lang: 'en',
+            desc: 'Create a job process to extract and transform data',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Buat proses kerja untuk memberi tahu pengguna tentang informasi melalui sistem kepegawaian BRI',
+          },
+          {
+            lang: 'en',
+            desc: 'Create a job process to notify users about the information through BRI employee system',
+          },
+        ],
+      },
+      {
+        translates: [
+          {
+            lang: 'id',
+            desc: 'Implementasikan Konsep Maker, Checker dan Signer (MCS) untuk layer data persetujuan',
+          },
+          {
+            lang: 'en',
+            desc: 'Impelement Maker, Checker and Signer (MCS) concept for layering approval data',
+          },
+        ],
+      },
+    ],
+    stacks: [
+      { icon: '/programming/golang.png', label: 'Golang' },
+      { icon: '/programming/gorm.png', label: 'GORM' },
+      { icon: '/programming/redis.png', label: 'Redis' },
+      { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
+      { icon: '/programming/next.png', label: 'Next JS 14' },
+      { icon: '/programming/material-ui.png', label: 'Material UI' },
+    ],
+    images: [...Array(2).keys()].map((index) => ({
+      src: `/portfolio/dashboard-chm-${index + 1}.jpg`,
+      alt: `Dashboard CHM ${index + 1}`,
+    })),
+    teams: [
+      {
+        // irsyad baso
+        userId: '0e9dc486-a5b9-445b-98a4-e785c9048c83',
+        role: 'Project Manager',
+      },
+      {
+        // fery
+        userId: '5dbe1a05-0f38-4fa9-acb3-0b3f00abfd19',
+        role: 'Fullstack Dev',
+      },
+      {
+        // aji
+        userId: '607046a3-270f-4b4f-9cbf-b669621802c3',
+        role: 'Frontend Dev',
+      },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        desc: `
+          <p>
+          Aplikasi dashboard berbasis web yang digunakan untuk monitoring dan manajemen tiket keluhan (complaint case) di lingkungan BRI. Aplikasi ini menampilkan data tiket dalam bentuk grafik (Donut dan Bar Chart) serta tabel, dengan fitur filter berdasarkan tipe tiket, status, tanggal, dan area kerja (Kantor Pusat, Regional Office, Cabang, Unit).
+          </p>
+        `,
+      },
+      {
+        lang: 'en',
+        desc: `
+          <p>
+          A web-based dashboard application designed for monitoring and managing complaint case tickets within BRI. The application displays ticket data using visualizations such as Donut and Bar Charts, as well as tables. It features filtering options based on ticket type, status, date, and work area (Head Office, Regional Office, Branch, Unit).
+          </p>
+        `,
+      },
+    ],
+  },
+  {
     title: 'Tunggalisasi CIF',
     href: null,
     publishedAt: '2024-12-22',

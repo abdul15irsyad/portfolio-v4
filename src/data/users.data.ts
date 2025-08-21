@@ -269,6 +269,42 @@ export const users: User[] = [
     },
     linkedin: 'https://www.linkedin.com/in/fernando-julian/',
   },
+  {
+    id: '0e9dc486-a5b9-445b-98a4-e785c9048c83',
+    name: 'A. Muh. Irsyad Baso',
+    photo: {
+      id: 'b3e18c6c-1811-4e47-b356-9c0dbb733176',
+      path: 'user',
+      fileName: 'irsyad-baso.jpg',
+      originalFileName: 'irsyad-baso.jpg',
+      mime: 'image/jpg',
+    },
+    linkedin: 'https://www.linkedin.com/in/a-muh-irsyad-baso-1416a7146/',
+  },
+  {
+    id: '5dbe1a05-0f38-4fa9-acb3-0b3f00abfd19',
+    name: 'Muh. Habib Fery',
+    photo: {
+      id: '1a86a11f-6c02-4ac8-99d5-27568e2b6023',
+      path: 'user',
+      fileName: 'fery.jpeg',
+      originalFileName: 'fery.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/muhammadhabibfery/',
+  },
+  {
+    id: '607046a3-270f-4b4f-9cbf-b669621802c3',
+    name: 'Rokhman Aji',
+    photo: {
+      id: '97af0001-cfc9-4a53-837a-d4f755a782f3',
+      path: 'user',
+      fileName: 'aji.jpeg',
+      originalFileName: 'aji.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/rokhmanajiamrulah/',
+  },
 ].map((user) => ({
   ...user,
   photo: user.photo
