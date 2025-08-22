@@ -9,7 +9,7 @@ import { OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { useCapture } from '@/app/(hooks)/use-capture-and-share';
-import { QuoteOfTheDay as QuoteOfTheDayInterface } from '@/types/quote-of-the-day.type';
+import { IQuoteOfTheDayResponse as QuoteOfTheDayInterface } from '@/types/quote-of-the-day.type';
 
 import styles from './quote-of-the-day.module.css';
 

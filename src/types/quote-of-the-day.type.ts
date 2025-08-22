@@ -1,4 +1,4 @@
-export interface QuoteOfTheDay {
+export interface IQuoteOfTheDayResponse {
   _id: string;
   content: string;
   author: string;
@@ -7,4 +7,11 @@ export interface QuoteOfTheDay {
   length: number;
   dateAdded: string;
   dateModified: string;
+}
+
+export interface QuoteOfTheDay {
+  _id: string;
+  author: string;
+  content: string;
+  tags: string[];
 }

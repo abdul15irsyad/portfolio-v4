@@ -2,7 +2,10 @@ import dayjs from 'dayjs';
 import { NextResponse } from 'next/server';
 
 import { cache } from '@/redis/redis.util';
-import { getQuoteOfTheDay } from '@/services/quote-of-the-day.service';
+import {
+  defaultQuoteOfTheDay,
+  getQuoteOfTheDay,
+} from '@/services/quote-of-the-day.service';
 import { handleError } from '@/utils/error.util';
 
 export const dynamic = 'force-dynamic';
@@ -12,7 +15,11 @@ export async function GET() {
     const date = dayjs().format('YYYY-MM-DD');
     const quoteOfTheDay = await cache(
       `quoteOfTheDay:${date}`,
-      () => getQuoteOfTheDay(),
+      () => {
+        if (date === '2025-08-25') return defaultQuoteOfTheDay;
+
+        return getQuoteOfTheDay();
+      },
       24 * 60 * 60,
     );
 
