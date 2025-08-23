@@ -664,7 +664,8 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'Gerakan Seniman Masuk Sekolah 2023',
-    href: 'https://gsmsppk.kemdikbud.go.id',
+    // href: 'https://gsmsppk.kemdikbud.go.id',
+    href: null,
     publishedAt: '2023-08-10',
     type: {
       icon: 'database',
@@ -814,7 +815,8 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'Indeks Pembangunan Kebudayaan',
-    href: 'https://ipk.kemdikbud.go.id',
+    // href: 'https://ipk.kemdikbud.go.id',
+    href: null,
     publishedAt: '2023-06-10',
     type: {
       icon: 'code-square',
@@ -877,7 +879,8 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'PPKD Pemantaun & Evaluasi',
-    href: 'https://monevppkd.kemdikbud.go.id',
+    // href: 'https://monevppkd.kemdikbud.go.id',
+    href: null,
     publishedAt: '2023-06-10',
     type: {
       icon: 'database',
@@ -970,7 +973,8 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'PPKD Dokumen',
-    href: 'https://ppkd.kemdikbud.go.id',
+    // href: 'https://ppkd.kemdikbud.go.id',
+    href: null,
     publishedAt: '2023-03-10',
     type: {
       icon: 'database',
