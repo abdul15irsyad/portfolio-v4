@@ -1,7 +1,14 @@
-export interface Award {
+export type Award = {
   title: string;
-  competition: string;
-  certificate?: {
-    href?: string;
-  };
-}
+  href?: string;
+  year: number;
+} & (
+  | {
+      type: 'award';
+      competition: string;
+    }
+  | {
+      type: 'certificate';
+      publisher?: string;
+    }
+);
