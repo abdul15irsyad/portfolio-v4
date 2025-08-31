@@ -13,38 +13,50 @@ const Award = () => {
         <div className="row">
           <div className="col-md-4">
             <h2 className="title">
-              <strong>{capitalizeEachWord(t('award'))}</strong>
+              <strong>
+                {capitalizeEachWord(t('award'))} &{' '}
+                {capitalizeEachWord(t('certificate'))}
+              </strong>
             </h2>
             <hr />
           </div>
           <div className="col-md-8">
             <ul className="award-items">
-              <li className="award-item" data-aos="fade-up">
-                <div className="icon">
-                  <i className="bi bi-award"></i>
-                </div>
-                {awards.map(({ title, competition, certificate }, index) => (
-                  <div key={index} className="detail">
-                    <div className="award-title">{title}</div>
-                    <div className="competition">
-                      <p>{competition}</p>
-                      {certificate?.href && (
+              {awards.map((award, index) => (
+                <li key={index} className="award-item" data-aos="fade-up">
+                  <>
+                    <div className="icon">
+                      <i
+                        className={`bi bi-${award.type === 'award' ? 'award' : 'file-medical'}`}
+                      ></i>
+                    </div>
+                    <div className="detail">
+                      <div className="award-title">{award.title}</div>
+                      <div className="description">
+                        {[
+                          award.type === 'award'
+                            ? award.competition
+                            : award.publisher,
+                          award.year,
+                        ].join(' | ')}
+                      </div>
+                      {award.href && (
                         <Link
-                          href={certificate.href}
+                          href={award.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn btn-danger"
+                          className="btn btn-sm btn-danger"
                         >
                           <i className="bi bi-filetype-pdf me-2"></i>
                           {capitalizeEachWord(
-                            t('see-item', { item: t('certificate') }),
+                            t('see-item', { item: t(award.type) }),
                           )}
                         </Link>
                       )}
                     </div>
-                  </div>
-                ))}
-              </li>
+                  </>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
