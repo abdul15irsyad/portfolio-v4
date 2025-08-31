@@ -16,7 +16,8 @@ export async function GET() {
     const quoteOfTheDay = await cache(
       `quoteOfTheDay:${date}`,
       () => {
-        if (date === '2025-08-28') return defaultQuoteOfTheDay;
+        if (['2025-08-28', '2025-09-04'].includes(date))
+          return defaultQuoteOfTheDay;
 
         return getQuoteOfTheDay();
       },
