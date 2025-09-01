@@ -83,12 +83,12 @@ const BlogShare = ({
       <OverlayTrigger
         key={index}
         overlay={<Tooltip>{capitalizeEachWord(t('link-copied'))}</Tooltip>}
-        placement="bottom"
+        placement='bottom'
         show={copied}
       >
         <button
           key={index}
-          type="button"
+          type='button'
           className={`blog-detail-share-item ${link.icon}`}
           onClick={copyToClipboard}
           disabled={copied}
@@ -100,7 +100,7 @@ const BlogShare = ({
     ) : link.type === 'share' ? (
       <button
         key={index}
-        type="button"
+        type='button'
         className={`blog-detail-share-item ${link.icon}`}
         onClick={async () => {
           if (!navigator?.canShare?.({ title })) return;
@@ -118,8 +118,8 @@ const BlogShare = ({
       <Link
         key={index}
         href={link.href!}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
         className={`blog-detail-share-item ${link.icon}`}
       >
         <i className={`bi bi-${link.icon}`}></i>

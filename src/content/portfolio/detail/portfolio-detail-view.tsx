@@ -11,15 +11,15 @@ export const PortfolioDetailView = ({
   portfolio: Portfolio;
 }) => {
   return (
-    <div className="portfolio-detail section doodle-background">
-      <div className="container-lg">
-        <div className="row">
-          <div className="col-12">
+    <div className='portfolio-detail section doodle-background'>
+      <div className='container-lg'>
+        <div className='row'>
+          <div className='col-12'>
             <Portfolio2Detail portfolio={portfolio} />
           </div>
         </div>
-        <div className="row">
-          <div className="col">
+        <div className='row'>
+          <div className='col'>
             <BackButton />
           </div>
         </div>

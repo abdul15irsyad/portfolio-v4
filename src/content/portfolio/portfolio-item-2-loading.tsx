@@ -6,8 +6,8 @@ import { randomInt } from '@/utils/number.util';
 export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
   return [...Array(count)].map((_, index) => (
     <div key={index} className={`col-xxl-4 col-md-6 col-12 gx-4 gy-md-4 gy-3`}>
-      <div className="align-items-center">
-        <Placeholder animation="glow">
+      <div className='align-items-center'>
+        <Placeholder animation='glow'>
           <Placeholder
             style={{
               aspectRatio: '1080 / 607',
@@ -18,12 +18,12 @@ export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
             xs={12}
           />
           <div style={{ padding: '.4rem 0' }}>
-            <div className="d-flex justify-content-between align-items-center mb-2">
-              <div className="d-flex gap-2">
+            <div className='d-flex justify-content-between align-items-center mb-2'>
+              <div className='d-flex gap-2'>
                 {[3, 5].map((width, index) => (
                   <Placeholder
                     key={index}
-                    size="sm"
+                    size='sm'
                     style={{
                       height: '22px',
                       width: `${width}rem`,
@@ -32,7 +32,7 @@ export const PortfolioItem2Loading = ({ count = 6 }: { count: number }) => {
                   />
                 ))}
               </div>
-              <div className="d-flex gap-2">
+              <div className='d-flex gap-2'>
                 {[...Array(randomInt(3, 5))].map((_, index) => (
                   <Placeholder
                     key={index}

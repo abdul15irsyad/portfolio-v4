@@ -10,31 +10,31 @@ import { capitalizeEachWord } from '@/utils/change-case';
 const Programming = () => {
   const { t } = useTranslation();
   return (
-    <div className="programming section" id="programming">
-      <div className="container">
-        <h2 className="title text-center">
+    <div className='programming section' id='programming'>
+      <div className='container'>
+        <h2 className='title text-center'>
           <strong>{capitalizeEachWord(t('skills'))}</strong>
         </h2>
         <hr />
-        <div className="row justify-content-start">
+        <div className='row justify-content-start'>
           {programmingSkills.map(({ title, list }, index) => (
             <div
               key={index}
-              className="col-lg-4 col-md-6 col-12"
-              data-aos="fade-up"
+              className='col-lg-4 col-md-6 col-12'
+              data-aos='fade-up'
             >
-              <div className="category">
-                <div className="category-title">
+              <div className='category'>
+                <div className='category-title'>
                   {capitalizeEachWord(t(title))}
                 </div>
-                <ul className="category-items">
+                <ul className='category-items'>
                   {list.map(({ name, logo, level, href }, index) => (
                     <li key={index}>
                       {href ? (
                         <Link
                           href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           <CategoryItem name={name} logo={logo} level={level} />
                         </Link>
@@ -62,9 +62,9 @@ const CategoryItem = ({
   level: Level;
   logo: string | string[];
 }) => (
-  <span className="category-item">
+  <span className='category-item'>
     <div>
-      <div className="d-inline-block">
+      <div className='d-inline-block'>
         {Array.isArray(logo) ? (
           logo.map((item, index) => (
             <Image

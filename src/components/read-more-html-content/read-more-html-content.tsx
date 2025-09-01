@@ -32,12 +32,12 @@ export const ReadMoreHtmlContent = ({
   return (
     <div>
       <div
-        className="default-text"
+        className='default-text'
         dangerouslySetInnerHTML={{ __html: safeHtml }}
       />
       {isTruncated && (
         <a
-          className="d-inline"
+          className='d-inline'
           onClick={() => setExpanded((v) => !v)}
           style={{ cursor: 'pointer' }}
         >

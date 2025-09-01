@@ -29,34 +29,34 @@ export const SideProjectItem = ({
   desc = translates?.find(({ lang }) => lang === i18n.language)?.desc ?? desc!;
 
   return (
-    <div className="col-xl-4 col-md-6 side-project-item" data-aos="fade-up">
-      <div className="side-project-img-wrapper">
+    <div className='col-xl-4 col-md-6 side-project-item' data-aos='fade-up'>
+      <div className='side-project-img-wrapper'>
         {href ? (
           <>
-            <div className="overlay">
+            <div className='overlay'>
               <Link
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-open"
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn btn-sm btn-open'
               >
                 {capitalize(t('see'))}{' '}
-                <i className="bi bi-box-arrow-up-right ms-2"></i>
+                <i className='bi bi-box-arrow-up-right ms-2'></i>
               </Link>
             </div>
             <Image
               src={img}
-              className="side-project-img"
+              className='side-project-img'
               alt={title}
               width={1080}
               height={1080}
-              loading="eager"
+              loading='eager'
             />
           </>
         ) : (
           <Image
             src={img}
-            className="side-project-img"
+            className='side-project-img'
             alt={title}
             width={1080}
             height={1080}
@@ -64,23 +64,23 @@ export const SideProjectItem = ({
         )}
       </div>
 
-      <div className="side-project-text">
+      <div className='side-project-text'>
         {href ? (
-          <Link href={href} target="_blank" rel="noopener noreferrer">
-            <h5 className="side-project-title">{title}</h5>
+          <Link href={href} target='_blank' rel='noopener noreferrer'>
+            <h5 className='side-project-title'>{title}</h5>
           </Link>
         ) : (
-          <h5 className="side-project-title">{title}</h5>
+          <h5 className='side-project-title'>{title}</h5>
         )}
         <p>{desc}</p>
-        <div className="side-project-stacks">
+        <div className='side-project-stacks'>
           {stacks.map(({ icon, label }, index) => (
             <OverlayTrigger
               key={index}
               overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
-              placement="bottom"
+              placement='bottom'
             >
-              <div className="side-project-stack">
+              <div className='side-project-stack'>
                 <Image src={icon} alt={label} width={100} height={100} />
               </div>
             </OverlayTrigger>

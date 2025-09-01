@@ -56,7 +56,7 @@ const PortfolioItem2 = ({
         )}
       </div>
       <div className={`${styles.detail}`}>
-        <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className='d-flex justify-content-between align-items-center mb-2'>
           <div className={`${styles.metas}`}>
             <MetaBadge text={year} />
             <MetaBadge
@@ -69,7 +69,7 @@ const PortfolioItem2 = ({
               <OverlayTrigger
                 key={index}
                 overlay={<Tooltip id={`tooltip-${index}`}>{label}</Tooltip>}
-                placement="top"
+                placement='top'
               >
                 <div className={`${styles.stack}`}>
                   <Image src={icon} alt={label} width={28} height={28} />
@@ -92,7 +92,7 @@ const PortfolioItem2 = ({
       </div>
       {teams && teams?.length > 0 && (
         <OverlayTrigger
-          placement="top"
+          placement='top'
           trigger={['focus', 'hover']}
           overlay={
             <Tooltip>
@@ -100,7 +100,7 @@ const PortfolioItem2 = ({
             </Tooltip>
           }
         >
-          <div className="d-inline-block">
+          <div className='d-inline-block'>
             <Avatars
               users={teams?.map(({ user }) => ({
                 alt: user!.name!,

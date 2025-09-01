@@ -13,13 +13,13 @@ export const ClearButton = ({
   const { t } = useTranslation();
   return (
     <Button
-      variant="outline-danger"
-      size="sm"
+      variant='outline-danger'
+      size='sm'
       style={{ borderRadius: '.75em' }}
       onClick={onClick}
       {...props}
     >
-      <i className="bi bi-trash me-1"></i>
+      <i className='bi bi-trash me-1'></i>
       <span>{capitalizeEachWord(t('clear-filter'))}</span>
     </Button>
   );

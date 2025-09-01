@@ -22,10 +22,10 @@ export const Footer = () => {
     <>
       <QuoteOfTheDay />
       <footer>
-        <div className="top">
-          <div className="container">
-            <div className="row">
-              <div className="contacts col-lg-4 col-md-6 col-12">
+        <div className='top'>
+          <div className='container'>
+            <div className='row'>
+              <div className='contacts col-lg-4 col-md-6 col-12'>
                 <h5>{capitalize(t('contact'))}</h5>
                 <ul>
                   {footerContacts.map(({ icon, label, href }, index) => {
@@ -33,8 +33,8 @@ export const Footer = () => {
                       <li key={index}>
                         <Link
                           href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target='_blank'
+                          rel='noopener noreferrer'
                           aria-label={`go to ${icon}`}
                         >
                           <i className={`bi bi-${icon}`}></i>
@@ -50,7 +50,7 @@ export const Footer = () => {
                   })}
                 </ul>
               </div>
-              <div className="social-medias col-lg-4 col-md-6 col-12">
+              <div className='social-medias col-lg-4 col-md-6 col-12'>
                 <h5>{capitalizeEachWord(t('follow-me'))}</h5>
                 <ul>
                   {followMe.map(({ icon, label, href }, index) => (
@@ -58,8 +58,8 @@ export const Footer = () => {
                       {href ? (
                         <Link
                           href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target='_blank'
+                          rel='noopener noreferrer'
                           aria-label={`go to ${icon}`}
                         >
                           <i className={`bi bi-${icon}`}></i>
@@ -71,12 +71,12 @@ export const Footer = () => {
                   ))}
                 </ul>
               </div>
-              <div className="address col-md-4 col-12">
+              <div className='address col-md-4 col-12'>
                 <h5>{capitalize(t('address'))}</h5>
                 <Link
-                  href="https://maps.app.goo.gl/XnjKvJvMHUTCN8TQ9"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://maps.app.goo.gl/XnjKvJvMHUTCN8TQ9'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   {t('my-address')}
                 </Link>

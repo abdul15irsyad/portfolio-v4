@@ -143,27 +143,27 @@ export const ContactMeView = () => {
   }, [mutateCreateContactMeError, setError, t]);
 
   return (
-    <div className="contact-me section doodle-background">
-      <div className="container">
+    <div className='contact-me section doodle-background'>
+      <div className='container'>
         <SectionTitle title={capitalizeEachWord(t('contact'))} />
-        <div className="row justify-content-center align-items-center">
-          <div className="col-md-6 col-12 d-lg-flex d-none">
-            <div className="contact-form-image">
+        <div className='row justify-content-center align-items-center'>
+          <div className='col-md-6 col-12 d-lg-flex d-none'>
+            <div className='contact-form-image'>
               <Image
                 src={'/ask.png'}
-                alt="ask"
+                alt='ask'
                 width={320}
                 height={320}
-                data-aos="fade-up"
+                data-aos='fade-up'
               />
             </div>
           </div>
-          <div className="col-lg-6 col-md-9 col-12" data-aos="fade-up">
-            <Card className="contact-form-wrapper">
-              <h2 className="fw-bold fs-4 text-primary">
+          <div className='col-lg-6 col-md-9 col-12' data-aos='fade-up'>
+            <Card className='contact-form-wrapper'>
+              <h2 className='fw-bold fs-4 text-primary'>
                 {capitalize(t('say-anything-to-me'))}
               </h2>
-              <p className="text-muted fs-6">{t('say-anything-to-me-desc')}</p>
+              <p className='text-muted fs-6'>{t('say-anything-to-me-desc')}</p>
               {alert.active &&
                 (alert.type === 'success' ? (
                   <SuccessNotification
@@ -181,9 +181,9 @@ export const ContactMeView = () => {
                     dismissible
                     transition={true}
                   >
-                    <div className="d-flex">
+                    <div className='d-flex'>
                       <i className={`bi bi-exclamation-circle me-2`}></i>
-                      <p className="mb-0">
+                      <p className='mb-0'>
                         {typeof alert.message === 'string'
                           ? alert?.message
                           : alert?.message?.()}
@@ -194,13 +194,13 @@ export const ContactMeView = () => {
               {!(alert.active && alert.type === 'success') && (
                 <FormProvider {...methods}>
                   <Form onSubmit={!isSubmitting ? onSubmit : undefined}>
-                    <Form.Group className="mb-3" controlId="formName">
-                      <Form.Label className="fw-bold small">
+                    <Form.Group className='mb-3' controlId='formName'>
+                      <Form.Label className='fw-bold small'>
                         {capitalize(t('name'))}
                       </Form.Label>
                       <Form.Control
                         {...register('name')}
-                        type="text"
+                        type='text'
                         placeholder={t('name-placeholder')}
                         isInvalid={!!errors.name?.message}
                       />
@@ -211,44 +211,44 @@ export const ContactMeView = () => {
                       type="checkbox"
                       label={t('anonymous')}
                     /> */}
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type='invalid'>
                         {errors.name?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formAddress">
-                      <Form.Label className="fw-bold small">{`${capitalize(t('address'))} (${t('optional')})`}</Form.Label>
+                    <Form.Group className='mb-3' controlId='formAddress'>
+                      <Form.Label className='fw-bold small'>{`${capitalize(t('address'))} (${t('optional')})`}</Form.Label>
                       <Form.Control
                         {...register('address')}
-                        type="text"
+                        type='text'
                         placeholder={t('address-placeholder')}
                         isInvalid={!!errors.address?.message}
                       />
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type='invalid'>
                         {errors.address?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="mb-4" controlId="formMessage">
-                      <Form.Label className="fw-bold small">
+                    <Form.Group className='mb-4' controlId='formMessage'>
+                      <Form.Label className='fw-bold small'>
                         {capitalize(t('message'))}
                       </Form.Label>
                       <Form.Control
                         {...register('message')}
-                        as="textarea"
+                        as='textarea'
                         rows={6}
                         placeholder={t('message-placeholder')}
                         isInvalid={!!errors.message?.message}
                       />
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type='invalid'>
                         {errors.message?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <div className="d-flex justify-content-end">
+                    <div className='d-flex justify-content-end'>
                       <Button
-                        type="submit"
-                        variant="primary"
+                        type='submit'
+                        variant='primary'
                         disabled={isSubmitting}
                       >
-                        <i className="bi bi-send me-2" />
+                        <i className='bi bi-send me-2' />
                         {capitalize(t('submit'))}
                       </Button>
                     </div>

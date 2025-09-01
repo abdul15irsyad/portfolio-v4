@@ -33,7 +33,7 @@ export const Pagination = ({
         className={`${styles.item} ${currentPage === 1 ? styles.disable : ''}`}
         onClick={() => setCurrentPage(currentPage - 1)}
       >
-        <i className="bi bi-chevron-left"></i>
+        <i className='bi bi-chevron-left'></i>
       </div>
       <div className={styles.items}>
         {[...Array(totalPage)].map((_, index) => {
@@ -68,7 +68,7 @@ export const Pagination = ({
         className={`${styles.item} ${currentPage === totalPage ? styles.disable : ''}`}
         onClick={() => setCurrentPage(currentPage + 1)}
       >
-        <i className="bi bi-chevron-right"></i>
+        <i className='bi bi-chevron-right'></i>
       </div>
     </div>
   );

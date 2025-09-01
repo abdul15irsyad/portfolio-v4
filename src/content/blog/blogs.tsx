@@ -50,9 +50,9 @@ export default () => {
   return (
     <>
       {blogs?.data.map((blog) => <BlogItem key={blog.id} blog={blog} />)}
-      <div className="blogs-meta">
+      <div className='blogs-meta'>
         <div
-          className="meta-text"
+          className='meta-text'
           dangerouslySetInnerHTML={{
             __html: t('showing-result', {
               totalData: blogs?.data.length,

@@ -13,9 +13,9 @@ export const ExperienceSection = () => {
   const { t, i18n } = useTranslation();
   const [isShowMore, setIsShowMore] = useState(false);
   return (
-    <div className="experience section" id="experience">
-      <div className="container">
-        <h2 className="title text-center">
+    <div className='experience section' id='experience'>
+      <div className='container'>
+        <h2 className='title text-center'>
           <strong>{capitalizeEachWord(t('work-experience'))}</strong>
         </h2>
         <hr />
@@ -62,11 +62,11 @@ export const ExperienceSection = () => {
                 const weekDiff = dayjs(endDate).diff(startDate, 'weeks');
 
                 const companyName = company.url ? (
-                  <Link href={company.url} className="company" target="_blank">
+                  <Link href={company.url} className='company' target='_blank'>
                     {company.name}
                   </Link>
                 ) : (
-                  <span className="company">{company.name}</span>
+                  <span className='company'>{company.name}</span>
                 );
 
                 return (
@@ -76,19 +76,19 @@ export const ExperienceSection = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="row"
+                    className='row'
                   >
-                    <div className="col-lg-4 col-12">
-                      <div className="d-flex justify-content-lg-end">
-                        <div className="left">
-                          <div className="position">{position}</div>
-                          <div className="timespan-n-company justify-content-lg-end">
+                    <div className='col-lg-4 col-12'>
+                      <div className='d-flex justify-content-lg-end'>
+                        <div className='left'>
+                          <div className='position'>{position}</div>
+                          <div className='timespan-n-company justify-content-lg-end'>
                             {/* <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span> */}
-                            <span className="timespan">{`${start.short} - ${end.short}`}</span>
+                            <span className='timespan'>{`${start.short} - ${end.short}`}</span>
                             {company.fullname ? (
                               <OverlayTrigger
                                 overlay={<Tooltip>{company.fullname}</Tooltip>}
-                                placement="top"
+                                placement='top'
                               >
                                 {companyName}
                               </OverlayTrigger>
@@ -96,26 +96,26 @@ export const ExperienceSection = () => {
                               companyName
                             )}
                           </div>
-                          <div className="d-inline-block work-duration mt-1">
+                          <div className='d-inline-block work-duration mt-1'>
                             {monthDiff > 0 ? workDuration : `${weekDiff} week`}
                           </div>
                         </div>
-                        <div className="right align-self-center">
+                        <div className='right align-self-center'>
                           <Image
                             src={company.logo}
                             alt={company.name}
                             width={48}
                             height={48}
-                            className="ms-lg-3 me-lg-0 me-3"
-                            loading="eager"
+                            className='ms-lg-3 me-lg-0 me-3'
+                            loading='eager'
                           />
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-8 col-12">
-                      <div className="mb-3">
+                    <div className='col-lg-8 col-12'>
+                      <div className='mb-3'>
                         <div
-                          className="default-text"
+                          className='default-text'
                           dangerouslySetInnerHTML={{
                             __html:
                               translates?.find(
@@ -136,7 +136,7 @@ export const ExperienceSection = () => {
                         /> */}
                       </div>
                       {techStacks?.map((techStack, index) => (
-                        <span key={index} className="blog-tag">
+                        <span key={index} className='blog-tag'>
                           {techStack}
                         </span>
                       ))}
@@ -146,10 +146,10 @@ export const ExperienceSection = () => {
               },
             )}
         </AnimatePresence>
-        <div className="d-flex justify-content-center pt-3">
+        <div className='d-flex justify-content-center pt-3'>
           <Button
-            variant="light"
-            size="sm"
+            variant='light'
+            size='sm'
             style={{
               borderRadius: 8,
               padding: '.25rem .75rem',

@@ -13,21 +13,21 @@ export const SuccessNotification = ({
   onClose?: () => void;
 }) => {
   return (
-    <div className="success-notification d-flex justify-content-center align-items-center gap-md-4 gap-3 p-4">
+    <div className='success-notification d-flex justify-content-center align-items-center gap-md-4 gap-3 p-4'>
       <Image
-        src="/images/mail-success.png"
-        alt="success message icon"
+        src='/images/mail-success.png'
+        alt='success message icon'
         width={600}
         height={100}
-        className="success-notification-img"
+        className='success-notification-img'
       />
-      <h6 className="mb-0 text-muted">{capitalize(message ?? '')}</h6>
+      <h6 className='mb-0 text-muted'>{capitalize(message ?? '')}</h6>
       {onClose && (
-        <div className="btn-close-wrapper">
+        <div className='btn-close-wrapper'>
           <button
-            type="button"
-            className="btn-close"
-            aria-label="Close alert"
+            type='button'
+            className='btn-close'
+            aria-label='Close alert'
             onClick={onClose}
           ></button>
         </div>

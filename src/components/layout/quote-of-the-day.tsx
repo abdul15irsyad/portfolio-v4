@@ -39,7 +39,7 @@ export const QuoteOfTheDay = () => {
   const canShare = useMemo(() => {
     try {
       return navigator?.canShare?.({ title: '' });
-    } catch (error) {
+    } catch {
       return false;
     }
   }, []);
@@ -69,23 +69,23 @@ export const QuoteOfTheDay = () => {
       {!isLoading && canShare && (
         <OverlayTrigger
           overlay={<Tooltip>{t('share-quote')}</Tooltip>}
-          placement="top"
+          placement='top'
         >
           <button
             className={`btn btn-light ${styles['btn-share']}`}
             onClick={handleShare}
           >
             {isCaptureLoading ? (
-              <i className="bi bi-arrow-repeat spinner" />
+              <i className='bi bi-arrow-repeat spinner' />
             ) : (
-              <i className="bi bi-share" />
+              <i className='bi bi-share' />
             )}
           </button>
         </OverlayTrigger>
       )}
       <div className={styles.content} ref={ref}>
         <div className={'w-100'}>
-          <Placeholder animation="glow">
+          <Placeholder animation='glow'>
             {isLoading ? (
               [
                 {
@@ -104,7 +104,7 @@ export const QuoteOfTheDay = () => {
               ].map(({ width, marginBottom, bg }, index) => (
                 <Placeholder
                   key={index}
-                  size="lg"
+                  size='lg'
                   bg={bg ?? undefined}
                   style={{
                     width,
@@ -135,5 +135,7 @@ export const QuoteOfTheDay = () => {
   );
 };
 
-interface PickQuoteOfTheDay
-  extends Pick<QuoteOfTheDayInterface, '_id' | 'author' | 'content' | 'tags'> {}
+type PickQuoteOfTheDay = Pick<
+  QuoteOfTheDayInterface,
+  '_id' | 'author' | 'content' | 'tags'
+>;

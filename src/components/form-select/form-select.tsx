@@ -18,7 +18,7 @@ export const FormSelect = ({
   const { t } = useTranslation();
   return (
     <Form.Select
-      aria-label="Default select example"
+      aria-label='Default select example'
       onChange={handleChange}
       defaultValue={defaultValue}
     >

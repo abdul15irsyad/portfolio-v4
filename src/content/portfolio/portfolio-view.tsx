@@ -59,19 +59,19 @@ export const PortfolioView = () => {
     setPortofolios(paginatedArray(filteredPortfolios, { page, limit }));
   }, [filterPortfolios, page]);
   return (
-    <div className="portfolio section doodle-background">
-      <div className="container">
-        <div className="row header">
-          <div className="col">
+    <div className='portfolio section doodle-background'>
+      <div className='container'>
+        <div className='row header'>
+          <div className='col'>
             <SectionTitle title={capitalize(t('portfolio'))} />
-            <div className="filters">
-              <div className="filter filter-year">
+            <div className='filters'>
+              <div className='filter filter-year'>
                 <FormSelect
                   options={portfolioYears}
                   handleChange={(e) => setYear(e.target.value)}
                 />
               </div>
-              <div className="filter filter-type">
+              <div className='filter filter-type'>
                 <FormSelect
                   options={portfolioCategories}
                   handleChange={(e) => setType(e.target.value)}
@@ -80,7 +80,7 @@ export const PortfolioView = () => {
             </div>
             {totalAllData > 0 && (
               <p
-                className="text-center text-secondary mt-3 mb-0"
+                className='text-center text-secondary mt-3 mb-0'
                 dangerouslySetInnerHTML={{
                   __html: t('showing-result', {
                     totalData: portfolios.length,
@@ -91,7 +91,7 @@ export const PortfolioView = () => {
             )}
           </div>
         </div>
-        <div className="row porfolios mb-lg-5 mb-3">
+        <div className='row porfolios mb-lg-5 mb-3'>
           {portfolios.length > 0 ? (
             portfolios.map((portfolio, index) => (
               <div
@@ -107,7 +107,7 @@ export const PortfolioView = () => {
         </div>
         {totalAllData > 0 && (
           <Pagination
-            position="center"
+            position='center'
             currentPage={page}
             setCurrentPage={setPage}
             totalPage={Math.ceil(totalAllData / limit)}

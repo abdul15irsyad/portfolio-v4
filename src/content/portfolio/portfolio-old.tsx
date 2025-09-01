@@ -29,14 +29,14 @@ export const PortfolioOld = () => {
     );
   }, [year, type]);
   return (
-    <div className="portfolio section doodle-background">
-      <div className="container">
-        <div className="row header">
-          <div className="col">
-            <h1 className="title">Portfolio</h1>
+    <div className='portfolio section doodle-background'>
+      <div className='container'>
+        <div className='row header'>
+          <div className='col'>
+            <h1 className='title'>Portfolio</h1>
             <hr />
-            <div className="filters">
-              <div className="filter filter-year">
+            <div className='filters'>
+              <div className='filter filter-year'>
                 <FormSelect
                   options={[
                     { value: 'all', label: 'All Year', selected: true },
@@ -47,7 +47,7 @@ export const PortfolioOld = () => {
                   handleChange={(e) => setYear(e.target.value)}
                 />
               </div>
-              <div className="filter filter-type">
+              <div className='filter filter-type'>
                 <FormSelect
                   options={[
                     { value: 'all', label: 'All Type', selected: true },
@@ -68,7 +68,7 @@ export const PortfolioOld = () => {
                 />
               </div>
             </div>
-            <p className="text-center text-secondary mt-3 mb-0">
+            <p className='text-center text-secondary mt-3 mb-0'>
               Showing <strong>{filteredPortfolios.length}</strong> of{' '}
               <strong>{portfolios.length}</strong> portfolios
             </p>

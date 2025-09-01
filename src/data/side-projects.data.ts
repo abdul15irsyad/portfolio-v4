@@ -275,9 +275,9 @@ export const allStacks = sideProjects
   .reduce((prev: SideProject['stacks'], curr) => {
     return [
       ...prev,
-      ...curr.stacks?.filter(
+      ...(curr.stacks?.filter(
         (stack) => !prev.find(({ icon }) => icon === stack.icon),
-      ),
+      ) ?? []),
     ];
   }, [])
   .map((stack) => ({

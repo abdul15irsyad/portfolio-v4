@@ -25,7 +25,7 @@ export const ScrollToTop = () => {
       onClick={handleScrollTop}
     >
       <div className={styles['button-scroll-to-top']}>
-        <i className="bi bi-chevron-up"></i>
+        <i className='bi bi-chevron-up'></i>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export const defaultLanguage = 'en';
 let lng: string;
 try {
   lng = localStorage?.getItem(I18N_KEY) ?? defaultLanguage;
-} catch (error) {
+} catch {
   lng = defaultLanguage;
 }
 dayjs.locale(lng);

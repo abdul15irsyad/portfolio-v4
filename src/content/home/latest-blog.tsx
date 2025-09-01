@@ -26,24 +26,24 @@ export const LatestBlog = () => {
     cacheTime: 0,
   });
   return (
-    <section className="latest-blog section doodle-background">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-12 col-lg-6">
-            <h1 className="title">{capitalizeEachWord(t('latest-blog'))}</h1>
-            <p className="sub-title mb-4 mb-lg-5">
+    <section className='latest-blog section doodle-background'>
+      <div className='container'>
+        <div className='row align-items-center'>
+          <div className='col-12 col-lg-6'>
+            <h1 className='title'>{capitalizeEachWord(t('latest-blog'))}</h1>
+            <p className='sub-title mb-4 mb-lg-5'>
               {capitalize(t('latest-blog-desc'))}
             </p>
-            <Link href="/blog" className="btn btn-primary btn-show-all-page">
+            <Link href='/blog' className='btn btn-primary btn-show-all-page'>
               {capitalizeEachWord(t('see-item', { item: t('all-blogs') }))}{' '}
-              <i className="bi bi-chevron-right"></i>
+              <i className='bi bi-chevron-right'></i>
             </Link>
           </div>
-          <div className="col-12 col-lg-6">
-            <div className="latest-blog-item" data-aos="fade-up">
+          <div className='col-12 col-lg-6'>
+            <div className='latest-blog-item' data-aos='fade-up'>
               {isLoading ? (
                 <>
-                  <Placeholder animation="glow">
+                  <Placeholder animation='glow'>
                     <Placeholder
                       sm={12}
                       style={{
@@ -52,7 +52,7 @@ export const LatestBlog = () => {
                         marginBottom: '.5rem',
                       }}
                     />
-                    <div className="text-center">
+                    <div className='text-center'>
                       <Placeholder
                         sm={10}
                         style={{
@@ -61,14 +61,14 @@ export const LatestBlog = () => {
                           marginBottom: '.5rem',
                         }}
                       />
-                      <Placeholder sm={4} size="lg" />
+                      <Placeholder sm={4} size='lg' />
                     </div>
                   </Placeholder>
                 </>
               ) : (
                 <>
                   <Link href={`/blog/${latestBlog?.data?.slug}`}>
-                    <div className="latest-blog-item-image">
+                    <div className='latest-blog-item-image'>
                       <Image
                         src={latestBlog?.data.featureImage?.url as string}
                         alt={
