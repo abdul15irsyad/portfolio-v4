@@ -25,17 +25,17 @@ export const CustomCarousel = ({
   setActiveIndex,
 }: Props) => {
   return (
-    <div className="custom-carousel">
+    <div className='custom-carousel'>
       <Carousel
-        prevIcon={<i className="bi bi-chevron-left"></i>}
-        nextIcon={<i className="bi bi-chevron-right"></i>}
+        prevIcon={<i className='bi bi-chevron-left'></i>}
+        nextIcon={<i className='bi bi-chevron-right'></i>}
         interval={null}
         activeIndex={activeIndex}
         onSelect={(e) => setActiveIndex(e)}
       >
         {images.map(({ src, alt }, index) => (
           <Carousel.Item key={index}>
-            <div className="img-wrapper">
+            <div className='img-wrapper'>
               {/* <div className="overlay"></div> */}
               <Image
                 src={src}
@@ -44,7 +44,7 @@ export const CustomCarousel = ({
                 height={1080}
                 loading={loading ?? 'eager'}
               />
-              {action && <div className="custom-carousel-action">{action}</div>}
+              {action && <div className='custom-carousel-action'>{action}</div>}
             </div>
           </Carousel.Item>
         ))}

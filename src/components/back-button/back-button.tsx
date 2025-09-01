@@ -17,8 +17,8 @@ export const BackButton = () => {
     // }
   };
   return (
-    <button onClick={handleClick} className="btn btn-outline-secondary">
-      <i className="bi bi-chevron-left me-2"></i>
+    <button onClick={handleClick} className='btn btn-outline-secondary'>
+      <i className='bi bi-chevron-left me-2'></i>
       <span>{capitalize(t('back'))}</span>
     </button>
   );

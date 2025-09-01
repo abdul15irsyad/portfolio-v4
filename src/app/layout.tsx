@@ -8,6 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import React from 'react';
 
 import { Footer, Navbar } from '@/components/layout';
 import { ScrollToTop } from '@/components/layout/scroll-to-top';
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       {/* <body className={plusJakartaSans.className}> */}
       <body className={outfit.className}>
         <AllProvider>

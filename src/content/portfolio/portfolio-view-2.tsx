@@ -64,23 +64,23 @@ export const PortfolioView2 = () => {
   });
 
   return (
-    <div className="portfolio section doodle-background">
-      <div className="container">
-        <div className="row header">
-          <div className="col">
+    <div className='portfolio section doodle-background'>
+      <div className='container'>
+        <div className='row header'>
+          <div className='col'>
             <SectionTitle
               title={capitalizeEachWord(t('portfolio'))}
               subTitle={t('portfolio-desc')}
             />
-            <div className="filters">
-              <div className="filter filter-year">
+            <div className='filters'>
+              <div className='filter filter-year'>
                 <FormSelect
                   defaultValue={year}
                   options={portfolioYears}
                   handleChange={(e) => setYear(e.target?.value)}
                 />
               </div>
-              <div className="filter filter-type">
+              <div className='filter filter-type'>
                 <FormSelect
                   defaultValue={type}
                   options={portfolioCategories}
@@ -91,7 +91,7 @@ export const PortfolioView2 = () => {
             {!portfoliosLoading ? (
               (portfoliosResponse?.meta?.totalAllData ?? 0) > 0 && (
                 <p
-                  className="text-center text-secondary mt-3 mb-0"
+                  className='text-center text-secondary mt-3 mb-0'
                   dangerouslySetInnerHTML={{
                     __html: t('showing-result', {
                       totalData: portfoliosResponse?.meta?.totalData,
@@ -101,13 +101,13 @@ export const PortfolioView2 = () => {
                 />
               )
             ) : (
-              <Placeholder animation="glow">
+              <Placeholder animation='glow'>
                 <Placeholder style={{ height: '40px' }} />
               </Placeholder>
             )}
           </div>
         </div>
-        <div className="row porfolios mb-lg-5 mb-3">
+        <div className='row porfolios mb-lg-5 mb-3'>
           {!portfoliosLoading ? (
             (portfoliosResponse?.data?.length ?? 0) > 0 ? (
               portfoliosResponse?.data?.map((portfolio, index) => (
@@ -127,7 +127,7 @@ export const PortfolioView2 = () => {
         </div>
         {(portfoliosResponse?.meta?.totalAllData ?? 0) > 0 && (
           <Pagination
-            position="center"
+            position='center'
             currentPage={page}
             setCurrentPage={setPage}
             totalPage={Math.ceil(

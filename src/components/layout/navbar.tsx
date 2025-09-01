@@ -63,24 +63,24 @@ export const Navbar = () => {
 
   return (
     <BootstrapNavbar
-      expand="lg"
-      sticky="top"
+      expand='lg'
+      sticky='top'
       collapseOnSelect={true}
       className={`${isShrunk ? 'shrunk' : ''} ${isVisible ? 'visible' : ''}`}
     >
-      <div className="container-md">
-        <Link href="/">
-          <BootstrapNavbar.Brand className="d-flex align-items-center">
+      <div className='container-md'>
+        <Link href='/'>
+          <BootstrapNavbar.Brand className='d-flex align-items-center'>
             <Image
               priority
-              src="/me2.jpg"
-              alt="Portfolio Logo"
+              src='/me2.jpg'
+              alt='Portfolio Logo'
               width={1080}
               height={1080}
-              className="me-2"
+              className='me-2'
             />
             <span>
-              <strong className="text-primary">IRSYAD</strong>
+              <strong className='text-primary'>IRSYAD</strong>
               <span>&nbsp;ABDUL</span>
             </span>
           </BootstrapNavbar.Brand>
@@ -91,16 +91,16 @@ export const Navbar = () => {
         />
         <BootstrapNavbar.Offcanvas
           show={show}
-          id="navbar-offcanvas"
+          id='navbar-offcanvas'
           onHide={() => setShow(false)}
           style={{ border: 'none' }}
-          placement="end"
+          placement='end'
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title></Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="mx-auto">
+            <Nav className='mx-auto'>
               {navbarMenus.map(({ href, label, logo, newTab }, index) => (
                 <Nav.Link
                   key={index}
@@ -131,8 +131,8 @@ export const Navbar = () => {
                 </Nav.Link>
               ))}
             </Nav>
-            <Nav className="navbar-icon-menu">
-              <Stack direction="horizontal">
+            <Nav className='navbar-icon-menu'>
+              <Stack direction='horizontal'>
                 {[
                   { image: 'bahasa.jpg', lang: 'id', label: 'Bahasa' },
                   { image: 'english.jpg', lang: 'en', label: 'English' },
@@ -140,7 +140,7 @@ export const Navbar = () => {
                   <OverlayTrigger
                     key={index}
                     overlay={<Tooltip>{label}</Tooltip>}
-                    placement="bottom"
+                    placement='bottom'
                   >
                     <Image
                       className={`nav-link-language ${i18n.language === lang ? 'active' : ''}`}
@@ -178,7 +178,7 @@ export const Navbar = () => {
                   ) : (
                     <Image
                       key={index}
-                      className="nav-link-language"
+                      className='nav-link-language'
                       onClick={onClick}
                       src={logo!}
                       alt={label}

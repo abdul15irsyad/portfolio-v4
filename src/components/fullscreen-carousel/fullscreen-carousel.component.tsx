@@ -28,12 +28,12 @@ export const FullscreenCarousel = ({
   }, []);
 
   return (
-    <div className="fullscreen-carousel">
-      <div className="container text-center">
-        {title && <h2 className="title">{title}</h2>}
+    <div className='fullscreen-carousel'>
+      <div className='container text-center'>
+        {title && <h2 className='title'>{title}</h2>}
         <Carousel
-          prevIcon={<i className="bi bi-chevron-left"></i>}
-          nextIcon={<i className="bi bi-chevron-right"></i>}
+          prevIcon={<i className='bi bi-chevron-left'></i>}
+          nextIcon={<i className='bi bi-chevron-right'></i>}
           interval={null}
           // indicators={true}
           defaultActiveIndex={defaultActiveIndex}
@@ -54,7 +54,7 @@ export const FullscreenCarousel = ({
           ))}
         </Carousel>
         <div className={'btn-close'} onClick={onClose}>
-          <i className="bi bi-x-lg"></i>
+          <i className='bi bi-x-lg'></i>
         </div>
       </div>
     </div>

@@ -30,26 +30,26 @@ export default () => {
 
   return (
     <div className={`${styles.donate} box-container`}>
-      <h5 className="box-container-title">
-        <i className="bi bi-gift"></i>
+      <h5 className='box-container-title'>
+        <i className='bi bi-gift'></i>
         <span>{capitalize(t('support'))}</span>
         <OverlayTrigger
           trigger={['hover', 'focus']}
-          placement="top"
+          placement='top'
           overlay={
             <Popover className={styles['disclaimer-popover']}>
               <Popover.Body>
-                <p className="mb-0">{t('donate-msg')}😇</p>
+                <p className='mb-0'>{t('donate-msg')}😇</p>
               </Popover.Body>
             </Popover>
           }
         >
           <span className={styles.disclaimer}>
-            <i className="bi bi-info-circle m-0"></i>
+            <i className='bi bi-info-circle m-0'></i>
           </span>
         </OverlayTrigger>
       </h5>
-      <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
+      <div className='d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center'>
         <Trakteer />
         {/* <NihBuatJajan /> */}
         <BuyMeACoffe />
@@ -60,14 +60,14 @@ export default () => {
 
 const BuyMeACoffe = () => (
   <Link
-    href="https://buymeacoffee.com/abdul15irsyad"
-    target="_blank"
+    href='https://buymeacoffee.com/abdul15irsyad'
+    target='_blank'
     className={`${styles['buy-me-a-coffe']}`}
   >
-    <span className="btn-icon">
+    <span className='btn-icon'>
       <Image
         src={'/icons/buy-me-a-coffee.svg'}
-        alt="buy-me-a-coffe"
+        alt='buy-me-a-coffe'
         width={20}
         height={20}
       />
@@ -78,15 +78,15 @@ const BuyMeACoffe = () => (
 
 const Trakteer = () => (
   <Link
-    href="https://trakteer.id/abdul15irsyad/tip"
-    target="_blank"
-    rel="noopener noreferrer"
+    href='https://trakteer.id/abdul15irsyad/tip'
+    target='_blank'
+    rel='noopener noreferrer'
     className={`${styles.trakteer} ${quicksand.className}`}
   >
     <Image
       // src="https://trakteer.id/images/mix/coffee.png"
-      src="/coffee.png"
-      alt="Traktiran"
+      src='/coffee.png'
+      alt='Traktiran'
       className={`${styles.icon} wiggle`}
       width={20}
       height={20}

@@ -15,7 +15,7 @@ hljs.addPlugin(
     hook: (text: string, el: any) => {
       if (el.result.language === 'bash') {
         text = text.replace('$ ', '');
-        text = text.replace(/\n\$\ /g, '\n');
+        text = text.replace(/\n\$/g, '\n');
       }
       return text;
     },

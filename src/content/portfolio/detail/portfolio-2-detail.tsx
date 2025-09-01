@@ -43,7 +43,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
       <div className={`${styles.images} col-md-6 col-12`}>
         <CustomCarousel
           images={images}
-          loading="eager"
+          loading='eager'
           activeIndex={carouselActiveIndex}
           setActiveIndex={setCarouselActiveIndex}
           action={
@@ -51,7 +51,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
               className={`${styles['btn-fullscreen']} d-flex gap-1`}
               onClick={() => setShowFullscreenCarousel(true)}
             >
-              <i className="bi bi-fullscreen"></i>
+              <i className='bi bi-fullscreen'></i>
               <span>{t('show')}</span>
             </div>
           }
@@ -100,7 +100,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
               {challenges.map((challenge, index) => {
                 return (
                   <div key={index} className={styles.challenge}>
-                    <i className="bi bi-check-square-fill"></i>
+                    <i className='bi bi-check-square-fill'></i>
                     <span
                       dangerouslySetInnerHTML={{
                         __html:
@@ -144,13 +144,13 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
           {href && (
             <Link
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               style={{ borderRadius: '0.5rem' }}
-              className="btn btn-md btn-primary d-inline-flex gap-2 p-2 px-3"
+              className='btn btn-md btn-primary d-inline-flex gap-2 p-2 px-3'
             >
               <span>{capitalizeEachWord(t('visit-website'))}</span>
-              <i className="bi bi-box-arrow-up-right" />
+              <i className='bi bi-box-arrow-up-right' />
             </Link>
           )}
         </div>

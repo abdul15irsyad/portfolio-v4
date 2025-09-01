@@ -16,12 +16,12 @@ export const SearchBar = ({ search, setSearch, setQuerySearch }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputGroup className="search-bar mb-3">
+      <InputGroup className='search-bar mb-3'>
         <InputGroup.Text>
-          <i className="bi bi-search"></i>
+          <i className='bi bi-search'></i>
         </InputGroup.Text>
         <Form.Control
-          name="search"
+          name='search'
           placeholder={`${t('search-blog-title')}...`}
           value={search ?? ''}
           onChange={(e) => setSearch(e.target.value)}

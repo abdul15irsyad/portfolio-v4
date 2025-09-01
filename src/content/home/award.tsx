@@ -8,11 +8,11 @@ import { capitalizeEachWord } from '@/utils/change-case';
 const Award = () => {
   const { t } = useTranslation();
   return (
-    <div className="award section" id="award">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <h2 className="title">
+    <div className='award section' id='award'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-4'>
+            <h2 className='title'>
               <strong>
                 {capitalizeEachWord(t('award'))} &{' '}
                 {capitalizeEachWord(t('certificate'))}
@@ -20,19 +20,19 @@ const Award = () => {
             </h2>
             <hr />
           </div>
-          <div className="col-md-8">
-            <ul className="award-items">
+          <div className='col-md-8'>
+            <ul className='award-items'>
               {awards.map((award, index) => (
-                <li key={index} className="award-item" data-aos="fade-up">
+                <li key={index} className='award-item' data-aos='fade-up'>
                   <>
-                    <div className="icon">
+                    <div className='icon'>
                       <i
                         className={`bi bi-${award.type === 'award' ? 'award' : 'file-medical'}`}
                       ></i>
                     </div>
-                    <div className="detail">
-                      <div className="award-title">{award.title}</div>
-                      <div className="description">
+                    <div className='detail'>
+                      <div className='award-title'>{award.title}</div>
+                      <div className='description'>
                         {[
                           award.type === 'award'
                             ? award.competition
@@ -43,11 +43,11 @@ const Award = () => {
                       {award.href && (
                         <Link
                           href={award.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-sm btn-danger"
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='btn btn-sm btn-danger'
                         >
-                          <i className="bi bi-filetype-pdf me-2"></i>
+                          <i className='bi bi-filetype-pdf me-2'></i>
                           {capitalizeEachWord(
                             t('see-item', { item: t(award.type) }),
                           )}

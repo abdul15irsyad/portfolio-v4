@@ -58,14 +58,14 @@ const Hero = () => {
     // },
   ];
   return (
-    <div className="hero section mb-0 doodle-background" id="hero">
-      <div className="container">
-        <div className="row">
+    <div className='hero section mb-0 doodle-background' id='hero'>
+      <div className='container'>
+        <div className='row'>
           <div
-            className="col-md-6 hero-title align-self-center"
-            data-aos="fade-right"
+            className='col-md-6 hero-title align-self-center'
+            data-aos='fade-right'
           >
-            <div className="social-media-wrapper">
+            <div className='social-media-wrapper'>
               {contacts
                 .filter(({ icon }) => ['github', 'linkedin'].includes(icon))
                 .map(({ href, icon, label }, index) => {
@@ -73,16 +73,16 @@ const Hero = () => {
                     <Link
                       key={index}
                       href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-media-item"
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='social-media-item'
                       aria-label={`go to ${icon}`}
                       title={label}
                     >
                       <i className={`bi bi-${icon}`}></i>
                     </Link>
                   ) : (
-                    <div className="social-media-item" key={index}>
+                    <div className='social-media-item' key={index}>
                       <i className={`bi bi-${icon}`}></i>
                     </div>
                   );
@@ -91,22 +91,22 @@ const Hero = () => {
             {/* <h1 className="text-jumbo">
               {t('greeting', { name: 'Irsyad Abdul' })}
             </h1> */}
-            <h1 className="text-jumbo">
+            <h1 className='text-jumbo'>
               <TextAnimation
                 text={capitalize(t('greeting', { name: 'Irsyad Abdul' }))}
               />
             </h1>
-            <h4 className="mb-4 typed-text">
+            <h4 className='mb-4 typed-text'>
               <span ref={typedText}></span>
             </h4>
-            <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+            <div className='d-flex flex-wrap justify-content-center justify-content-md-start gap-2'>
               <Link
-                href="/my-resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-primary text-capitalize px-3 hire-me"
+                href='/my-resume.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn btn-outline-primary text-capitalize px-3 hire-me'
               >
-                <i className="bi bi-filetype-pdf me-2"></i>
+                <i className='bi bi-filetype-pdf me-2'></i>
                 {t('see-item', { item: t('resume') })}
               </Link>
               {/* <Link
@@ -132,14 +132,14 @@ const Hero = () => {
               ))} */}
             </div>
           </div>
-          <div className="col-md-6 hero-image mb-3">
+          <div className='col-md-6 hero-image mb-3'>
             {isIndependenceDay ? (
               <Image
                 src={'/indonesia-flag-hero.png'}
-                alt="indonesia flag"
+                alt='indonesia flag'
                 width={400}
                 height={400}
-                data-aos="fade-left"
+                data-aos='fade-left'
                 priority
                 style={{
                   transform: 'rotate(8deg)',
@@ -148,22 +148,22 @@ const Hero = () => {
             ) : (
               <Image
                 src={'/hero3.png'}
-                alt="hero"
+                alt='hero'
                 width={400}
                 height={400}
-                data-aos="fade-left"
+                data-aos='fade-left'
                 priority
               />
             )}
           </div>
         </div>
-        <div className="features" data-aos="fade-up">
+        <div className='features' data-aos='fade-up'>
           {features.map(({ icon, title }, index) => (
-            <div className="feature" key={index}>
-              <div className="feature-icon">
+            <div className='feature' key={index}>
+              <div className='feature-icon'>
                 <Image src={icon} alt={title} width={40} height={40} />
               </div>
-              <h6 className="feature-title">{title}</h6>
+              <h6 className='feature-title'>{title}</h6>
             </div>
           ))}
         </div>

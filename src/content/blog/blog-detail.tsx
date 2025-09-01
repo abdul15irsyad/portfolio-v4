@@ -72,48 +72,48 @@ export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
 
   return (
     <>
-      <div className="blog-detail">
-        <h1 className="blog-detail-title">{blog.title}</h1>
-        <div className="blog-detail-meta">
+      <div className='blog-detail'>
+        <h1 className='blog-detail-title'>{blog.title}</h1>
+        <div className='blog-detail-meta'>
           {blog.author &&
             (blog.author?.url ? (
               <Link
                 href={blog.author.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="blog-author"
+                target='_blank'
+                rel='noopener noreferrer'
+                className='blog-author'
               >
                 <Image
                   src={blog.author.photo?.url ?? '/blog/default-profile.png'}
                   alt={blog.author.name}
-                  className="blog-author-img"
+                  className='blog-author-img'
                   width={100}
                   height={100}
                 />
-                <span className="blog-author-name">{blog.author.name}</span>
+                <span className='blog-author-name'>{blog.author.name}</span>
               </Link>
             ) : (
-              <div className="blog-author">
+              <div className='blog-author'>
                 <Image
                   src={blog.author.photo!.url ?? '/blog/default-profile.png'}
                   alt={blog.author.name}
-                  className="blog-author-img"
+                  className='blog-author-img'
                   width={100}
                   height={100}
                 />
-                <span className="blog-author-name">{blog.author.name}</span>
+                <span className='blog-author-name'>{blog.author.name}</span>
               </div>
             ))}
-          <div className="blog-detail-created-at">
-            <i className="bi bi-calendar4-week"></i>
+          <div className='blog-detail-created-at'>
+            <i className='bi bi-calendar4-week'></i>
             {renderTimestamp(dayjs(blog.publishedAt).toString())}
           </div>
-          <div className="blog-detail-min-read">
-            <i className="bi bi-stopwatch"></i>
+          <div className='blog-detail-min-read'>
+            <i className='bi bi-stopwatch'></i>
             {minutesRead} {t('minutes-read')}
           </div>
         </div>
-        <div className="blog-detail-feature-image">
+        <div className='blog-detail-feature-image'>
           <Image
             src={blog.featureImage!.url!}
             alt={blog.featureImage!.originalFileName}
@@ -124,15 +124,15 @@ export const BlogDetail = ({ blog }: { blog: BlogInterface }) => {
           />
         </div>
         <div
-          className="blog-detail-content"
+          className='blog-detail-content'
           dangerouslySetInnerHTML={{ __html: blog.content }}
           ref={blogContent}
         />
-        <div className="blog-detail-tags">
+        <div className='blog-detail-tags'>
           {blog.tags?.map((tag, index) => (
             <div
               key={index}
-              className="blog-tag"
+              className='blog-tag'
               onClick={() => {
                 nProgress.start();
                 router.push(`/blog?tag=${tag}`);

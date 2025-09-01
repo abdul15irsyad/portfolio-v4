@@ -9,11 +9,11 @@ type Prop = {
 
 const LoadingBlogs = ({ count = 3 }: Prop) => {
   return (
-    <div className="loading-blogs">
+    <div className='loading-blogs'>
       {[...Array(count)].map((_, index) => (
-        <div className="blog-item" key={index}>
-          <div className="blog-feature-image" style={{ marginBottom: '.5rem' }}>
-            <Placeholder animation="glow">
+        <div className='blog-item' key={index}>
+          <div className='blog-feature-image' style={{ marginBottom: '.5rem' }}>
+            <Placeholder animation='glow'>
               <Placeholder
                 style={{
                   height: '180px',
@@ -23,10 +23,10 @@ const LoadingBlogs = ({ count = 3 }: Prop) => {
               />
             </Placeholder>
           </div>
-          <div className="blog-text" style={{ width: '100%' }}>
-            <Placeholder animation="glow">
+          <div className='blog-text' style={{ width: '100%' }}>
+            <Placeholder animation='glow'>
               <div
-                className="blog-title-placeholder"
+                className='blog-title-placeholder'
                 style={{ marginBottom: '.75rem' }}
               >
                 {[100, 80].map((item, index) => (
@@ -77,7 +77,7 @@ const LoadingBlogs = ({ count = 3 }: Prop) => {
                   }}
                 />
               ))}
-              <div className="mt-3">
+              <div className='mt-3'>
                 <LoadingTags sizes={[6, 6, 6]} />
               </div>
             </Placeholder>

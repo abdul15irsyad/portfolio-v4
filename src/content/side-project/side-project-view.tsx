@@ -82,14 +82,14 @@ export const SideProjectView = () => {
   }, [filterSideProjects, page]);
 
   return (
-    <div className="side-project section doodle-background">
-      <div className="container">
+    <div className='side-project section doodle-background'>
+      <div className='container'>
         <SectionTitle
           title={capitalizeEachWord(t('side-project'))}
           subTitle={t('side-project-desc')}
         />
-        <div className="row justify-content-center">
-          <div className="col-auto stacks user-select-none">
+        <div className='row justify-content-center'>
+          <div className='col-auto stacks user-select-none'>
             {stacks?.map(({ label, icon, slug, isActive }, index) => (
               <div
                 key={index}
@@ -114,13 +114,13 @@ export const SideProjectView = () => {
                   alt={label}
                   width={100}
                   height={100}
-                  loading="eager"
+                  loading='eager'
                 />
               </div>
             ))}
           </div>
           <div
-            className="col-12 text-center"
+            className='col-12 text-center'
             style={{
               visibility:
                 (activeStacks ?? []).length > 0 ? 'visible' : 'hidden',
@@ -129,7 +129,7 @@ export const SideProjectView = () => {
             <ClearButton onClick={() => setActiveStacks([])} />
           </div>
         </div>
-        <div className="row">
+        <div className='row'>
           {sideProjects.length > 0 ? (
             sideProjects?.map((sideProject, index) => (
               <SideProjectItem key={index} {...sideProject} />
@@ -142,7 +142,7 @@ export const SideProjectView = () => {
         </div>
         {totalAllData > 0 && (
           <Pagination
-            position="center"
+            position='center'
             currentPage={page}
             setCurrentPage={setPage}
             totalPage={Math.ceil(totalAllData / limit)}

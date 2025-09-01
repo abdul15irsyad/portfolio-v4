@@ -39,10 +39,10 @@ export const BlogView = () => {
 
   return (
     <>
-      <div className="blog section doodle-background">
-        <div className="container">
-          <div className="row header">
-            <div className="col">
+      <div className='blog section doodle-background'>
+        <div className='container'>
+          <div className='row header'>
+            <div className='col'>
               <SectionTitle
                 title={capitalizeEachWord(t('blog'))}
                 subTitle={t('blog-desc')}
@@ -54,52 +54,52 @@ export const BlogView = () => {
               />
             </div>
           </div>
-          <div className="row">
-            <div className="col-xl-9 col-12">
+          <div className='row'>
+            <div className='col-xl-9 col-12'>
               {(querySearch || tag) && (
-                <div className="blog-filter">
-                  <div className="blog-filter-text">
-                    <h4 className="blog-filter-heading">
+                <div className='blog-filter'>
+                  <div className='blog-filter-text'>
+                    <h4 className='blog-filter-heading'>
                       {capitalize(t('result-for'))}{' '}
                       {querySearch && <span>&quot;{querySearch}&quot;</span>}{' '}
                       {querySearch && tag && t('and')}{' '}
                       {tag && <span>#{tag}</span>}
                     </h4>
                   </div>
-                  <div className="blog-filter-reset">
+                  <div className='blog-filter-reset'>
                     <ClearButton onClick={handleClearFilter} />
                   </div>
                 </div>
               )}
               <Blogs />
             </div>
-            <div className="col-xl-3 col-12 blog-sidebar">
+            <div className='col-xl-3 col-12 blog-sidebar'>
               <div
                 className={`all-tags box-container ${
                   isLoadingAllTags ? 'is-loading' : ''
                 } ${isTagsExpand ? 'expand' : ''}`}
               >
-                <div className="overlay">
+                <div className='overlay'>
                   <i
-                    className="bi bi-chevron-down"
+                    className='bi bi-chevron-down'
                     title={`${isTagsExpand ? 'collapse' : 'expand'}`}
                     onClick={() => setIsTagsExpand(!isTagsExpand)}
                   ></i>
                 </div>
-                <h5 className="all-tags-title box-container-title">
-                  <i className="bi bi-tags"></i>
+                <h5 className='all-tags-title box-container-title'>
+                  <i className='bi bi-tags'></i>
                   <span>{capitalize(t('tags'))}</span>
                 </h5>
                 {isLoadingAllTags ? (
                   <LoadingTags sizes={[8, 5, 7, 5, 7, 9, 6]} />
                 ) : allTags!.data.length > 0 ? (
                   <>
-                    <div className="blog-tags">
+                    <div className='blog-tags'>
                       {allTags?.data.map((tag, index) => (
                         <div
                           key={index}
                           onClick={() => setTag(tag)}
-                          className="blog-tag"
+                          className='blog-tag'
                           title={tag}
                         >
                           #{tag}
@@ -108,7 +108,7 @@ export const BlogView = () => {
                     </div>
                   </>
                 ) : (
-                  <div className="text-center text-secondary">
+                  <div className='text-center text-secondary'>
                     {capitalizeEachWord(t('no-tag'))}
                   </div>
                 )}

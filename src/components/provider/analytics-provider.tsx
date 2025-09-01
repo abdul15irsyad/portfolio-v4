@@ -17,13 +17,13 @@ export const AnalyticsProvider = ({ children }: Props) => {
       {/* {ENV === 'production' && ( */}
       <>
         <Script
-          id="google-analytics-js-cdn"
+          id='google-analytics-js-cdn'
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
+          strategy='afterInteractive'
         />
         <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+          id='google-analytics'
+          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
