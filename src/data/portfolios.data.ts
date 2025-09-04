@@ -879,8 +879,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'PPKD Pemantaun & Evaluasi',
-    // href: 'https://monevppkd.kemdikbud.go.id',
-    href: null,
+    href: 'https://monevppkd.kemenbud.go.id/',
     publishedAt: '2023-06-10',
     type: {
       icon: 'database',
@@ -973,8 +972,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: 'PPKD Dokumen',
-    // href: 'https://ppkd.kemdikbud.go.id',
-    href: null,
+    href: 'https://ppkd.kemenbud.go.id/',
     publishedAt: '2023-03-10',
     type: {
       icon: 'database',
