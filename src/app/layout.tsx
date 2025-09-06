@@ -16,6 +16,8 @@ import { ProgressBar } from '@/components/progress-bar/progress-bar';
 import { AllProvider } from '@/components/provider/all-provider';
 import { APP_NAME, BASE_URL } from '@/configs/app.config';
 
+import { yearsOfExperience } from './(constants)/personal-info';
+
 // const plusJakartaSans = Plus_Jakarta_Sans({
 //   style: 'normal',
 //   subsets: ['latin-ext'],
@@ -35,7 +37,7 @@ export const commonMetaData = {
   title: APP_NAME,
   // images: `${BASE_URL}/meta-image.jpg`,
   images: `${BASE_URL}/me2.jpg`,
-  description: `Hello, I'm Irsyad Abdul, I have experience in PHP, Node JS, Golang and also several frameworks such as Laravel, Express JS, Nest JS and Gin`,
+  description: `Creative and detail-oriented Full Stack Developer with over ${yearsOfExperience}+ years of experience building scalable web applications and backend systems using modern JavaScript/TypeScript stacks. Specializing in Node.js, Golang, and REST API and WebSocket, with strong focus on performance, maintainability, and elegant user experiences`,
 };
 
 export const metadata: Metadata = {
