@@ -1,7 +1,8 @@
-import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { yearsOfExperience } from '@/app/(constants)/personal-info';
 
 const PersonalInfo = () => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ const PersonalInfo = () => {
             className='col-lg-8 col-12 align-self-center'
             dangerouslySetInnerHTML={{
               __html: t('personal-info', {
-                year: dayjs().diff('2020-08-22', 'years') ?? 4,
+                year: yearsOfExperience,
               }),
             }}
           />
