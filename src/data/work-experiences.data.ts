@@ -41,8 +41,13 @@ export const workExperiences: WorkExperience[] = [
       'React JS',
       'Next JS',
       'PostgreSQL',
+      'Redis',
       'Websocket',
+      'BullMQ',
       'Mantine UI',
+      'Ant Design',
+      'AWS',
+      'Scalyr',
     ],
   },
   {
