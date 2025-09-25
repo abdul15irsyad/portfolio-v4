@@ -6,6 +6,23 @@ import { random } from '@/utils/array.util';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/anime-random-quote.jpg`,
+    href: 'https://anime-random-quote.vercel.app/',
+    stacks: [{ icon: '/programming/next.png', label: 'Next JS 15' }],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Anime Random Quote',
+        desc: 'Kutipan acak dari anime top seperti One Piece, Attack on Titan, Naruto, dll.',
+      },
+      {
+        lang: 'en',
+        title: 'Anime Random Quote',
+        desc: 'Random quote from top animes like One Piece, Attack on Titan, Naruto, etc.',
+      },
+    ],
+  },
+  {
     img: `/side-project/live-chat-min.jpg`,
     href: 'https://live-chat.irsyadabdul.my.id',
     stacks: [
