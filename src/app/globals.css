@@ -610,6 +610,7 @@ ul li {
 .programming .category .category-items .category-item img {
   margin-right: 0.75rem;
   width: 16px;
+  max-height: 16px;
   height: auto;
 }
 

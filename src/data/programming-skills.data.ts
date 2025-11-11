@@ -158,11 +158,24 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/ci-cd.png',
         level: Level.BASIC,
       },
+
       {
         name: 'Rabbit MQ',
         logo: '/programming/rabbitmq.png',
         level: Level.INTERMEDIATE,
         // href: 'https://www.rabbitmq.com/',
+      },
+      {
+        name: 'Kafka',
+        logo: '/programming/kafka.png',
+        level: Level.BASIC,
+        href: 'https://kafka.apache.org',
+      },
+      {
+        name: 'MinIO',
+        logo: '/programming/minio.png',
+        level: Level.INTERMEDIATE,
+        href: 'https://www.min.io',
       },
       {
         name: 'Docker',
@@ -180,6 +193,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/websocket.png',
         level: Level.BASIC,
         // href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
+      },
+      {
+        name: 'Terraform',
+        logo: '/programming/terraform.webp',
+        level: Level.BASIC,
+        href: 'https://developer.hashicorp.com/terraform',
       },
     ],
   },
