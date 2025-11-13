@@ -195,6 +195,18 @@ export const programmingSkills: ProgrammingSkill[] = [
         // href: 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
       },
       {
+        name: 'Nginx',
+        logo: '/programming/nginx.png',
+        level: Level.INTERMEDIATE,
+        href: 'https://nginx.org/',
+      },
+      {
+        name: 'Apache',
+        logo: '/programming/apache.png',
+        level: Level.BASIC,
+        href: 'https://httpd.apache.org/',
+      },
+      {
         name: 'Terraform',
         logo: '/programming/terraform.webp',
         level: Level.BASIC,
