@@ -101,7 +101,8 @@ const Hero = () => {
             </h4>
             <div className='d-flex flex-wrap justify-content-center justify-content-md-start gap-2'>
               <Link
-                href='/my-resume.pdf'
+                // href='/my-resume.pdf'
+                href='/irsyad-abdul-resume.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='btn btn-outline-primary text-capitalize px-3 hire-me'
