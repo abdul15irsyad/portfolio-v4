@@ -15,4 +15,11 @@ export const awards: Award[] = [
     publisher: 'Amazon Web Service',
     href: '/certificates/AWS Course Completion Certificate - Getting Started with DevOps on AWS.pdf',
   },
+  {
+    type: 'certificate',
+    title: 'Pemrograman Go-Lang: Pemula sampai Mahir',
+    year: 2024,
+    publisher: 'Udemy Course - Programmer Zaman Now',
+    href: '/certificates/pemrograman-go-lang-pemula-sampai-mahir.pdf',
+  },
 ];
