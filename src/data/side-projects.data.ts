@@ -6,6 +6,27 @@ import { random } from '@/utils/array.util';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/go-sse-notification.jpg`,
+    href: 'https://github.com/abdul15irsyad/go-sse',
+    stacks: [
+      { icon: '/programming/golang.png', label: 'Golang' },
+      { icon: '/programming/gorm.png', label: 'GORM' },
+      { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'SSE untuk Notifikasi',
+        desc: 'Implementasi SSE untuk real time notifikasi',
+      },
+      {
+        lang: 'en',
+        title: 'SSE for Notification',
+        desc: 'SSE implementation for real-time notification',
+      },
+    ],
+  },
+  {
     img: `/side-project/anime-random-quote.jpg`,
     href: 'https://anime-random-quote.vercel.app/',
     stacks: [{ icon: '/programming/next.png', label: 'Next JS 15' }],
