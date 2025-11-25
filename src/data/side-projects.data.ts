@@ -6,6 +6,25 @@ import { random } from '@/utils/array.util';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/go-sse-notification-fe.jpg`,
+    stacks: [
+      { icon: '/programming/next.png', label: 'Next JS 16' },
+      { icon: '/programming/mantine.png', label: 'Mantine 8' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'SSE untuk Notifikasi (Frontend)',
+        desc: 'Implementasi SSE untuk real time notifikasi',
+      },
+      {
+        lang: 'en',
+        title: 'SSE for Notification (Frontend)',
+        desc: 'SSE implementation for real-time notification',
+      },
+    ],
+  },
+  {
     img: `/side-project/go-sse-notification.jpg`,
     href: 'https://github.com/abdul15irsyad/go-sse',
     stacks: [
