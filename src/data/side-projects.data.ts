@@ -7,6 +7,7 @@ import { random } from '@/utils/array.util';
 export const sideProjects: SideProject[] = [
   {
     img: `/side-project/go-sse-notification-fe.jpg`,
+    href: 'https://github.com/abdul15irsyad/go-sse-frontend',
     stacks: [
       { icon: '/programming/next.png', label: 'Next JS 16' },
       { icon: '/programming/mantine.png', label: 'Mantine 8' },
