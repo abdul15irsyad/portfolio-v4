@@ -5,6 +5,42 @@ import { fileDatas } from './files.data';
 
 export const users: User[] = [
   {
+    id: 'ccbe0d2d-6e6b-4b60-aa2a-a7bbb7715608',
+    name: 'Tasya Aulia',
+    photo: {
+      id: '1521ff55-dfeb-4dba-ac2b-cfc98a9ca663',
+      path: 'user',
+      fileName: 'tasya.jpeg',
+      originalFileName: 'tasya.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/tasya-a-b6626099/',
+  },
+  {
+    id: 'f5bf0af0-3d47-4279-a155-a216aeef0933',
+    name: 'Marion Jane',
+    photo: {
+      id: '27626857-a6a3-4660-9695-f6efd6c36df2',
+      path: 'user',
+      fileName: 'bu-jane.jpeg',
+      originalFileName: 'bu-jane.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/marion-jane-46032159',
+  },
+  {
+    id: 'd62e10e6-97ec-4093-b4f2-89d7af92571a',
+    name: 'Rexy Saragih',
+    photo: {
+      id: 'a9fce5ab-db7a-4c1e-873e-d68f6c875860',
+      path: 'user',
+      fileName: 'rexy.jpeg',
+      originalFileName: 'rexy.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/rexy-jms',
+  },
+  {
     id: '2f5bfc80-f7fe-4759-a281-33e803e92604',
     name: 'Rijal Ghodi',
     photoId: 'e1c49ad2-c4db-46b6-819a-fdb7f1f76487',

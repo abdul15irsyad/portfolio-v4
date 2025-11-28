@@ -6,6 +6,7 @@ export interface Portfolio {
   slug?: string;
   href?: string | null;
   year: number;
+  isShow?: boolean;
   publishedAt: string;
   type: {
     icon?: string;
