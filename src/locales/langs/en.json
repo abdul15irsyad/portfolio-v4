@@ -1,5 +1,5 @@
 {
-  "greeting": "hi, my name is {{name}}",
+  "greeting": "hi, I'm {{name}}",
   "contact-me": "contact me",
   "problem-solve": "problem solve",
   "see-item": "see {{item}}",

@@ -9,7 +9,7 @@ import Typed from 'typed.js';
 
 import { TextAnimation } from '@/components/text-animation/text-animation';
 import { contacts } from '@/data/contacts.data';
-import { capitalize } from '@/utils/change-case';
+import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
 const Hero = () => {
   const typedText = useRef(null);
@@ -20,23 +20,16 @@ const Hero = () => {
   }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      // strings: ['Fullstack Dev', 'Backend Dev', 'Frontend Dev', 'Freelancer'],
-      strings: [
-        'Fullstack Dev',
-        'Web Dev',
-        'Bugbender',
-        'Freelancer',
-        'Software Engineer',
-      ],
+      strings: ['Software Engineer', 'Freelancer', 'Learner'],
       typeSpeed: 100,
       loop: true,
     });
 
     return () => typed.destroy();
   }, []);
-  // const whatsappLink = contacts.find(
-  //   (contact) => contact.icon === 'whatsapp',
-  // )?.href;
+  const whatsappLink = contacts.find(
+    (contact) => contact.icon === 'whatsapp',
+  )?.href;
   // const sribuLink = {
   //   icon: '/icons/sribu.png',
   //   label: 'Hire Me on Sribu',
@@ -101,23 +94,23 @@ const Hero = () => {
             </h4>
             <div className='d-flex flex-wrap justify-content-center justify-content-md-start gap-2'>
               <Link
+                href={whatsappLink!}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn btn-primary text-capitalize px-3 hero-btn'
+              >
+                <i className='bi bi-whatsapp me-2'></i>
+                <span>{capitalizeEachWord(t('contact-me'))}</span>
+              </Link>
+              <Link
                 href='/resume.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='btn btn-outline-primary text-capitalize px-3 hire-me'
+                className='btn btn-outline-primary text-capitalize px-3 hero-btn'
               >
                 <i className='bi bi-filetype-pdf me-2'></i>
                 {t('see-item', { item: t('resume') })}
               </Link>
-              {/* <Link
-                href={whatsappLink!}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary contact-me px-3"
-              >
-                <i className="bi bi-whatsapp me-2"></i>
-                <span>{capitalizeEachWord(t('contact-me'))}</span>
-              </Link> */}
               {/* {[fiverrLink, sribuLink].map(({ href, icon, label }, index) => (
                 <Link
                   key={index}

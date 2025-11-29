@@ -232,21 +232,23 @@ ul li {
   border: 1px solid rgba(var(--bs-primary-rgb), 1);
 }
 
-.hero .hero-title .hire-me {
+.hero .hero-title .hero-btn {
   display: flex !important;
   align-items: center;
   border: 2px solid var(--bs-primary);
-  color: var(--bs-primary);
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
 }
-.hero .hero-title .hire-me:hover {
+.hero .hero-title .hero-btn.btn-outline-primary {
+  color: var(--bs-primary);
+}
+.hero .hero-title .hero-btn:hover {
   background-color: var(--bs-primary);
   color: #fff;
 }
 
-.hero .hero-title .hire-me img {
+.hero .hero-title .hero-btn img {
   width: 20px;
   height: 20px;
   margin-right: 0.5rem;
