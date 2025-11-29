@@ -61,7 +61,7 @@ const PortfolioItem2 = ({
             <MetaBadge text={year} />
             <MetaBadge
               text={type.label.toLowerCase()}
-              icon={type.icon && <i className={`bi bi-${type.icon}`} />}
+              // icon={type.icon && <i className={`bi bi-${type.icon}`} />}
             />
           </div>
           <div className={`${styles.stacks}`}>

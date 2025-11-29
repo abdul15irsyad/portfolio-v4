@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { workExperiences } from '@/data/work-experiences.data';
 import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 
-export const ExperienceSection = () => {
+export const WorkExperience = () => {
   const { t, i18n } = useTranslation();
   const [isShowMore, setIsShowMore] = useState(false);
   return (
@@ -84,7 +84,18 @@ export const ExperienceSection = () => {
                           <div className='position'>{position}</div>
                           <div className='timespan-n-company justify-content-lg-end'>
                             {/* <span className="timespan d-none d-md-block">{`${start.long} - ${end.long}`}</span> */}
-                            <span className='timespan'>{`${start.short} - ${end.short}`}</span>
+                            <OverlayTrigger
+                              overlay={
+                                <Tooltip>
+                                  {monthDiff > 0
+                                    ? workDuration
+                                    : `${weekDiff} week`}
+                                </Tooltip>
+                              }
+                              placement='top'
+                            >
+                              <span className='timespan'>{`${start.short} - ${end.short}`}</span>
+                            </OverlayTrigger>
                             {company.fullname ? (
                               <OverlayTrigger
                                 overlay={<Tooltip>{company.fullname}</Tooltip>}
@@ -96,9 +107,9 @@ export const ExperienceSection = () => {
                               companyName
                             )}
                           </div>
-                          <div className='d-inline-block work-duration mt-1'>
+                          {/* <div className='d-inline-block work-duration mt-1'>
                             {monthDiff > 0 ? workDuration : `${weekDiff} week`}
-                          </div>
+                          </div> */}
                         </div>
                         <div className='right align-self-center'>
                           <Image

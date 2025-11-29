@@ -9,6 +9,92 @@ import { workExperiences } from './work-experiences.data';
 export const portfolios: Portfolio[] = (
   [
     {
+      title: 'Transaction Reconciliation & EXchange (Frontend v2)',
+      href: null,
+      isHide: true,
+      publishedAt: '2026-06-03',
+      type: {
+        icon: 'code-square',
+        label: 'Fullstack',
+      },
+      workExperienceId: '6a2301b4-e69c-4d91-acf8-e5642a8480e5',
+      challenges: [
+        {
+          translates: [
+            {
+              lang: 'id',
+              desc: 'Migrasi UI dari Ant Design ke Mantine',
+            },
+            {
+              lang: 'en',
+              desc: 'Migrate UI from Ant Design to Mantine',
+            },
+          ],
+        },
+        {
+          translates: [
+            {
+              lang: 'id',
+              desc: 'Memperbarui beberapa endpoint ke v2 untuk improvement',
+            },
+            {
+              lang: 'en',
+              desc: 'Update some endpoint to v2 for improvement',
+            },
+          ],
+        },
+      ],
+      stacks: [
+        { icon: '/programming/typescript.png', label: 'Typescript' },
+        { icon: '/programming/next.png', label: 'Next JS 15' },
+        { icon: '/programming/mantine.png', label: 'Mantine' },
+      ],
+      images: [...Array(6).keys()].map((_, index) => ({
+        src: `/portfolio/trex-v2-${index + 1}.png`,
+        alt: `Transaction Reconciliation & EXchange (v2) ${index + 1}`,
+      })),
+      teams: [
+        {
+          // rexy
+          userId: 'd62e10e6-97ec-4093-b4f2-89d7af92571a',
+          role: 'Fullstack Dev',
+        },
+        {
+          // bu jane
+          userId: 'f5bf0af0-3d47-4279-a155-a216aeef0933',
+          role: 'Product Manager',
+        },
+        {
+          // tasya
+          userId: 'ccbe0d2d-6e6b-4b60-aa2a-a7bbb7715608',
+          role: 'Quality Assurance',
+        },
+        {
+          // heru
+          userId: 'd809006c-1273-4f8c-b57f-ff1f1b5349d6',
+          role: 'Quality Assurance',
+        },
+      ],
+      translates: [
+        {
+          lang: 'id',
+          desc: `
+          <p>
+          Transaction Reconciliation & EXchange (Trex) adalah aplikasi yang dirancang untuk mengelola dan memproses berbagai transaksi keuangan secara efisien, beberapa proses yang dilakukan adalah Penjadwalan Cron Jobs, Manajemen Antrean (Queues), Integrasi dengan Layanan Eksternal, dll. Adapun saya hanya melanjutkan sedikit module yang perlu ditambahkan.
+          </p>
+        `,
+        },
+        {
+          lang: 'en',
+          desc: `
+          <p>
+          Transaction Reconciliation & EXchange (Trex) is an application designed to manage and process various financial transactions efficiently, some of the processes carried out are Cron Jobs Scheduling, Queue Management, Integration with External Services, etc. As for me, I only continued a few modules that needed to be added.
+          </p>
+        `,
+        },
+      ],
+    },
+    {
       title: 'Transaction Reconciliation & EXchange (v1)',
       href: null,
       isHide: true,
@@ -59,9 +145,12 @@ export const portfolios: Portfolio[] = (
       stacks: [
         { icon: '/programming/typescript.png', label: 'Typescript' },
         { icon: '/programming/express.png', label: 'Express JS' },
+        { icon: '/programming/sequelize.png', label: 'Sequelize' },
         { icon: '/programming/redis.png', label: 'Redis' },
         { icon: '/programming/postgresql.png', label: 'PostgreSQL' },
         { icon: '/programming/ant-design.png', label: 'Ant Design' },
+        { icon: '/programming/aws.png', label: 'Amazon Web Service' },
+        { icon: '/programming/websocket.png', label: 'Websocket' },
       ],
       images: [...Array(4).keys()].map((_, index) => ({
         src: `/portfolio/trex-v1-${index + 1}.png`,

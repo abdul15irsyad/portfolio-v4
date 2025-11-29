@@ -19,6 +19,7 @@
 .portfolio-item-2 .image-container .company img {
   width: 24px;
   height: 24px;
+  border-radius: 0.25rem;
 }
 
 .portfolio-item-2 .image {

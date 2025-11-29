@@ -71,7 +71,7 @@ const Portfolio2Detail = ({ portfolio }: { portfolio: Portfolio }) => {
           <MetaBadge text={year} />
           <MetaBadge
             text={type.label.toLowerCase()}
-            icon={type.icon && <i className={`bi bi-${type.icon}`} />}
+            // icon={type.icon && <i className={`bi bi-${type.icon}`} />}
           />
         </div>
         {workExperience && (

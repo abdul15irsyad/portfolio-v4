@@ -5,6 +5,18 @@ import { fileDatas } from './files.data';
 
 export const users: User[] = [
   {
+    id: 'd809006c-1273-4f8c-b57f-ff1f1b5349d6',
+    name: 'Heru Apriatama',
+    photo: {
+      id: 'c9240d26-3a85-48bd-a4ab-f0d6af5933ff',
+      path: 'user',
+      fileName: 'heru.jpeg',
+      originalFileName: 'heru.jpeg',
+      mime: 'image/jpeg',
+    },
+    linkedin: 'https://www.linkedin.com/in/heru-aprtma',
+  },
+  {
     id: 'ccbe0d2d-6e6b-4b60-aa2a-a7bbb7715608',
     name: 'Tasya Aulia',
     photo: {

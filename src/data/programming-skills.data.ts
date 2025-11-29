@@ -4,29 +4,34 @@ export const programmingSkills: ProgrammingSkill[] = [
   {
     title: 'programming-language',
     list: [
-      // {
-      //   name: 'Javascript',
-      //   logo: '/programming/javascript.png',
-      //   level: Level.GOOD,
-      // },
       {
-        name: 'Node JS (Typescript)',
-        // logo: ['/programming/nodejs.png', '/programming/typescript.png'],
+        name: 'Javascript',
+        logo: '/programming/javascript.png',
+        level: Level.GOOD,
+      },
+      {
+        name: 'Typescript',
         logo: '/programming/typescript.png',
         level: Level.GOOD,
-        // href: 'https://www.typescriptlang.org',
+        href: 'https://www.typescriptlang.org',
+      },
+      {
+        name: 'Typescript',
+        logo: '/programming/nodejs.png',
+        level: Level.GOOD,
+        href: 'https://nodejs.org',
+      },
+      {
+        name: 'Golang',
+        logo: '/programming/golang.png',
+        level: Level.GOOD,
+        href: 'https://go.dev',
       },
       {
         name: 'PHP',
         logo: '/programming/php.png',
         level: Level.GOOD,
         // href: 'https://www.php.net',
-      },
-      {
-        name: 'Golang',
-        logo: '/programming/golang.png',
-        level: Level.INTERMEDIATE,
-        // href: 'https://go.dev',
       },
       {
         name: 'Python',
@@ -69,16 +74,16 @@ export const programmingSkills: ProgrammingSkill[] = [
       //   level: Level.INTERMEDIATE,
       //   href: 'https://codeigniter.com',
       // },
-      // {
-      //   name: 'React JS',
-      //   logo: '/programming/react.png',
-      //   level: Level.INTERMEDIATE,
-      //   href: 'https://react.dev',
-      // },
+      {
+        name: 'React JS',
+        logo: '/programming/react.png',
+        level: Level.GOOD,
+        href: 'https://react.dev',
+      },
       {
         name: 'Next JS',
         logo: '/programming/next.png',
-        level: Level.INTERMEDIATE,
+        level: Level.GOOD,
         href: 'https://nextjs.org',
       },
       {
@@ -144,19 +149,19 @@ export const programmingSkills: ProgrammingSkill[] = [
       {
         name: 'Git',
         logo: '/programming/git.png',
-        level: Level.INTERMEDIATE,
+        level: Level.GOOD,
         // href: 'https://git-scm.com',
       },
       {
         name: 'Redis',
         logo: '/programming/redis.png',
-        level: Level.INTERMEDIATE,
+        level: Level.GOOD,
         // href: 'https://redis.io',
       },
       {
         name: 'CI/CD',
         logo: '/programming/ci-cd.png',
-        level: Level.BASIC,
+        level: Level.INTERMEDIATE,
       },
 
       {
@@ -181,7 +186,13 @@ export const programmingSkills: ProgrammingSkill[] = [
         name: 'Docker',
         logo: '/programming/docker.png',
         level: Level.BASIC,
-        // href: 'https://www.docker.com',
+        href: 'https://www.docker.com',
+      },
+      {
+        name: 'Kubernetes',
+        logo: '/programming/k8s.png',
+        level: Level.LEARNING,
+        href: 'https://kubernetes.io/',
       },
       {
         name: 'GraphQL',
@@ -205,6 +216,12 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/apache.png',
         level: Level.BASIC,
         href: 'https://httpd.apache.org/',
+      },
+      {
+        name: 'Amazon Web Service',
+        logo: '/programming/aws.png',
+        level: Level.BASIC,
+        // href: 'https://developer.hashicorp.com/terraform',
       },
       {
         name: 'Terraform',
