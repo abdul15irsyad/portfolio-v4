@@ -20,7 +20,12 @@ const Hero = () => {
   }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      strings: ['Software Engineer', 'Freelancer', 'Learner'],
+      strings: [
+        'Software Engineer',
+        'Freelancer',
+        'Tech Enthusiast',
+        'Self Learner',
+      ],
       typeSpeed: 100,
       loop: true,
     });
