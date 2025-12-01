@@ -20,7 +20,12 @@ const Hero = () => {
   }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
-      strings: ['Software Engineer', 'Freelancer', 'Learner'],
+      strings: [
+        'Software Engineer',
+        'Freelancer',
+        'Tech Enthusiast',
+        'Self Learner',
+      ],
       typeSpeed: 100,
       loop: true,
     });
@@ -103,7 +108,7 @@ const Hero = () => {
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link>
               <Link
-                href='/resume.pdf'
+                href='/resume-2025-12-01.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='btn btn-outline-primary text-capitalize px-3 hero-btn'
