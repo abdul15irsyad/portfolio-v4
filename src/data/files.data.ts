@@ -172,6 +172,6 @@ export const files: File[] = [
 export const fileDatas = files.map((file) => {
   return {
     ...file,
-    url: `${BASE_URL}/${file.path}/${file.fileName}`,
+    url: process.env.NODE_ENV === 'production' ? `${BASE_URL}/${file.path}/${file.fileName}` : `/${file.path}/${file.fileName}`,
   };
 });

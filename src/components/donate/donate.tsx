@@ -4,7 +4,6 @@ import { Quicksand } from 'next/font/google';
 import { Bree_Serif } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 

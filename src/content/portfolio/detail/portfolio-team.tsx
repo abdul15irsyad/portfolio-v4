@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 import { BASE_URL } from '@/configs/app.config';
 import { Team } from '@/types/team.type';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './text-animation.module.css';
 
 export const TextAnimation = ({ text }: { text: string }) => {

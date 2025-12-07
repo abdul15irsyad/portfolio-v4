@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './section-title.module.css';
 
 export const SectionTitle = ({

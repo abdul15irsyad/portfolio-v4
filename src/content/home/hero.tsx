@@ -3,7 +3,7 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Typed from 'typed.js';
 

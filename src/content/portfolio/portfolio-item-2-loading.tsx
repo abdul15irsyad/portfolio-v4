@@ -1,4 +1,3 @@
-import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 
 import { randomInt } from '@/utils/number.util';

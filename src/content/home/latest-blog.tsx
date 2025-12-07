@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -23,7 +22,7 @@ export const LatestBlog = () => {
     queryFn: async () => (await fetch('/api/blog/latest')).json(),
     networkMode: 'always',
     staleTime: 1000 * 60 * 1,
-    cacheTime: 0,
+    gcTime: 0,
   });
   return (
     <section className='latest-blog section doodle-background'>

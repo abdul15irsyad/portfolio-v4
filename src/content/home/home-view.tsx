@@ -1,7 +1,7 @@
 'use client';
 
 import AOS from 'aos';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { aosInitConfig } from '@/configs/aos.config';
 import Award from '@/content/home/award';

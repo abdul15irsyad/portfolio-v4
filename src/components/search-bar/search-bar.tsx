@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FormEvent } from 'react';
+import { FormEvent } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 

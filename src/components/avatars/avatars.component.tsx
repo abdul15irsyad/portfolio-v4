@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BASE_URL } from '@/configs/app.config';
 
 import { Avatar, AvatarProps } from './avatar.component';

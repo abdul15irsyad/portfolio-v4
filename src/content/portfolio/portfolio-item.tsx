@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { CustomCarousel } from '@/components/custom-carousel/custom-carousel';

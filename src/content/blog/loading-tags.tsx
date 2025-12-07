@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Placeholder } from 'react-bootstrap';
 
 const LoadingTags = ({ sizes }: { sizes: number[] }) => {

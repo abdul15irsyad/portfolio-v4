@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import React from 'react';
+
 import sanitize from 'sanitize-html';
 
 import { commonMetaData } from '@/app/layout';

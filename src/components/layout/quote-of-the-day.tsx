@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import React, { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -30,7 +30,7 @@ export const QuoteOfTheDay = () => {
       return response.data;
     },
     staleTime: 1000 * 60,
-    cacheTime: 1000 * 60 * 3,
+    gcTime: 1000 * 60 * 3,
   });
   const quote = response?.data?.quote;
 

@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 

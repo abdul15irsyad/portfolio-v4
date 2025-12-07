@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { awards } from '@/data/awards.data';

@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 import { BlogDetailView } from '@/content/blog/blog-detail-view';
 import { blogDatas } from '@/data/blogs.data';

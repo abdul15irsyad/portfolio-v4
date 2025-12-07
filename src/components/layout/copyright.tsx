@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 export const Copyright = () => {
   const year = new Date().getFullYear();
   return (

@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   Nav,
   Navbar as BootstrapNavbar,

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { programmingSkills } from '@/data/programming-skills.data';

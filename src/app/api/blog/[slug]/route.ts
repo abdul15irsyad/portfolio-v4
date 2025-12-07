@@ -10,10 +10,10 @@ import { parseBooleanString } from '@/utils/string.util';
 
 export async function GET(
   _: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   try {
-    const slug = params.slug;
+    const { slug } = await params;
     let blog: Blog | PrismaBlog | null;
     if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
       blog = blogDatas.find((blog) => slug === blog.slug) ?? null;

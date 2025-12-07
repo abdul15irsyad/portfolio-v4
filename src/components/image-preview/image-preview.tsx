@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { SetStateAction } from 'react';
+import { SetStateAction } from 'react';
 
 import styles from './image-preview.module.css';
 

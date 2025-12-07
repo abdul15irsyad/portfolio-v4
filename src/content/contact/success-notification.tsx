@@ -1,7 +1,6 @@
 import './success-notification.css';
 
 import Image from 'next/image';
-import React from 'react';
 
 import { capitalize } from '@/utils/change-case';
 

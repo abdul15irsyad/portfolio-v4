@@ -1,7 +1,7 @@
 import './fullscreen-carouse.css';
 
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 
 interface Props {

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 

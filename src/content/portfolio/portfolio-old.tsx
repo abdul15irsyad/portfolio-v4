@@ -1,7 +1,7 @@
 'use client';
 
 import AOS from 'aos';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Empty } from '@/components/empty/empty';
 import { FormSelect } from '@/components/form-select/form-select';

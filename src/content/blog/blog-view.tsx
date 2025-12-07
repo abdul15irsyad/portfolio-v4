@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useQueryState } from 'nuqs';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ClearButton } from '@/components/clear-button';

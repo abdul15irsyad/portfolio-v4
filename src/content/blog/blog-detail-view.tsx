@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BackButton } from '@/components/back-button/back-button';
 import Donate from '@/components/donate/donate';
 import { Blog as BlogType } from '@/types/blog.type';

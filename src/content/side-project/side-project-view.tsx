@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { parseAsInteger, useQueryState } from 'nuqs';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ClearButton } from '@/components/clear-button';

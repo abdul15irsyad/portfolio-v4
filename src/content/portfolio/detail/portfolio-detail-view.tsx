@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BackButton } from '@/components/back-button/back-button';
 import { Portfolio } from '@/types/portfolio.type';
 

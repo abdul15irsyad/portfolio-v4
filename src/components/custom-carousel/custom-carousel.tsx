@@ -3,7 +3,7 @@
 import './custom-carousel.css';
 
 import Image from 'next/image';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Carousel } from 'react-bootstrap';
 
 interface Props {

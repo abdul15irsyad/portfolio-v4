@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 
 import i18next from '@/locales/i18n.config';
