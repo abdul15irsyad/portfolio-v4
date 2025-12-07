@@ -9,7 +9,8 @@ import { PortfolioDetailView } from '@/content/portfolio/detail/portfolio-detail
 import { portfolios } from '@/data/portfolios.data';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata(props): Promise<Metadata> {
+  const params = await props.params;
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) return commonMetaData;
   const title = `${portfolio?.title} (${portfolio.year}) - ${APP_NAME}`;
@@ -48,7 +49,8 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   };
 }
 
-export default async ({ params }) => {
+export default async (props) => {
+  const params = await props.params;
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) notFound();
   return <PortfolioDetailView portfolio={portfolio} />;

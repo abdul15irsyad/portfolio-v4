@@ -19,7 +19,8 @@ import { parseBooleanString } from '@/utils/string.util';
 //   return blogs.map((blog) => blog.slug);
 // }
 
-const BlogDetailPage = async ({ params }) => {
+const BlogDetailPage = async props => {
+  const params = await props.params;
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
     blog = blogDatas.find(({ slug }) => slug === params.slug) ?? null;
