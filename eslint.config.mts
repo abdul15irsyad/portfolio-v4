@@ -8,16 +8,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import prettier from 'eslint-plugin-prettier';
 import nextPlugin from '@next/eslint-plugin-next';
 import js from '@eslint/js';
-import globals from 'globals';
 import prettierConfig from 'eslint-config-prettier';
-
-type PartialSome<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
-
-const GLOBALS_BROWSER_FIX: PartialSome<typeof globals.browser, 'AudioWorkletGlobalScope '> = Object.assign({}, globals.browser, {
-  AudioWorkletGlobalScope: globals.browser['AudioWorkletGlobalScope ']
-});
-
-delete GLOBALS_BROWSER_FIX['AudioWorkletGlobalScope '];
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -42,10 +33,6 @@ const config = [
         project: './tsconfig.json',
         sourceType: 'module',
         ecmaVersion: 'latest',
-      },
-       globals: {
-        ...globals.node,
-        ...GLOBALS_BROWSER_FIX,
       },
     },
     plugins: {

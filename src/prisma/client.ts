@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 
-import { BASE_URL } from '@/configs/app.config';
-
 const prismaClientSingleton = () => {
   return new PrismaClient().$extends({
     result: {
@@ -9,7 +7,7 @@ const prismaClientSingleton = () => {
         url: {
           needs: { path: true, fileName: true },
           compute(file) {
-            return `${BASE_URL}/${file.path}/${file.fileName}`;
+            return `/${file.path}/${file.fileName}`;
           },
         },
       },
