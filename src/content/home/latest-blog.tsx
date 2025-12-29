@@ -65,29 +65,31 @@ export const LatestBlog = () => {
                   </Placeholder>
                 </>
               ) : (
-                <>
-                  <Link href={`/blog/${latestBlog?.data?.slug}`}>
-                    <div className='latest-blog-item-image'>
-                      <Image
-                        src={latestBlog?.data.featureImage?.url as string}
-                        alt={
-                          latestBlog?.data.featureImage
-                            ?.originalFileName as string
-                        }
-                        width={500}
-                        height={500}
-                      />
-                    </div>
-                  </Link>
-                  <Link href={`/blog/${latestBlog?.data.slug}`}>
-                    <h2>{latestBlog?.data.title}</h2>
-                  </Link>
-                  <p>
-                    {renderTimestamp(
-                      dayjs(latestBlog?.data?.publishedAt).toString(),
-                    )}
-                  </p>
-                </>
+                latestBlog?.data && (
+                  <>
+                    <Link href={`/blog/${latestBlog?.data?.slug}`}>
+                      <div className='latest-blog-item-image'>
+                        <Image
+                          src={latestBlog?.data?.featureImage?.url as string}
+                          alt={
+                            latestBlog?.data?.featureImage
+                              ?.originalFileName as string
+                          }
+                          width={500}
+                          height={500}
+                        />
+                      </div>
+                    </Link>
+                    <Link href={`/blog/${latestBlog?.data?.slug}`}>
+                      <h2>{latestBlog?.data?.title}</h2>
+                    </Link>
+                    <p>
+                      {renderTimestamp(
+                        dayjs(latestBlog?.data?.publishedAt).toString(),
+                      )}
+                    </p>
+                  </>
+                )
               )}
             </div>
           </div>

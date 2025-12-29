@@ -15,8 +15,12 @@ const Hero = () => {
   const typedText = useRef(null);
   const { t } = useTranslation();
   const [isIndependenceDay, setIsIndependenceDay] = useState(false);
+  const [isChristmas, setIsChristmas] = useState(false);
+  const [isNewYear, setIsNewYear] = useState(false);
   useEffect(() => {
     setIsIndependenceDay(dayjs().month() === 7 && dayjs().date() === 17);
+    setIsChristmas(dayjs().month() === 11 && dayjs().date() === 25);
+    setIsNewYear(dayjs().month() === 0 && dayjs().date() === 1);
   }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
@@ -142,6 +146,24 @@ const Hero = () => {
                 style={{
                   transform: 'rotate(8deg)',
                 }}
+              />
+            ) : isChristmas ? (
+              <Image
+                src={'/christmas-tree.png'}
+                alt='christmas tree'
+                width={400}
+                height={400}
+                data-aos='fade-left'
+                priority
+              />
+            ) : isNewYear ? (
+              <Image
+                src={'/happy-new-year.png'}
+                alt='happy new year'
+                width={400}
+                height={400}
+                data-aos='fade-left'
+                priority
               />
             ) : (
               <Image
