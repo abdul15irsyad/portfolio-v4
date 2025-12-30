@@ -18,7 +18,16 @@ const Education = () => {
         <div className='education-items'>
           {educations.map(
             (
-              { icon, institution, level, major, startYear, endYear, gpa },
+              {
+                icon,
+                institution,
+                level,
+                major,
+                startYear,
+                endYear,
+                gpa,
+                href,
+              },
               index,
             ) => {
               const meta: string[] = [capitalizeEachWord(t(level))];
@@ -37,7 +46,15 @@ const Education = () => {
                       </span>
                     </div>
                   </div>
-                  {gpa && <div className='gpa'>GPA {gpa}</div>}
+                  <div className='hover'>
+                    {gpa && <div className='gpa'>GPA {gpa}</div>}
+                    {href && (
+                      <a className='href' href={href} target='_blank'>
+                        {/* <i className='bi bi-link-45deg'></i> */}
+                        PDDIKTI
+                      </a>
+                    )}
+                  </div>
                 </div>
               );
             },

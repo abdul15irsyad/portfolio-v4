@@ -4,6 +4,7 @@ export interface Education<T> {
   level: string;
   major: string | null;
   gpa?: number;
+  href?: string;
   startYear: number;
   endYear: number;
   translates?: (T & { lang: string })[];

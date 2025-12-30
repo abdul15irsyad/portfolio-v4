@@ -416,19 +416,23 @@ ul li {
   width: 70px;
 }
 
-.education .education-item .gpa {
-  display: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  font-size: x-small;
+.education .education-item .hover {
+  display: flex;
+  visibility: hidden;
+  gap: 0.25rem;
   position: absolute;
   right: 0.5rem;
   bottom: 0.5rem;
-  background-color: rgba(var(--bs-primary-rgb), 0.1);
-  transition: 0.3s;
 }
-.education .education-item:hover .gpa {
-  display: block;
+
+.education .education-item .hover > * {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: x-small;
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+}
+.education .education-item:hover .hover {
+  visibility: visible;
 }
 
 @media (max-width: 991px) {
