@@ -11,7 +11,6 @@ export const portfolios: Portfolio[] = (
     {
       title: 'Transaction Reconciliation & EXchange (Frontend v2)',
       href: null,
-      isHide: true,
       publishedAt: '2026-06-03',
       type: {
         icon: 'code-square',
