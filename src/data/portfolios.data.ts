@@ -847,8 +847,7 @@ export const portfolios: Portfolio[] = (
     },
     {
       title: 'Gerakan Seniman Masuk Sekolah 2023',
-      // href: 'https://gsmsppk.kemdikbud.go.id',
-      href: null,
+      href: 'https://gsms.kemenbud.go.id/',
       publishedAt: '2023-08-10',
       type: {
         icon: 'database',
