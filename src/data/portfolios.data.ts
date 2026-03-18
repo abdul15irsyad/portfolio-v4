@@ -846,7 +846,7 @@ export const portfolios: Portfolio[] = (
       ],
     },
     {
-      title: 'Gerakan Seniman Masuk Sekolah 2023',
+      title: 'Gerakan Seniman Masuk Sekolah',
       href: 'https://gsms.kemenbud.go.id/',
       publishedAt: '2023-08-10',
       type: {
@@ -925,7 +925,7 @@ export const portfolios: Portfolio[] = (
           lang: 'id',
           desc: `
           <p>
-            Gerakan Seniman Masuk Sekolah (GSMS) 2023 adalah program dimana seniman memberikan pembelajaran kesenian pada kegiatan ekstrakurikuler di Sekolah, adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
+            Gerakan Seniman Masuk Sekolah (GSMS) adalah program dimana seniman memberikan pembelajaran kesenian pada kegiatan ekstrakurikuler di Sekolah, adapun peran saya dalam project ini adalah sebagai <strong>Backend Developer</strong> baik di bagian Landing Page (website) maupun Dashboard (aplikasi web).
           </p>
         `,
         },
@@ -933,7 +933,7 @@ export const portfolios: Portfolio[] = (
           lang: 'en',
           desc: `
           <p>
-            Gerakan Seniman Masuk Sekolah (GSMS) 2023 is a program where the artist teaching art in extracurricular activities in schools, as for my role in this project is as <strong>Backend Developer</strong> both in the landing page section (Website) and Dashboard (Web Application).
+            Gerakan Seniman Masuk Sekolah (GSMS) is a program where the artist teaching art in extracurricular activities in schools, as for my role in this project is as <strong>Backend Developer</strong> both in the landing page section (Website) and Dashboard (Web Application).
           </p>
         `,
         },
