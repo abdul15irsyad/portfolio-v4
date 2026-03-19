@@ -14,6 +14,7 @@ import { capitalize, capitalizeEachWord } from '@/utils/change-case';
 const Hero = () => {
   const typedText = useRef(null);
   const { t } = useTranslation();
+  const [isIedAlFitri, setIsIedAlFitri] = useState(false);
   const [isIndependenceDay, setIsIndependenceDay] = useState(false);
   const [isChristmas, setIsChristmas] = useState(false);
   const [isNewYear, setIsNewYear] = useState(false);
@@ -21,6 +22,9 @@ const Hero = () => {
     setIsIndependenceDay(dayjs().month() === 7 && dayjs().date() === 17);
     setIsChristmas(dayjs().month() === 11 && dayjs().date() === 25);
     setIsNewYear(dayjs().month() === 0 && dayjs().date() === 1);
+    setIsIedAlFitri(
+      ['2026-03-20', '2026-03-21'].includes(dayjs().format('YYYY-MM-DD')),
+    );
   }, []);
   useEffect(() => {
     const typed = new Typed(typedText.current, {
@@ -162,6 +166,19 @@ const Hero = () => {
                 alt='happy new year'
                 width={400}
                 height={400}
+                data-aos='fade-left'
+                priority
+              />
+            ) : isIedAlFitri ? (
+              <Image
+                src={'/ketupat.png'}
+                alt='ketupat'
+                width={300}
+                height={300}
+                style={{
+                  padding: '2rem',
+                  transform: 'rotate(-8deg)',
+                }}
                 data-aos='fade-left'
                 priority
               />
