@@ -6,6 +6,26 @@ import { random } from '@/utils/array.util';
 
 export const sideProjects: SideProject[] = [
   {
+    img: `/side-project/stock-simulation-with-sse.png`,
+    href: 'https://github.com/abdul15irsyad/live-stock-simulation-with-sse',
+    stacks: [
+      { icon: '/programming/next.png', label: 'Next JS 16' },
+      { icon: '/programming/mantine.png', label: 'Mantine 8' },
+    ],
+    translates: [
+      {
+        lang: 'id',
+        title: 'Simulasi Saham dengan SSE',
+        desc: 'Implementasi SSE untuk real time simulasi saham',
+      },
+      {
+        lang: 'en',
+        title: 'Live Stock Simulation With SSE',
+        desc: 'SSE implementation for real-time live stocks',
+      },
+    ],
+  },
+  {
     img: `/side-project/go-sse-notification-fe.jpg`,
     href: 'https://github.com/abdul15irsyad/go-sse-frontend',
     stacks: [
