@@ -16,11 +16,10 @@ type Prop = {
 };
 
 const ImagePreview = ({ modal, setModal }: Prop) => {
-  const body = document.querySelector('body');
   const handleClick = (e: any) => {
     if (!['img', 'h6'].includes(e.target.tagName.toLowerCase())) {
       setModal({ ...modal, show: false });
-      body!.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
     }
   };
   return (

@@ -1,32 +1,40 @@
 'use client';
 
-import 'highlight.js/styles/androidstudio.css';
-import 'highlightjs-copy/dist/highlightjs-copy.min.css';
-
-import hljs from 'highlight.js';
-import CopyButtonPlugin from 'highlightjs-copy';
 import { useEffect } from 'react';
 
-hljs.configure({
-  ignoreUnescapedHTML: true,
-});
-hljs.addPlugin(
-  new CopyButtonPlugin({
-    hook: (text: string, el: any) => {
-      if (el.result.language === 'bash') {
-        text = text.replace('$ ', '');
-        text = text.replace(/\n\$/g, '\n');
-      }
-      return text;
-    },
-  }),
-);
+let initialized = false;
 
 export const useHighlight = () => {
   useEffect(() => {
-    document.querySelectorAll('[data-highlighted="yes"]').forEach((block) => {
-      block.removeAttribute('data-highlighted');
-    });
-    hljs.highlightAll();
+    const init = async () => {
+      const hljs = (await import('highlight.js')).default;
+      await import('highlight.js/styles/androidstudio.css');
+
+      if (!initialized) {
+        hljs.configure({
+          ignoreUnescapedHTML: true,
+        });
+        await import('highlightjs-copy/dist/highlightjs-copy.min.css');
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const CopyButtonPlugin = require('highlightjs-copy');
+        hljs.addPlugin(
+          new CopyButtonPlugin({
+            hook: (text: string, el: any) => {
+              if (el.result.language === 'bash') {
+                text = text.replace('$ ', '');
+                text = text.replace(/\n\$/g, '\n');
+              }
+              return text;
+            },
+          }),
+        );
+        initialized = true;
+      }
+      document.querySelectorAll('[data-highlighted="yes"]').forEach((block) => {
+        block.removeAttribute('data-highlighted');
+      });
+      hljs.highlightAll();
+    };
+    init();
   }, []);
 };

@@ -3,23 +3,22 @@ import { notFound } from 'next/navigation';
 import { BlogDetailView } from '@/content/blog/blog-detail-view';
 import { blogDatas } from '@/data/blogs.data';
 import { cache } from '@/redis/redis.util';
-import { getBlog, getLatestBlog } from '@/services/blog.service';
+import { getBlog, getBlogs, getLatestBlog } from '@/services/blog.service';
 import { Blog, BlogReferenceInterface } from '@/types/blog.type';
 import { extractSeoData } from '@/utils/seo.util';
 import { parseBooleanString } from '@/utils/string.util';
 
-// export async function generateStaticParams() {
-//   let blogs: Blog[] | null;
-//   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
-//     blogs = blogDatas;
-//   } else {
-//     blogs = await getBlogs();
-//   }
+export async function generateStaticParams() {
+  if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
+    return blogDatas.map((blog) => ({ slug: blog.slug }));
+  }
+  const blogs = await getBlogs();
+  return blogs.map((blog) => ({ slug: blog.slug }));
+}
 
-//   return blogs.map((blog) => blog.slug);
-// }
+export const dynamicParams = false;
 
-export const BlogDetailPage = async (props) => {
+const BlogDetailPage = async (props) => {
   const params = await props.params;
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
@@ -57,3 +56,5 @@ export const BlogDetailPage = async (props) => {
     />
   );
 };
+
+export default BlogDetailPage;
