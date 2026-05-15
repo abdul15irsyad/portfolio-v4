@@ -13,6 +13,7 @@ export const getBlogs = async () => {
 
   return await prisma.blog.findMany({
     where,
+    orderBy: { publishedAt: 'desc' },
     include: { featureImage: true, author: { include: { photo: true } } },
   });
 };
