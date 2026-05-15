@@ -8,6 +8,6 @@ import { ContactMeView } from '@/content/contact/contact-me-view';
 export default () => {
   useEffect(() => {
     AOS.init(aosInitConfig);
-  });
+  }, []);
   return <ContactMeView />;
 };

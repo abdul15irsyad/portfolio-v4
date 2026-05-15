@@ -16,7 +16,7 @@ export const PortfolioOld = () => {
 
   useEffect(() => {
     AOS.init(aosInitConfig);
-  });
+  }, []);
 
   useEffect(() => {
     setFilteredPortofolio(

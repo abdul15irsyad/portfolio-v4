@@ -19,7 +19,7 @@ import { parseBooleanString } from '@/utils/string.util';
 //   return blogs.map((blog) => blog.slug);
 // }
 
-const BlogDetailPage = async props => {
+export const BlogDetailPage = async (props) => {
   const params = await props.params;
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
@@ -57,5 +57,3 @@ const BlogDetailPage = async props => {
     />
   );
 };
-
-export default BlogDetailPage;

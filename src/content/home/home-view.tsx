@@ -15,7 +15,7 @@ import Programming from '@/content/home/programming';
 export const HomeView = () => {
   useEffect(() => {
     AOS.init(aosInitConfig);
-  });
+  }, []);
   return (
     <main>
       <Hero />

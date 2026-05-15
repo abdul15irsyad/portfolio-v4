@@ -22,7 +22,7 @@ export const SideProjectItem = ({
   const { t, i18n } = useTranslation();
   useEffect(() => {
     AOS.init(aosInitConfig);
-  });
+  }, []);
   title = capitalizeEachWord(
     translates?.find(({ lang }) => lang === i18n.language)?.title ?? title!,
   );

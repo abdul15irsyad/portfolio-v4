@@ -358,8 +358,10 @@ export const users: User[] = [
   photo: user.photo
     ? {
         ...user.photo,
-        // url: `${BASE_URL}/${user.photo.path}/${user.photo.fileName}`,
-        url: process.env.NODE_ENV === 'production' ? `${BASE_URL}/${user.photo.path}/${user.photo.fileName}` : `/${user.photo.path}/${user.photo.fileName}`,
+        url:
+          process.env.NODE_ENV === 'production'
+            ? `${BASE_URL}/${user.photo.path}/${user.photo.fileName}`
+            : `/${user.photo.path}/${user.photo.fileName}`,
       }
     : fileDatas.find(({ id }) => id === user.photoId),
 }));

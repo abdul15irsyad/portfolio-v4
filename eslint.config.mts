@@ -64,11 +64,20 @@ const config = [
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       // Prettier
-      'prettier/prettier': 'warn',
+      'prettier/prettier': [
+        'error',
+        {
+          "singleQuote": true,
+          "trailingComma": "all",
+          "endOfLine": "auto",
+          "jsxSingleQuote": true,
+          "tabWidth": 2,
+        }
+      ],
       // Next.js / React rules
       'import/no-anonymous-default-export': 'off',
       'react/display-name': 'off',
-      'react-hooks/rules-of-hooks': 'off',
+      'react-hooks/rules-of-hooks': 'error',
       'jsx-quotes': ['error', 'prefer-single'],
       // General
       'no-console': 'warn',
