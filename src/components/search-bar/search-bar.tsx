@@ -12,7 +12,11 @@ type SearchBarProps = {
   setQuerySearch: (value: string) => void;
 };
 
-export const SearchBar = ({ search, setSearch, setQuerySearch }: SearchBarProps) => {
+export const SearchBar = ({
+  search,
+  setSearch,
+  setQuerySearch,
+}: SearchBarProps) => {
   const { t } = useTranslation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
