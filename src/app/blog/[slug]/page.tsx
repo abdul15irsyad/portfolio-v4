@@ -18,7 +18,9 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-const BlogDetailPage = async (props) => {
+type PageProps = { params: Promise<{ slug: string }> };
+
+const BlogDetailPage = async (props: PageProps) => {
   const params = await props.params;
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {

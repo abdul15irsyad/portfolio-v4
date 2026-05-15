@@ -6,7 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 import { isNotEmpty } from '@/utils/validation.util';
 
-export const SearchBar = ({ search, setSearch, setQuerySearch }) => {
+type SearchBarProps = {
+  search: string;
+  setSearch: (value: string) => void;
+  setQuerySearch: (value: string) => void;
+};
+
+export const SearchBar = ({ search, setSearch, setQuerySearch }: SearchBarProps) => {
   const { t } = useTranslation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

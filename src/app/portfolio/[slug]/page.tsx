@@ -8,7 +8,15 @@ import { PortfolioDetailView } from '@/content/portfolio/detail/portfolio-detail
 import { portfolios } from '@/data/portfolios.data';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 
-export async function generateMetadata(props): Promise<Metadata> {
+export async function generateStaticParams() {
+  return portfolios.map((portfolio) => ({ slug: portfolio.slug }));
+}
+
+export const dynamicParams = false;
+
+type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) return commonMetaData;
@@ -48,7 +56,7 @@ export async function generateMetadata(props): Promise<Metadata> {
   };
 }
 
-export default async (props) => {
+export default async (props: PageProps) => {
   const params = await props.params;
   const portfolio = portfolios.find(({ slug }) => slug === params.slug);
   if (!portfolio) notFound();

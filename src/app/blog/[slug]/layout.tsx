@@ -11,7 +11,9 @@ import { Blog } from '@/types/blog.type';
 import { defaultSanitizeOptions } from '@/utils/html.util';
 import { parseBooleanString } from '@/utils/string.util';
 
-export async function generateMetadata(props): Promise<Metadata> {
+type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
   let blog: Blog | null;
   if (parseBooleanString(process.env.NEXT_PUBLIC_IS_READ_BLOG_FROM_ARRAY)) {
