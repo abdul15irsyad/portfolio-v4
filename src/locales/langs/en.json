@@ -4,7 +4,7 @@
   "problem-solve": "problem solve",
   "see-item": "see {{item}}",
   "resume": "resume",
-  "personal-info": "<p>Creative and detail-oriented Full Stack Developer with over <strong>{{year}}+ years</strong> of experience building scalable web applications and backend systems using modern JavaScript/TypeScript stacks. Specializing in <strong>Node.js, Golang</strong>, and REST API and WebSocket, with strong focus on <strong>performance, maintainability, and elegant user experiences</strong>.</p><p>Have the ability to collaborate with cross-functional teams, translate complex requirements into clean code, and deliver solutions that balance business goals with user needs. Passionate about crafting intuitive digital products and continuously evolving with emerging technologies.</p>",
+  "personal-info": "<p>Fullstack Engineer with {{year}}+ years of experience designing and building scalable web applications, APIs, and distributed systems using Node.js, TypeScript, Golang, PHP and React/Next.js.</p><p>Experienced in banking, enterprise, and SaaS environments, with strong expertise in backend architecture, microservices, asynchronous processing, caching, and database optimization. Passionate about building maintainable systems, improving performance, and delivering reliable solutions that support business growth.</p>",
   "education": "education",
   "s1": "bachelor",
   "informatics-engineering": "informatics engineering",

@@ -4,7 +4,7 @@
   "problem-solve": "pemecahan masalah",
   "see-item": "lihat {{item}}",
   "resume": "resume",
-  "personal-info": "<p>Full Stack Developer kreatif dan berorientasi pada detail dengan pengalaman lebih dari <strong>{{year}}+ tahun</strong> dalam membangun aplikasi web dan sistem backend yang skalabel menggunakan stack JavaScript/TypeScript modern. Spesialis dalam <strong>Node.js, Golang</strong>, serta pengembangan REST API dan WebSocket dengan fokus kuat pada <strong>performa, maintainability, dan pengalaman pengguna yang baik</strong>.</p><p>Memiliki mampu berkolaborasi dengan tim lintas fungsi, menerjemahkan kebutuhan kompleks menjadi kode yang bersih, dan menghadirkan solusi yang seimbang antara tujuan bisnis dan kebutuhan pengguna. Memiliki semangat tinggi dalam menciptakan produk digital yang intuitif dan terus berkembang mengikuti teknologi terbaru.</p>",
+  "personal-info": "<p>Fullstack Engineer dengan pengalaman lebih dari {{year}} tahun merancang dan membangun aplikasi web, API, dan sistem terdistribusi yang skalabel menggunakan Node.js, TypeScript, Golang, PHP, dan React/Next.js.</p><p>Berpengalaman di lingkungan perbankan, perusahaan, dan SaaS, dengan keahlian kuat dalam arsitektur backend, layanan mikro, pemrosesan asinkron, caching, dan optimalisasi basis data. Bersemangat dalam membangun sistem yang dapat dipelihara, meningkatkan kinerja, dan memberikan solusi andal yang mendukung pertumbuhan bisnis.</p>",
   "education": "pendidikan",
   "s1": "s1",
   "informatics-engineering": "teknik informatika",
