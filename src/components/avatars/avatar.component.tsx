@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { CSSProperties } from 'react';
 
-import { BASE_URL } from '@/configs/app.config';
-
 import styles from './avatar.module.css';
 
 export interface AvatarProps {
@@ -20,7 +18,7 @@ export const Avatar = ({
   return (
     <div className={styles.avatar} style={style}>
       <Image
-        src={user!.imageUrl ?? `${BASE_URL}/blog/default-profile.png`}
+        src={user!.imageUrl ?? `/blog/default-profile.png`}
         alt={user.alt ?? ''}
         height={400}
         width={400}

@@ -4,7 +4,7 @@
   "problem-solve": "pemecahan masalah",
   "see-item": "lihat {{item}}",
   "resume": "resume",
-  "personal-info": "<p>Fullstack Engineer dengan pengalaman lebih dari {{year}} tahun merancang dan membangun aplikasi web, API, dan sistem terdistribusi yang skalabel menggunakan Node.js, TypeScript, Golang, PHP, dan React/Next.js.</p><p>Berpengalaman di lingkungan perbankan, perusahaan, dan SaaS, dengan keahlian kuat dalam arsitektur backend, layanan mikro, pemrosesan asinkron, caching, dan optimalisasi basis data. Bersemangat dalam membangun sistem yang dapat dipelihara, meningkatkan kinerja, dan memberikan solusi andal yang mendukung pertumbuhan bisnis.</p>",
+  "personal-info": "<p>Fullstack Engineer dengan pengalaman {{year}}+ tahun dalam membangun aplikasi web yang skalabel, layanan backend, dan sistem terdistribusi di lingkungan perbankan, enterprise, dan SaaS. Mengkhususkan diri pada Node.js, TypeScript, Golang, dan React/Next.js, dengan keahlian kuat di arsitektur microservices, pemrosesan asinkron, strategi caching, desain API, dan optimasi database. Terbukti mampu menghasilkan solusi yang andal, mudah dipelihara, dan berperforma tinggi sambil berkolaborasi lintas tim multifungsi..</p>",
   "education": "pendidikan",
   "s1": "s1",
   "informatics-engineering": "teknik informatika",

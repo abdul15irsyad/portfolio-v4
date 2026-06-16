@@ -19,34 +19,42 @@ export const workExperiences: WorkExperience[] = [
         lang: 'id',
         desc: `<p>Bergabung dengan Tim Internal Tools.</p>
         <ul>
-        <li>Mengembangkan dan memelihara aplikasi web internal untuk mendukung operasional perbankan.</li>
-        <li>Membangun API backend yang skalabel dan aman menggunakan Express JS (TypeScript) serta mengimplementasikan caching Redis untuk optimasi performa.</li>
-        <li>Membuat interface frontend dinamis menggunakan Next JS dan Mantine UI.</li>
+        <li>Mengembangkan dan meningkatkan platform perbankan internal yang mendukung alur kerja operasional dan bisnis di berbagai departemen.</li>
+        <li>Merancang dan mengimplementasikan layanan backend yang aman dan skalabel menggunakan TypeScript dan Express.js dengan fokus pada maintainability dan performa.</li>
+        <li>Menerapkan strategi caching Redis untuk meningkatkan responsivitas aplikasi dan mengurangi beban database.</li>
+        <li>Membangun antarmuka pengguna yang modern dan responsif menggunakan Next.js dan Mantine UI untuk meningkatkan usability dan user experience.</li>
+        <li>Mengoptimalkan alur pemrosesan background dan eksekusi job asinkron untuk meningkatkan efisiensi dan reliabilitas sistem.</li>
+        <li>Berkolaborasi dengan product owner, stakeholder bisnis, dan tim engineering untuk menghadirkan fitur yang selaras dengan kebutuhan operasional.</li>
+        <li>Berkontribusi pada skalabilitas dan observabilitas sistem dalam lingkungan cloud-native yang berjalan di infrastruktur AWS.</li>
         </ul>`,
       },
       {
         lang: 'en',
         desc: `<p>Join the Internal Tools Team.</p>
         <ul>
-        <li>Developed and maintained internal web applications to support banking operations.</li>
-        <li>Built scalable and secure backend APIs using Express JS (Typescript) and implemented Redis caching for performance optimization.</li>
-        <li>Create dynamic frontend interfaces with Next JS and Mantine UI.</li>
-        <ul>`,
+        <li>Developed and enhanced internal banking platforms that support operational and business workflows across multiple departments.</li>
+        <li>Designed and implemented secure, scalable backend services using TypeScript and Express.js with a focus on maintainability and performance.</li>
+        <li>Introduced Redis caching strategies to improve application responsiveness and reduce database workload.</li>
+        <li>Built modern and responsive user interfaces using Next.js and Mantine UI to improve usability and user experience.</li>
+        <li>Optimized background processing workflows and asynchronous job execution to improve system efficiency and reliability.</li>
+        <li>Collaborated with product owners, business stakeholders, and engineering teams to deliver features aligned with operational requirements.</li>
+        <li>Contributed to system scalability and observability within cloud-native environments running on AWS infrastructure.</li>
+        </ul>`,
       },
     ],
     techStacks: [
       'Node JS',
       'Typescript',
       'Express JS',
-      'React JS',
-      'Next JS',
       'PostgreSQL',
       'Redis',
-      'Websocket',
-      'BullMQ',
+      'React JS',
+      'Next JS',
       'Mantine UI',
-      'Ant Design',
-      'AWS',
+      'BullMQ',
+      'Websocket',
+      'AWS EKS',
+      'AWS S3',
       'Scalyr',
     ],
   },
@@ -66,39 +74,44 @@ export const workExperiences: WorkExperience[] = [
         lang: 'id',
         desc: `<p>Bergabung dengan Tim Corporate Core Platform (CCP)</p>
         <ul>
-        <li>Mengembangkan aplikasi pendukung korporat berdasarkan arahan dari senior developer dan manager.</li>
-        <li>Merancang dan mengimplementasikan RESTful API serta microservices menggunakan Fastify JS dan Nest JS.</li>
-        <li>Membangun fitur real-time dengan RabbitMQ dan Redis untuk komunikasi asynchronous.</li>
-        <li>Mengembangkan komponen UI yang modular dan dapat digunakan kembali menggunakan Material UI dan Next JS.</li>
-        <li>Berkontribusi pada layanan backend yang ditulis dengan Golang (Gin) untuk kebutuhan operasional berperforma tinggi.</li>
-        <li>Mengimplementasikan background worker dan cron job terjadwal menggunakan Golang untuk menangani tugas periodik seperti sinkronisasi data, pembuatan laporan, dan pengiriman notifikasi.</li>
+        <li>Berkontribusi dalam pengembangan platform perbankan korporat internal yang mendukung proses operasional dan bisnis.</li>
+        <li>Merancang dan mengimplementasikan RESTful API serta microservices menggunakan Fastify dan NestJS dengan mengikuti prinsip arsitektur yang skalabel.</li>
+        <li>Mengembangkan solusi event-driven dan asinkron menggunakan RabbitMQ dan Redis untuk meningkatkan integrasi dan reliabilitas sistem.</li>
+        <li>Membangun komponen frontend yang reusable dan modul aplikasi menggunakan Next.js dan Material UI untuk mempercepat pengiriman fitur.</li>
+        <li>Berpartisipasi dalam pengembangan dan pemeliharaan layanan Golang yang mendukung operasi bisnis berperforma tinggi.</li>
+        <li>Mengimplementasikan scheduled jobs, background workers, dan proses otomasi untuk menyederhanakan tugas bisnis berulang.</li>
+        <li>Berkolaborasi erat dengan tim lintas fungsi untuk menganalisis kebutuhan, merancang solusi, dan menghadirkan aplikasi yang siap produksi.</li>
+        <li>Berkontribusi pada peningkatan performa sistem melalui optimasi kode, peningkatan arsitektur, dan troubleshooting teknis.</li>
         </ul>`,
       },
       {
         lang: 'en',
         desc: `<p>Join the Corporate Core Platform (CCP) Team</p>
         <ul>
-        <li>Developed corporate support applications based on instructions from senior developers and team leads.</li>
-        <li>Designed and implemented RESTful APIs and microservices using Fastify JS and Nest JS.</li>
-        <li>Built real-time features with RabbitMQ and Redis for asynchronous messaging.</li>
-        <li>Developed modular and reusable UI components using Material UI and Next JS.</li>
-        <li>Contributed to the backend services written in Golang (Gin) for high-performance operations.</li>
-        <li>Implemented background workers and scheduled cron jobs using Golang to handle periodic tasks such as data syncing, report generation, and notification dispatching.</li>
+        <li>Contributed to the development of internal corporate banking platforms supporting operational and business processes.</li>
+        <li>Designed and implemented RESTful APIs and microservices using Fastify and NestJS following scalable architecture principles.</li>
+        <li>Developed event-driven and asynchronous solutions using RabbitMQ and Redis to improve system integration and reliability.</li>
+        <li>Built reusable frontend components and application modules using Next.js and Material UI to accelerate feature delivery.</li>
+        <li>Participated in the development and maintenance of Golang services supporting high-performance business operations.</li>
+        <li>Implemented scheduled jobs, background workers, and automation processes to streamline recurring business tasks.</li>
+        <li>Collaborated closely with cross-functional teams to analyze requirements, design solutions, and deliver production-ready applications.</li>
+        <li>Contributed to system performance improvements through code optimization, architectural enhancements, and technical troubleshooting.</li>
         </ul>`,
       },
     ],
     techStacks: [
       'Node JS',
+      'Javascript',
+      'Typescript',
       'Fastify JS',
       'Golang',
       'Gin',
       'Next JS',
+      'Nest JS',
       'MySQL',
       'RabbitMQ',
       'Redis',
-      'Nest JS',
       'Material UI',
-      'MinIO',
     ],
   },
   {
@@ -116,39 +129,40 @@ export const workExperiences: WorkExperience[] = [
         lang: 'id',
         desc: `
         <ul>
-        <li>Merancang dan mengembangkan RESTful API serta GraphQL menggunakan Nest JS dan Laravel untuk mendukung aplikasi berbasis web.</li>
-        <li>Mengintegrasikan database PostgreSQL dan MySQL dengan query yang dioptimalkan dan perancangan skema yang efisien.</li>
-        <li>Mengimplementasikan strategi caching menggunakan Redis untuk meningkatkan waktu respons dan mengurangi beban server.</li>
-        <li>Bekerja sama secara erat dengan developer frontend dan tim GIS untuk memastikan integrasi sistem yang lancar.</li>
-        <li>Menjaga kode backend tetap bersih dan modular sesuai dengan best practice rekayasa perangkat lunak.</li>
-        <li>Berpartisipasi dalam code review, alur kerja version control (Git), dan proses pengembangan agile.</li>
-        <li>Memantau performa aplikasi dan melakukan optimasi pada query database serta endpoint API.</li>
+        <li>Merancang dan mengembangkan RESTful dan GraphQL API yang mendukung berbagai aplikasi enterprise dan berbasis web.</li>
+        <li>Merancang arsitektur layanan backend menggunakan NestJS dan Laravel dengan penekanan pada skalabilitas, maintainability, dan clean code.</li>
+        <li>Mendesain skema database dan mengoptimalkan pola akses data di lingkungan PostgreSQL dan MySQL.</li>
+        <li>Mengimplementasikan mekanisme caching menggunakan Redis untuk meningkatkan performa aplikasi dan mengurangi beban backend.</li>
+        <li>Berkolaborasi dengan engineer frontend, spesialis GIS, dan stakeholder proyek untuk menghadirkan solusi bisnis yang terintegrasi.</li>
+        <li>Melakukan code review dan berkontribusi pada standar engineering, meningkatkan kualitas kode dan konsistensi pengembangan.</li>
+        <li>Mendiagnosis dan menyelesaikan bottleneck aplikasi melalui optimasi di level API, database, dan infrastruktur.</li>
+        <li>Berpartisipasi aktif dalam proses pengembangan agile, sprint planning, dan diskusi teknis.</li>
         </ul>`,
       },
       {
         lang: 'en',
         desc: `
         <ul>
-        <li>Designed and developed RESTful and GraphQL APIs using Nest JS and Laravel to support web-based applications.</li>
-        <li>Integrated PostgreSQL and MySQL databases with optimized queries and schema design.</li>
-        <li>Implemented Redis caching strategies to improve response times and reduce server load.</li>
-        <li>Collaborated closely with frontend developers and GIS teams to ensure seamless integration across systems.</li>
-        <li>Maintained clean and modular backend code following software engineering best practices.</li>
-        <li>Participated in code reviews, version control workflows (Git), and agile development processes.</li>
-        <li>Monitored application performance and performed optimizations on database queries and API endpoints.</li>
+        <li>Designed and developed RESTful and GraphQL APIs powering multiple enterprise and web-based applications.</li>
+        <li>Architected backend services using NestJS and Laravel with emphasis on scalability, maintainability, and clean code practices.</li>
+        <li>Designed database schemas and optimized data access patterns across PostgreSQL and MySQL environments.</li>
+        <li>Implemented caching mechanisms using Redis to improve application performance and reduce backend load.</li>
+        <li>Collaborated with frontend engineers, GIS specialists, and project stakeholders to deliver integrated business solutions.</li>
+        <li>Conducted code reviews and contributed to engineering standards, improving code quality and development consistency.</li>
+        <li>Diagnosed and resolved application bottlenecks through API, database, and infrastructure-level optimizations.</li>
+        <li>Participated actively in agile development processes, sprint planning, and technical discussions.</li>
         </ul>`,
       },
     ],
     techStacks: [
       'Node JS',
-      'Typescript',
+      'TypeScript',
+      'Nest JS',
       'Laravel',
-      'PHP',
+      'REST API',
       'GraphQL',
       'PostgreSQL',
-      'Redis',
-      'Nest JS',
-      'Gitlab CI/CD',
+      'MySQL',
     ],
   },
   {
@@ -167,28 +181,30 @@ export const workExperiences: WorkExperience[] = [
         lang: 'id',
         desc: `
         <ul>
-        <li>Merancang dan memelihara situs web untuk klien digital marketing dan e-commerce.</li>
-        <li>Membangun platform CMS kustom berbasis Laravel untuk kampanye pemasaran klien.</li>
-        <li>Menyesuaikan dan mengembangkan tema WordPress sesuai kebutuhan branding klien.</li>
-        <li>Mengintegrasikan gateway pembayaran dan alat analitik ke dalam situs web klien.</li>
-        <li>Berkontribusi dalam strategi SEO dan upaya optimasi performa situs.</li>
-        <li>Berinteraksi langsung dengan klien untuk mengumpulkan kebutuhan dan menerjemahkannya ke dalam fitur yang fungsional.</li>
+        <li>Mengembangkan dan memelihara situs web serta platform digital untuk klien di industri marketing dan e-commerce.</li>
+        <li>Membangun content management system kustom menggunakan Laravel untuk mendukung operasi bisnis dan pemasaran.</li>
+        <li>Menyesuaikan dan mengembangkan tema serta plugin WordPress berdasarkan kebutuhan branding dan fungsional klien.</li>
+        <li>Mengintegrasikan layanan pihak ketiga termasuk payment gateway, platform analitik, dan API eksternal.</li>
+        <li>Meningkatkan performa website, kesiapan SEO, dan user experience secara keseluruhan melalui optimasi teknis.</li>
+        <li>Berkolaborasi langsung dengan klien untuk mengumpulkan kebutuhan, mengusulkan solusi teknis, dan mencapai tujuan bisnis.</li>
+        <li>Mengelola implementasi fitur end-to-end mulai dari perencanaan dan pengembangan hingga deployment dan pemeliharaan.</li>
         </ul>`,
       },
       {
         lang: 'en',
         desc: `
         <ul>
-        <li>Designed and maintained websites for digital marketing and e-commerce clients.</li>
-        <li>Built custom Laravel-based CMS platforms for client marketing campaigns.</li>
-        <li>Customized and extended WordPress themes based on client branding needs.</li>
-        <li>Integrated payment gateways and analytics tools into client websites.</li>
-        <li>Contributed to SEO strategies and performance optimization efforts.</li>
-        <li>Interacted directly with clients to gather requirements and translate them into functional features.</li>
+        <li>Developed and maintained websites and digital platforms for clients across marketing and e-commerce industries.</li>
+        <li>Built custom content management systems using Laravel to support business and marketing operations.</li>
+        <li>Customized and extended WordPress themes and plugins based on client-specific branding and functional requirements.</li>
+        <li>Integrated third-party services including payment gateways, analytics platforms, and external APIs.</li>
+        <li>Improved website performance, SEO readiness, and overall user experience through technical optimizations.</li>
+        <li>Collaborated directly with clients to gather requirements, propose technical solutions, and deliver business objectives.</li>
+        <li>Managed end-to-end feature implementation from planning and development through deployment and maintenance.</li>
         </ul>`,
       },
     ],
-    techStacks: ['Wordpress', 'Laravel', 'PHP', 'MySQL', 'Git', 'Bootstrap'],
+    techStacks: ['Laravel', 'PHP', 'MySQL', 'Wordpress', 'Git', 'Bootstrap'],
   },
   // {
   //   id: '81594155-f568-4f57-943d-0c4635f6023c',

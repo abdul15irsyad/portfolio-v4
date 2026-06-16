@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BASE_URL } from '@/configs/app.config';
 import { Team } from '@/types/team.type';
 
 import styles from './portfolio-team.module.css';
@@ -24,7 +23,7 @@ const TeamCard = ({ team }: { team: Team }) => (
   <div className={`${styles['portfolio-team']}`}>
     <div className={styles.image}>
       <Image
-        src={team.user!.photo?.url ?? `${BASE_URL}/blog/default-profile.png`}
+        src={team.user!.photo?.url ?? `/blog/default-profile.png`}
         alt={team.user!.photo?.originalFileName ?? 'default-profile.png'}
         height={400}
         width={400}
