@@ -71,18 +71,15 @@ export const Navbar = () => {
       <div className='container-md'>
         <Link href='/'>
           <BootstrapNavbar.Brand className='d-flex align-items-center'>
-            <Image
+            {/* <Image
               priority
               src='/me2.jpg'
               alt='Portfolio Logo'
               width={1080}
               height={1080}
               className='me-2'
-            />
-            <span>
-              <strong className='text-primary'>IRSYAD</strong>
-              <span>&nbsp;ABDUL</span>
-            </span>
+            /> */}
+            <strong className='text-primary'>Irsyad&nbsp;Abdul</strong>
           </BootstrapNavbar.Brand>
         </Link>
         <BootstrapNavbar.Toggle

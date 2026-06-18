@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { Outfit } from 'next/font/google';
+import { Geist, Inter, Outfit } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import React from 'react';
 
@@ -17,10 +17,20 @@ import { AllProvider } from '@/app/(components)/provider/all-provider';
 import { APP_NAME, BASE_URL } from '@/app/(configs)/app.config';
 import { yearsOfExperience } from '@/data/work-experiences.data';
 
+export const geist = Geist({
+  subsets: ['latin'],
+  fallback: ['sans-serif'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
+export const inter = Inter({
+  subsets: ['latin'],
+  fallback: ['sans-serif'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
 export const outfit = Outfit({
   subsets: ['latin'],
   fallback: ['sans-serif'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 
 export const commonMetaData = {
@@ -65,8 +75,9 @@ export const metadata: Metadata = {
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      {/* <body className={plusJakartaSans.className}> */}
-      <body className={outfit.className}>
+      <body
+        className={`${outfit.style.fontFamily} ${inter.style.fontFamily} ${geist.style.fontFamily}`}
+      >
         <AllProvider>
           <NuqsAdapter>
             <ProgressBar />

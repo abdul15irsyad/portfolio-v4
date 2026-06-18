@@ -1,17 +1,32 @@
 'use client';
 
+import { ActionIcon, Box, Text, Tooltip } from '@mantine/core';
 import * as Sentry from '@sentry/nextjs';
+import { IconLoader2, IconShare } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { useCallback, useMemo, useRef } from 'react';
-import { OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { useCapture } from '@/app/(hooks)/use-capture-and-share';
 import { IQuoteOfTheDayResponse as QuoteOfTheDayInterface } from '@/types/quote-of-the-day.type';
 
-import styles from './quote-of-the-day.module.css';
+type PickQuoteOfTheDay = Pick<
+  QuoteOfTheDayInterface,
+  '_id' | 'author' | 'content' | 'tags'
+>;
+
+import classes from './quote-of-the-day.module.css';
+
+const mockQuote: PickQuoteOfTheDay = {
+  _id: 'mock',
+  content:
+    'Lots of people want to ride with you in the limo, but what you want is someone who will take the bus with you when the limo breaks down.',
+  author: 'Oprah Winfrey',
+  tags: [],
+};
+const isUseMock = process.env.NODE_ENV !== 'production' && true;
 
 export const QuoteOfTheDay = () => {
   const { t } = useTranslation();
@@ -29,10 +44,14 @@ export const QuoteOfTheDay = () => {
       }>(`/api/quote-of-the-day`);
       return response.data;
     },
+    enabled: !isUseMock,
     staleTime: 1000 * 60,
     gcTime: 1000 * 60 * 3,
   });
-  const quote = response?.data?.quote;
+  const quote = useMemo(() => {
+    if (isUseMock) return mockQuote;
+    return response?.data?.quote ?? mockQuote;
+  }, [response?.data?.quote]);
 
   const { captureElement, isLoading: isCaptureLoading } = useCapture();
 
@@ -65,77 +84,37 @@ export const QuoteOfTheDay = () => {
   }, [canShare, captureElement, title]);
 
   return (
-    <div className={styles.wrapper}>
+    <Box className={classes.wrapper}>
       {!isLoading && canShare && (
-        <OverlayTrigger
-          overlay={<Tooltip>{t('share-quote')}</Tooltip>}
-          placement='top'
-        >
-          <button
-            className={`btn btn-light ${styles['btn-share']}`}
+        <Tooltip label={t('share-quote')} position='top'>
+          <ActionIcon
+            variant='light'
+            color='gray'
+            className={classes['btn-share']}
             onClick={handleShare}
+            aria-label={t('share-quote')}
           >
             {isCaptureLoading ? (
-              <i className='bi bi-arrow-repeat spinner' />
+              <IconLoader2 size={14} className='spinner' />
             ) : (
-              <i className='bi bi-share' />
+              <IconShare size={14} />
             )}
-          </button>
-        </OverlayTrigger>
+          </ActionIcon>
+        </Tooltip>
       )}
-      <div className={styles.content} ref={ref}>
-        <div className={'w-100'}>
-          <Placeholder animation='glow'>
-            {isLoading ? (
-              [
-                {
-                  width: '80%',
-                  marginBottom: '0.5rem',
-                },
-                {
-                  width: '60%',
-                  marginBottom: '1rem',
-                },
-                {
-                  width: '160px',
-                  bg: 'primary',
-                  marginBottom: '0rem',
-                },
-              ].map(({ width, marginBottom, bg }, index) => (
-                <Placeholder
-                  key={index}
-                  size='lg'
-                  bg={bg ?? undefined}
-                  style={{
-                    width,
-                    display: 'block',
-                    margin: '0 auto 1rem',
-                    marginBottom,
-                    borderRadius: '.25rem',
-                  }}
-                />
-              ))
-            ) : (
-              <>
-                <div className={styles.quote}>
-                  &quot;
-                  {quote?.content ??
-                    'Aim for the moon. If you miss, you may hit a star.'}
-                  &quot;
-                </div>
-                <div className={styles.author}>
-                  - {quote?.author ?? 'W. Clement Stone'}
-                </div>
-              </>
-            )}
-          </Placeholder>
-        </div>
-      </div>
-    </div>
+      <Box className={classes.content} ref={ref}>
+        <Box w='100%'>
+          <Text className={classes.quote}>
+            &quot;
+            {quote?.content ??
+              'Aim for the moon. If you miss, you may hit a star.'}
+            &quot;
+          </Text>
+          <Text className={classes.author}>
+            - {quote?.author ?? 'W. Clement Stone'}
+          </Text>
+        </Box>
+      </Box>
+    </Box>
   );
 };
-
-type PickQuoteOfTheDay = Pick<
-  QuoteOfTheDayInterface,
-  '_id' | 'author' | 'content' | 'tags'
->;

@@ -5,40 +5,45 @@
 .btn-share {
   right: 0.75rem;
   top: 0.75rem;
-  position: absolute;
+  position: absolute !important; 
   border-radius: 1rem;
   width: 40px;
   height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
 }
 
 .content {
-  padding: 5rem 3rem;
+  padding: 6rem 16rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .quote {
-  font-size: 24px;
+  font-size: 1.5rem !important;
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--bs-secondary);
+  color: var(--mantine-color-dimmed);
+  margin-bottom: 1rem !important;
 }
 
 .author {
-  font-size: 16px;
-  color: var(--bs-primary);
-  font-weight: bold;
+  font-size: 1.25rem !important;
+  color: var(--mantine-primary-color-7) !important;
+  font-weight: 800 !important;
   text-align: center;
 }
 
 @media screen and (max-width: 991px) {
   .content {
-    padding: 4rem 2.5rem;
+    padding: 4rem 6rem;
+  }
+
+  .quote {
+    font-size: 1rem !important;
+  }
+
+  .author{
+    font-size: 1rem !important;
   }
 }
 
@@ -49,16 +54,9 @@
     border-radius: 0.75rem;
     width: 32px;
     height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
   }
 
   .content {
-    padding: 3rem 2rem;
-  }
-  .quote {
-    font-size: 18px;
+    padding: 3rem 4rem;
   }
 }
