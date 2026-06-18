@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { EXPERIMENTAL } from '@/configs/app.config';
-import { rateLimit } from '@/middlewares/rate-limit.middleware';
-import { cache } from '@/redis/redis.util';
+import { EXPERIMENTAL } from '@/app/(configs)/app.config';
+import { rateLimit } from '@/app/(middlewares)/rate-limit.middleware';
+import { cache } from '@/lib/redis/redis.util';
 import {
   createContactMe,
   getContactMeWithPagination,

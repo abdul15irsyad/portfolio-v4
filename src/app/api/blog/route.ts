@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { blogDatas } from '@/data/blogs.data';
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import { getBlogWithPagination } from '@/services/blog.service';
 import { paginatedArray } from '@/utils/array.util';
 import { handleError } from '@/utils/error.util';

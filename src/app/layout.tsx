@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './globals.css';
-import '@/components/layout/navbar.css';
+import '@/app/(components)/layout/navbar.css';
 import 'aos/dist/aos.css';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -10,32 +10,21 @@ import { Outfit } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import React from 'react';
 
-import { Footer, Navbar } from '@/components/layout';
-import { ScrollToTop } from '@/components/layout/scroll-to-top';
-import { ProgressBar } from '@/components/progress-bar/progress-bar';
-import { AllProvider } from '@/components/provider/all-provider';
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
-
-import { yearsOfExperience } from './(constants)/personal-info';
-
-// const plusJakartaSans = Plus_Jakarta_Sans({
-//   style: 'normal',
-//   subsets: ['latin-ext'],
-//   fallback: ['sans-serif'],
-//   weight: ['200', '300', '400', '500', '600', '700', '800'],
-// });
+import { Footer, Navbar } from '@/app/(components)/layout';
+import { ScrollToTop } from '@/app/(components)/layout/scroll-to-top';
+import { ProgressBar } from '@/app/(components)/progress-bar/progress-bar';
+import { AllProvider } from '@/app/(components)/provider/all-provider';
+import { APP_NAME, BASE_URL } from '@/app/(configs)/app.config';
+import { yearsOfExperience } from '@/data/work-experiences.data';
 
 export const outfit = Outfit({
   subsets: ['latin'],
   fallback: ['sans-serif'],
   weight: ['300', '400', '500', '600', '700'],
-  // variable: '--font-outfit',
-  // display: 'swap',
 });
 
 export const commonMetaData = {
   title: APP_NAME,
-  // images: `${BASE_URL}/meta-image.jpg`,
   images: `${BASE_URL}/me2.jpg`,
   description: `Creative and detail-oriented Full Stack Developer with over ${yearsOfExperience}+ years of experience building scalable web applications and backend systems using modern JavaScript/TypeScript stacks. Specializing in Node.js, Golang, and REST API and WebSocket, with strong focus on performance, maintainability, and elegant user experiences`,
 };
@@ -43,8 +32,7 @@ export const commonMetaData = {
 export const metadata: Metadata = {
   title: `${APP_NAME} - Web Portfolio`,
   description: 'Irsyad Abdul Hamid Darussalam web portfolio',
-  // themeColor: '#40b193',
-  // themeColor: '#075985',
+  themeColor: '#075985',
   metadataBase: new URL(BASE_URL),
   other: {
     'google-site-verification': '-204Rp6WHentTB7kMjizFhmMKYllQEah-eSEZ-SyG8A',

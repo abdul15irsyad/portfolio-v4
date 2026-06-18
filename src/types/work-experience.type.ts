@@ -2,7 +2,7 @@ export interface WorkExperience {
   id: string;
   position: string;
   timespan?: string;
-  startDate?: Date;
+  startDate: Date;
   endDate?: Date | null;
   company: {
     name: string;

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import { getAllTags } from '@/services/blog.service';
 import { handleError } from '@/utils/error.util';
 

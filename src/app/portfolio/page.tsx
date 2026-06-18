@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { PortfolioView2 } from '@/content/portfolio/portfolio-view-2';
+import { PortfolioView2 } from '@/app/portfolio/(components)/portfolio-view-2';
 
 export default () => {
   return (

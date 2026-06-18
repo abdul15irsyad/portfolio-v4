@@ -1,0 +1,19 @@
+'use client';
+
+import { ReactNode } from 'react';
+import { I18nextProvider } from 'react-i18next';
+
+import i18next from '@/lib/locales/i18n.config';
+
+import { AnalyticsProvider } from './analytics-provider';
+import { ReactQueryProvider } from './react-query-provider';
+
+export const AllProvider = ({ children }: { children: ReactNode }) => {
+  return (
+    <ReactQueryProvider>
+      <I18nextProvider i18n={i18next}>
+        <AnalyticsProvider>{children}</AnalyticsProvider>
+      </I18nextProvider>
+    </ReactQueryProvider>
+  );
+};

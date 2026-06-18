@@ -2,7 +2,7 @@ import { Blog, Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import { prisma } from '@/prisma/client';
+import { prisma } from '@/lib/prisma/client';
 import { PaginationParam } from '@/types/pagination.type';
 dayjs.extend(utc);
 

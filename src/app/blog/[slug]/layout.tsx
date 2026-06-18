@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import sanitize from 'sanitize-html';
 
-import { APP_NAME, BASE_URL } from '@/configs/app.config';
+import { APP_NAME, BASE_URL } from '@/app/(configs)/app.config';
 import { blogDatas } from '@/data/blogs.data';
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
 import { Blog } from '@/types/blog.type';
 import { defaultSanitizeOptions } from '@/utils/html.util';

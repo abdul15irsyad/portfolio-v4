@@ -1,4 +1,4 @@
-import { EXPERIMENTAL } from '@/configs/app.config';
+import { EXPERIMENTAL } from '@/app/(configs)/app.config';
 import { NavbarMenu } from '@/types/navbar-menu.type';
 
 export const navbarMenus: NavbarMenu[] = [

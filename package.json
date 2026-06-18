@@ -6,8 +6,8 @@
   "version": "0.1.0",
   "private": true,
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts",
-    "schema": "src/prisma/schema.prisma"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/lib/prisma/seed.ts",
+    "schema": "src/lib/prisma/schema.prisma"
   },
   "scripts": {
     "dev": "next dev -p 4000",

@@ -1,6 +1,6 @@
 import { Blog } from '@/types/blog.type';
 
-import { ENV } from '../configs/app.config';
+import { ENV } from '../app/(configs)/app.config';
 import { authorDatas } from './authors.data';
 import { fileDatas } from './files.data';
 

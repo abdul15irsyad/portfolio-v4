@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { SideProjectView } from '@/content/side-project/side-project-view';
+import { SideProjectView } from './(components)/side-project-view';
 
 export default () => (
   <Suspense>

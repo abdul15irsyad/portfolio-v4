@@ -2,7 +2,7 @@ import './not-found.css';
 
 import { Metadata } from 'next';
 
-import { NotFoundView } from '@/content/not-found/not-found-view';
+import { NotFoundView } from '@/app/(components)/not-found-view';
 
 export const metadata: Metadata = {
   title: 'Page Not Found - Irsyad Abdul',

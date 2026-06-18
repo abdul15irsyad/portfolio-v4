@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { NextResponse } from 'next/server';
 
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import {
   defaultQuoteOfTheDay,
   getQuoteOfTheDay,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import https from 'https';
 
-import { redisService } from '@/redis/redis.util';
+import { redisService } from '@/lib/redis/redis.util';
 import {
   IQuoteOfTheDayResponse,
   QuoteOfTheDay,

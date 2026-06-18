@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 
-import { BASE_URL } from '@/configs/app.config';
+import { BASE_URL } from '@/app/(configs)/app.config';
 import { SideProject } from '@/types/side-project.type';
 import { random } from '@/utils/array.util';
 

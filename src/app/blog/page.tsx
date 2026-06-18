@@ -1,9 +1,10 @@
 import { Suspense } from 'react';
 
-import { BlogView } from '@/content/blog/blog-view';
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import { getAllTags, getBlogs } from '@/services/blog.service';
 import { Blog } from '@/types/blog.type';
+
+import { BlogView } from './(components)/blog-view';
 
 export default async () => {
   const blogs = (await cache('blogs:all', () => getBlogs())) as Blog[];

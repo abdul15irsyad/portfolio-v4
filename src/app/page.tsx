@@ -1,3 +1,3 @@
-import { HomeView } from '@/content/home/home-view';
+import { HomeView } from './(components)/home-view';
 
 export default () => <HomeView />;

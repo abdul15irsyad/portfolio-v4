@@ -2,7 +2,7 @@ import { Blog as PrismaBlog } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { blogDatas } from '@/data/blogs.data';
-import { cache } from '@/redis/redis.util';
+import { cache } from '@/lib/redis/redis.util';
 import { getBlog } from '@/services/blog.service';
 import { Blog } from '@/types/blog.type';
 import { handleError } from '@/utils/error.util';
