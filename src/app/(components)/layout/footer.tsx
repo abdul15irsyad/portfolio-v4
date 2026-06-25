@@ -20,6 +20,7 @@ import { contacts } from '@/data/contacts.data';
 import { navbarMenus } from '@/data/navbar-menus.data';
 import { capitalizeEachWord } from '@/utils/change-case';
 
+import { CustomMantineProvider } from '../provider/mantine-provider';
 import classes from './footer.module.css';
 import { QuoteOfTheDay } from './quote-of-the-day';
 
@@ -44,7 +45,7 @@ export const Footer = () => {
     ({ icon }) => !['whatsapp', 'envelope'].includes(icon),
   );
   return (
-    <>
+    <CustomMantineProvider>
       <QuoteOfTheDay />
       <Box component='footer' className={classes.footer} bg='gray.9'>
         <Container size='xl' px={{ base: 'xl', md: 'xl' }}>
@@ -158,6 +159,6 @@ export const Footer = () => {
           </Flex>
         </Container>
       </Box>
-    </>
+    </CustomMantineProvider>
   );
 };

@@ -18,17 +18,14 @@ import { APP_NAME, BASE_URL } from '@/app/(configs)/app.config';
 import { yearsOfExperience } from '@/data/work-experiences.data';
 
 export const geist = Geist({
-  subsets: ['latin'],
   fallback: ['sans-serif'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 export const inter = Inter({
-  subsets: ['latin'],
   fallback: ['sans-serif'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 export const outfit = Outfit({
-  subsets: ['latin'],
   fallback: ['sans-serif'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
@@ -76,7 +73,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body
-        className={`${outfit.style.fontFamily} ${inter.style.fontFamily} ${geist.style.fontFamily}`}
+        className={`${outfit.className} ${inter.style.fontFamily} ${geist.style.fontFamily}`}
       >
         <AllProvider>
           <NuqsAdapter>
