@@ -231,7 +231,7 @@ export const workExperiences: WorkExperience[] = [
 ];
 
 export const firstWorkExperience = workExperiences.sort((a, b) =>
-  a.startDate < b.startDate ? -1 : 1,
+  a.startDate < b.startDate ? 1 : -1,
 )?.[0];
 
 export const yearsOfExperience = dayjs().diff(
