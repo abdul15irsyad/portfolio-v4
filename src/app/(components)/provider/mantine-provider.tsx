@@ -5,19 +5,20 @@ const theme = createTheme({
   primaryColor: 'brand',
   colors: {
     brand: [
-      '#eef8fd', // 0
-      '#d9eef8', // 1
-      '#b6ddf1', // 2
-      '#84c6e7', // 3
-      '#4da9da', // 4
-      '#238dca', // 5
-      '#1174b2', // 6
-      '#075985', // 7 ← Base / Primary
-      '#06486d', // 8
-      '#043553', // 9
+      '#eef8fd',
+      '#d9eef8',
+      '#b6ddf1',
+      '#84c6e7',
+      '#4da9da',
+      '#238dca',
+      '#1174b2',
+      '#075985',
+      '#06486d',
+      '#043553',
     ],
   },
   primaryShade: 7,
+  fontFamily: 'outfit',
 });
 
 export const CustomMantineProvider = ({

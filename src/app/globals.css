@@ -135,8 +135,8 @@ ul li {
 .doodle-background {
   background: linear-gradient(
       to bottom,
-      rgba(var(--bs-light-rgb), 0.99),
-      rgba(var(--bs-light-rgb), 0.99)
+      rgba(var(--bs-light-rgb), 0.96),
+      rgba(var(--bs-light-rgb), 0.96)
     ),
     url('/pattern-background.webp');
   background-size: 300px 300px;

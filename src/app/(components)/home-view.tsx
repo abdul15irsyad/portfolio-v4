@@ -8,7 +8,7 @@ import { aosInitConfig } from '@/app/(configs)/aos.config';
 import Award from './award';
 import Education from './education';
 import { WorkExperience } from './experience';
-import Hero from './hero';
+import { Hero2 } from './hero2';
 import { LatestBlog } from './latest-blog';
 import PersonalInfo from './personal-info';
 import Programming from './programming';
@@ -19,7 +19,8 @@ export const HomeView = () => {
   }, []);
   return (
     <main>
-      <Hero />
+      {/* <Hero /> */}
+      <Hero2 />
       <PersonalInfo />
       <WorkExperience />
       <Education />
