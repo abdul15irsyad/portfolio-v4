@@ -13,3 +13,10 @@ export const renderTimestamp = (timestamp: string | Date) => {
         )
         .toLowerCase();
 };
+
+export const getShortLongDate = (
+  date?: string | number | dayjs.Dayjs | Date | null,
+) => ({
+  short: dayjs(date).format('MMM YYYY'),
+  long: dayjs(date).format('MMMM YYYY'),
+});

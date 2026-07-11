@@ -11,6 +11,6 @@ export interface WorkExperience {
     url?: string;
   };
   techStacks?: string[];
-  desc?: string;
-  translates?: { lang: string; desc: string }[];
+  desc?: string[];
+  translates?: { lang: string; desc: string[] }[];
 }

@@ -129,10 +129,10 @@ export const WorkExperience = () => {
                           className='default-text'
                           dangerouslySetInnerHTML={{
                             __html:
-                              translates?.find(
-                                ({ lang }) => lang === i18n.language,
-                              )?.desc ??
-                              desc ??
+                              translates
+                                ?.find(({ lang }) => lang === i18n.language)
+                                ?.desc.join(', ') ??
+                              desc?.join(', ') ??
                               '',
                           }}
                         />

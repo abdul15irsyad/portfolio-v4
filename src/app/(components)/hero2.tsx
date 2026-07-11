@@ -11,7 +11,6 @@ import {
   Title,
   useMantineTheme,
 } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
 import {
   Icon,
   IconBrush,
@@ -27,6 +26,7 @@ import { useTranslation } from 'react-i18next';
 
 import { capitalize } from '@/utils/change-case';
 
+import { useCustomMediaQuery } from '../(hooks)/use-custom-media-query';
 import { CustomMantineProvider } from './provider/mantine-provider';
 import { TextAnimation } from './text-animation/text-animation';
 
@@ -39,7 +39,7 @@ const features: { Icon: Icon; title: string }[] = [
 const Hero2Content = () => {
   const theme = useMantineTheme();
   const { t } = useTranslation();
-  const isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+  const { isDesktop } = useCustomMediaQuery();
   return (
     <Box className='doodle-background'>
       <Container size='xl' pt='8rem' px={isDesktop ? undefined : 'xl'}>
