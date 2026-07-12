@@ -25,11 +25,15 @@ import { CustomMantineProvider } from './provider/mantine-provider';
 export const WorkExperience2Content = () => {
   const theme = useMantineTheme();
   const { t, i18n } = useTranslation();
-  const { isDesktop } = useCustomMediaQuery();
+  const { isDesktop, isMobile } = useCustomMediaQuery();
 
   return (
     <Box bg='gray.0'>
-      <Container size='xl' py='8rem' px={isDesktop ? undefined : 'md'}>
+      <Container
+        size='xl'
+        py='8rem'
+        px={isDesktop ? undefined : isMobile ? 'md' : 'xl'}
+      >
         <Stack>
           <Title ta='center' c={theme.primaryColor} variant='h5'>
             {capitalizeEachWord(t('work-experience'))}
@@ -83,7 +87,9 @@ export const WorkExperience2Content = () => {
                     bg='white'
                     bd={`1px solid ${theme.colors.gray[5]}`}
                     style={{
-                      boxShadow: `0px 0px 10px ${theme.colors.gray[4]}`,
+                      boxShadow: isDesktop
+                        ? `0px 0px 10px ${theme.colors.gray[4]}`
+                        : undefined,
                     }}
                   >
                     <Group align='center' justify='space-between'>
