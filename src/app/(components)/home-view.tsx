@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 import { aosInitConfig } from '@/app/(configs)/aos.config';
 
-import Award from './award';
+import { Award2 } from './award2';
 import Education from './education';
 import { Hero2 } from './hero2';
 import { LatestBlog } from './latest-blog';
@@ -19,13 +19,12 @@ export const HomeView = () => {
   }, []);
   return (
     <main>
-      {/* <Hero /> */}
       <Hero2 />
       <PersonalInfo />
       <WorkExperience2 />
       <Education />
       <Programming />
-      <Award />
+      <Award2 />
       <LatestBlog />
     </main>
   );

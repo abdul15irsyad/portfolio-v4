@@ -1,14 +1,7 @@
 export type Award = {
   title: string;
+  desc: string;
+  publisher: string;
   href?: string;
   year: number;
-} & (
-  | {
-      type: 'award';
-      competition: string;
-    }
-  | {
-      type: 'certificate';
-      publisher?: string;
-    }
-);
+};

@@ -22,7 +22,7 @@ import { getShortLongDate } from '@/utils/date.util';
 import { useCustomMediaQuery } from '../(hooks)/use-custom-media-query';
 import { CustomMantineProvider } from './provider/mantine-provider';
 
-export const WorkExperience2Content = () => {
+const WorkExperience2Content = () => {
   const theme = useMantineTheme();
   const { t, i18n } = useTranslation();
   const { isDesktop, isMobile } = useCustomMediaQuery();
