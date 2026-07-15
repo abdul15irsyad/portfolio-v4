@@ -118,7 +118,7 @@ const Hero = () => {
                 <span>{capitalizeEachWord(t('contact-me'))}</span>
               </Link>
               <Link
-                href='/resume-2025-06-16.pdf'
+                href='/resume-2026-07-15.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='btn btn-outline-primary text-capitalize px-3 hero-btn'

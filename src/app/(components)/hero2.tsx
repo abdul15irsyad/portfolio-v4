@@ -87,7 +87,7 @@ const Hero2Content = () => {
                 </Button>
                 <Button
                   component='a'
-                  href='/resume-2025-06-16.pdf'
+                  href='/resume-2026-07-15.pdf'
                   target='_blank'
                   rel='noopener noreferrer'
                   size='lg'
