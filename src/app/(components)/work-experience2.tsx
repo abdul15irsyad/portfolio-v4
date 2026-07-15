@@ -32,7 +32,7 @@ const WorkExperience2Content = () => {
       <Container
         size='xl'
         py='8rem'
-        px={isDesktop ? undefined : isMobile ? 'md' : 'xl'}
+        px={isDesktop ? undefined : isMobile ? 0 : 'xl'}
       >
         <Stack>
           <Title ta='center' c={theme.primaryColor} variant='h5'>
@@ -64,18 +64,17 @@ const WorkExperience2Content = () => {
                 const end = endDate
                   ? getShortLongDate(endDate)
                   : {
-                      short: capitalize(t('present-short')),
-                      long: capitalize(t('present')),
-                    };
+                    short: capitalize(t('present-short')),
+                    long: capitalize(t('present')),
+                  };
                 endDate = endDate ?? new Date();
                 const monthDiff = dayjs(endDate).diff(startDate, 'months');
                 const workDuration =
                   monthDiff / 12 >= 1
-                    ? `${Math.floor(monthDiff / 12)} ${t('year')}${
-                        Math.floor(monthDiff % 12) > 0
-                          ? ` ${Math.floor(monthDiff % 12)} ${t('month')}`
-                          : ''
-                      }`
+                    ? `${Math.floor(monthDiff / 12)} ${t('year')}${Math.floor(monthDiff % 12) > 0
+                      ? ` ${Math.floor(monthDiff % 12)} ${t('month')}`
+                      : ''
+                    }`
                     : `${monthDiff} ${t('month')}`;
                 const weekDiff = dayjs(endDate).diff(startDate, 'weeks');
                 return (
@@ -85,7 +84,7 @@ const WorkExperience2Content = () => {
                     bdrs='lg'
                     gap='sm'
                     bg='white'
-                    bd={`1px solid ${theme.colors.gray[5]}`}
+                    bd={isMobile ? undefined : `1px solid ${theme.colors.gray[5]}`}
                     style={{
                       boxShadow: isDesktop
                         ? `0px 0px 10px ${theme.colors.gray[4]}`

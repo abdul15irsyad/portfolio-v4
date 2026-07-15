@@ -16,7 +16,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         href: 'https://www.typescriptlang.org',
       },
       {
-        name: 'Typescript',
+        name: 'Node JS',
         logo: '/programming/nodejs.png',
         level: Level.GOOD,
         href: 'https://nodejs.org',
@@ -163,6 +163,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/git.png',
         level: Level.GOOD,
         // href: 'https://git-scm.com',
+        isHide: true,
       },
       {
         name: 'Redis',
@@ -180,7 +181,7 @@ export const programmingSkills: ProgrammingSkill[] = [
         name: 'Rabbit MQ',
         logo: '/programming/rabbitmq.png',
         level: Level.INTERMEDIATE,
-        // href: 'https://www.rabbitmq.com/',
+        href: 'https://www.rabbitmq.com/',
       },
       {
         name: 'Kafka',
@@ -193,17 +194,18 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/minio.png',
         level: Level.INTERMEDIATE,
         href: 'https://www.min.io',
+        isHide: true,
       },
       {
         name: 'Docker',
         logo: '/programming/docker.png',
-        level: Level.BASIC,
+        level: Level.INTERMEDIATE,
         href: 'https://www.docker.com',
       },
       {
         name: 'Kubernetes',
         logo: '/programming/k8s.png',
-        level: Level.LEARNING,
+        level: Level.BASIC,
         href: 'https://kubernetes.io/',
       },
       {
@@ -222,12 +224,14 @@ export const programmingSkills: ProgrammingSkill[] = [
         logo: '/programming/nginx.png',
         level: Level.INTERMEDIATE,
         href: 'https://nginx.org/',
+        isHide: true,
       },
       {
         name: 'Apache',
         logo: '/programming/apache.png',
         level: Level.BASIC,
         href: 'https://httpd.apache.org/',
+        isHide: true,
       },
       {
         name: 'Terraform',
@@ -239,7 +243,6 @@ export const programmingSkills: ProgrammingSkill[] = [
         name: 'AWS',
         logo: '/programming/aws.png',
         level: Level.BASIC,
-        // href: 'https://developer.hashicorp.com/terraform',
       },
     ],
   },

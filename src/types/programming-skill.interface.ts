@@ -5,6 +5,7 @@ export interface ProgrammingSkill {
     logo: string | string[];
     level: Level;
     href?: string;
+    isHide?: boolean;
   }[];
 }
 

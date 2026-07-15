@@ -9,8 +9,8 @@ import { Award2 } from './award2';
 import Education from './education';
 import { Hero2 } from './hero2';
 import { LatestBlog } from './latest-blog';
-import PersonalInfo from './personal-info';
-import Programming from './programming';
+import { PersonalInfo } from './personal-info';
+import { Programming2 } from './programming2';
 import { WorkExperience2 } from './work-experience2';
 
 export const HomeView = () => {
@@ -23,7 +23,7 @@ export const HomeView = () => {
       <PersonalInfo />
       <WorkExperience2 />
       <Education />
-      <Programming />
+      <Programming2 />
       <Award2 />
       <LatestBlog />
     </main>
