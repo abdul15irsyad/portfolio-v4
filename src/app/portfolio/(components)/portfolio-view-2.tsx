@@ -9,7 +9,6 @@ import { Placeholder } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { Empty } from '@/app/(components)/empty/empty';
-import { FormSelect } from '@/app/(components)/form-select/form-select';
 import { Pagination } from '@/app/(components)/pagination/pagination';
 import { SectionTitle } from '@/app/(components)/section-title/section-title.component';
 import PortfolioItem2 from '@/app/portfolio/(components)/portfolio-item-2';
@@ -20,6 +19,7 @@ import {
 import { Portfolio } from '@/types/portfolio.type';
 import { capitalizeEachWord } from '@/utils/change-case';
 
+import { PortfolioFilter2 } from './filter2';
 import { PortfolioItem2Loading } from './portfolio-item-2-loading';
 
 export const PortfolioView2 = () => {
@@ -72,22 +72,14 @@ export const PortfolioView2 = () => {
               title={capitalizeEachWord(t('portfolio'))}
               subTitle={t('portfolio-desc')}
             />
-            <div className='filters'>
-              <div className='filter filter-year'>
-                <FormSelect
-                  defaultValue={year}
-                  options={portfolioYears}
-                  handleChange={(e) => setYear(e.target?.value)}
-                />
-              </div>
-              <div className='filter filter-type'>
-                <FormSelect
-                  defaultValue={type}
-                  options={portfolioCategories}
-                  handleChange={(e) => setType(e.target?.value)}
-                />
-              </div>
-            </div>
+            <PortfolioFilter2
+              year={year}
+              setYear={setYear}
+              portfolioYears={portfolioYears}
+              type={type}
+              setType={setType}
+              portfolioCategories={portfolioCategories}
+            />
             {!portfoliosLoading ? (
               (portfoliosResponse?.meta?.totalAllData ?? 0) > 0 && (
                 <p
