@@ -1,0 +1,17 @@
+.item{
+  position: relative;
+  min-width: 24rem;
+}
+
+.hover {
+  display: flex;
+  visibility: hidden;
+  gap: 0.25rem;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.item:hover .hover {
+  visibility: visible;
+}

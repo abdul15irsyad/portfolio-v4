@@ -1,6 +1,15 @@
 'use client';
 
-import { Badge, Box, Container, Grid, Group, Text, Title, useMantineTheme } from '@mantine/core';
+import {
+  Badge,
+  Box,
+  Container,
+  Grid,
+  Group,
+  Text,
+  Title,
+  useMantineTheme,
+} from '@mantine/core';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +32,7 @@ const ProgrammingLogo = ({ logo, name }: { logo: string; name: string }) => (
     }}
     loading='eager'
   />
-)
+);
 
 const CategoryItem = ({
   name,
@@ -38,18 +47,34 @@ const CategoryItem = ({
 }) => {
   const { isDesktop } = useCustomMediaQuery();
   return (
-    <Group align='center' gap={4} bg='gray.0' p={8} bdrs='md' style={{ userSelect: 'none' }}>
+    <Group
+      align='center'
+      gap={4}
+      bg='gray.0'
+      p={8}
+      bdrs='md'
+      style={{ userSelect: 'none' }}
+    >
       <Group gap='xs' wrap='nowrap' style={{ display: 'inline-flex' }}>
         <Group gap={4} wrap='nowrap' style={{ display: 'inline-flex' }}>
           {Array.isArray(logo) ? (
             logo.map((item, index) => (
-              <ProgrammingLogo key={index} logo={item} name={name?.toLowerCase()} />
+              <ProgrammingLogo
+                key={index}
+                logo={item}
+                name={name?.toLowerCase()}
+              />
             ))
           ) : (
             <ProgrammingLogo logo={logo} name={name?.toLowerCase()} />
           )}
         </Group>
-        <Text component='span' size={isDesktop ? 'xs' : 'sm'} fw={500} c='gray.8'>
+        <Text
+          component='span'
+          size={isDesktop ? 'xs' : 'sm'}
+          fw={500}
+          c='gray.8'
+        >
           {name}
         </Text>
       </Group>
@@ -68,7 +93,7 @@ const CategoryItem = ({
         {level}
       </Badge>
     </Group>
-  )
+  );
 };
 
 const Programming2Content = () => {
@@ -100,15 +125,9 @@ const Programming2Content = () => {
   };
 
   return (
-    <Box
-      bg='white'
-      py={isDesktop ? '8rem' : '4rem'}
-    >
-      <Container
-        size='xl'
-        px={isDesktop ? undefined : 'xl'}
-      >
-        <Title ta='center' c={theme.primaryColor} order={2}>
+    <Box bg='white' py={isDesktop ? '8rem' : '4rem'}>
+      <Container size='xl' px={isDesktop ? undefined : 'xl'}>
+        <Title ta='center' c={theme.primaryColor} variant='h5'>
           {capitalizeEachWord(t('skills'))}
         </Title>
         <Box
@@ -121,10 +140,7 @@ const Programming2Content = () => {
         />
         <Grid gap='xl'>
           {programmingSkills.map(({ title, list }, index) => (
-            <Grid.Col
-              key={index}
-              span={{ base: 12, md: 6, lg: 4 }}
-            >
+            <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
               <Box className='category' mb='2rem'>
                 <Title order={4} className='category-title' mb='xs' fw={800}>
                   {capitalizeEachWord(t(title))}
@@ -136,32 +152,34 @@ const Programming2Content = () => {
                   wrap='wrap'
                   style={{ listStyleType: 'none', padding: 0 }}
                 >
-                  {list.filter(({ isHide }) => !isHide).map(({ name, logo, level, href }, itemIndex) => (
-                    <Box component='li' key={itemIndex}>
-                      {href ? (
-                        <Link
-                          href={href}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          style={{ textDecoration: 'none' }}
-                        >
+                  {list
+                    .filter(({ isHide }) => !isHide)
+                    .map(({ name, logo, level, href }, itemIndex) => (
+                      <Box component='li' key={itemIndex}>
+                        {href ? (
+                          <Link
+                            href={href}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <CategoryItem
+                              name={name}
+                              logo={logo}
+                              level={level}
+                              levelStyle={levelColors[level]}
+                            />
+                          </Link>
+                        ) : (
                           <CategoryItem
                             name={name}
                             logo={logo}
                             level={level}
                             levelStyle={levelColors[level]}
                           />
-                        </Link>
-                      ) : (
-                        <CategoryItem
-                          name={name}
-                          logo={logo}
-                          level={level}
-                          levelStyle={levelColors[level]}
-                        />
-                      )}
-                    </Box>
-                  ))}
+                        )}
+                      </Box>
+                    ))}
                 </Group>
               </Box>
             </Grid.Col>
@@ -179,4 +197,3 @@ export const Programming2 = () => {
     </CustomMantineProvider>
   );
 };
-

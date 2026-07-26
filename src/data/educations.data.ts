@@ -1,8 +1,10 @@
+import { IconBook, IconSchool } from '@tabler/icons-react';
+
 import { Education } from '@/types/education.type';
 
-export const educations: Education<{ major: string }>[] = [
+export const educations: Education[] = [
   {
-    icon: '/icons/university-2.svg',
+    Icon: IconSchool,
     institution: 'UIN Syarif Hidayatullah Jakarta',
     level: 's1',
     major: 'informatics-engineering',
@@ -12,7 +14,7 @@ export const educations: Education<{ major: string }>[] = [
     href: 'https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/0PoYActEWNaZ5l7nqyK9gpI3bg6461MOUekMd_q-etmveqQ6kSBm0XQVEkB81JljmwbVxg==',
   },
   {
-    icon: '/icons/school-2.svg',
+    Icon: IconBook,
     institution: 'MA Al-Zaytun',
     level: 'sr-high-school',
     major: null,

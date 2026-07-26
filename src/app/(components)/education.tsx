@@ -1,68 +1,104 @@
 'use client';
 
-import Image from 'next/image';
+import {
+  Box,
+  Container,
+  Group,
+  Text,
+  Title,
+  useMantineTheme,
+} from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 
 import { educations } from '@/data/educations.data';
 import { capitalizeEachWord } from '@/utils/change-case';
 
-const Education = () => {
+import { useCustomMediaQuery } from '../(hooks)/use-custom-media-query';
+import styles from './education.module.css';
+import { CustomMantineProvider } from './provider/mantine-provider';
+
+const EducationContent = () => {
+  const theme = useMantineTheme();
   const { t } = useTranslation();
+  const { isDesktop } = useCustomMediaQuery();
+
   return (
-    <div className='education section'>
-      <div className='container'>
-        <h3 className='title text-center'>
-          <strong>{capitalizeEachWord(t('education'))}</strong>
-        </h3>
-        <hr />
-        <div className='education-items'>
+    <Box bg='white' py={isDesktop ? '8rem' : '4rem'}>
+      <Container size='xl'>
+        <Title ta='center' c={theme.primaryColor} variant='h5'>
+          {capitalizeEachWord(t('education'))}
+        </Title>
+        <Box
+          w={100}
+          m='1rem auto 2.5rem'
+          style={{
+            borderTop: '3px dashed',
+            borderColor: theme.colors.gray[5],
+          }}
+        />
+        <Group justify='center' gap='lg'>
           {educations.map(
             (
               {
-                icon,
+                Icon,
                 institution,
                 level,
                 major,
                 startYear,
                 endYear,
-                gpa,
-                href,
+                // gpa,
+                // href,
               },
               index,
             ) => {
               const meta: string[] = [capitalizeEachWord(t(level))];
               if (major) meta.push(capitalizeEachWord(t(major)));
               return (
-                <div key={index} className='education-item' data-aos='fade-up'>
-                  <div className='education-item-icon'>
-                    <Image src={icon} alt={icon} width={60} height={60} />
-                  </div>
-                  <div className='education-item-text'>
-                    <h5 className='fw-bold'>{meta.join(' - ')}</h5>
-                    <div className='text-secondary'>
-                      <p className='mb-0'>{institution}</p>
-                      <span>
-                        {startYear} - {endYear}
-                      </span>
-                    </div>
-                  </div>
-                  <div className='hover'>
-                    {gpa && <div className='gpa'>GPA {gpa}</div>}
+                <Group
+                  key={index}
+                  className={styles.item}
+                  p={'lg'}
+                  bd={`1px solid ${theme.colors.gray[3]}`}
+                  bdrs={'lg'}
+                >
+                  <Box bg={'gray.0'} bdrs={'50%'} p={'md'}>
+                    <Icon
+                      size={40}
+                      stroke={1.5}
+                      color={theme.colors[theme.primaryColor][7]}
+                    />
+                  </Box>
+                  <Box>
+                    <Title order={5} fw='bold'>
+                      {meta.join(' - ')}
+                    </Title>
+                    <Text c='dimmed' size='sm' mt={4}>
+                      {institution}
+                    </Text>
+                    <Text c='dimmed' size='sm'>
+                      {startYear} - {endYear}
+                    </Text>
+                  </Box>
+                  {/* <Box className={styles.hover}>
+                    {gpa && <span>GPA {gpa}</span>}
                     {href && (
-                      <a className='href' href={href} target='_blank'>
-                        {/* <i className='bi bi-link-45deg'></i> */}
+                      <a href={href} target='_blank' rel='noopener noreferrer'>
                         PDDIKTI
                       </a>
                     )}
-                  </div>
-                </div>
+                  </Box> */}
+                </Group>
               );
             },
           )}
-        </div>
-      </div>
-    </div>
+        </Group>
+      </Container>
+    </Box>
   );
 };
 
-export default Education;
+export const Education = () => (
+  <CustomMantineProvider>
+    <EducationContent />
+  </CustomMantineProvider>
+);

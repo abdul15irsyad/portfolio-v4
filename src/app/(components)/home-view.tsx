@@ -2,11 +2,9 @@
 
 import AOS from 'aos';
 import { useEffect } from 'react';
-
-import { aosInitConfig } from '@/app/(configs)/aos.config';
-
+import { aosInitConfig } from '../(configs)/aos.config';
 import { Award2 } from './award2';
-import Education from './education';
+import { Education } from './education';
 import { Hero2 } from './hero2';
 import { LatestBlog } from './latest-blog';
 import { PersonalInfo } from './personal-info';
@@ -17,6 +15,7 @@ export const HomeView = () => {
   useEffect(() => {
     AOS.init(aosInitConfig);
   }, []);
+
   return (
     <main>
       <Hero2 />
