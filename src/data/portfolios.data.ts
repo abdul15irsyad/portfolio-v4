@@ -9,7 +9,7 @@ import { workExperiences } from './work-experiences.data';
 export const portfolios: Portfolio[] = (
   [
     {
-      title: 'Transaction Reconciliation & EXchange (Frontend v2)',
+      title: 'Krom Reconciliation App (v2)',
       href: null,
       publishedAt: '2026-06-03',
       type: {
@@ -94,7 +94,7 @@ export const portfolios: Portfolio[] = (
       ],
     },
     {
-      title: 'Transaction Reconciliation & EXchange (v1)',
+      title: 'Krom Reconciliation App (v1)',
       href: null,
       publishedAt: '2025-06-03',
       type: {
@@ -191,7 +191,7 @@ export const portfolios: Portfolio[] = (
       ],
     },
     {
-      title: 'Dashboard CHM (Bricare Support)',
+      title: 'BRI Customer Handling Management Dashboard',
       href: null,
       publishedAt: '2025-02-22',
       type: {
@@ -298,7 +298,7 @@ export const portfolios: Portfolio[] = (
       ],
     },
     {
-      title: 'Tunggalisasi CIF',
+      title: 'BRI Tunggalisasi CIF',
       href: null,
       publishedAt: '2024-12-22',
       type: {
@@ -513,7 +513,7 @@ export const portfolios: Portfolio[] = (
       ],
     },
     {
-      title: 'JARVIS (Just Advanced HR System)',
+      title: 'BRI Human Resource System',
       href: null,
       publishedAt: '2024-09-09',
       type: {
