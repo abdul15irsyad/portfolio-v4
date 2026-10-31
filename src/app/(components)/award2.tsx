@@ -11,6 +11,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconExternalLink } from '@tabler/icons-react';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 import { awards } from '@/data/awards.data';
@@ -60,13 +61,21 @@ const Award2Content = () => {
                   <Text c='gray.6'>{award.desc}</Text>
                 </Box>
                 <Box>
-                  <Button
-                    size={isDesktop ? 'md' : 'xs'}
-                    color='red'
-                    rightSection={<IconExternalLink size='1em' />}
-                  >
-                    {capitalizeEachWord(t('see-item', { item: 'Certificate' }))}
-                  </Button>
+                  {award.href && (
+                    <Button
+                      component={Link}
+                      href={award.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      size={isDesktop ? 'md' : 'xs'}
+                      color='red'
+                      rightSection={<IconExternalLink size='1em' />}
+                    >
+                      {capitalizeEachWord(
+                        t('see-item', { item: 'Certificate' }),
+                      )}
+                    </Button>
+                  )}
                 </Box>
               </Group>
             </Box>
