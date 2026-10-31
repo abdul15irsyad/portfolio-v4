@@ -24,6 +24,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
+import { yearsOfExperience } from '@/data/work-experiences.data';
 import { capitalize } from '@/utils/change-case';
 
 import { useCustomMediaQuery } from '../(hooks)/use-custom-media-query';
@@ -71,8 +72,8 @@ const Hero2Content = () => {
                 </Text>
               </Title>
               <Text size='lg' c='dimmed' maw={560}>
-                A Fullstack Engineer with 5+ years of expertise in
-                microservices, cloud-native systems, and modern web
+                A Fullstack Engineer with {yearsOfExperience}+ years of
+                expertise in microservices, cloud-native systems, and modern web
                 architectures. Delivering reliability with a human touch.
               </Text>
               <Group mt='md' justify={isDesktop ? 'flex-start' : 'center'}>

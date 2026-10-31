@@ -21,10 +21,7 @@ const PersonalInfoContent = () => {
       pt='10rem'
       pb={isDesktop ? '6rem' : '3rem'}
     >
-      <Container
-        size='lg'
-        px={isDesktop ? undefined : 'xl'}
-      >
+      <Container size='lg' px={isDesktop ? undefined : 'xl'}>
         <Grid align='center' gap='xl'>
           <Grid.Col
             span={{ base: 12, lg: 4 }}

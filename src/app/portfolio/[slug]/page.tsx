@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import sanitize from 'sanitize-html';
 
-import { commonMetaData } from '@/app/layout';
 import { APP_NAME, BASE_URL } from '@/app/(configs)/app.config';
+import { commonMetaData } from '@/app/layout';
 import { PortfolioDetailView } from '@/app/portfolio/(components)/detail/portfolio-detail-view';
 import { portfolios } from '@/data/portfolios.data';
 import { defaultSanitizeOptions } from '@/utils/html.util';

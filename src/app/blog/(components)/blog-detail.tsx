@@ -9,8 +9,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import sanitize from 'sanitize-html';
 
+import ImagePreview, {
+  Modal,
+} from '@/app/(components)/image-preview/image-preview';
 import { useHighlight } from '@/app/(hooks)/use-highlight';
-import ImagePreview, { Modal } from '@/app/(components)/image-preview/image-preview';
 import { Blog as BlogInterface } from '@/types/blog.type';
 import { renderTimestamp } from '@/utils/date.util';
 import { calculateMinutesRead } from '@/utils/string.util';

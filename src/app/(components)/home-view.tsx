@@ -2,6 +2,7 @@
 
 import AOS from 'aos';
 import { useEffect } from 'react';
+
 import { aosInitConfig } from '../(configs)/aos.config';
 import { Award2 } from './award2';
 import { Education } from './education';
